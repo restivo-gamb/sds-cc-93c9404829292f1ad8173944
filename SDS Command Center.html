@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDS Command Center</title>
+    <style>
+        :root {
+            /* Light theme — clean neutral surfaces, OddsJam-inspired */
+            --bg-primary: #f7f8fa;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f3f7;
+            --bg-input: #f7f8fa;
+            --border: #e4e8ef;
+            --border-hover: #cfd5e0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-blue: #2563eb;
+            --accent-blue-dim: #dbeafe;
+            --red: #dc2626;
+            --red-dim: #fee2e2;
+            --red-glow: rgba(220,38,38,0.12);
+            --yellow: #d97706;
+            --yellow-dim: #fef3c7;
+            --yellow-glow: rgba(217,119,6,0.12);
+            --green: #16a34a;
+            --green-dim: #dcfce7;
+            --green-glow: rgba(22,163,74,0.12);
+            --purple: #7c3aed;
+            --purple-dim: #ede9fe;
+            --orange: #ea580c;
+            --orange-dim: #ffedd5;
+            --cyan: #0891b2;
+            --shadow-sm: 0 1px 2px rgba(15,23,42,0.04);
+            --shadow: 0 1px 3px rgba(15,23,42,0.05), 0 1px 2px rgba(15,23,42,0.04);
+            --shadow-md: 0 4px 6px -1px rgba(15,23,42,0.06), 0 2px 4px -2px rgba(15,23,42,0.04);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+        @media (min-width: 768px) { .container { padding: 24px; } }
+
+        /* ── Header ── */
+        .header {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--purple), var(--accent-blue));
+        }
+        .header h1 { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; letter-spacing: -0.3px; }
+        .header .tagline { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+        .header-meta {
+            display: flex; flex-wrap: wrap; gap: 6px 16px;
+            font-size: 12px; color: var(--text-muted);
+        }
+        .header-meta span { white-space: nowrap; }
+        .header-meta .cycle-badge {
+            background: var(--purple-dim);
+            color: var(--purple);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* ── Section ── */
+        .section { margin-bottom: 20px; }
+        .section-header {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .section-header h2 { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+        .section-chevron {
+            color: var(--text-muted); font-size: 12px;
+            transition: transform 0.2s;
+        }
+        .section.collapsed .section-chevron { transform: rotate(-90deg); }
+        .section.collapsed .section-body { display: none; }
+
+        /* ── Revenue Pulse ── */
+        .revenue-hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .revenue-top {
+            display: flex; align-items: baseline; gap: 12px;
+            margin-bottom: 4px; flex-wrap: wrap;
+        }
+        .revenue-number { font-size: 32px; font-weight: 800; color: var(--text-primary); }
+        .revenue-target { font-size: 14px; color: var(--text-secondary); }
+        .revenue-target .on-track { color: var(--green); font-weight: 600; }
+        .revenue-bar-bg {
+            width: 100%; height: 8px;
+            background: rgba(15,23,42,0.08);
+            border-radius: 4px; overflow: hidden;
+            margin: 10px 0 6px;
+        }
+        .revenue-bar-fill {
+            height: 100%; border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--green));
+            transition: width 0.5s ease;
+        }
+        .revenue-sub { font-size: 12px; color: var(--text-muted); }
+        .revenue-sub strong { color: var(--text-secondary); }
+
+        /* Revenue Grid */
+        .rev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .rev-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .rev-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        }
+        .rev-card.positive::before { background: var(--green); }
+        .rev-card.negative::before { background: var(--red); }
+        .rev-card.caution::before { background: var(--yellow); }
+        .rev-card .rev-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .rev-card .rev-amount { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+        .rev-card .rev-delta { font-size: 11px; font-weight: 600; margin-top: 2px; }
+        .rev-card .rev-delta.up { color: var(--green); }
+        .rev-card .rev-delta.down { color: var(--red); }
+        .rev-card .rev-vs { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+        /* ── RW vs Budget ── */
+        .rw-floor {
+            background: var(--green-dim);
+            border: 1px solid rgba(22,163,74,0.25);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px;
+        }
+        .rw-floor-label { font-size: 12px; color: var(--green); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .rw-floor-value { font-size: 20px; font-weight: 800; color: var(--text-primary); }
+        .rw-floor-note { font-size: 11px; color: var(--text-muted); width: 100%; }
+
+        /* ── Scorecard Health ── */
+        .scorecard-summary {
+            display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;
+        }
+        .sc-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 18px;
+            flex: 1; min-width: 90px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .sc-pill .sc-num { font-size: 26px; font-weight: 700; }
+        .sc-pill .sc-num.green { color: var(--green); }
+        .sc-pill .sc-num.yellow { color: var(--yellow); }
+        .sc-pill .sc-num.red { color: var(--red); }
+        .sc-pill .sc-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .sc-pill .sc-trend { font-size: 11px; margin-top: 2px; font-weight: 600; }
+        .sc-pill .sc-trend.improving { color: var(--green); }
+        .sc-pill .sc-trend.worsening { color: var(--red); }
+
+        /* ── Attention Cards ── */
+        .attn-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            box-shadow: var(--shadow-sm);
+        }
+        .attn-card:hover { border-color: var(--border-hover); }
+        .attn-card.risk { border-left: 3px solid var(--red); }
+        .attn-card.watch { border-left: 3px solid var(--yellow); }
+        .attn-card-header {
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .attn-card-header:active { background: var(--bg-card-hover); }
+        .attn-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+        .attn-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .attn-dot.red { background: var(--red); box-shadow: 0 0 6px var(--red-glow); }
+        .attn-dot.yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow-glow); }
+        .attn-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .attn-pod { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+        .attn-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .attn-badge {
+            font-size: 10px; font-weight: 600; padding: 2px 8px;
+            border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .attn-badge.risk-badge { background: var(--red-dim); color: var(--red); }
+        .attn-badge.watch-badge { background: var(--yellow-dim); color: var(--yellow); }
+        .attn-chevron { color: var(--text-muted); font-size: 12px; transition: transform 0.2s; }
+        .attn-card.open .attn-chevron { transform: rotate(180deg); }
+        .attn-body { display: none; padding: 0 16px 16px; }
+        .attn-card.open .attn-body { display: block; animation: slideDown 0.15s ease-out; }
+        .attn-issue {
+            background: #f7f8fa;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .attn-issue .issue-priority { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+        .attn-issue .issue-text { color: var(--text-primary); }
+        .attn-issue .issue-action { color: var(--accent-blue); font-size: 12px; margin-top: 4px; }
+        .attn-suggested {
+            background: rgba(59,130,246,0.06);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+        .attn-suggested h5 { font-size: 10px; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 700; }
+        .attn-suggested p { font-size: 12px; color: var(--text-primary); line-height: 1.6; font-family: 'SF Mono', 'Fira Code', monospace; }
+        .attn-copy {
+            display: inline-flex; align-items: center; gap: 4px;
+            margin-top: 8px; padding: 6px 12px; border-radius: 6px;
+            border: 1px solid var(--border); background: var(--bg-card);
+            color: var(--text-secondary); cursor: pointer; font-size: 11px;
+            transition: all 0.15s;
+        }
+        .attn-copy:hover { background: var(--bg-card-hover); border-color: var(--border-hover); color: var(--text-primary); }
+        .attn-copy.copied { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+
+        /* ── Deal Pipeline ── */
+        .deal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 8px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .deal-left { flex: 1; min-width: 0; }
+        .deal-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .deal-detail { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+        .deal-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .deal-size { font-size: 14px; font-weight: 700; color: var(--green); }
+        .deal-stage {
+            font-size: 10px; font-weight: 600; padding: 3px 10px;
+            border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .deal-stage.hot { background: var(--red-dim); color: var(--red); }
+        .deal-stage.warm { background: var(--orange-dim); color: var(--orange); }
+        .deal-stage.active { background: var(--accent-blue-dim); color: var(--accent-blue); }
+
+        /* ── MBR Insights ── */
+        .mbr-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+        .mbr-card h4 { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+        .mbr-metric {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 4px 0;
+            font-size: 12px;
+        }
+        .mbr-metric .mbr-label { color: var(--text-secondary); }
+        .mbr-metric .mbr-value { font-weight: 600; color: var(--text-primary); }
+        .mbr-metric .mbr-value.up { color: var(--green); }
+        .mbr-metric .mbr-value.down { color: var(--red); }
+        .mbr-insight {
+            background: #f7f8fa;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .mbr-insight strong { color: var(--text-primary); }
+
+        /* ── MBR Live Scaffold (awaiting data connectors) ── */
+        .mbr-live-scaffold {
+            border: 1px dashed var(--border-hover);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #fafbff 0%, #f5f3ff 100%);
+        }
+        .mbr-live-scaffold h3 {
+            font-size: 14px; font-weight: 700; color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .mbr-live-scaffold .scaffold-header {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 8px; margin-bottom: 4px;
+        }
+        .mbr-live-scaffold .scaffold-status {
+            font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+            padding: 3px 8px; border-radius: 4px;
+            background: var(--yellow-dim); color: var(--yellow);
+            text-transform: uppercase;
+        }
+        .mbr-live-scaffold .scaffold-sub {
+            font-size: 11px; color: var(--text-muted); margin-bottom: 14px;
+        }
+        .mbr-live-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+        .mbr-live-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .mbr-live-card .live-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .mbr-live-card .live-value { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 4px; }
+        .mbr-live-card .live-meta { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+        .mbr-live-card .live-pending {
+            position: absolute; top: 10px; right: 10px;
+            font-size: 9px; padding: 2px 6px; border-radius: 4px;
+            background: var(--yellow-dim); color: var(--yellow);
+            font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .mbr-live-card.wired .live-pending { background: var(--green-dim); color: var(--green); }
+
+        /* ── Cycle Progress ── */
+        .cycle-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+        .cycle-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .cycle-label { font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+        .cycle-dates { font-size: 11px; color: var(--text-muted); }
+        .cycle-progress-bg {
+            width: 100%; height: 6px;
+            background: #eff2f7;
+            border-radius: 3px; overflow: hidden;
+        }
+        .cycle-progress-fill {
+            height: 100%; border-radius: 3px;
+            background: linear-gradient(90deg, var(--purple), var(--accent-blue));
+        }
+        .cycle-week { font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: right; }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center; font-size: 11px; color: var(--text-muted);
+            padding: 20px; border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Nav Tabs ── */
+        .nav-tabs {
+            display: flex; gap: 4px; margin-bottom: 20px;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .nav-tabs::-webkit-scrollbar { display: none; }
+        .nav-tab {
+            padding: 8px 16px; border-radius: 8px;
+            border: 1px solid var(--border); background: var(--bg-card);
+            color: var(--text-secondary); cursor: pointer;
+            font-size: 12px; font-weight: 600; white-space: nowrap;
+            transition: all 0.15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .nav-tab:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
+        .nav-tab.active { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* ── Animations ── */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── KPI Tracker ── */
+        .kpi-group { margin-bottom: 16px; }
+        .kpi-group-title {
+            font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.5px; font-weight: 600; margin-bottom: 8px;
+        }
+        .kpi-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 6px;
+            gap: 8px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .kpi-row:hover { border-color: var(--border-hover); }
+        .kpi-label {
+            font-size: 13px; font-weight: 600; color: var(--text-primary);
+            flex: 1; min-width: 120px;
+        }
+        .kpi-label .kpi-sub { font-size: 11px; color: var(--text-muted); font-weight: 400; display: block; }
+        .kpi-values {
+            display: flex; align-items: center; gap: 14px;
+            flex-shrink: 0;
+        }
+        .kpi-current { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+        .kpi-target { font-size: 12px; color: var(--text-muted); }
+        .kpi-delta {
+            font-size: 11px; font-weight: 600;
+            padding: 2px 8px; border-radius: 6px;
+        }
+        .kpi-delta.positive { background: var(--green-dim); color: var(--green); }
+        .kpi-delta.negative { background: var(--red-dim); color: var(--red); }
+        .kpi-delta.neutral { background: #eef1f6; color: var(--text-muted); }
+        .kpi-delta.caution { background: var(--yellow-dim); color: var(--yellow); }
+        .kpi-bar-bg {
+            width: 100%; height: 4px;
+            background: #eff2f7;
+            border-radius: 2px; overflow: hidden;
+            margin-top: 6px;
+        }
+        .kpi-bar-fill {
+            height: 100%; border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+        .kpi-bar-fill.green { background: var(--green); }
+        .kpi-bar-fill.yellow { background: var(--yellow); }
+        .kpi-bar-fill.red { background: var(--red); }
+        .kpi-bar-fill.blue { background: var(--accent-blue); }
+        .kpi-spark {
+            display: inline-flex; gap: 1px; align-items: flex-end; height: 16px;
+        }
+        .kpi-spark-bar {
+            width: 4px; border-radius: 1px;
+            background: var(--accent-blue); opacity: 0.6;
+        }
+        .kpi-source {
+            font-size: 10px; color: var(--text-muted);
+            width: 100%; margin-top: 4px; font-style: italic;
+        }
+
+        /* ── Quick Links ── */
+        .quick-links {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+            box-shadow: var(--shadow-sm);
+        }
+        .quick-links-label {
+            font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.5px; font-weight: 600; margin-right: 4px; white-space: nowrap;
+        }
+        .ql-link {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 5px 10px; border-radius: 7px;
+            border: 1px solid var(--border); background: var(--bg-input);
+            color: var(--text-secondary); cursor: pointer; font-size: 11px; font-weight: 500;
+            text-decoration: none; white-space: nowrap;
+            transition: all 0.15s;
+        }
+        .ql-link:hover { background: var(--bg-card-hover); border-color: var(--border-hover); color: var(--text-primary); }
+        .ql-link svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .ql-open-all {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 5px 12px; border-radius: 7px;
+            border: 1px solid var(--accent-blue); background: var(--accent-blue-dim);
+            color: var(--accent-blue); cursor: pointer; font-size: 11px; font-weight: 600;
+            white-space: nowrap; transition: all 0.15s; margin-left: auto;
+        }
+        .ql-open-all:hover { background: var(--accent-blue); color: #fff; }
+
+        /* ── Offsites Tab ── */
+        .offsite-toggle {
+            display: flex; gap: 4px; margin-bottom: 16px;
+        }
+        .offsite-toggle-btn {
+            padding: 7px 16px; border-radius: 8px;
+            border: 1px solid var(--border); background: var(--bg-card);
+            color: var(--text-secondary); cursor: pointer;
+            font-size: 12px; font-weight: 600; transition: all 0.15s;
+        }
+        .offsite-toggle-btn:hover { background: var(--bg-card-hover); }
+        .offsite-toggle-btn.active { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
+        .offsite-group {
+            margin-bottom: 16px;
+        }
+        .offsite-group-header {
+            font-size: 14px; font-weight: 700; color: var(--text-primary);
+            padding: 10px 14px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+            border: 1px solid var(--border);
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .offsite-group-header .offsite-count {
+            font-size: 11px; color: var(--text-muted); font-weight: 400;
+            background: #eef1f6; padding: 2px 8px; border-radius: 5px;
+        }
+        .offsite-items {
+            border: 1px solid var(--border); border-top: none;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+        .offsite-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px; color: var(--text-primary);
+        }
+        .offsite-item:last-child { border-bottom: none; }
+        .offsite-item .offsite-bullet {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent-blue); flex-shrink: 0; margin-top: 6px;
+        }
+        .offsite-item .offsite-bullet.done { background: var(--green); }
+        .offsite-item.is-done .offsite-text { text-decoration: line-through; opacity: 0.5; }
+        .offsite-item .offsite-bullet.pending { background: var(--yellow); }
+        .offsite-item .offsite-text { flex: 1; line-height: 1.5; }
+        .offsite-item .offsite-owner {
+            font-size: 11px; color: var(--text-muted); flex-shrink: 0; white-space: nowrap;
+        }
+        .offsite-item .offsite-biz {
+            font-size: 10px; padding: 1px 6px; border-radius: 4px;
+            background: var(--purple-dim); color: var(--purple);
+            font-weight: 600; flex-shrink: 0; white-space: nowrap;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 480px) {
+            .container { padding: 12px; }
+            .header h1 { font-size: 18px; }
+            .revenue-number { font-size: 26px; }
+            .rev-grid { grid-template-columns: 1fr 1fr; }
+            .deal-card { flex-direction: column; align-items: flex-start; }
+            .deal-right { width: 100%; justify-content: space-between; }
+            .attn-pod { display: none; }
+            .nav-tab { padding: 7px 12px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>SDS Command Center</h1>
+        <div class="tagline">Educate those with money on the line &mdash; Gather sports market intelligence and make it actionable</div>
+        <div class="header-meta">
+            <span class="cycle-badge">Cycle 2</span>
+            <span>Mar 21 &ndash; May 1, 2026</span>
+            <span>|</span>
+            <span>17 pods &middot; 140+ people</span>
+            <span>|</span>
+            <span id="lastUpdated">Updated: Apr 15, 2026</span>
+        </div>
+    </div>
+
+    <!-- Nav Tabs -->
+    <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="overview">Overview</div>
+        <div class="nav-tab" data-tab="attention">Attention Required</div>
+        <div class="nav-tab" data-tab="deals">Deal Pipeline</div>
+        <div class="nav-tab" data-tab="mbr">MBR Insights</div>
+        <div class="nav-tab" data-tab="kpis">KPI Tracker</div>
+        <div class="nav-tab" data-tab="offsites">Offsites</div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+        <span class="quick-links-label">Quick Links</span>
+        <a class="ql-link" href="https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit?gid=1347076984#gid=1347076984" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Pods
+        </a>
+        <a class="ql-link" href="https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit?gid=1189643733#gid=1189643733" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Scorecard
+        </a>
+        <a class="ql-link" href="https://kmlirl-my.sharepoint.com/:x:/r/personal/pedro_olinger_gdcgroup_com/_layouts/15/doc2.aspx?sourcedoc=%7BD02F0818-6671-4204-BFB3-79AA28FDBFDE%7D&file=2026_NA_Revenue_Tracker_v8%20(1)%202.xlsx&action=default&mobileredirect=true" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Forecast
+        </a>
+        <a class="ql-link" href="https://kmlirl-my.sharepoint.com/:x:/g/personal/mike_gregoline_gdcgroup_com/IQAXRzn-6QKIQZSr7Fm0X3x1AYo5FVIaLb6kqetc16zFNno?e=KDePqQ" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Headcount
+        </a>
+        <a class="ql-link" href="https://docs.google.com/spreadsheets/d/1pN2-gI0KABzK143nSqpRTYUF2XLjxVKUlvvWM0v9O_4/edit?gid=0#gid=0" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Pedro
+        </a>
+        <a class="ql-link" href="https://docs.google.com/spreadsheets/d/1pN2-gI0KABzK143nSqpRTYUF2XLjxVKUlvvWM0v9O_4/edit?gid=1770877361#gid=1770877361" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            MBRs
+        </a>
+        <a class="ql-link" href="https://linear.app/oddsjam/team/OPT/projects/view/optic-roadmap-a3a8986c2a97" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Optic Roadmap
+        </a>
+        <a class="ql-link" href="https://docs.google.com/document/d/1rEN9Hri7q9EIoaIJMjkXvaFqWoSCqkBJ9guSoWrj4mA/edit?tab=t.nr3z8fozfxru#heading=h.my8yzw839yyc" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Weekly Mtg
+        </a>
+        <a class="ql-link" href="https://app.getopenpay.com/analytics/overview?accountId=account_prod_DTASlHLHSMqZ9kfa&filterGroupIds=&filterColors=&filters=&period=daily" target="_blank">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            OJ MRR
+        </a>
+        <a class="ql-link" href="https://kaxmedia.github.io/oddsjam-ads-dashboard/paid-social/" target="_blank" style="border-color:rgba(249,115,22,0.3); color:var(--orange);">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+            Paid Media
+        </a>
+        <button class="ql-open-all" onclick="openAllLinks()">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+            Open All
+        </button>
+    </div>
+
+    <!-- ═══════════════════ TAB: OVERVIEW ═══════════════════ -->
+    <div class="tab-content active" id="tab-overview">
+
+        <!-- Revenue Pulse -->
+        <div class="section" id="sec-revenue">
+            <div class="section-header" onclick="toggleSection('sec-revenue')">
+                <h2>Revenue Pulse</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body">
+                <div class="revenue-hero">
+                    <div class="revenue-top">
+                        <span class="revenue-number" style="color:var(--yellow);">$68.33M</span>
+                        <span class="revenue-target">/ $70.0M target &mdash; <span style="color:var(--red); font-weight:600;">-2.4% behind</span></span>
+                    </div>
+                    <div class="revenue-bar-bg">
+                        <div class="revenue-bar-fill" style="width: 97.6%; background: linear-gradient(90deg, var(--yellow), var(--orange));"></div>
+                    </div>
+                    <div class="revenue-sub">
+                        2026 Forecast vs Budget &mdash; <strong>+19.8% YoY</strong> ($57.05M &rarr; $68.33M) &nbsp;|&nbsp; <span style="color:var(--red);">WoW: -$2.18M all verticals down except Local</span>
+                    </div>
+                </div>
+
+                <!-- WoW Forecast Changes -->
+                <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2); border-radius:10px; padding:12px 14px; margin-bottom:12px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
+                    <strong style="color:var(--red);">WoW Forecast Changes (Apr 15 vs Apr 10) &mdash; Updated Forecast v6</strong><br>
+                    <span style="color:var(--red);">&#9660; Bookies -$540K</span> &mdash; $4.17M &rarr; $3.63M. Continued underperformance across geos<br>
+                    <span style="color:var(--red);">&#9660; RotoWire -$490K</span> &mdash; $17.93M &rarr; $17.44M. B2C Subs &amp; Aff both pulled back<br>
+                    <span style="color:var(--red);">&#9660; Partnerships -$480K</span> &mdash; $6.15M &rarr; $5.67M. GAN run rate lower than projected<br>
+                    <span style="color:var(--red);">&#9660; Optic Odds -$300K</span> &mdash; $22.57M &rarr; $22.27M. Rev share &amp; subs slightly down<br>
+                    <span style="color:var(--red);">&#9660; OddsJam -$240K</span> &mdash; $18.29M &rarr; $18.05M. OJ+DGF subs continue YoY decline<br>
+                    <span style="color:var(--text-muted);">&#9679; Local flat at $1.26M</span><br>
+                    <strong style="color:var(--red);">Net: -$2.18M WoW</strong> &mdash; Now $1.67M below $70M target. Every vertical revised down except Local.
+                </div>
+
+                <div class="rev-grid">
+                    <div class="rev-card caution">
+                        <div class="rev-label">Optic Odds</div>
+                        <div class="rev-amount">$22.27M</div>
+                        <div class="rev-delta down">-1.4% vs prior</div>
+                        <div class="rev-vs" style="color:var(--red);">WoW: -$300K &darr;</div>
+                    </div>
+                    <div class="rev-card caution">
+                        <div class="rev-label">RotoWire</div>
+                        <div class="rev-amount">$17.44M</div>
+                        <div class="rev-delta down">-2.7% vs prior</div>
+                        <div class="rev-vs" style="color:var(--red);">WoW: -$490K &darr;</div>
+                    </div>
+                    <div class="rev-card caution">
+                        <div class="rev-label">OddsJam</div>
+                        <div class="rev-amount">$18.05M</div>
+                        <div class="rev-delta down">-1.3% vs prior</div>
+                        <div class="rev-vs" style="color:var(--red);">WoW: -$240K &darr; subs declining YoY</div>
+                    </div>
+                    <div class="rev-card negative">
+                        <div class="rev-label">Partnerships</div>
+                        <div class="rev-amount">$5.67M</div>
+                        <div class="rev-delta down">-7.8% vs prior</div>
+                        <div class="rev-vs" style="color:var(--red);">WoW: -$480K &darr; GAN lower</div>
+                    </div>
+                    <div class="rev-card negative">
+                        <div class="rev-label">Bookies</div>
+                        <div class="rev-amount">$3.63M</div>
+                        <div class="rev-delta down">-12.9% vs prior</div>
+                        <div class="rev-vs" style="color:var(--red);">WoW: -$540K &darr; worst decliner</div>
+                    </div>
+                    <div class="rev-card negative">
+                        <div class="rev-label">Local</div>
+                        <div class="rev-amount">$1.26M</div>
+                        <div class="rev-delta down">-66% vs budget</div>
+                        <div class="rev-vs">WoW: flat</div>
+                    </div>
+                </div>
+
+                <div class="rw-floor" id="rwAboveBudget">
+                    <div>
+                        <div class="rw-floor-label">RotoWire — Above Budget</div>
+                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$17.44M</strong> vs 2026 Budget <strong id="rwBudgetText">$14.05M</strong> &middot; <span id="rwAbovePct" style="color:var(--green); font-weight:600;">+24.2%</span></div>
+                    </div>
+                    <div class="rw-floor-value" id="rwAboveValue">+$3.40M</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cycle Progress -->
+        <div class="cycle-bar">
+            <div class="cycle-top">
+                <span class="cycle-label">Cycle 2 Progress</span>
+                <span class="cycle-dates">Mar 21 &ndash; May 1</span>
+            </div>
+            <div class="cycle-progress-bg">
+                <div class="cycle-progress-fill" id="cycleProgress" style="width: 0%;"></div>
+            </div>
+            <div class="cycle-week" id="cycleWeek">Week 1 of 6</div>
+        </div>
+
+        <!-- Scorecard Health -->
+        <div class="section" id="sec-scorecard">
+            <div class="section-header" onclick="toggleSection('sec-scorecard')">
+                <h2>Scorecard Health</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body">
+                <div class="scorecard-summary">
+                    <div class="sc-pill">
+                        <div class="sc-num green" id="scGreen">16</div>
+                        <div class="sc-label">On Track</div>
+                        <div class="sc-trend" id="scGreenTrend">of 86 items</div>
+                    </div>
+                    <div class="sc-pill">
+                        <div class="sc-num yellow" id="scYellow">6</div>
+                        <div class="sc-label">Watch</div>
+                        <div class="sc-trend" id="scYellowTrend">&mdash;</div>
+                    </div>
+                    <div class="sc-pill">
+                        <div class="sc-num red" id="scRed">0</div>
+                        <div class="sc-label">At Risk</div>
+                        <div class="sc-trend" id="scRedTrend">&mdash;</div>
+                    </div>
+                    <div class="sc-pill">
+                        <div class="sc-num" style="color: var(--text-muted);" id="scNotReported">64</div>
+                        <div class="sc-label">Not Reported</div>
+                        <div class="sc-trend worsening" id="scNrTrend">75% missing</div>
+                    </div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
+                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). Updated Apr 9.
+                </div>
+
+                <!-- RED FLAG -->
+                <div id="redItems" style="margin-bottom: 12px;">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Pods with most yellows -->
+                <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Highest Yellow Count</div>
+                <div id="yellowLeaders">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Notes Synthesis -->
+                <div style="margin-top: 14px;">
+                    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Notes Synthesis</div>
+                    <div id="notesSynthesis" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Attention Summary -->
+        <div class="section" id="sec-quickattn">
+            <div class="section-header" onclick="toggleSection('sec-quickattn')">
+                <h2>Needs Your Attention</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="quickAttnList">
+                <!-- Populated by JS — only items that are slipping -->
+            </div>
+        </div>
+
+        <!-- Efficiency Snapshot -->
+        <div class="section" id="sec-efficiency">
+            <div class="section-header" onclick="toggleSection('sec-efficiency')">
+                <h2>Efficiency Snapshot</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body">
+                <div class="rev-grid">
+                    <div class="rev-card positive">
+                        <div class="rev-label">Optic Odds</div>
+                        <div class="rev-amount">$1.25M</div>
+                        <div class="rev-vs">ARR/FTE &middot; 6 people</div>
+                    </div>
+                    <div class="rev-card caution">
+                        <div class="rev-label">OddsJam</div>
+                        <div class="rev-amount">$528K</div>
+                        <div class="rev-vs">ARR/FTE &middot; 31 people</div>
+                    </div>
+                    <div class="rev-card caution">
+                        <div class="rev-label">RotoWire</div>
+                        <div class="rev-amount">$300K</div>
+                        <div class="rev-vs">ARR/FTE &middot; 51 people</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB: ATTENTION REQUIRED ═══════════════════ -->
+    <div class="tab-content" id="tab-attention">
+        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+            Only showing pod leads with items that need intervention. Green items are hidden &mdash; no news is good news.
+        </div>
+        <div id="attnCards">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB: DEAL PIPELINE ═══════════════════ -->
+    <div class="tab-content" id="tab-deals">
+        <div id="dealCards">
+            <!-- Populated by JS -->
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
+            <div style="font-size: 13px; color: var(--text-secondary);">
+                <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7 — Jeremy confirmed). Pinnacle near close — Mathieu says "just needs sign off." Ryan: "landed the plane." Bet365 live queued after Pinnacle. Kalshi ISV needs oAuth — Jeremy building, must be ready for football. Jeremy holding PI→PT rename until Poly deal closes. GAN/BetFinder near close for Bookies. Karl proposing OddsWire → Optic Widgets reskin — Yahoo interested in widgets (Apr 8). Updated Apr 9.
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB: MBR INSIGHTS ═══════════════════ -->
+    <div class="tab-content" id="tab-mbr">
+        <div class="mbr-live-scaffold">
+            <div class="scaffold-header">
+                <h3 style="margin:0; font-size:15px; font-weight:700; color:var(--text-primary);">Key MBR Metrics — Live View</h3>
+                <span class="scaffold-status">PENDING CONNECTION</span>
+            </div>
+            <div class="scaffold-sub">Placeholders for the metrics Pedro presents each month. Will auto-refresh once MBR data connectors are wired up (Google Sheets / ChartMogul / HubSpot).</div>
+            <div class="mbr-live-grid" id="mbrLiveBody">
+                <!-- Populated by renderMBRLiveScaffold() -->
+            </div>
+        </div>
+        <div id="mbrCards">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB: KPI TRACKER ═══════════════════ -->
+    <div class="tab-content" id="tab-kpis">
+        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+            Tracking the numbers that tell you if SDS is winning or losing. Updated from Slack + Sheets. Running <strong style="color:var(--purple);">in parallel</strong> with the scorecard during transition.
+        </div>
+
+        <!-- KPI Section: Search & Affiliate Revenue -->
+        <div class="section" id="sec-kpi-search">
+            <div class="section-header" onclick="toggleSection('sec-kpi-search')">
+                <h2>Search &amp; Affiliate Revenue</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiSearchBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- KPI Section: B2C Subscription Health -->
+        <div class="section" id="sec-kpi-subs">
+            <div class="section-header" onclick="toggleSection('sec-kpi-subs')">
+                <h2>B2C Subscription Health</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiSubsBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- KPI Section: Growth & Distribution -->
+        <div class="section" id="sec-kpi-growth">
+            <div class="section-header" onclick="toggleSection('sec-kpi-growth')">
+                <h2>Growth &amp; Distribution</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiGrowthBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- KPI Section: Product & Platform -->
+        <div class="section" id="sec-kpi-product">
+            <div class="section-header" onclick="toggleSection('sec-kpi-product')">
+                <h2>Product &amp; Platform</h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiProductBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- KPI Section: OJ Paid Media -->
+        <div class="section" id="sec-kpi-paid">
+            <div class="section-header" onclick="toggleSection('sec-kpi-paid')">
+                <h2>OJ Paid Media <a href="https://kaxmedia.github.io/oddsjam-ads-dashboard/paid-social/" target="_blank" style="font-size:11px; color:var(--orange); font-weight:400; text-decoration:none; margin-left:8px;">&#8599; Full Dashboard</a></h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiPaidBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- KPI Section: Pod-Defined KPIs (Row 6) -->
+        <div class="section" id="sec-kpi-pods">
+            <div class="section-header" onclick="toggleSection('sec-kpi-pods')">
+                <h2>Pod-Defined KPIs <span style="font-size:11px; color:var(--text-muted); font-weight:400;">(from Cycle 2 scorecard Row 6)</span></h2>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body" id="kpiPodsBody">
+                <!-- Populated by JS from POD_KPIS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB: OFFSITES ═══════════════════ -->
+    <div class="tab-content" id="tab-offsites">
+        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+            Offsite action items and discussion topics. Toggle between views.
+        </div>
+        <div class="offsite-toggle">
+            <div class="offsite-toggle-btn active" data-view="business" onclick="switchOffsiteView('business')">By Business</div>
+            <div class="offsite-toggle-btn" data-view="person" onclick="switchOffsiteView('person')">By Person</div>
+        </div>
+        <div id="offsiteContent"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        SDS Command Center &mdash; Built for Matt Restivo &mdash; Sports Data Services @ GAMB
+    </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// DATA LAYER — Update this section with fresh data
+// ═══════════════════════════════════════════════════
+
+const DATA = {
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v6 (Executive Dashboard tab)
+    // Total SDS: Forecast $68.33M · Budget $68.37M · Target $69.38M
+    forecast: 68.33,
+    target: 70.0,
+    budget: 68.37,
+    yoyGrowth: 19.8,
+    priorYear: 57.05,
+
+    // RotoWire vs Budget — replaces old "Above RW Floor" concept
+    // RW Forecast $17.44M · Budget $14.05M → +$3.40M (+24.2%)
+    rw: {
+        budget: 14.05,          // $14,045,617 — 2026 RW Budget (source: Pedro's forecast workbook)
+        forecast: 17.44,        // Current forecast (Apr 15 Week 2 reforecast)
+        aboveBudget: 3.40,      // forecast − budget
+        abovePct: 24.2          // % over budget
+    },
+
+    // Scorecard counts — carried forward from Apr 7 visual audit (Google Sheets gviz blocked again Apr 15)
+    // 86 total items across 14 priority levels. Will refresh when Sheets accessible.
+    scorecard: {
+        green: 70, yellow: 13, red: 1, notReported: 2, total: 86,
+        prevGreen: 70, prevYellow: 13, prevRed: 1 // W1 counts from Apr 9 pull
+    },
+
+    // Yellow leaders (who has the most yellows in W2) + red flag
+    yellowLeaders: [
+        { name: "Jeremy Tran", pod: "OJ Product", yellows: 4, items: "Growth MCP, Stream-to-Clips, AMM Prediction Mkts, Stripe Migration" },
+        { name: "Randall K / Bryan R", pod: "B2C CS (OJ/RW)", yellows: 2, items: "Churn Reduction, 4-Day Course Conversion" },
+        { name: "Brian S / DJ T / Tim S", pod: "Talent (RW/OJ)", yellows: 2, items: "RW Football Talent, Smart Money Promo (P6)" },
+        { name: "Nick Piovano", pod: "RW Product", yellows: 1, reds: 1, items: "ESPN Live Sync (Y), Football Projections v2 (RED)" },
+        { name: "Samuel Hill", pod: "Optic Marketing", yellows: 1, items: "Revamp Website Copy for SEO" },
+        { name: "Karl O'Brien", pod: "Optic Product", yellows: 1, items: "Expose Prediction Market Data" },
+        { name: "Brian R", pod: "BetSyndicate", yellows: 1, items: "ParlayGrade SGP Clicks" },
+        { name: "Ryan W", pod: "B2B Sales/Ops", yellows: 1, items: "Stabilize Pinnacle Relationship" },
+    ],
+
+    // Red items — immediate attention
+    redItems: [
+        { name: "Football Projections Data v2", owner: "Nick Piovano", pod: "RW Product", priority: "P11", note: "Assuming this refers to RD-6227 and RD-5348. Expected completion..." }
+    ],
+
+    // Notes synthesis from Slack DMs + channels, Apr 1-15
+    notesSynthesis: {
+        keyThemes: [
+            "🚨 RW CHURN SPIKE: $500+/day for about a week (Randall, Apr 9 in #sds-leads). 21-reply thread — hottest operational issue. Nick P investigating prevention (Prosperstack?). Brian S + Randall have OJ-playbook ideas to try. Annualizes to $1.3M+ at risk.",
+            "🚨 REVENUE FORECAST DECLINING: Craig's Week 2 reforecast (Apr 15) shows SDS Affiliate TOTAL down $1.213M to $16.342M. Bookies worst (-$540K to $3.63M). RW down from $5.94M peak. GAN/Partnerships more conservative. Only Local held flat. 'Still on pace to beat total target' but growth opps must materialize.",
+            "🔥 BET365 MICHIGAN LAUNCH: Embargoed until Apr 18, affiliate go-live May 5 (Jamie). Matt mobilized all assets across RW/OJ/DGF/Local — emails, banners, social, chats with b365 links for ALL Michigan users. Material near-term revenue upside.",
+            "📈 RW AFFILIATE RECORD: $597K March — record single month (prev $528K Oct '23). 3.5K NDCs. Revenue +571% YoY. Already eclipsed full 2025 revenue ($1.45M vs $1.07M) in 100 days. Prediction markets growing fast: Jan $0 → Feb $9.7K → Mar $29.4K.",
+            "⚠️ NY AG SUBPOENA WAS DUE APR 9: Ryan shared detailed analysis Apr 1. Widget branding debate now has regulatory dimensions. Matt wants 'OddsJam' on consumer widgets, Karl argues Optic is correct for B2B. Monitoring for AG follow-up.",
+            "🏗️ PRODUCT VELOCITY: Dynasty tools live (50K+ searches/mo target). RW Breaking News tool demo'd (Jake L, Apr 14). OpticOdds Claude MCP in prod + PR coverage. OJ Baseball bot automated ($0.30/day, viral). Post-offsite execution momentum high.",
+            "👤 RW TRANSITION: Harry Thompson leaving (told team Apr 6). Kurt Kroll 2mo paternity in June. Vincenzo planning backend/frontend lead split. Nick P ramping — first priority fantasy football draft assistant. Andrew Parr likely lead. Whale picker contractor (Matthew, $50/hr) approved.",
+            "💰 BETSYNDICATE PROGRESS: $8-8.5K MRR, ~170 paying subs, 800 freemium signups, $35K gross total. Breakeven projected by NFL. Toad Sports + NASCAR Digital interested in BetFinder integration. Vincenzo skeptical of Roth ('cowboy, waste of time').",
+            "📱 SMART MONEY STUCK: Still 20 subs (2 annual, 18 monthly). Lucas made short-term scoring fixes but more needed. Jeremy: 'at 20 subs there's a larger issue around demand and customer objections.' Needs long-form talent video + marketing push.",
+            "🤖 AUTOMATION THESIS VALIDATED: Tyler's OJ Baseball bot ($0.30/day, 810 followers/350K impressions in 48hrs). RW Instagram +400% YoY (carousels). Craig automating 90%+ of Search workflows. Clark building content ideation AI. RW Breaking News tool live. 'Humans as orchestrators not executors.'"
+        ],
+        updatedDate: "2026-04-15"
+    },
+
+    // Attention items — ONLY people/issues that need intervention
+    attention: [
+        {
+            name: "RW Churn Spike",
+            pod: "RW — ACTIVE FIRE",
+            level: "risk",
+            issues: [
+                {
+                    priority: "REVENUE",
+                    text: "$500+/day in RW churn for about a week (Randall, Apr 9). 21-reply thread in #sds-leads — highest engagement item in channel this period. Nick P investigating churn prevention (Prosperstack?). Brian S and Randall have OJ-playbook ideas to try. Annualizes to $1.3M+ at risk.",
+                    action: "Get Nick's churn analysis ASAP. Confirm Prosperstack offers. Apply OJ churn playbook. This is the #1 operational fire."
+                }
+            ],
+            suggestedMsg: "nick/ randall flagged $500+\/day churn on rw for the last week. what churn prevention do we have in place? prosperstack? what are the offers?\n\nbrian s has some ideas from the oj playbook — loop him in.\n\nthis is the most urgent thing on ur plate rn\n\nlmk"
+        },
+        {
+            name: "Bet365 Michigan Launch",
+            pod: "ALL PROPERTIES — EMBARGOED",
+            level: "risk",
+            issues: [
+                {
+                    priority: "REVENUE OPP",
+                    text: "Bet365 Michigan launching — embargoed until 9AM ET Apr 18 (Bill Speros, Apr 14). Affiliate go-live tentatively May 5 (Jamie). Matt immediately mobilized: tagged Brian S, Steve Bulanda, Randall, Craig to queue up emails, banners, social posts, chats with b365 links for ALL Michigan users across RW, OJ, DGF, local sites.",
+                    action: "Ensure all teams have b365 MI assets queued and ready to fire Apr 18. Coordinate cross-property launch. This is material revenue upside."
+                }
+            ],
+            suggestedMsg: "brian s + steve + randall + craig/ bet365 michigan drops apr 18. affiliate go-live may 5.\n\nmake sure every michigan user across rw, oj, dgf, and local sites gets hit — emails, banners, social, chats. all with b365 links.\n\neverything is embargoed until 9am et friday apr 18. nothing goes out before that.\n\nlmk when ur queued up"
+        },
+        {
+            name: "NY AG Subpoena",
+            pod: "LEGAL — WAS DUE APR 9",
+            level: "risk",
+            issues: [
+                {
+                    priority: "LEGAL",
+                    text: "Subpoena duces tecum from NY AG Letitia James — was due April 9. Targets Gambling.com/OddsJam/OpticOdds explicitly. Ryan shared detailed analysis Apr 1. Widget branding debate has regulatory dimensions. No update on legal response status since due date.",
+                    action: "Confirm legal response was filed. Monitor for AG follow-up."
+                },
+                {
+                    priority: "BRAND RISK",
+                    text: "Widget branding: Matt wants OddsJam on consumer-facing, Karl argues Optic for B2B. Featured Parlays product scoping underway in Linear. Yahoo interested in widgets.",
+                    action: "Resolve branding policy: OJ consumer / Optic B2B. Get reskin timeline from Karl."
+                }
+            ],
+            suggestedMsg: null
+        },
+        {
+            name: "Jeremy Tran",
+            pod: "OJ Product",
+            level: "watch",
+            issues: [
+                {
+                    priority: "P1",
+                    text: "Poly deal still NOT signed (confirmed Apr 7). Holding PI→PT rename until close. Jeremy sent algo architecture proposal 'Revenue Through Better Algorithms.' Kalshi oAuth — no progress, asked 'who's the contact for that deal?'",
+                    action: "Push Poly to close. Review algo architecture doc. Connect Jeremy with Kalshi contact for oAuth."
+                },
+                {
+                    priority: "P2",
+                    text: "Madison trip → changed to May 4-5 NY office visit (flights to Madison $1K+). Will coordinate with Nick P there. Smart Money scoring partially fixed (Lucas short-term) but Jeremy says deeper demand issue at 20 subs.",
+                    action: "Confirm May 4-5 NY office. Push SM demand investigation."
+                },
+                {
+                    priority: "P3",
+                    text: "$29 course LP 'too much text' and 'pretty janky.' Pikkit API scoping with Zach — 'should be fine for MVP.' ParlayGrader low adoption. Jeremy suggested selling picks on Bookies.",
+                    action: "Push $29 course LP redesign. Check Pikkit API progress."
+                }
+            ],
+            suggestedMsg: "jeremy/ poly still not signed right? hold on PI rename until it's done.\n\nhow's the algo architecture proposal looking? and what's the contact for kalshi oauth — u need to get that structured asap.\n\nalso the $29 course LP needs another pass — way too much text. and may 4-5 ny office is confirmed w nick right?\n\nlmk"
+        },
+        {
+            name: "Karl O'Brien",
+            pod: "Optic Product",
+            level: "watch",
+            issues: [
+                {
+                    priority: "P1",
+                    text: "Widget reskin (OddsWire → Optic Widgets) proposed. Infrastructure ready. Claude MCP went idea→prod quickly as proof of velocity. Yahoo interested in widgets. Featured Parlays scoping in Linear.",
+                    action: "Get reskin timeline. Focus on selling what we have + Yahoo opportunity."
+                },
+                {
+                    priority: "P2",
+                    text: "Branding resolved: consumer-facing = OJ, B2B white-label = Optic. Hold on play-by-play widgets. Scorecard yellow on 'Expose Prediction Market Data' — Biagio working on it per offsite.",
+                    action: "Close out prediction market data item this cycle. Hold on PBP."
+                }
+            ],
+            suggestedMsg: "karl/ branding is settled — consumer sites say oddsjam, b2b white-label says optic.\n\nwhat's the reskin timeline? yahoo is interested. hold on pbp. and close out the prediction market data item this cycle.\n\nlmk"
+        },
+        {
+            name: "Brian Stephens",
+            pod: "Growth Ops / Talent",
+            level: "watch",
+            issues: [
+                {
+                    priority: "P1",
+                    text: "Smart Money still stuck at 20 subs. Lucas made short-term scoring fixes but Jeremy says deeper demand issue. Matt pushed hard in #sds-growth (Apr 7): 'have any front-facing talent done a long-form video on why SM works?' No marketing motion exists yet.",
+                    action: "Confirm scoring is solid. Get long-form video from talent. Create marketing plan to ramp from 20 subs."
+                },
+                {
+                    priority: "P2",
+                    text: "PI→PT rename in flux. Clark Gary going 12-1 generating real Twitter engagement. OJ Baseball bot crushing it (automated, $0.30/day, viral growth). Post-offsite responsibilities doc from vibecoded tool + whiteboard still pending.",
+                    action: "Ride Clark's hot streak for PI marketing. Finalize responsibilities doc. Scale bot model to other sports."
+                },
+                {
+                    priority: "P3",
+                    text: "RW churn — Brian has OJ playbook ideas to apply. Also needs to coordinate Bet365 MI launch assets.",
+                    action: "Loop Brian into churn response with Nick P. Ensure b365 MI content queued."
+                }
+            ],
+            suggestedMsg: "brian/ is the smart money scoring fixed? we got 20 subs and zero marketing. has anyone done a long form video on why it works?\n\nalso loop in w nick on the rw churn — $500+\/day for a week. u guys had oj playbook ideas.\n\nand bet365 michigan drops apr 18 — make sure content is queued for all michigan users.\n\nlmk"
+        },
+        {
+            name: "OddsJam B2C",
+            pod: "Revenue Alert",
+            level: "risk",
+            issues: [
+                {
+                    priority: "REVENUE",
+                    text: "OJ+DGF subs continuing YoY decline. Q1 actuals: Jan $1.50M, Feb $1.37M, Mar $1.35M — each month down. Trial abuse flagged via Verisoul (36-reply thread investigating accuracy, Apr 1). App store reviews trending 1-star (Randall flagged Apr 11, 26-reply thread).",
+                    action: "Track PI growth as offset. Validate Verisoul trial abuse flags. Address app store review problem — get affiliates to leave positive reviews."
+                }
+            ],
+            suggestedMsg: null
+        },
+        {
+            name: "Bookies / Local",
+            pod: "Revenue Alert",
+            level: "risk",
+            issues: [
+                {
+                    priority: "REVENUE",
+                    text: "Bookies worst decliner in Week 2 reforecast: $4.17M → $3.63M (-$540K). Exit clicks -22% March, -50%+ YoY. Partnerships down to $5.67M → lower (GAN declining). BetSyndicate bright spot: $8.5K MRR now, 170 subs, breakeven by NFL.",
+                    action: "Craig's restructure plan in motion (7+ heads). Track BetSyndicate as offset. Toad Sports + NASCAR Digital new BetFinder prospects."
+                },
+                {
+                    priority: "SEARCH",
+                    text: "Partnerships -46% exit clicks in March (spam sites returning in SERPs). Craig's Week 2 reforecast more conservative about summer and EOY. Alberta launch flagged as growth opportunity.",
+                    action: "Monitor SERP volatility. Push Alberta launch as upside catalyst."
+                },
+                {
+                    priority: "GAN DEAL",
+                    text: "GAN/BetFinder — Jamie 'fairly confident' closes within 1 month (from ~Apr 8). Toad Sports asking about BetFinder pricing — Matt suggests 'float 10k one-time softly.' NASCAR Digital also interested.",
+                    action: "Track GAN close. Price Toad Sports ($10K one-time or rev share). Pursue NASCAR Digital."
+                }
+            ],
+            suggestedMsg: null
+        },
+        {
+            name: "Vincenzo Ampolo",
+            pod: "Data / Optic Eng",
+            level: "watch",
+            issues: [
+                {
+                    priority: "PEOPLE",
+                    text: "Harry Thompson leaving (told team Apr 6). Kurt Kroll 2mo paternity June. Backend rank: Erik > Parr > James. Frontend: Dylan > Chris > Kurt. Plans backend/frontend lead split. Nikola ($75K Serbia DevOps) approved. Whale picker contractor Matthew ($50/hr, 15-20hrs/mo) approved — already built 80% of LSTM/XGBoost pipeline.",
+                    action: "Accelerate Nikola + Matthew onboarding. Finalize lead split. Andrew Parr to run RW dev under V."
+                },
+                {
+                    priority: "TECH",
+                    text: "RW data warehouse critical gap — V asked Tim (Apr 3), Tim checking with Lucas/Harry. FanDuel API changing — need migration assessment. GCP $5M bill in next 3 years. RW scraping block being assessed.",
+                    action: "Andrew S to own BigQuery/data warehouse. Confirm FD public API impact. Manage GCP costs."
+                },
+                {
+                    priority: "CULTURE",
+                    text: "Rohan/Vincenzo friction — Ryan mediating. Rohan writing code nobody else can maintain. Matt coaching V on communication: 'don't shit on ppl for using ai, then suggest corrections.'",
+                    action: "Confirm Ryan brokered the Rohan/V meeting. V needs to be more careful with feedback delivery."
+                }
+            ],
+            suggestedMsg: "vincenzo/ harry's out, kurt has paternity june. need the backend\/frontend lead split locked down this week.\n\nis nikola locked in? and matthew for the whale picker — what's his start date?\n\nalso the rw data warehouse is critical — can andrew s own that on bigquery?\n\nlmk"
+        },
+        {
+            name: "Andrew Simkovsky",
+            pod: "RW Engineering",
+            level: "risk",
+            issues: [
+                {
+                    priority: "PEOPLE",
+                    text: "Matt, Vincenzo, and Tim all flagged concerns. 'Not a pusher,' 'says no to everything,' 'dogshit energy.' AWS migration depends on him. Nikola ($75K Serbia) being hired as replacement path. Andrew asked to go to Madison for Kurt transition — V told him not needed.",
+                    action: "Finalize exit timeline and transition plan. Nikola onboarding is the critical path."
+                }
+            ],
+            suggestedMsg: null
+        }
+    ],
+
+    // Deals
+    deals: [
+        { name: "Polymarket", detail: "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 7. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). James on Poly side engaged.", stage: "warm", stageLabel: "Pending Signature", size: "$2M" },
+        { name: "Pinnacle", detail: "Term sheet drafted by Matt, passed to Stein/John. 60/40 split + price minimum. Mathieu says 'just needs sign off.' Ryan: 'I think we landed the plane.'", stage: "hot", stageLabel: "Near Close", size: "$1.2M/yr" },
+        { name: "Bet365 Michigan", detail: "Embargoed until Apr 18 9AM ET. Affiliate go-live tentatively May 5 (Jamie). All SDS properties mobilizing — emails, banners, social, chats with b365 links for ALL MI users.", stage: "hot", stageLabel: "Launching", size: "Material" },
+        { name: "Kalshi", detail: "ISV integration — trading inside OJ, rev share on trades. Need oAuth. Jeremy asked for contact to structure deal. Must be ready for football.", stage: "warm", stageLabel: "Building", size: "Rev Share" },
+        { name: "GAN (BetFinder)", detail: "Jamie 'fairly confident' closes within 1 month (~from Apr 8). For Bookies betfinder. MLB/NBA/NHL/PGA launched on site.", stage: "warm", stageLabel: "Near Close", size: "TBD" },
+        { name: "Toad Sports", detail: "Interested in BetFinder integration. ~150K socials. Matt suggests 'float 10k one-time softly.' Waiting on daily/monthly traffic data.", stage: "active", stageLabel: "Pricing", size: "$10K+" },
+        { name: "NASCAR Digital", detail: "Also interested in BetFinder. Early stage (Brian Roth, Apr 13).", stage: "active", stageLabel: "Discovery", size: "TBD" },
+        { name: "Yahoo", detail: "Interested in widgets. Replace BetMGM, $100 tier, pitch running content like USAToday model.", stage: "active", stageLabel: "Proposal", size: "TBD" },
+        { name: "Fanatics", detail: "Proposal sent", stage: "active", stageLabel: "Proposal", size: "TBD" }
+    ],
+
+    // MBR Insights (latest month)
+    mbr: [
+        {
+            title: "OddsJam / Optic Combined — Feb 2026",
+            metrics: [
+                { label: "Total Revenue", value: "$2.78M", cls: "down" },
+                { label: "B2C Subscriptions", value: "$1.31M", cls: "down" },
+                { label: "B2B (Optic)", value: "$1.52M", cls: "" },
+                { label: "EBITDA Margin", value: "62.5%", cls: "" },
+                { label: "B2C Subs", value: "8,263", cls: "down" },
+                { label: "ARPS", value: "$148 (+15% YoY)", cls: "up" },
+                { label: "Retention", value: "76-78%", cls: "up" }
+            ],
+            insight: "Fewer subs but higher value. <strong>Fantasy (-61%) and EV (-59%) tiers hemorrhaging.</strong> Platinum and Sharp Money are bright spots. ARPS up 15%. Prediction Insiders ($175K MRR, up from $162K) is the key offset."
+        },
+        {
+            title: "RotoWire — Feb/Mar 2026",
+            metrics: [
+                { label: "Total Revenue", value: "$1.28M", cls: "up" },
+                { label: "Subscribers", value: "46,907", cls: "" },
+                { label: "ARPS", value: "$10.24", cls: "" },
+                { label: "Retention", value: "94%", cls: "up" },
+                { label: "Affiliate Rev", value: "$400K (+236% YoY)", cls: "up" },
+                { label: "Direct Traffic", value: "+197.8% YoY", cls: "up" }
+            ],
+            insight: "Reliable base performing well. <strong>Direct traffic exploded +197.8%.</strong> SEO declined -13.3% but offset by direct surge. Affiliate revenue breakout at +236% YoY. Pricing move ($84→$99+) in play."
+        },
+        {
+            title: "Key Concerns to Watch",
+            metrics: [
+                { label: "OJ B2C", value: "-12% vs budget", cls: "down" },
+                { label: "Bookies", value: "-29% vs budget", cls: "down" },
+                { label: "Local", value: "-66% vs budget", cls: "down" },
+                { label: "OJ Labor Cost Ratio", value: "20% (was 13%)", cls: "down" }
+            ],
+            insight: "Three verticals underperforming budget. OJ labor cost ratio jumped from 13% to 20% — <strong>headcount holding while revenue declines.</strong> Monitor whether Prediction Insiders revenue can offset B2C decline by Q2."
+        }
+    ],
+
+    // Cycle
+    cycle: {
+        number: 2,
+        start: "2026-03-21",
+        end: "2026-05-01",
+        keyDates: [
+            { date: "Apr 18", label: "Bet365 MI embargo lifts (9AM ET)" },
+            { date: "Apr 26", label: "London Marathon" },
+            { date: "Apr 28", label: "SBC Malta (Optic PR)" },
+            { date: "May 1", label: "Cycle 2 ends → Cycle 3 re-eval" },
+            { date: "May 4-5", label: "Jeremy + Nick P → NY office visit" },
+            { date: "May 5", label: "Bet365 MI affiliate go-live (tentative)" }
+        ]
+    }
+};
+
+// ═══════════════════════════════════════════════════
+// KPI DATA LAYER — Real numbers from Slack & Sheets
+// ═══════════════════════════════════════════════════
+
+const KPI = {
+    searchAffiliate: [
+        {
+            label: "RotoWire Affiliate", sub: "Exit Clicks / Revenue — reforecast down from peak",
+            current: "52K clicks / reforecast declining", target: "Was $5.94M → $5.60M (W1) → lower (W2)",
+            delta: "-$340K+ from peak", deltaType: "negative",
+            barPct: 88, barColor: "yellow",
+            source: "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+            sparkData: [40, 42, 44, 49, 52, 48]
+        },
+        {
+            label: "Partnerships Affiliate", sub: "Revenue / GAN declining — more conservative summer+EOY",
+            current: "Declining / GAN run rate lower", target: "Was $6.15M → $5.67M (W1) → lower (W2)",
+            delta: "-$480K+ from W1", deltaType: "negative",
+            barPct: 72, barColor: "red",
+            source: "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+            sparkData: [85, 75, 70, 60, 45, 38]
+        },
+        {
+            label: "Bookies Affiliate", sub: "Worst decliner — Bookies UK adjusted down",
+            current: "$3.63M → lower / UK market adjusted", target: "Was $4.17M → $3.63M (W1) → lower (W2)",
+            delta: "-$540K from W1 — worst", deltaType: "negative",
+            barPct: 50, barColor: "red",
+            source: "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+            sparkData: [90, 80, 65, 55, 42, 35]
+        },
+        {
+            label: "Local Affiliate", sub: "Revenue vs Target — only vertical holding flat",
+            current: "$1.275M forecast", target: "Unchanged WoW",
+            delta: "Flat (only stable)", deltaType: "neutral",
+            barPct: 33, barColor: "blue",
+            source: "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+            sparkData: [30, 25, 22, 28, 35, 33]
+        },
+    ],
+
+    subscriptions: [
+        {
+            label: "RotoWire B2C", sub: "Subscribers / YoY",
+            current: "46,907 subs", target: "Best YoY since Apr '25",
+            delta: "+6.7% YoY", deltaType: "positive",
+            barPct: 95, barColor: "green",
+            source: "#sds-general (Tim, Mar 22)"
+        },
+        {
+            label: "RotoWire Affiliate Rev", sub: "100 days in — already eclipsed full 2025",
+            current: "$1.45M (100 days)", target: "$1.07M (full 2025) — ECLIPSED",
+            delta: "+571% YoY / +34% MoM", deltaType: "positive",
+            barPct: 100, barColor: "green",
+            source: "#sds-general (Craig, Apr 13) — record $597K March"
+        },
+        {
+            label: "OddsJam B2C Subs", sub: "Active subscribers",
+            current: "8,263 subs", target: "Was 10,040 (-39% YoY)",
+            delta: "-39% YoY", deltaType: "negative",
+            barPct: 60, barColor: "red",
+            source: "MBR Feb 2026"
+        },
+        {
+            label: "Smart Money (RW)", sub: "New product — early stage",
+            current: "20 subs", target: "TBD — needs ramp target",
+            delta: "Pre-PMF", deltaType: "caution",
+            barPct: 5, barColor: "yellow",
+            source: "#_sds-management-team (Tim, Apr 3)"
+        },
+        {
+            label: "Prediction Insiders", sub: "MRR — OJ offset play",
+            current: "$175K MRR", target: "Month 1 launch",
+            delta: "Strong launch", deltaType: "positive",
+            barPct: 70, barColor: "green",
+            source: "MBR Feb 2026"
+        },
+    ],
+
+    growth: [
+        {
+            label: "HYHAU: Google Search", sub: "Top channel, pulling away",
+            current: "22% share", target: "Was 20% in Jan",
+            delta: "+2pp", deltaType: "positive",
+            barPct: 22, barColor: "green",
+            source: "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+            label: "HYHAU: Instagram", sub: "Fastest grower",
+            current: "8.1% share", target: "Was 5.8% in Jan",
+            delta: "+37% volume", deltaType: "positive",
+            barPct: 40, barColor: "green",
+            source: "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+            label: "HYHAU: YouTube", sub: "Declining share",
+            current: "16.6% share", target: "Was 19.3% in Jan",
+            delta: "-2.7pp", deltaType: "negative",
+            barPct: 60, barColor: "yellow",
+            source: "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+            label: "HYHAU: TikTok", sub: "Flat despite paid spend",
+            current: "8.5% share", target: "Paid not translating",
+            delta: "Flat", deltaType: "caution",
+            barPct: 50, barColor: "yellow",
+            source: "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+            label: "Automated Content", sub: "Video views MoM",
+            current: "929K views", target: "+203.7% MoM",
+            delta: "+203%", deltaType: "positive",
+            barPct: 90, barColor: "green",
+            source: "#sds-general (Nigel, Mar 23)"
+        },
+        {
+            label: "OJ Baseball Twitter Bot", sub: "Automated, $0.30/day — single post gained 400 followers (Apr 6). Bobby Kelly optimizing boost costs.",
+            current: "1,200+ followers / 350K+ impressions", target: "Growing daily",
+            delta: "Viral + sustained", deltaType: "positive",
+            barPct: 95, barColor: "green",
+            source: "#sds-growth (Tyler W, Apr 1; Brian S, Apr 6)"
+        },
+        {
+            label: "RW Instagram", sub: "Carousel strategy — Matt says 'everyone should be doing them'",
+            current: "+400 followers/week", target: "+400% YoY",
+            delta: "+400% YoY", deltaType: "positive",
+            barPct: 80, barColor: "green",
+            source: "#sds-growth (Lauren, Apr 1; Matt, Apr 6)"
+        },
+    ],
+
+    product: [
+        {
+            label: "Kalshi ISV Integration", sub: "Strategic — trading inside OJ, rev share model",
+            current: "Needs oAuth", target: "Ready for football",
+            delta: "Blocked on API", deltaType: "caution",
+            barPct: 20, barColor: "yellow",
+            source: "DMs (Jeremy, Mar 25). Vincenzo flagged Apple/Stripe risks."
+        },
+        {
+            label: "Optic Roadmap", sub: "Moved to Linear",
+            current: "In Linear", target: "Karl owns delivery",
+            delta: "Tracking", deltaType: "neutral",
+            barPct: 40, barColor: "blue",
+            source: "#sds-leads (Karl, Mar 30)"
+        },
+        {
+            label: "BetSyndicate", sub: "170 paying subs, 800 freemium, $59.99/mo — breakeven by NFL",
+            current: "$35K gross / $8.5K MRR", target: "~$10K MRR by Apr end",
+            delta: "+21% MRR MoM", deltaType: "positive",
+            barPct: 42, barColor: "green",
+            source: "DMs (Brian Roth, Apr 14)"
+        },
+        {
+            label: "ParlayGrade (Bookies)", sub: "New product launch",
+            current: "1,000 views", target: "Week 1",
+            delta: "Early signal", deltaType: "positive",
+            barPct: 25, barColor: "blue",
+            source: "#sds-general (Andrew A, Mar 27)"
+        },
+        {
+            label: "NFL Mock Draft Sim (RW)", sub: "First-party data capture + community ADP",
+            current: "Live + community big board", target: "Engagement TBD",
+            delta: "Launched", deltaType: "positive",
+            barPct: 50, barColor: "green",
+            source: "#sds-general (Shawn H, Mar 31)"
+        },
+        {
+            label: "Dynasty Tools (RW)", sub: "Mock Draft Sim + Trade Calculator — targeting 50K+ searches/mo from FantasyPros",
+            current: "Live — Thornbury gave 9+3 feedback items", target: "40K+ monthly (mock draft) + 14K+ (trade calc)",
+            delta: "Launched Apr 8, iterating on feedback", deltaType: "positive",
+            barPct: 70, barColor: "green",
+            source: "#sds-general (Craig Apr 8, Thornbury Apr 9): 'both tools are really good' — values too age-focused, need league size option"
+        },
+        {
+            label: "Data Warehouse (RW)", sub: "Centralized data infra",
+            current: "Under investigation", target: "Vincenzo exploring",
+            delta: "Discovery", deltaType: "neutral",
+            barPct: 10, barColor: "blue",
+            source: "#_sds-management-team (Vincenzo, Apr 3)"
+        },
+        {
+            label: "RW Breaking News Tool", sub: "Modernized player note workflow — Jake Letarski demo Apr 14",
+            current: "Live — Loom demo shared", target: "First change to RW player notes in a long time",
+            delta: "Launched", deltaType: "positive",
+            barPct: 80, barColor: "green",
+            source: "#sds-general (Jake Letarski Apr 14, shoutout from KOB)"
+        },
+        {
+            label: "OJ Overlay Rollout", sub: "Post-click OJ overlay on all platforms",
+            current: "Halfway on Local", target: "All SDS platforms",
+            delta: "In progress", deltaType: "caution",
+            barPct: 40, barColor: "yellow",
+            source: "DMs (Craig, Mar 23)"
+        },
+    ],
+
+    paidMedia: [
+        {
+            label: "OJ Total Ad Spend", sub: "TikTok + Meta — copy campaigns",
+            current: "$4.5K/wk", target: "Prior week: $5.1K",
+            delta: "-11.6% WoW", deltaType: "positive",
+            barPct: 50, barColor: "green",
+            source: "Paid Media Dashboard (Apr 5)",
+            sparkData: [4.2, 5.1, 4.5]
+        },
+        {
+            label: "Cost per Trial (Blended)", sub: "Meta: $35.31 | TikTok: $89.29",
+            current: "$41.20", target: "Prior: $47.05",
+            delta: "-12.4% WoW ✓", deltaType: "positive",
+            barPct: 70, barColor: "green",
+            source: "Paid Media Dashboard (Apr 5)",
+            sparkData: [52, 47, 41]
+        },
+        {
+            label: "Cost per Paid Sub (Blended)", sub: "Meta: $384.50 | TikTok: $535.74",
+            current: "$412.00", target: "Prior: $366.32",
+            delta: "+12.5% WoW ⚠", deltaType: "negative",
+            barPct: 55, barColor: "yellow",
+            source: "Paid Media Dashboard (Apr 5)",
+            sparkData: [320, 366, 412]
+        },
+        {
+            label: "Trials (All Channels)", sub: "110 trials — 64% click-attributed",
+            current: "110", target: "Prior: 109",
+            delta: "+0.9% WoW", deltaType: "neutral",
+            barPct: 50, barColor: "blue",
+            source: "Paid Media Dashboard (Apr 5)",
+            sparkData: [95, 109, 110]
+        },
+        {
+            label: "Paid Conversions", sub: "Trial→Paid rate dropped to 10% (was 12.8%)",
+            current: "11 subs", target: "Prior: 14",
+            delta: "-21.4% WoW", deltaType: "negative",
+            barPct: 40, barColor: "red",
+            source: "Paid Media Dashboard (Apr 5)",
+            sparkData: [12, 14, 11]
+        },
+        {
+            label: "ROAS (CTA+VTA Blended)", sub: "Meta: 1.13x | TikTok: 0.27x",
+            current: "0.93x", target: "Break-even = 1.0x",
+            delta: "Below break-even", deltaType: "caution",
+            barPct: 47, barColor: "yellow",
+            source: "Paid Media Dashboard (Apr 5)"
+        },
+        {
+            label: "Top Creator: Choi", sub: "72 trials at $33.12 CPT — 53% of spend",
+            current: "$33.12 CPT", target: "vs Billy $56.42 CPT",
+            delta: "Best performer", deltaType: "positive",
+            barPct: 80, barColor: "green",
+            source: "Paid Media Dashboard (Apr 5)"
+        },
+        {
+            label: "Meta vs TikTok Efficiency", sub: "Meta CPT $35 vs TT $89 — 2.5x more efficient",
+            current: "Meta winning", target: "Shift spend to Meta",
+            delta: "Meta 2.5x better CPT", deltaType: "positive",
+            barPct: 75, barColor: "green",
+            source: "Paid Media Dashboard (Apr 5)"
+        },
+    ]
+};
+
+// ═══════════════════════════════════════════════════
+// POD-DEFINED KPIs (Row 6 from Pods Sheet)
+// ═══════════════════════════════════════════════════
+
+const POD_KPIS = [
+    // PRODUCT
+    { pod: "OJ Product", lead: "Jeremy T", group: "Product", kpis: ["Product Launches", "Trials", "MRR"] },
+    { pod: "RW Product", lead: "Nick Piovano", group: "Product", kpis: ["Feature delivery", "Model accuracy", "50%+ of PRs coauthored by Claude Code"] },
+    // DATA
+    { pod: "Data Ingestion", lead: "Vincenzo A", group: "Data", kpis: ["# Leagues # Sports # Markets", "Latency (ms)", "Uptime %"] },
+    // OPTIC
+    { pod: "B2B Sales/Ops (OO/RW)", lead: "Ryan W", group: "Optic", kpis: ["Deals closed", "Pipeline value", "EMEA revenue"] },
+    { pod: "Optic Marketing", lead: "Samuel Hill", group: "Optic", kpis: ["Qualified Leads", "Visitors"] },
+    { pod: "Optic Product", lead: "Karl O'Brien", group: "Optic", kpis: ["API uptime", "Demo conversion", "Integration count"] },
+    // GROWTH
+    { pod: "Growth Ops (OJ/RW)", lead: "Brian S", group: "Growth", kpis: ["MRR", "Subs", "Trials", "HYHAU/Promo Code attribution"] },
+    { pod: "Talent (RW/OJ)", lead: "Brian S / DJ T / Tim S", group: "Growth", kpis: ["Social + Video Posts", "Subs by Code (SXM, VSiN, YouTube)", "Views", "Followers"] },
+    { pod: "RW Features", lead: "Jason T / Tim S", group: "Growth", kpis: ["New Subscribers", "Number of Articles/SEO Articles", "Unique Visitors"] },
+    { pod: "RW News", lead: "Kevin O / Tim S", group: "Growth", kpis: ["Speed"] },
+    { pod: "B2C CS (OJ/RW)", lead: "Randall K / Bryan R", group: "Growth", kpis: ["5m Response time", "Sales", "CSAT", "Retention rate"] },
+    // BOOKIES
+    { pod: "Bookies Aff", lead: "Brian R", group: "Bookies", kpis: ["Affiliate Rev", "SGP Clicks"] },
+    { pod: "BetSyndicate", lead: "Brian R", group: "Bookies", kpis: ["BetSyndicate MRR/ARR"] },
+    { pod: "Bookies Intl", lead: "Brian R / Adam K", group: "Bookies", kpis: ["Affiliate Rev"] },
+    // SEARCH
+    { pod: "Search Affiliate", lead: "Blake Weishaar", group: "Search", kpis: ["Exit Clicks", "NDCs", "Revenue (CPA + Rev Share)"] },
+    { pod: "Search Subscription", lead: "Tyler Huntington", group: "Search", kpis: ["New Subscribers", "Returning Users", "Churn", "Revenue"] },
+    { pod: "Search Media", lead: "Jacqui Kouassi", group: "Search", kpis: ["Back Links", "Brand Mentions", "Domain Authority (DA)"] },
+];
+
+// ═══════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════════════════
+
+function renderYellowLeaders() {
+    // Render red items first
+    const redEl = document.getElementById('redItems');
+    if (DATA.redItems && DATA.redItems.length > 0) {
+        redEl.innerHTML = DATA.redItems.map(r => `
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:8px; margin-bottom:6px;">
+                <div>
+                    <span style="font-size:11px; font-weight:700; color:var(--red); background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; margin-right:8px;">RED</span>
+                    <span style="font-size:13px; font-weight:600; color:#fff;">${r.name}</span>
+                    <span style="font-size:11px; color:var(--text-muted); margin-left:8px;">${r.owner} &middot; ${r.pod} &middot; ${r.priority}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Render yellow leaders
+    const el = document.getElementById('yellowLeaders');
+    el.innerHTML = DATA.yellowLeaders.map(l => `
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:6px;">
+            <div style="flex:1; min-width:0;">
+                <span style="font-size:13px; font-weight:600; color:#fff;">${l.name}</span>
+                <span style="font-size:11px; color:var(--text-muted); margin-left:8px;">${l.pod}</span>
+                ${l.items ? `<div style="font-size:10px; color:var(--text-muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${l.items}</div>` : ''}
+            </div>
+            <span style="font-size:13px; font-weight:700; color:${l.reds ? 'var(--red)' : 'var(--yellow)'}; white-space:nowrap; margin-left:8px;">${l.yellows}Y${l.reds ? ' + ' + l.reds + 'R' : ''}</span>
+        </div>
+    `).join('');
+
+    // Render notes synthesis
+    const notesEl = document.getElementById('notesSynthesis');
+    if (DATA.notesSynthesis && DATA.notesSynthesis.keyThemes) {
+        notesEl.innerHTML = DATA.notesSynthesis.keyThemes.map(t => `
+            <div style="padding:6px 10px; margin-bottom:4px; background:var(--bg-input); border-radius:6px; border-left:2px solid var(--purple);">
+                ${t}
+            </div>
+        `).join('');
+    }
+}
+
+function renderQuickAttention() {
+    const el = document.getElementById('quickAttnList');
+    const risks = DATA.attention.filter(a => a.level === 'risk');
+    const watches = DATA.attention.filter(a => a.level === 'watch');
+    const all = [...risks, ...watches].slice(0, 5);
+
+    el.innerHTML = all.map(a => `
+        <div style="display:flex; align-items:center; gap:10px; padding:10px 12px; background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--${a.level === 'risk' ? 'red' : 'yellow'}); border-radius:8px; margin-bottom:6px;">
+            <div style="width:6px; height:6px; border-radius:50%; background:var(--${a.level === 'risk' ? 'red' : 'yellow'}); flex-shrink:0;"></div>
+            <div style="flex:1; min-width:0;">
+                <span style="font-size:13px; font-weight:600; color:#fff;">${a.name}</span>
+                <span style="font-size:11px; color:var(--text-muted); margin-left:6px;">${a.pod}</span>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${a.issues[0].text}</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderAttentionCards() {
+    const el = document.getElementById('attnCards');
+    el.innerHTML = DATA.attention.map((a, i) => `
+        <div class="attn-card ${a.level}" id="attn-${i}">
+            <div class="attn-card-header" onclick="toggleAttn(${i})">
+                <div class="attn-left">
+                    <div class="attn-dot ${a.level === 'risk' ? 'red' : 'yellow'}"></div>
+                    <span class="attn-name">${a.name}</span>
+                    <span class="attn-pod">${a.pod}</span>
+                </div>
+                <div class="attn-right">
+                    <span class="attn-badge ${a.level}-badge">${a.level === 'risk' ? 'At Risk' : 'Watch'}</span>
+                    <span class="attn-chevron">&#9660;</span>
+                </div>
+            </div>
+            <div class="attn-body">
+                ${a.issues.map(iss => `
+                    <div class="attn-issue">
+                        <div class="issue-priority">${iss.priority}</div>
+                        <div class="issue-text">${iss.text}</div>
+                        <div class="issue-action">&#8594; ${iss.action}</div>
+                    </div>
+                `).join('')}
+                ${a.suggestedMsg ? `
+                    <div class="attn-suggested">
+                        <h5>Suggested Message (Matt's Voice)</h5>
+                        <p>${a.suggestedMsg.replace(/\n/g, '<br>')}</p>
+                        <button class="attn-copy" onclick="copyMsg(this, ${i})">Copy Message</button>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderDeals() {
+    const el = document.getElementById('dealCards');
+    el.innerHTML = DATA.deals.map(d => `
+        <div class="deal-card">
+            <div class="deal-left">
+                <div class="deal-name">${d.name}</div>
+                <div class="deal-detail">${d.detail}</div>
+            </div>
+            <div class="deal-right">
+                <span class="deal-size">${d.size}</span>
+                <span class="deal-stage ${d.stage}">${d.stageLabel}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderMBR() {
+    const el = document.getElementById('mbrCards');
+    el.innerHTML = DATA.mbr.map(m => `
+        <div class="mbr-card">
+            <h4>${m.title}</h4>
+            ${m.metrics.map(met => `
+                <div class="mbr-metric">
+                    <span class="mbr-label">${met.label}</span>
+                    <span class="mbr-value ${met.cls}">${met.value}</span>
+                </div>
+            `).join('')}
+            <div class="mbr-insight">${m.insight}</div>
+        </div>
+    `).join('');
+}
+
+function renderRWAboveBudget() {
+    const rw = DATA.rw;
+    if (!rw) return;
+    const fmt = (v) => `$${v.toFixed(2)}M`;
+    const diff = rw.forecast - rw.budget;
+    const pct = ((diff / rw.budget) * 100);
+    const above = diff >= 0;
+    const sign = above ? '+' : '';
+    document.getElementById('rwForecastText').textContent = fmt(rw.forecast);
+    document.getElementById('rwBudgetText').textContent = fmt(rw.budget);
+    document.getElementById('rwAbovePct').textContent = `${sign}${pct.toFixed(1)}%`;
+    document.getElementById('rwAbovePct').style.color = above ? 'var(--green)' : 'var(--red)';
+    document.getElementById('rwAboveValue').textContent = `${sign}${fmt(Math.abs(diff))}`;
+    const el = document.getElementById('rwAboveBudget');
+    if (!above) {
+        el.style.background = 'var(--red-dim)';
+        el.style.borderColor = 'rgba(220,38,38,0.25)';
+        el.querySelector('.rw-floor-label').style.color = 'var(--red)';
+        el.querySelector('.rw-floor-label').textContent = 'RotoWire — Below Budget';
+    }
+}
+
+// MBR Live Metrics Scaffold — placeholders for future data hookup
+// Each card represents a metric that will be auto-refreshed from the MBR once connectors are wired.
+const MBR_LIVE = [
+    { label: "Total SDS MTD Revenue", metric: "monthlyRevenue", placeholder: "$—.—M", meta: "Current month pacing", status: "pending" },
+    { label: "Total SDS MTD EBITDA", metric: "monthlyEbitda", placeholder: "$—.—M", meta: "Pedro's workbook", status: "pending" },
+    { label: "EBITDA Margin", metric: "ebitdaMargin", placeholder: "—%", meta: "Target ≥ 60%", status: "pending" },
+    { label: "OJ+OO MRR", metric: "ojOoMrr", placeholder: "$—.—M", meta: "Subscription revenue", status: "pending" },
+    { label: "OJ B2C Subs", metric: "ojSubs", placeholder: "—,—", meta: "Active subscribers", status: "pending" },
+    { label: "OJ B2C ARPS", metric: "ojArps", placeholder: "$—.—", meta: "Avg revenue per sub", status: "pending" },
+    { label: "RW Subscribers", metric: "rwSubs", placeholder: "—,—", meta: "End of month", status: "pending" },
+    { label: "RW ARPS", metric: "rwArps", placeholder: "$—.—", meta: "12-mo blended", status: "pending" },
+    { label: "RW Retention", metric: "rwRetention", placeholder: "—%", meta: "Target ≥ 90%", status: "pending" },
+    { label: "Optic ARR", metric: "opticArr", placeholder: "$—.—M", meta: "Contracted ARR", status: "pending" },
+    { label: "Optic B2B Customers", metric: "opticCustomers", placeholder: "—", meta: "Active accounts", status: "pending" },
+    { label: "ARR per FTE", metric: "arrPerFte", placeholder: "$—K", meta: "Efficiency ratio", status: "pending" },
+    { label: "Labor Cost Ratio", metric: "laborCostRatio", placeholder: "—%", meta: "Below 20% = healthy", status: "pending" },
+    { label: "Trials (MTD)", metric: "trials", placeholder: "—", meta: "Across brands", status: "pending" },
+    { label: "Trial→Paid %", metric: "trialConv", placeholder: "—%", meta: "30-day window", status: "pending" },
+    { label: "Blended CAC", metric: "cac", placeholder: "$—", meta: "Marketing ÷ new paid", status: "pending" },
+];
+
+function renderMBRLiveScaffold() {
+    const container = document.getElementById('mbrLiveBody');
+    if (!container) return;
+    container.innerHTML = MBR_LIVE.map(m => `
+        <div class="mbr-live-card ${m.status === 'wired' ? 'wired' : ''}">
+            <div class="live-pending">${m.status === 'wired' ? 'LIVE' : 'PENDING'}</div>
+            <div class="live-label">${m.label}</div>
+            <div class="live-value">${m.placeholder}</div>
+            <div class="live-meta">${m.meta}</div>
+        </div>
+    `).join('');
+}
+
+function renderCycleProgress() {
+    const start = new Date(DATA.cycle.start);
+    const end = new Date(DATA.cycle.end);
+    const now = new Date();
+    const total = end - start;
+    const elapsed = Math.max(0, Math.min(now - start, total));
+    const pct = Math.round((elapsed / total) * 100);
+    const weekNum = Math.min(6, Math.max(1, Math.ceil(((elapsed / total) * 6))));
+
+    document.getElementById('cycleProgress').style.width = pct + '%';
+    document.getElementById('cycleWeek').textContent = `Week ${weekNum} of 6 — ${pct}% complete`;
+}
+
+// ═══════════════════════════════════════════════════
+// KPI RENDER
+// ═══════════════════════════════════════════════════
+
+function renderKPIRow(kpi) {
+    const spark = kpi.sparkData ? `
+        <div class="kpi-spark">
+            ${kpi.sparkData.map(v => {
+                const max = Math.max(...kpi.sparkData);
+                const h = Math.max(2, Math.round((v / max) * 16));
+                return `<div class="kpi-spark-bar" style="height:${h}px;"></div>`;
+            }).join('')}
+        </div>
+    ` : '';
+
+    return `
+        <div class="kpi-row">
+            <div class="kpi-label">
+                ${kpi.label}
+                <span class="kpi-sub">${kpi.sub}</span>
+            </div>
+            <div class="kpi-values">
+                ${spark}
+                <span class="kpi-current">${kpi.current}</span>
+                <span class="kpi-delta ${kpi.deltaType}">${kpi.delta}</span>
+            </div>
+            <div style="width:100%;">
+                <div class="kpi-bar-bg">
+                    <div class="kpi-bar-fill ${kpi.barColor}" style="width:${kpi.barPct}%;"></div>
+                </div>
+            </div>
+            <div class="kpi-source">
+                Target: ${kpi.target} · Source: ${kpi.source}
+            </div>
+        </div>
+    `;
+}
+
+function renderKPISection(containerId, kpis) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = kpis.map(renderKPIRow).join('');
+}
+
+function renderPodKPIs() {
+    const el = document.getElementById('kpiPodsBody');
+    const groups = {};
+    POD_KPIS.forEach(p => {
+        if (!groups[p.group]) groups[p.group] = [];
+        groups[p.group].push(p);
+    });
+
+    const groupColors = { Product: 'var(--accent-blue)', Data: 'var(--red)', Optic: 'var(--cyan)', Growth: 'var(--green)', Bookies: 'var(--purple)', Search: 'var(--orange)' };
+
+    el.innerHTML = Object.keys(groups).map(g => `
+        <div style="margin-bottom:14px;">
+            <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600; margin-bottom:6px; padding-left:2px;">
+                <span style="display:inline-block; width:8px; height:8px; border-radius:2px; background:${groupColors[g] || 'var(--text-muted)'}; margin-right:6px;"></span>${g}
+            </div>
+            ${groups[g].map(p => `
+                <div class="kpi-row" style="flex-direction:column; align-items:flex-start; gap:4px;">
+                    <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+                        <span style="font-size:13px; font-weight:600; color:#fff;">${p.pod}</span>
+                        <span style="font-size:11px; color:var(--text-muted);">${p.lead}</span>
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                        ${p.kpis.map(k => `<span style="font-size:10px; padding:2px 8px; border-radius:5px; background:rgba(255,255,255,0.05); color:var(--text-secondary); border:1px solid var(--border);">${k}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `).join('');
+}
+
+function renderAllKPIs() {
+    renderKPISection('kpiSearchBody', KPI.searchAffiliate);
+    renderKPISection('kpiSubsBody', KPI.subscriptions);
+    renderKPISection('kpiGrowthBody', KPI.growth);
+    renderKPISection('kpiProductBody', KPI.product);
+    renderKPISection('kpiPaidBody', KPI.paidMedia);
+    renderPodKPIs();
+}
+
+// ═══════════════════════════════════════════════════
+// INTERACTIONS
+// ═══════════════════════════════════════════════════
+
+function toggleSection(id) {
+    document.getElementById(id).classList.toggle('collapsed');
+}
+
+function toggleAttn(i) {
+    document.getElementById('attn-' + i).classList.toggle('open');
+}
+
+function copyMsg(btn, i) {
+    const msg = DATA.attention[i].suggestedMsg;
+    if (!msg) return;
+    navigator.clipboard.writeText(msg).then(() => {
+        btn.classList.add('copied');
+        btn.textContent = 'Copied!';
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.textContent = 'Copy Message';
+        }, 2000);
+    });
+}
+
+// Quick Links — Open All
+function openAllLinks() {
+    const links = document.querySelectorAll('.ql-link');
+    links.forEach(a => window.open(a.href, '_blank'));
+}
+
+// ═══════════════════════════════════════════════════
+// OFFSITES DATA & RENDER
+// ═══════════════════════════════════════════════════
+
+const OFFSITES = {
+    // Sourced from: SDS Offsite Takeaways — Boulder, April 2026
+    // Last synced with Google Doc: Apr 13, 2026
+    items: [
+        // === Optic Odds ===
+        { text: "Can we fire Karl?", owner: "Matt Restivo", business: "Optic Odds", status: "pending" },
+        { text: "Put Nick Piovano on Optic for 3 hrs/week with Matt + V + Ryan 45 mins monthly", owner: "Matt Restivo", business: "Optic Odds", status: "" },
+        { text: "Automate agents to ingest call content + ideate", owner: "Nick Piovano", business: "Optic Odds", status: "" },
+        { text: "What new products?", owner: "Nick Piovano", business: "Optic Odds", status: "" },
+        { text: "Future Roadmap: Product Faster + Cut Cost post DevOps", owner: "Nick Piovano", business: "Optic Odds", status: "" },
+        { text: "Expand Optic AI Coverage", owner: "Vincenzo", business: "Optic Odds", status: "" },
+        { text: "Zach — MCP", owner: "Vincenzo", business: "Optic Odds", status: "done" },
+        { text: "Biagio — Prediction Markets Data", owner: "Vincenzo", business: "Optic Odds", status: "" },
+        { text: "Nikola — Infrastructure Dashboarding in 1mo for Optic Odds", owner: "Vincenzo", business: "Optic Odds", status: "" },
+        { text: "Gerson — human in the loop on AI Auto-Mapping?", owner: "Vincenzo", business: "Optic Odds", status: "" },
+        { text: "Socialize the dashboard for Sport + League Coverage", owner: "Vincenzo", business: "Optic Odds", status: "" },
+        { text: "Leo — shit or get off pot. HR plan.", owner: "Ryan Weinstock", business: "Optic Odds", status: "" },
+        { text: "Featured Parlays/Predictions", owner: "Ryan Weinstock", business: "Optic Odds", status: "" },
+
+        // === Technology ===
+        { text: "Widgets — centralize it or give it to data ingestion", owner: "TBD", business: "Technology", status: "" },
+        { text: "OJ — Wordpress", owner: "Jeremy Le-Tran", business: "Technology", status: "" },
+        { text: "RW — Every new feature gets built in NextJS", owner: "TBD", business: "Technology", status: "" },
+        { text: "RW — Change the Strategy to wrap with NextJS", owner: "TBD", business: "Technology", status: "" },
+        { text: "Hire Nikola to eventually replace Andrew", owner: "Vincenzo", business: "Technology", status: "" },
+        { text: "7 People — Analyze in the next 24 hours", owner: "Vincenzo", business: "Technology", status: "done" },
+        { text: "Look at Andrew Parr, Kurt Kroll, Chris Knudsvig, James Nicholas Jewson", owner: "Vincenzo", business: "Technology", status: "done" },
+        { text: "Do we make another Italian hire?", owner: "Vincenzo", business: "Technology", status: "done" },
+        { text: "Fix Scott", owner: "Vincenzo", business: "Technology", status: "" },
+        { text: "Ability to build New RW pages for Craig", owner: "TBD", business: "Technology", status: "" },
+
+        // === Commercial ===
+        { text: "Poly, Pinny, Yahoo, Kalshi", owner: "Matt Restivo / Ryan", business: "Commercial", status: "" },
+        { text: "We don't want our site scraped", owner: "Vincenzo", business: "Commercial", status: "" },
+        { text: "Raisle — AE not a sales person, most of our team is just doing his job", owner: "Matt Restivo", business: "Commercial", status: "" },
+        { text: "Get MBRs back on the calendar", owner: "Pedro", business: "Commercial", status: "" },
+        { text: "Negotiate Stripe Rate — say 'we're considering Stripe' with MB", owner: "Pedro", business: "Commercial", status: "" },
+        { text: "Openpay support sucks, we're moving off — also Loop", owner: "Pedro", business: "Commercial", status: "done" },
+        { text: "Up level HeadCount Allocation to an SDS Overall MBR", owner: "Pedro", business: "Commercial", status: "" },
+        { text: "Renegotiate Matt Bendett Fees — why not?", owner: "Matt Restivo", business: "Commercial", status: "done" },
+        { text: "Restart Casino Motion for Social", owner: "Craig / Brian", business: "Commercial", status: "" },
+        { text: "Polymarket Promo Code on all Local Sites — Top PM 'Ad'", owner: "Craig", business: "Commercial", status: "" },
+        { text: "BetSyndicate — do we kill it?", owner: "TBD", business: "Commercial", status: "" },
+        { text: "Curtis to Brian's Team", owner: "TBD", business: "Commercial", status: "" },
+        { text: "Move BetSyndicate to Bookies", owner: "TBD", business: "Commercial", status: "" },
+        { text: "Picks plan on Bookies", owner: "TBD", business: "Commercial", status: "" },
+
+        // === Growth / Roto ===
+        { text: "Brand Sprint — Lauren, Tim, KOB, Whalen, Brian, Nick P, Saal", owner: "Matt Restivo", business: "Growth / Roto", status: "" },
+        { text: "Steve Jordan program?", owner: "TBD", business: "Growth / Roto", status: "done" },
+        { text: "Move RotoWire to PayPal with DJ/KOB?", owner: "Pedro", business: "Growth / Roto", status: "" },
+        { text: "Clark to 'automate' ALL DMs", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "Hire Mick Jagger, put him with Nick W. Nick W to Content Daily, Produced by Alan", owner: "TBD", business: "Growth / Roto", status: "" },
+        { text: "Nigel to Edit a week's worth of content", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "Nick W replaced with Bartel and Jenstad", owner: "Tim Schuler", business: "Growth / Roto", status: "" },
+        { text: "Talk to Craig's FSU guy", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "DJ to take over this sheet and report monthly on spend", owner: "DJ", business: "Growth / Roto", status: "" },
+        { text: "Build DFS hub", owner: "Tim Schuler", business: "Growth / Roto", status: "" },
+        { text: "Brian to train Sal and immediately get working on Football Influencers", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "Shareable RotoWire branded Tiered Rankings ASAP", owner: "TBD", business: "Growth / Roto", status: "pending" },
+        { text: "RW Rankings owner — Nick/Paul. Tech to enable. Need Paul, Jeff, Jim, etc.", owner: "Nick / Paul", business: "Growth / Roto", status: "" },
+        { text: "Plan for a $25 offering that can autorenew — maybe end of season?", owner: "TC", business: "Growth / Roto", status: "" },
+        { text: "Communicate 75K Goal with August — specifically every day", owner: "Pedro", business: "Growth / Roto", status: "" },
+        { text: "CRM: RotoWire B2B Forecasting", owner: "Pedro / Ryan", business: "Growth / Roto", status: "" },
+        { text: "Podcasts — LEVEL UP POD MOTION IN MADISON. Reuse from XM? Paid only?", owner: "TC", business: "Growth / Roto", status: "" },
+        { text: "Clickable Meta images for Twitter", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "New Monahan Deal", owner: "Brian Stephens", business: "Growth / Roto", status: "" },
+        { text: "Hire new Big Name Football Talent", owner: "Tim Schuler", business: "Growth / Roto", status: "" },
+        { text: "Pedro — new org chart", owner: "Pedro", business: "Growth / Roto", status: "" },
+
+        // === Content Audit ===
+        { text: "Subscription Code / Link", owner: "TBD", business: "Content Audit", status: "" },
+        { text: "Thumb Optimization", owner: "TBD", business: "Content Audit", status: "" },
+        { text: "More energy", owner: "TBD", business: "Content Audit", status: "" },
+        { text: "Better backgrounds", owner: "TBD", business: "Content Audit", status: "" },
+        { text: "Changing the layouts", owner: "TBD", business: "Content Audit", status: "" },
+        { text: "Creator Codes", owner: "TBD", business: "Content Audit", status: "" },
+    ]
+};
+
+function switchOffsiteView(view) {
+    document.querySelectorAll('.offsite-toggle-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.offsite-toggle-btn[data-view="${view}"]`).classList.add('active');
+    renderOffsites(view);
+}
+
+function renderOffsites(groupBy) {
+    const el = document.getElementById('offsiteContent');
+    if (OFFSITES.items.length === 0) {
+        el.innerHTML = `<div style="background:rgba(167,139,250,0.06); border:1px solid rgba(167,139,250,0.2); border-radius:10px; padding:14px; font-size:12px; color:var(--text-secondary);">
+            <strong style="color:var(--purple);">Awaiting Google Doc import</strong> — Connect the Chrome extension so I can pull the offsite tracker document and populate this view.
+        </div>`;
+        return;
+    }
+
+    const groups = {};
+    OFFSITES.items.forEach(item => {
+        const key = groupBy === 'person' ? item.owner : item.business;
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(item);
+    });
+
+    const sortedKeys = Object.keys(groups).sort();
+    el.innerHTML = sortedKeys.map(key => `
+        <div class="offsite-group">
+            <div class="offsite-group-header">
+                <span>${key}</span>
+                <span class="offsite-count">${groups[key].length} item${groups[key].length > 1 ? 's' : ''}</span>
+            </div>
+            <div class="offsite-items">
+                ${groups[key].map(item => `
+                    <div class="offsite-item ${item.status === 'done' ? 'is-done' : ''}">
+                        <div class="offsite-bullet ${item.status || ''}"></div>
+                        <div class="offsite-text">${item.text}</div>
+                        ${groupBy === 'business' ? `<span class="offsite-owner">${item.owner}</span>` : `<span class="offsite-biz">${item.business}</span>`}
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
+// Tab navigation
+document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+});
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+
+renderYellowLeaders();
+renderQuickAttention();
+renderAttentionCards();
+renderDeals();
+renderMBR();
+renderMBRLiveScaffold();
+renderCycleProgress();
+renderAllKPIs();
+renderOffsites('business');
+renderRWAboveBudget();
+
+// Update scorecard — uses real C2 SCORECARD W2 data
+const sc = DATA.scorecard;
+document.getElementById('scGreen').textContent = sc.green;
+document.getElementById('scYellow').textContent = sc.yellow;
+document.getElementById('scRed').textContent = sc.red;
+document.getElementById('scNotReported').textContent = sc.notReported;
+const reportingPct = Math.round(((sc.green + sc.yellow + sc.red) / sc.total) * 100);
+document.getElementById('scGreenTrend').textContent = `${Math.round(sc.green/sc.total*100)}% of ${sc.total}`;
+document.getElementById('scGreenTrend').className = 'sc-trend improving';
+// Show W1→W2 trends
+const greenDelta = sc.green - sc.prevGreen;
+const yellowDelta = sc.yellow - sc.prevYellow;
+const redDelta = sc.red - sc.prevRed;
+document.getElementById('scYellowTrend').textContent = yellowDelta > 0 ? `+${yellowDelta} vs W1` : yellowDelta < 0 ? `${yellowDelta} vs W1` : '—';
+document.getElementById('scYellowTrend').className = 'sc-trend' + (yellowDelta > 0 ? ' worsening' : yellowDelta < 0 ? ' improving' : '');
+document.getElementById('scRedTrend').textContent = redDelta > 0 ? `+${redDelta} vs W1` : redDelta < 0 ? `${redDelta} vs W1` : sc.red > 0 ? 'NEW' : '—';
+document.getElementById('scRedTrend').className = 'sc-trend' + (sc.red > 0 ? ' worsening' : '');
+document.getElementById('scNrTrend').textContent = sc.notReported <= 5 ? `${reportingPct}% reporting` : `${100 - reportingPct}% missing`;
+document.getElementById('scNrTrend').className = 'sc-trend' + (sc.notReported <= 5 ? ' improving' : ' worsening');
+
+</script>
+</body>
+</html>
