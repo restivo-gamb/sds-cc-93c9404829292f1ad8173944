@@ -81,6 +81,73 @@
             font-weight: 600;
         }
 
+        /* ── Week Picker (top-right of header) ── */
+        .week-picker-wrap {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+        }
+        .week-picker-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .week-picker {
+            appearance: none;
+            -webkit-appearance: none;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 32px 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%2364748b' d='M0 0l5 6 5-6z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        .week-picker:hover { border-color: var(--border-hover); }
+        .week-picker:focus { outline: none; border-color: var(--accent-blue); box-shadow: 0 0 0 3px var(--accent-blue-dim); }
+        .snapshot-banner {
+            display: none;
+            background: var(--yellow-dim);
+            border: 1px solid rgba(217,119,6,0.4);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--yellow);
+            font-weight: 600;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .snapshot-banner.active { display: flex; }
+        .snapshot-banner-return {
+            background: #ffffff;
+            border: 1px solid rgba(217,119,6,0.4);
+            color: var(--yellow);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .snapshot-banner-return:hover { background: var(--yellow); color: #ffffff; }
+        @media (max-width: 520px) {
+            .week-picker-wrap { position: static; margin-top: 10px; }
+        }
+
         /* ── Section ── */
         .section { margin-bottom: 20px; }
         .section-header {
@@ -589,6 +656,13 @@
 
     <!-- Header -->
     <div class="header">
+        <div class="week-picker-wrap">
+            <span class="week-picker-label">Week</span>
+            <select class="week-picker" id="weekPicker" onchange="onWeekChange(this.value)">
+                <!-- Populated by JS from snapshots/index.json -->
+                <option value="current">Current Week</option>
+            </select>
+        </div>
         <h1>SDS Command Center</h1>
         <div class="tagline">Educate those with money on the line &mdash; Gather sports market intelligence and make it actionable</div>
         <div class="header-meta">
@@ -599,6 +673,12 @@
             <span>|</span>
             <span id="lastUpdated">Updated: Apr 20, 2026</span>
         </div>
+    </div>
+
+    <!-- Snapshot Mode Banner (shown when viewing a past week) -->
+    <div class="snapshot-banner" id="snapshotBanner">
+        <span id="snapshotBannerText">Viewing snapshot</span>
+        <button class="snapshot-banner-return" onclick="onWeekChange('current')">Return to current week</button>
     </div>
 
     <!-- Nav Tabs -->
@@ -670,7 +750,7 @@
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body">
-                <div class="revenue-hero">
+                <div class="revenue-hero" id="snap-revenueHero">
                     <div class="revenue-top">
                         <span class="revenue-number" style="color:var(--yellow);">$68.33M</span>
                         <span class="revenue-target">/ $70.0M target &mdash; <span style="color:var(--red); font-weight:600;">-2.4% behind</span></span>
@@ -684,7 +764,7 @@
                 </div>
 
                 <!-- WoW Forecast Changes -->
-                <div style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2); border-radius:10px; padding:12px 14px; margin-bottom:12px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
+                <div id="snap-wowForecast" style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2); border-radius:10px; padding:12px 14px; margin-bottom:12px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
                     <strong style="color:var(--red);">WoW Forecast Changes (Apr 15 vs Apr 10) &mdash; Updated Forecast v6</strong><br>
                     <span style="color:var(--red);">&#9660; Bookies -$540K</span> &mdash; $4.17M &rarr; $3.63M. Continued underperformance across geos<br>
                     <span style="color:var(--red);">&#9660; RotoWire -$490K</span> &mdash; $17.93M &rarr; $17.44M. B2C Subs &amp; Aff both pulled back<br>
@@ -695,7 +775,7 @@
                     <strong style="color:var(--red);">Net: -$2.18M WoW</strong> &mdash; Now $1.67M below $70M target. Every vertical revised down except Local.
                 </div>
 
-                <div class="rev-grid">
+                <div class="rev-grid" id="snap-revGrid">
                     <div class="rev-card caution">
                         <div class="rev-label">Optic Odds</div>
                         <div class="rev-amount">$22.27M</div>
@@ -785,7 +865,7 @@
                         <div class="sc-trend worsening" id="scNrTrend">75% missing</div>
                     </div>
                 </div>
-                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
+                <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
                     C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). Updated Apr 9.
                 </div>
 
@@ -828,7 +908,7 @@
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body">
-                <div class="rev-grid">
+                <div class="rev-grid" id="snap-efficiency">
                     <div class="rev-card positive">
                         <div class="rev-label">Optic Odds</div>
                         <div class="rev-amount">$1.25M</div>
@@ -864,7 +944,7 @@
         <div id="dealCards">
             <!-- Populated by JS -->
         </div>
-        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
+        <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
                 <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7 — Jeremy confirmed). Pinnacle near close — Mathieu says "just needs sign off." Ryan: "landed the plane." Bet365 MI embargo lifted Apr 18 9AM ET — now Day 1 live across RW/OJ/DGF/local; affiliate go-live still May 5. Kalshi ISV needs oAuth — Jeremy building, must be ready for football. Jeremy holding PI→PT rename until Poly deal closes. GAN/BetFinder near close for Bookies. Karl proposing OddsWire → Optic Widgets reskin — Yahoo interested in widgets (Apr 8). Updated Apr 19.
             </div>
@@ -2068,6 +2148,158 @@ document.getElementById('scRedTrend').textContent = redDelta > 0 ? `+${redDelta}
 document.getElementById('scRedTrend').className = 'sc-trend' + (sc.red > 0 ? ' worsening' : '');
 document.getElementById('scNrTrend').textContent = sc.notReported <= 5 ? `${reportingPct}% reporting` : `${100 - reportingPct}% missing`;
 document.getElementById('scNrTrend').className = 'sc-trend' + (sc.notReported <= 5 ? ' improving' : ' worsening');
+
+// ═══════════════════════════════════════════════════
+// WEEKLY SNAPSHOT SYSTEM
+// ═══════════════════════════════════════════════════
+// Snapshots live in snapshots/ folder. Captured Saturday 11:59 PM ET by the
+// sds-command-center-weekly-snapshot scheduled task.
+// File naming: snapshots/2026-WNN.json (ISO week number, Mon-Sun)
+// Each snapshot serializes the full dashboard state: DATA, KPI, POD_KPIS,
+// MBR_LIVE, OFFSITES constants + the innerHTML of hardcoded content blocks.
+
+// Capture the current (live) state on page load, so we can restore when the
+// user picks "Current Week" from the dropdown after viewing a snapshot.
+const SNAPSHOT_FRAGMENT_IDS = [
+    'snap-revenueHero', 'snap-wowForecast', 'snap-revGrid',
+    'snap-efficiency', 'snap-scorecardIntro', 'snap-pipelineNote'
+];
+const CURRENT_STATE = {
+    meta: {
+        week: 'current',
+        label: 'Current Week',
+        weekStart: null,
+        weekEnd: null,
+        capturedAt: new Date().toISOString()
+    },
+    constants: {
+        DATA: JSON.parse(JSON.stringify(DATA)),
+        KPI: JSON.parse(JSON.stringify(KPI)),
+        POD_KPIS: JSON.parse(JSON.stringify(POD_KPIS)),
+        MBR_LIVE: JSON.parse(JSON.stringify(MBR_LIVE)),
+        OFFSITES: JSON.parse(JSON.stringify(OFFSITES))
+    },
+    fragments: {}
+};
+SNAPSHOT_FRAGMENT_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    CURRENT_STATE.fragments[id] = el ? el.innerHTML : '';
+});
+
+function applySnapshot(snap) {
+    // Overwrite global constants in place
+    Object.assign(DATA, snap.constants.DATA);
+    // Replace nested arrays/objects that Object.assign doesn't deeply merge
+    DATA.yellowLeaders = snap.constants.DATA.yellowLeaders;
+    DATA.redItems = snap.constants.DATA.redItems;
+    DATA.attention = snap.constants.DATA.attention;
+    DATA.deals = snap.constants.DATA.deals;
+    DATA.mbr = snap.constants.DATA.mbr;
+    DATA.notesSynthesis = snap.constants.DATA.notesSynthesis;
+    DATA.rw = snap.constants.DATA.rw;
+    DATA.scorecard = snap.constants.DATA.scorecard;
+    DATA.cycle = snap.constants.DATA.cycle;
+
+    Object.keys(snap.constants.KPI).forEach(k => { KPI[k] = snap.constants.KPI[k]; });
+    POD_KPIS.length = 0; snap.constants.POD_KPIS.forEach(p => POD_KPIS.push(p));
+    MBR_LIVE.length = 0; snap.constants.MBR_LIVE.forEach(p => MBR_LIVE.push(p));
+    OFFSITES.items = snap.constants.OFFSITES.items;
+
+    // Swap hardcoded HTML fragments
+    SNAPSHOT_FRAGMENT_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && snap.fragments[id] != null) el.innerHTML = snap.fragments[id];
+    });
+
+    // Re-run all JS-driven render functions
+    renderYellowLeaders();
+    renderQuickAttention();
+    renderAttentionCards();
+    renderDeals();
+    renderMBR();
+    renderMBRLiveScaffold();
+    renderCycleProgress();
+    renderAllKPIs();
+    renderOffsites(document.querySelector('.offsite-toggle-btn.active')?.dataset.view || 'business');
+    renderRWAboveBudget();
+
+    // Re-run scorecard trend update
+    const sc2 = DATA.scorecard;
+    document.getElementById('scGreen').textContent = sc2.green;
+    document.getElementById('scYellow').textContent = sc2.yellow;
+    document.getElementById('scRed').textContent = sc2.red;
+    document.getElementById('scNotReported').textContent = sc2.notReported;
+    const reportingPct2 = Math.round(((sc2.green + sc2.yellow + sc2.red) / sc2.total) * 100);
+    document.getElementById('scGreenTrend').textContent = `${Math.round(sc2.green/sc2.total*100)}% of ${sc2.total}`;
+    document.getElementById('scGreenTrend').className = 'sc-trend improving';
+    const gd = sc2.green - sc2.prevGreen, yd = sc2.yellow - sc2.prevYellow, rd = sc2.red - sc2.prevRed;
+    document.getElementById('scYellowTrend').textContent = yd > 0 ? `+${yd} vs W1` : yd < 0 ? `${yd} vs W1` : '—';
+    document.getElementById('scYellowTrend').className = 'sc-trend' + (yd > 0 ? ' worsening' : yd < 0 ? ' improving' : '');
+    document.getElementById('scRedTrend').textContent = rd > 0 ? `+${rd} vs W1` : rd < 0 ? `${rd} vs W1` : sc2.red > 0 ? 'NEW' : '—';
+    document.getElementById('scRedTrend').className = 'sc-trend' + (sc2.red > 0 ? ' worsening' : '');
+    document.getElementById('scNrTrend').textContent = sc2.notReported <= 5 ? `${reportingPct2}% reporting` : `${100 - reportingPct2}% missing`;
+    document.getElementById('scNrTrend').className = 'sc-trend' + (sc2.notReported <= 5 ? ' improving' : ' worsening');
+
+    // Header timestamp reflects the snapshot capture date
+    if (snap.meta.capturedAt) {
+        const d = new Date(snap.meta.capturedAt);
+        const fmt = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        document.getElementById('lastUpdated').textContent = 'Updated: ' + fmt;
+    }
+}
+
+function showSnapshotBanner(snap) {
+    const banner = document.getElementById('snapshotBanner');
+    const text = document.getElementById('snapshotBannerText');
+    banner.classList.add('active');
+    text.textContent = `Viewing snapshot: ${snap.meta.label} — state as of ${snap.meta.weekEnd || snap.meta.capturedAt.slice(0, 10)}`;
+}
+
+function hideSnapshotBanner() {
+    document.getElementById('snapshotBanner').classList.remove('active');
+}
+
+async function onWeekChange(weekKey) {
+    const picker = document.getElementById('weekPicker');
+    picker.value = weekKey;
+    if (weekKey === 'current') {
+        applySnapshot(CURRENT_STATE);
+        hideSnapshotBanner();
+        return;
+    }
+    try {
+        const res = await fetch(`snapshots/${weekKey}.json`, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`Snapshot ${weekKey} not found (HTTP ${res.status})`);
+        const snap = await res.json();
+        applySnapshot(snap);
+        showSnapshotBanner(snap);
+    } catch (e) {
+        console.error('Snapshot load failed:', e);
+        alert(`Could not load ${weekKey}: ${e.message}`);
+        picker.value = 'current';
+    }
+}
+
+async function populateWeekPicker() {
+    try {
+        const res = await fetch('snapshots/index.json', { cache: 'no-cache' });
+        if (!res.ok) return; // No manifest yet — leave dropdown with just "Current Week"
+        const manifest = await res.json();
+        const picker = document.getElementById('weekPicker');
+        picker.innerHTML = `<option value="current">Current Week${manifest.currentLabel ? ' (' + manifest.currentLabel + ')' : ''}</option>`;
+        (manifest.snapshots || []).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.week;
+            opt.textContent = s.label;
+            picker.appendChild(opt);
+        });
+    } catch (e) {
+        // Silent — dashboard still works without historical snapshots
+        console.debug('Week manifest not available yet:', e.message);
+    }
+}
+
+populateWeekPicker();
 
 </script>
 </body>

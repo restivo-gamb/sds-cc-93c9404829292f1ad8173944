@@ -1,0 +1,14 @@
+{
+  "updatedAt": "2026-04-20T15:25:39.922Z",
+  "currentWeek": "2026-W17",
+  "currentLabel": "Apr 20 – Apr 26",
+  "snapshots": [
+    {
+      "week": "2026-W16",
+      "label": "Week of Apr 13 – Apr 19",
+      "weekStart": "2026-04-13",
+      "weekEnd": "2026-04-19",
+      "capturedAt": "2026-04-19T03:59:00Z"
+    }
+  ]
+}
