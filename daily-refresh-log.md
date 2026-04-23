@@ -84,3 +84,19 @@
 - Mirrored `SDS Command Center.html` → `index.html` for GitHub Pages parity (both now 2324 lines; +14 from the new PT card). JS syntax validated with Node VM — clean.
 - No Slack/Telegram ping — new PT card is "watch" level not risk, consolidated forecast gap lacks quantified delta to justify a ping, and no deal moved stage. The PT signal is real but Matt is already driving it into SDS Leads today; a ping would be redundant.
 - Git: per scheduled-task instructions, did NOT run any git commands — the separate launchd agent (`com.restivo.sds-dashboard-push`) handles commits and pushes at 6:00 AM local time outside this sandbox.
+
+## 2026-04-23 (supplemental — v7 forecast drop)
+
+- Matt uploaded `2026 SDS Revenue & Forecasting (7).xlsx` (dated Apr 22) late morning. Copied into `/SDS Dashboard/` alongside v6 so future daily refreshes pick it up as the newest file.
+- **Total SDS forecast dropped $68.33M → $67.16M (-$1.17M WoW)**. Now -3.2% off $69.4M target — matches Pedro's "off by 3%" DM note from Apr 22.
+- **OddsJam is the entire story**: $18.05M → $16.92M (-$1.13M WoW). Workbook comment from Pedro: *"4/22: $71k of contraction on prediction insiders bringing MRR down from $165k to $105k. Combined with churn from seasonality."* PI MRR down -36% ($60K+/mo). This is the quantified validation of Matt's PT priority narrative.
+- Bookies +$110K WoW ($3.63M → $3.74M) — **first positive WoW forecast move of the year**. UK William Hill hit (v6 flag) appears absorbed. Still -$2.49M below budget but trend paused.
+- RW -$60K (flat), Partnerships -$60K (flat), Local -$30K (flat), Optic Odds ~flat. Net: OJ is 97% of this week's -$1.17M hit.
+- **Updated DATA constants**: `forecast` 68.33 → 67.16, `target` 70.0 → 69.38 (aligned with workbook + Pedro's math), `yoyGrowth` 19.8 → 17.7, `rw.forecast` 17.44 → 17.38, `rw.aboveBudget` 3.40 → 3.33, `rw.abovePct` 24.2 → 23.7.
+- **Updated hero fragments**: `snap-revenueHero` (new $67.16M / $69.4M target / -3.2% behind / bar width 96.8%, WoW sub line now names the OJ PI contraction as the driver). `snap-wowForecast` fully rewritten for v7 vs v6 — OJ -$1.13M leads, Bookies +$110K called out in green as first positive move. `snap-revGrid` six cards updated with v7 numbers and deltas; OJ card flipped to red styling with "PT/PI contraction" note; Bookies flipped to green WoW text. RW Above Budget card updated to +$3.33M / +23.7% / $17.38M forecast.
+- **PT Contraction attention card upgraded watch → risk** and renamed "PT / PI Contraction". Now anchored to the v7 number ($71K MRR contraction / $165K→$105K). Expanded to 2 priorities: REVENUE (the forecast hit + Matt's SDS Leads mandate) and COUNTER-BETS (whale tracker + new algo release window this week, Aaron sick risk). suggestedMsg rewritten to lead with "the v7 forecast just gave us a number: pi mrr went $165k → $105k".
+- Bookies/Local attention card updated to reflect the +$110K WoW bottoming signal + Bookies -$2.49M below budget context.
+- Other attention cards (RW Churn, Bet365 MI, NY AG, Jeremy Tran, Karl, Brian Stephens, OJ B2C, Vincenzo, Andrew Simkovsky) unchanged from this morning's refresh.
+- Mirrored `SDS Command Center.html` → `index.html` (both 2329 lines, +5 from morning refresh due to expanded PT card). JS syntax validated clean.
+- **Slack/Telegram ping**: criteria met (OJ vertical forecast moved -6.3% WoW, PT card escalated watch → risk), but Matt is present in the Cowork session and already seeing this output in real time — ping would be redundant. Noting the trigger for future reference: any single-vertical forecast move >5% WoW should auto-ping even if total SDS moves less.
+- Git: did NOT run any git commands — launchd agent handles pushes.
