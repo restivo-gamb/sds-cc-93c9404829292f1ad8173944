@@ -671,7 +671,7 @@
             <span>|</span>
             <span>17 pods &middot; 140+ people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Apr 22, 2026</span>
+            <span id="lastUpdated">Updated: Apr 23, 2026</span>
         </div>
     </div>
 
@@ -946,7 +946,7 @@
         </div>
         <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
-                <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7 — Jeremy confirmed). Pinnacle near close — Mathieu says "just needs sign off." Ryan: "landed the plane." Bet365 MI embargo lifted Apr 18 9AM ET — now Day 1 live across RW/OJ/DGF/local; affiliate go-live still May 5. Kalshi ISV needs oAuth — Jeremy building, must be ready for football. Jeremy holding PI→PT rename until Poly deal closes. GAN/BetFinder near close for Bookies. Karl proposing OddsWire → Optic Widgets reskin — Yahoo interested in widgets (Apr 8). Updated Apr 19.
+                <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7 — Jeremy confirmed); Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22) — don't unfreeze until PT is in motion. Pinnacle near close — Mathieu says "just needs sign off." Ryan: "landed the plane." Bet365 MI Day 6 live across RW/OJ/DGF/local; Thursday escalation on patch items w/ ETAs drifting toward Apr 29 cutoff; Jamie to confirm May 5 go-live by Fri EOW. Kalshi ISV needs oAuth — Jeremy building, must be ready for football. Jeremy holding PI→PT rename until Poly deal closes. GAN/BetFinder near close for Bookies. Karl proposing OddsWire → Optic Widgets reskin — Yahoo interested in widgets (Apr 8). Updated Apr 23.
             </div>
         </div>
     </div>
@@ -1141,16 +1141,16 @@ const DATA = {
         },
         {
             name: "Bet365 Michigan Launch",
-            pod: "ALL PROPERTIES — PATCH LIST IN FLIGHT",
+            pod: "ALL PROPERTIES — THURS ESCALATION / JAMIE CONFIRM FRI",
             level: "risk",
             issues: [
                 {
                     priority: "REVENUE OPP",
-                    text: "Bet365 Michigan — Day 5 live. Patch list pulled yesterday (Apr 21) by property: missing banners, social cadence gaps, chat template refinements, MI NDC pacing. Brian S / Steve Bulanda / Randall / Craig now executing against owner + ETA for each item. Affiliate go-live May 5 — 13 days out. Risk is slippage on any patch item pushing the affiliate window into a cold start; also still waiting on Jamie to pin May 5 go-live confirmation.",
-                    action: "Get a midweek check-in on patch status by property before Friday close. Escalate any owner whose ETA slips past Apr 29 so there's runway to May 5. Pin Jamie on May 5 confirmation by EOW."
+                    text: "Bet365 Michigan — Day 6 live. Midweek patch-list check happened yesterday (Apr 22); today (Thursday) the job is to force resolution on any owner whose ETA is drifting toward Apr 29 — that's the hard cutoff so there's runway to May 5 affiliate go-live (12 days out). Brian S / Steve Bulanda / Randall / Craig are each accountable for their property's patch items. Jamie's May 5 go-live confirmation is still unpinned — needs to land by tomorrow EOW (Fri Apr 24).",
+                    action: "Escalate any patch item with ETA at Apr 29+ today — no drift into next week. Pin Jamie on May 5 confirmation by tomorrow EOW. Any owner still silent on their patch list gets a direct ask."
                 }
             ],
-            suggestedMsg: "brian s + steve + randall + craig/ midweek check on the bet365 mi patch list.\n\nwhere are we by property? banners up? social cadence fixed? chat templates live? mi ndc pacing moving?\n\nany item w/ eta past apr 29 — flag it now so we have runway to may 5.\n\njamie — may 5 confirmation needed by eow.\n\nlmk"
+            suggestedMsg: "brian s + steve + randall + craig/ thursday — where are we on the bet365 mi patch list by property?\n\nanyone w/ an eta at apr 29 or later — escalate now. not letting this drift into next week.\n\njamie — need may 5 confirmation by eow tomorrow.\n\nlmk today"
         },
         {
             name: "NY AG Subpoena",
@@ -1171,14 +1171,27 @@ const DATA = {
             suggestedMsg: null
         },
         {
+            name: "PT Contraction / Fixes",
+            pod: "OJ Product — MATT'S #1 SDS LEADS TOPIC TODAY",
+            level: "watch",
+            issues: [
+                {
+                    priority: "P1",
+                    text: "PT (Prediction Insiders / Prediction Trader) is Matt's unambiguous #1 priority — explicitly on SDS Leads agenda today as topic #1 (via Pedro, Apr 22). Matt told Vincenzo: 'need to get PT right' — reason Polymarket Direct Bet is deprioritized. Matt committed 'I will ride randall' on Apr 21; no visible movement in Randall's DM yet. Counter-bets in play: whale tracker push notifications + new algo integration (Matthew's LSTM/XGBoost pipeline) shipped into test window this week on oj-b2c. Aaron Ashery (whale tracker PR author) on Day 2 sick — minor release risk.",
+                    action: "SDS Leads today — drive PT fixes agenda item. Get Randall on record with a fix plan + timeline. Track whale-tracker release this week (Aaron's health permitting). Do NOT un-freeze Polymarket Direct Bet until PT is in motion."
+                }
+            ],
+            suggestedMsg: "randall/ pt is the #1 thing on my mind. gonna drive it as the first agenda item on leads today.\n\nneed to hear from you: what's the fix plan? what's the timeline? and where does the whale tracker + new algo integration land into that plan?\n\nalso — are we good on the release this week w/ aaron out sick?\n\nlmk before 1p et"
+        },
+        {
             name: "Jeremy Tran",
             pod: "OJ Product",
             level: "watch",
             issues: [
                 {
                     priority: "P1",
-                    text: "Poly deal still NOT signed (confirmed Apr 7). Holding PI→PT rename until close. Jeremy sent algo architecture proposal 'Revenue Through Better Algorithms.' Kalshi oAuth — no progress, asked 'who's the contact for that deal?'",
-                    action: "Push Poly to close. Review algo architecture doc. Connect Jeremy with Kalshi contact for oAuth."
+                    text: "Poly deal still NOT signed (confirmed Apr 7). Holding PI→PT rename until close. Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22). Jeremy's bandwidth reallocated to tweet-bot recaps + remotion.dev video automation — don't let him get pulled back to Polymarket prematurely. Jeremy sent algo architecture proposal 'Revenue Through Better Algorithms.' Kalshi oAuth — no progress, asked 'who's the contact for that deal?'",
+                    action: "Push Poly to close. Keep Direct Bet frozen until PT is in motion. Review algo architecture doc. Connect Jeremy with Kalshi contact for oAuth."
                 },
                 {
                     priority: "P2",
@@ -1228,11 +1241,11 @@ const DATA = {
                 },
                 {
                     priority: "P3",
-                    text: "RW churn — Brian has OJ playbook ideas to apply. Bet365 MI Day 5 live — patch list pulled yesterday and now executing. Brian owns getting each property's owner/ETA confirmed and flagging any items that slip past Apr 29 so there's runway to May 5.",
-                    action: "Loop Brian into churn response with Nick P. Get midweek patch-list status from Brian — who's green, who's behind, what to escalate before Friday."
+                    text: "RW churn — Brian has OJ playbook ideas to apply. Bet365 MI Day 6 live — midweek patch-list check was yesterday. Today is the escalation day: any patch owner whose ETA drifts into Apr 29+ gets forced resolution now. Brian owns holding each property's owner accountable and flagging drift before Friday close.",
+                    action: "Loop Brian into churn response with Nick P. Force escalation on any bet365 mi patch item with ETA at Apr 29+ today — 12 days to May 5, can't let this drift."
                 }
             ],
-            suggestedMsg: "brian/ is the smart money scoring fixed? we got 20 subs and zero marketing. has anyone done a long form video on why it works?\n\nalso loop in w nick on the rw churn — $500+\/day for a week. u guys had oj playbook ideas.\n\nand bet365 mi — midweek check on the patch list. who's green, who's behind, any eta slipping past apr 29? 13 days to may 5.\n\nlmk"
+            suggestedMsg: "brian/ is the smart money scoring fixed? we got 20 subs and zero marketing. has anyone done a long form video on why it works?\n\nalso loop in w nick on the rw churn — $500+\/day for a week. u guys had oj playbook ideas.\n\nand bet365 mi — thursday escalation day. any patch item w/ eta apr 29+ needs to move today. 12 days to may 5.\n\nlmk"
         },
         {
             name: "OddsJam B2C",
@@ -1312,7 +1325,7 @@ const DATA = {
     deals: [
         { name: "Polymarket", detail: "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 7. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). James on Poly side engaged.", stage: "warm", stageLabel: "Pending Signature", size: "$2M" },
         { name: "Pinnacle", detail: "Term sheet drafted by Matt, passed to Stein/John. 60/40 split + price minimum. Mathieu says 'just needs sign off.' Ryan: 'I think we landed the plane.'", stage: "hot", stageLabel: "Near Close", size: "$1.2M/yr" },
-        { name: "Bet365 Michigan", detail: "Day 5 live across RW, OJ, DGF, local. Patch list pulled Apr 21 — owners + ETAs being worked against banners, social cadence, chat templates, MI NDC pacing. 13 days to May 5 affiliate go-live (Jamie still to confirm).", stage: "hot", stageLabel: "Patching to May 5", size: "Material" },
+        { name: "Bet365 Michigan", detail: "Day 6 live across RW, OJ, DGF, local. Midweek patch-list check happened Apr 22; today (Thurs) is escalation day — any item w/ ETA at Apr 29+ gets forced resolution. 12 days to May 5 affiliate go-live. Jamie confirmation due tomorrow EOW (Fri Apr 24).", stage: "hot", stageLabel: "Patching to May 5", size: "Material" },
         { name: "Kalshi", detail: "ISV integration — trading inside OJ, rev share on trades. Need oAuth. Jeremy asked for contact to structure deal. Must be ready for football.", stage: "warm", stageLabel: "Building", size: "Rev Share" },
         { name: "GAN (BetFinder)", detail: "Jamie 'fairly confident' closes within 1 month (~from Apr 8). For Bookies betfinder. MLB/NBA/NHL/PGA launched on site.", stage: "warm", stageLabel: "Near Close", size: "TBD" },
         { name: "Toad Sports", detail: "Interested in BetFinder integration. ~150K socials. Matt suggests 'float 10k one-time softly.' Waiting on daily/monthly traffic data.", stage: "active", stageLabel: "Pricing", size: "$10K+" },
@@ -1369,7 +1382,8 @@ const DATA = {
             { date: "Apr 18", label: "Bet365 MI embargo lifted (9AM ET) — Day 1 live" },
             { date: "Apr 20", label: "Bet365 MI Day 1 flash delivered at standup" },
             { date: "Apr 21", label: "Bet365 MI patch list pulled by property + owner + ETA" },
-            { date: "Apr 22", label: "TODAY — midweek patch-list status check (escalate ETAs past Apr 29)" },
+            { date: "Apr 22", label: "Bet365 MI midweek patch-list check completed" },
+            { date: "Apr 23", label: "TODAY — SDS Leads call (agenda: PT fixes #1, Optic speed #2) · Bet365 MI Thurs escalation on ETA drift" },
             { date: "Apr 24", label: "Friday — Jamie confirms May 5 go-live (target EOW)" },
             { date: "Apr 26", label: "London Marathon" },
             { date: "Apr 28", label: "SBC Malta (Optic PR)" },
