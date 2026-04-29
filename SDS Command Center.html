@@ -671,7 +671,7 @@
             <span>|</span>
             <span>17 pods &middot; 140+ people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Apr 23, 2026</span>
+            <span id="lastUpdated">Updated: Apr 29, 2026</span>
         </div>
     </div>
 
@@ -946,7 +946,7 @@
         </div>
         <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
-                <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7 — Jeremy confirmed); Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22) — don't unfreeze until PT is in motion. Pinnacle near close — Mathieu says "just needs sign off." Ryan: "landed the plane." Bet365 MI Day 6 live across RW/OJ/DGF/local; Thursday escalation on patch items w/ ETAs drifting toward Apr 29 cutoff; Jamie to confirm May 5 go-live by Fri EOW. Kalshi ISV needs oAuth — Jeremy building, must be ready for football. Jeremy holding PI→PT rename until Poly deal closes. GAN/BetFinder near close for Bookies. Karl proposing OddsWire → Optic Widgets reskin — Yahoo interested in widgets (Apr 8). Updated Apr 23.
+                <strong style="color: #fff;">Pipeline Note:</strong> Polymarket NOT signed yet (Apr 7); Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22). Polymarket integration progressing (Blake/Jamie, Apr 28); invite-code SEO push (KD code) goes live today. Pinnacle (deal) near close — Mathieu says "just needs sign off"; separately, Bet365/Pinnacle data-source gap is now Ryan's "P1 of P1s" — isportsapi.com candidate found by Scott (Apr 28), Matt + Ryan + Vincenzo working session this week. Bet365 MI Day 12 live; today (Apr 29) is the patch-item ETA cutoff — anything still open after EOD = May 5 risk list. Jamie's May 5 confirmation: needs verification today (was supposed to be pinned Apr 24 EOW). Optic sales — Apr 28 Closed Won UCM PET ($12.5K/mo) + Luke Cashman Aussie syndicate ($3K/mo); ~$51K/mo more in contracts-sent stage signing this week (stoked.bet $20K, remarkable $15K, Trade1 + Baltika + New Israeli + Poi Cash). Bet Online $20K → $65K/mo Aug step-up confirmed (Ryan, Apr 25). Boom rev-share — Matt to call Steve. Optic 4 SBC Americas Awards nominations (Apr 28). Kalshi ISV oAuth still pending (must be ready for football). GAN/BetFinder near close for Bookies. Karl OddsWire → Optic Widgets reskin pending — Yahoo interested. Updated Apr 29.
             </div>
         </div>
     </div>
@@ -1141,16 +1141,21 @@ const DATA = {
         },
         {
             name: "Bet365 Michigan Launch",
-            pod: "ALL PROPERTIES — THURS ESCALATION / JAMIE CONFIRM FRI",
+            pod: "ALL PROPERTIES — ETA CUTOFF TODAY / 6 DAYS TO MAY 5",
             level: "risk",
             issues: [
                 {
                     priority: "REVENUE OPP",
-                    text: "Bet365 Michigan — Day 6 live. Midweek patch-list check happened yesterday (Apr 22); today (Thursday) the job is to force resolution on any owner whose ETA is drifting toward Apr 29 — that's the hard cutoff so there's runway to May 5 affiliate go-live (12 days out). Brian S / Steve Bulanda / Randall / Craig are each accountable for their property's patch items. Jamie's May 5 go-live confirmation is still unpinned — needs to land by tomorrow EOW (Fri Apr 24).",
-                    action: "Escalate any patch item with ETA at Apr 29+ today — no drift into next week. Pin Jamie on May 5 confirmation by tomorrow EOW. Any owner still silent on their patch list gets a direct ask."
+                    text: "Bet365 Michigan — Day 12 live. Today (Apr 29) IS the patch-item ETA cutoff: anything not landing by EOD today is now at-risk for the May 5 affiliate go-live (6 days out). Brian S / Steve Bulanda / Randall / Craig each own their property's remaining patch items. Sub-question: did Jamie's May 5 go-live confirmation actually land last Friday (Apr 24)? It was supposed to be EOW pin and there's no visible confirmation in the Apr 25–28 scan. Verify before close of business today.",
+                    action: "Walk the patch list one final time today by property. Anything still open after EOD goes on the May 5 risk list — name it explicitly so nothing slips quietly. Confirm Jamie's May 5 sign-off in writing today; if it's not pinned, that's the higher-priority escalation."
+                },
+                {
+                    priority: "PRODUCT RISK",
+                    text: "Bet365 shadow-site discrepancy flagged by Leo Apr 28 (#optic-sales): a prospect noticed our 365 prices matched 188-sb.com instead of the official 365 site. Vincenzo's first answer ('we get from official API, we don't alter') didn't address the divergence claim. Leo pushed back. Latency-sensitive prospects (Exigent Closed Lost, Pinnacle complaints) keep scrutinizing data quality — this is the second customer-visible data signal in a week.",
+                    action: "Ask Vincenzo for a one-shot diff against the official 365 site so we have evidence-based answer for Leo + the prospect. Fold finding into Optic data-quality narrative for next MBR."
                 }
             ],
-            suggestedMsg: "brian s + steve + randall + craig/ thursday — where are we on the bet365 mi patch list by property?\n\nanyone w/ an eta at apr 29 or later — escalate now. not letting this drift into next week.\n\njamie — need may 5 confirmation by eow tomorrow.\n\nlmk today"
+            suggestedMsg: "brian s + steve + randall + craig/ today is the apr 29 eta cutoff. anything still open after eod = on the may 5 risk list, named explicitly.\n\njamie — did your may 5 confirmation actually land friday? i don't see it pinned. need it in writing today.\n\nlmk by eod"
         },
         {
             name: "NY AG Subpoena",
@@ -1231,26 +1236,31 @@ const DATA = {
         },
         {
             name: "Brian Stephens",
-            pod: "Growth Ops / Talent",
-            level: "watch",
+            pod: "Growth Ops / Talent — UP-SPEND ASK NEEDS A NUMBER",
+            level: "risk",
             issues: [
                 {
-                    priority: "P1",
-                    text: "Smart Money still stuck at 20 subs. Lucas made short-term scoring fixes but Jeremy says deeper demand issue. Matt pushed hard in #sds-growth (Apr 7): 'have any front-facing talent done a long-form video on why SM works?' No marketing motion exists yet.",
-                    action: "Confirm scoring is solid. Get long-form video from talent. Create marketing plan to ramp from 20 subs."
+                    priority: "P1 — UP-SPEND ASK",
+                    text: "Apr 28: Brian wants to up spend across the board to fix TOF — fund Sal-led influencer motion + Choi-led short-form (UGC + big creators) + scale RTs (March 2025 64K vs March 2026 30K). Matt directionally agreed but no $ number, no horizon, no allocation. This is the most consequential open item from Brian this week — risk is greenlight slips into a forecast surprise without going through Pedro first.",
+                    action: "Anchor Brian's ask to a specific monthly $ budget by Wed. Loop Pedro before sign-off so the consolidated forecast can absorb. Ask Brian for a one-pager: where the spend lands (Sal/influencer vs Choi/short-form vs RT scale), expected CAC, and the kill-criteria."
                 },
                 {
-                    priority: "P2",
-                    text: "PI→PT rename in flux. Clark Gary going 12-1 generating real Twitter engagement. OJ Baseball bot crushing it (automated, $0.30/day, viral growth). Post-offsite responsibilities doc from vibecoded tool + whiteboard still pending.",
-                    action: "Ride Clark's hot streak for PI marketing. Finalize responsibilities doc. Scale bot model to other sports."
+                    priority: "P2 — NICK MENTORSHIP",
+                    text: "Brian → NYC May 4–5 to spend a day/night with Nick P at GDC office (driving in, Daniel logistics ✅). Matt explicitly told Brian 'he needs more brian than letran. i'm spending a lot of time w him but he needs more brian.' Direct allocation choice — Nick is the consistent ship-faster bottleneck across multiple DMs.",
+                    action: "Confirmed plan, no action needed today. Track outcome from May 5 onward (does Nick start moving differently?)."
                 },
                 {
-                    priority: "P3",
-                    text: "RW churn — Brian has OJ playbook ideas to apply. Bet365 MI Day 6 live — midweek patch-list check was yesterday. Today is the escalation day: any patch owner whose ETA drifts into Apr 29+ gets forced resolution now. Brian owns holding each property's owner accountable and flagging drift before Friday close.",
-                    action: "Loop Brian into churn response with Nick P. Force escalation on any bet365 mi patch item with ETA at Apr 29+ today — 12 days to May 5, can't let this drift."
+                    priority: "P3 — SMART MONEY + CHURN + BET365 MI",
+                    text: "Smart Money still stuck at 20 subs — no long-form talent video yet despite Matt's Apr 7 push. RW churn — Brian has OJ playbook ideas to apply with Nick P. Bet365 MI is at the Apr 29 ETA cutoff today (Day 12 live) — Brian owns holding each property accountable for any patch item not landing by EOD.",
+                    action: "Smart Money long-form video — Brian to confirm talent + timeline. RW churn playbook — loop in with Nick P this week. Bet365 MI — anything still open after EOD today gets named on the May 5 risk list."
+                },
+                {
+                    priority: "P4 — DONVITO / TYLER UNBLOCK / +50K AFFIL",
+                    text: "Pending micro-items: (1) DonVitoBetz X post boost — directional ✅ from Matt ('lfg / i hate him'); execution path TBD. (2) Tyler's Cowork/Claude unblock list — Brian/Tyler to draft; Matt approved 1-month personal Claude expense in interim. (3) +50K affiliate deal: Brian asked for clarification on scope (CPA / post count) before responding.",
+                    action: "Sleep on DonVito boost once before greenlight (could backfire as petty). Push GAMB IT to centralize Cowork unblocks (third week of friction). Get Brian the +50K scope answer."
                 }
             ],
-            suggestedMsg: "brian/ is the smart money scoring fixed? we got 20 subs and zero marketing. has anyone done a long form video on why it works?\n\nalso loop in w nick on the rw churn — $500+\/day for a week. u guys had oj playbook ideas.\n\nand bet365 mi — thursday escalation day. any patch item w/ eta apr 29+ needs to move today. 12 days to may 5.\n\nlmk"
+            suggestedMsg: "brian/ on the up-spend ask — i'm in directionally but i need a number before i greenlight. send me a one-pager: where it lands (sal influencer vs choi short-form vs rt scale), expected cac, kill criteria. and ping pedro before sign-off so the forecast doesn't get surprised.\n\nalso — bet365 mi is at the apr 29 cutoff today (day 12 live). anything still open after eod gets named on the may 5 risk list. nyc may 4-5 w nick all set?\n\nlmk"
         },
         {
             name: "OddsJam B2C",
@@ -1290,26 +1300,31 @@ const DATA = {
         },
         {
             name: "Vincenzo Ampolo",
-            pod: "Data / Optic Eng",
-            level: "watch",
+            pod: "Data / Optic Eng — FBM LAWSUIT + DATA-SOURCE GAP + CATCH-UP",
+            level: "risk",
             issues: [
                 {
-                    priority: "PEOPLE",
-                    text: "Harry Thompson leaving (told team Apr 6). Kurt Kroll 2mo paternity June. Backend rank: Erik > Parr > James. Frontend: Dylan > Chris > Kurt. Plans backend/frontend lead split. Nikola ($75K Serbia DevOps) approved. Whale picker contractor Matthew ($50/hr, 15-20hrs/mo) approved — already built 80% of LSTM/XGBoost pipeline.",
-                    action: "Accelerate Nikola + Matthew onboarding. Finalize lead split. Andrew Parr to run RW dev under V."
+                    priority: "LEGAL",
+                    text: "FBM lawsuit response: Vincenzo woke up at 6am Apr 28 to land a detailed written answer for the lawyers (would not have looked good to say 'we don't have logs'). Michael (presumably outside counsel) replied saying he liked the answer and wants a follow-up call. Matt's tone shifted from sharp ('astonished you prioritized randall') to repair ('if you're sensing me stressed just gimmie a little grace / we haven't caught up in a bit') in the same DM thread.",
+                    action: "Schedule Michael call this week. Schedule a 30-min Matt + V catch-up Wed/Thu (Matt explicitly said 'i need to do better on that')."
                 },
                 {
-                    priority: "TECH",
-                    text: "RW data warehouse critical gap — V asked Tim (Apr 3), Tim checking with Lucas/Harry. FanDuel API changing — need migration assessment. GCP $5M bill in next 3 years. RW scraping block being assessed.",
-                    action: "Andrew S to own BigQuery/data warehouse. Confirm FD public API impact. Manage GCP costs."
+                    priority: "P1 OF P1S — DATA-SOURCE BUY",
+                    text: "Ryan Apr 28: 'need v to actually focus and get something done here.' Matt: 'i'm confused how this isn't the p1 of all p1s… maybe i haven't ridden hard enough.' Bet365/Pinnacle data-source gap has been on the plate for ~4 months. New candidate found by Scott in #vrr Apr 28: isportsapi.com — appears to be what Pinnacle uses underneath, has the niche soccer/basketball sources we're missing fixtures + settlement on. Ryan asking for Matt to be 'on V with me' through the eval.",
+                    action: "Schedule Matt + Ryan + Vincenzo working session this week to scope the buy. 1-week deadline check on Scott's isportsapi investigation (target next Mon). Treat as the P1 — Polymarket Direct Bet stays frozen, this comes ahead."
                 },
                 {
-                    priority: "CULTURE",
-                    text: "Rohan/Vincenzo friction — Ryan mediating. Rohan writing code nobody else can maintain. Matt coaching V on communication: 'don't shit on ppl for using ai, then suggest corrections.'",
-                    action: "Confirm Ryan brokered the Rohan/V meeting. V needs to be more careful with feedback delivery."
+                    priority: "INTERCOM EXPORT",
+                    text: "Randall asked V to export 2,200 Intercom refund conversations. V questioned if scope is right ('No human is going to go over so many conversations'). Matt's read: scope this with Randall before more eng hours go in.",
+                    action: "Matt DM Randall today to scope the export — what is he actually trying to learn? Cap engineering effort accordingly."
+                },
+                {
+                    priority: "TECH BACKLOG",
+                    text: "Carryover: Harry out (Apr 6), Kurt paternity June, backend/frontend lead split pending. Nikola ($75K Serbia DevOps) + Matthew (whale-picker, $50/hr) approved earlier this month. Bet365 shadow-site discrepancy (Leo Apr 28) — needs a one-shot diff against the official 365 site. RW data warehouse, FD API migration, GCP cost trajectory still on the list.",
+                    action: "Don't let backlog hide P1. Ship the data-source buy decision first; pick up backlog at Wed/Thu catch-up."
                 }
             ],
-            suggestedMsg: "vincenzo/ harry's out, kurt has paternity june. need the backend\/frontend lead split locked down this week.\n\nis nikola locked in? and matthew for the whale picker — what's his start date?\n\nalso the rw data warehouse is critical — can andrew s own that on bigquery?\n\nlmk"
+            suggestedMsg: "v/ first — thanks for the lawyer answer; sounds like michael's happy and wants a follow-up. let's make sure that lands on your cal this week.\n\nsecond — let's stop talking about the bet365\/pinnacle data-source gap and just buy something. ryan, you, me — 30 min this week to scope the isportsapi eval with scott. this is the p1.\n\nthird — randall's intercom export. before more hours go in, what's the actual question he's trying to answer? let's scope it.\n\nfourth — let's get a real catch-up on the cal too. wed or thu 30 min.\n\nlmk"
         },
         {
             name: "Andrew Simkovsky",
@@ -1328,15 +1343,19 @@ const DATA = {
 
     // Deals
     deals: [
-        { name: "Polymarket", detail: "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 7. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). James on Poly side engaged.", stage: "warm", stageLabel: "Pending Signature", size: "$2M" },
+        { name: "Polymarket", detail: "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 7. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). James on Poly side engaged. Apr 27 — invite-code SEO push staged ('KD' code, 5.6K SV, Christian + Jamie coordinated, content goes live Apr 29). Apr 28 — Polymarket integration progressing (Blake/Jamie); reporting still being set up, conversions report to follow once data flows.", stage: "warm", stageLabel: "Pending Sig · Integration in flight", size: "$2M" },
         { name: "Pinnacle", detail: "Term sheet drafted by Matt, passed to Stein/John. 60/40 split + price minimum. Mathieu says 'just needs sign off.' Ryan: 'I think we landed the plane.'", stage: "hot", stageLabel: "Near Close", size: "$1.2M/yr" },
-        { name: "Bet365 Michigan", detail: "Day 6 live across RW, OJ, DGF, local. Midweek patch-list check happened Apr 22; today (Thurs) is escalation day — any item w/ ETA at Apr 29+ gets forced resolution. 12 days to May 5 affiliate go-live. Jamie confirmation due tomorrow EOW (Fri Apr 24).", stage: "hot", stageLabel: "Patching to May 5", size: "Material" },
+        { name: "Bet365 Michigan", detail: "Day 12 live across RW, OJ, DGF, local. Today (Apr 29) is the patch-item ETA cutoff — anything still open after EOD goes on the May 5 risk list, named explicitly. 6 days to May 5 affiliate go-live. Jamie's May 5 confirmation: was supposed to be pinned by Fri Apr 24 EOW but no visible confirmation in the Apr 25–28 scan — verify in writing today. Bet365 shadow-site discrepancy (Leo, Apr 28) parked with Vincenzo for diff vs official 365 site.", stage: "hot", stageLabel: "ETA Cutoff Today", size: "Material" },
         { name: "Kalshi", detail: "ISV integration — trading inside OJ, rev share on trades. Need oAuth. Jeremy asked for contact to structure deal. Must be ready for football.", stage: "warm", stageLabel: "Building", size: "Rev Share" },
         { name: "GAN (BetFinder)", detail: "Jamie 'fairly confident' closes within 1 month (~from Apr 8). For Bookies betfinder. MLB/NBA/NHL/PGA launched on site.", stage: "warm", stageLabel: "Near Close", size: "TBD" },
         { name: "Toad Sports", detail: "Interested in BetFinder integration. ~150K socials. Matt suggests 'float 10k one-time softly.' Waiting on daily/monthly traffic data.", stage: "active", stageLabel: "Pricing", size: "$10K+" },
         { name: "NASCAR Digital", detail: "Also interested in BetFinder. Early stage (Brian Roth, Apr 13).", stage: "active", stageLabel: "Discovery", size: "TBD" },
         { name: "Yahoo", detail: "Interested in widgets. Replace BetMGM, $100 tier, pitch running content like USAToday model.", stage: "active", stageLabel: "Proposal", size: "TBD" },
-        { name: "Fanatics", detail: "Proposal sent", stage: "active", stageLabel: "Proposal", size: "TBD" }
+        { name: "Fanatics", detail: "Proposal sent", stage: "active", stageLabel: "Proposal", size: "TBD" },
+        { name: "Boom (rev-share ask)", detail: "Apr 28 — Ryan asked Matt to use his relationship with Steve (Boom CEO) to push for rev-share. Ryan's read: Boom's app lines are basically just our API; they're making money now and not giving us upside. Matt agreed ('yea steve and he's kind of a fuck too / but i can tell him rs'). Ryan to send screenshots of Boom app lines as evidence. No deadline set.", stage: "active", stageLabel: "Matt to Plant Seed", size: "Rev Share" },
+        { name: "Bet Online (banked)", detail: "Apr 25 confirmed by Ryan — Shay + Ryan closed Bet Online (Leo did not). Currently $20K/mo, stepping to $65K/mo in August. Worth confirming with Pedro that the consolidated forecast already reflects the Aug step-up.", stage: "hot", stageLabel: "Banked → Aug step-up", size: "$20K → $65K/mo" },
+        { name: "Optic — Closed Won (Apr 28)", detail: "Shay's weekly update: UCM PET $12.5K/mo + Luke Cashman Aussie syndicate $3K/mo. Contract Sent (sign by EOM): Trade1 $5K/mo, Baltika System $5K/mo, stoked.bet $20K/mo, New Israeli syndicate $3K/mo, remarkable $15K/mo (May 1), Poi Cash $3K/mo, plus Deportes Latinos rev-share + Thrillzz (sweeps moving). Trial / post-trial = 49 deals, including nextbet (Tier-1 Aussie) finalizing eval and Betfred (proposal: 6–8% GGR + $39.5K MMF).", stage: "hot", stageLabel: "Closing this week", size: "~$15.5K/mo Won + ~$51K/mo in flight" },
+        { name: "Leo GTM (EU)", detail: "Apr 27 GTM update: Divvy $20K (positive this week), Crypto.com $35K (final senior team Qs), CME Group $25K (good DM call), Sharada Capital $10K (now integrated into Poly/Kalshi/Crypto), La Liga $7K (proposal shared), Future Anthem $6K. Exigent $5K Closed Lost — flagged latency vs competitor (likely Pinnacle), not replying to feedback ask. Entain commercial call this week (incl. tennis). CME = partnership-platform model possibility. Leo at SBC Summit Malta this week.", stage: "active", stageLabel: "Multiple in flight", size: "~$103K total" }
     ],
 
     // MBR Insights (latest month)
@@ -1385,17 +1404,16 @@ const DATA = {
         end: "2026-05-01",
         keyDates: [
             { date: "Apr 18", label: "Bet365 MI embargo lifted (9AM ET) — Day 1 live" },
-            { date: "Apr 20", label: "Bet365 MI Day 1 flash delivered at standup" },
             { date: "Apr 21", label: "Bet365 MI patch list pulled by property + owner + ETA" },
-            { date: "Apr 22", label: "Bet365 MI midweek patch-list check completed" },
-            { date: "Apr 23", label: "TODAY — SDS Leads call (agenda: PT fixes #1, Optic speed #2) · Bet365 MI Thurs escalation on ETA drift" },
-            { date: "Apr 24", label: "Friday — Jamie confirms May 5 go-live (target EOW)" },
-            { date: "Apr 26", label: "London Marathon" },
-            { date: "Apr 28", label: "SBC Malta (Optic PR)" },
-            { date: "Apr 29", label: "Patch-item ETA cutoff — anything later = risk to May 5" },
-            { date: "May 1", label: "Cycle 2 ends → Cycle 3 re-eval" },
-            { date: "May 4-5", label: "Jeremy + Nick P → NY office visit" },
-            { date: "May 5", label: "Bet365 MI affiliate go-live (tentative — pin Jamie EOW)" }
+            { date: "Apr 23", label: "SDS Leads call — PT fixes #1, Optic speed #2 · Forecast v7 dropped (-$1.17M WoW, OJ -$1.13M)" },
+            { date: "Apr 24", label: "Jamie May 5 confirmation deadline · Matt's London flight diverted overnight" },
+            { date: "Apr 26", label: "London Marathon (Matt) — sub-3 (2:59:58)" },
+            { date: "Apr 27", label: "Polymarket invite code 'KD' surfaced for SEO push (Jamie/Christian) · RW Dynasty rookie mock draft simulator live (Tyler/Max — 3K simulations over weekend) · Optic 4 SBC Americas Awards nominations" },
+            { date: "Apr 28", label: "Pedro ran his first MBR call solo — 'engaged the whole time' · Vincenzo answered FBM lawyer email (Michael wants follow-up call) · Leo flagged Bet365 shadow-site discrepancy (188-sb.com)" },
+            { date: "Apr 29", label: "TODAY — Bet365 MI Day 12 · PATCH-ITEM ETA CUTOFF (anything past today = risk to May 5) · Polymarket invite-code SEO content goes live · Matt to call Steve re: Boom rev-share" },
+            { date: "May 1", label: "Cycle 2 ends (Fri) → Cycle 3 re-eval" },
+            { date: "May 4-5", label: "Brian S → NYC w/ Nick P (Brian driving, GDC office) · Jeremy + Nick P also in NY office" },
+            { date: "May 5", label: "Bet365 MI affiliate go-live — 6 days out (Jamie confirmation status to verify)" }
         ]
     }
 };
