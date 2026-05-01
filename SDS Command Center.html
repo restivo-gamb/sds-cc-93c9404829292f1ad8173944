@@ -946,7 +946,7 @@
         </div>
         <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
-                <strong style="color: #fff;">Pipeline Note:</strong> <strong style="color:var(--yellow);">Forecast v8 dropped Apr 29</strong> — quiet -$210K WoW roll-forward; Total SDS now $66.95M, -3.5% off target. RW trimmed -$200K to $17.18M but still +22.3% over budget; OJ held flat at $16.92M — PT story didn't worsen but didn't reverse either (Week 2 since SDS Leads PT mandate without visible recovery). Bookies +$10K (Pedro: "US rev share leaning our way for April"). Polymarket NOT signed yet (Apr 7); Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22). Polymarket integration progressing (Blake/Jamie, Apr 28-29); reporting being set up on our side, conversions report owned by Jamie once data flows — that follow-up is the trigger for the MBR forecast. Pinnacle (deal) near close — Mathieu says "just needs sign off"; separately, Bet365/Pinnacle data-source gap is now Ryan's "P1 of P1s" — isportsapi.com candidate found by Scott (Apr 28), Matt + Ryan + Vincenzo working session this week. Bet365 MI Day 13 live; Apr 29 patch-item ETA cutoff is now in the rearview — named risk list by property due today (11a ET), and Jamie's missing May 5 confirmation pin is the higher-priority escalation; 5 days to May 5 go-live. Optic sales — Apr 28 Closed Won UCM PET ($12.5K/mo) + Luke Cashman Aussie syndicate ($3K/mo); ~$51K/mo more in contracts-sent stage signing this week (stoked.bet $20K, remarkable $15K, Trade1 + Baltika + New Israeli + Poi Cash). Bet Online $20K → $65K/mo Aug step-up confirmed (Ryan, Apr 25). Boom rev-share — Matt to call Steve. Optic 4 SBC Americas Awards nominations (Apr 28). Kalshi ISV oAuth still pending (must be ready for football). GAN/BetFinder near close for Bookies. Karl OddsWire → Optic Widgets reskin pending — Yahoo interested. Updated Apr 30 (v8).
+                <strong style="color: var(--text-primary);">Pipeline Note:</strong> <strong style="color:var(--yellow);">Forecast v8 dropped Apr 29</strong> — quiet -$210K WoW roll-forward; Total SDS now $66.95M, -3.5% off target. RW trimmed -$200K to $17.18M but still +22.3% over budget; OJ held flat at $16.92M — PT story didn't worsen but didn't reverse either (Week 2 since SDS Leads PT mandate without visible recovery). Bookies +$10K (Pedro: "US rev share leaning our way for April"). Polymarket NOT signed yet (Apr 7); Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22). Polymarket integration progressing (Blake/Jamie, Apr 28-29); reporting being set up on our side, conversions report owned by Jamie once data flows — that follow-up is the trigger for the MBR forecast. Pinnacle (deal) near close — Mathieu says "just needs sign off"; separately, Bet365/Pinnacle data-source gap is now Ryan's "P1 of P1s" — isportsapi.com candidate found by Scott (Apr 28), Matt + Ryan + Vincenzo working session this week. Bet365 MI Day 13 live; Apr 29 patch-item ETA cutoff is now in the rearview — named risk list by property due today (11a ET), and Jamie's missing May 5 confirmation pin is the higher-priority escalation; 5 days to May 5 go-live. Optic sales — Apr 28 Closed Won UCM PET ($12.5K/mo) + Luke Cashman Aussie syndicate ($3K/mo); ~$51K/mo more in contracts-sent stage signing this week (stoked.bet $20K, remarkable $15K, Trade1 + Baltika + New Israeli + Poi Cash). Bet Online $20K → $65K/mo Aug step-up confirmed (Ryan, Apr 25). Boom rev-share — Matt to call Steve. Optic 4 SBC Americas Awards nominations (Apr 28). Kalshi ISV oAuth still pending (must be ready for football). GAN/BetFinder near close for Bookies. Karl OddsWire → Optic Widgets reskin pending — Yahoo interested. Updated Apr 30 (v8).
             </div>
         </div>
     </div>
@@ -1747,7 +1747,7 @@ function renderYellowLeaders() {
             <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.3); border-radius:8px; margin-bottom:6px;">
                 <div>
                     <span style="font-size:11px; font-weight:700; color:var(--red); background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; margin-right:8px;">RED</span>
-                    <span style="font-size:13px; font-weight:600; color:#fff;">${r.name}</span>
+                    <span style="font-size:13px; font-weight:600; color:var(--text-primary);">${r.name}</span>
                     <span style="font-size:11px; color:var(--text-muted); margin-left:8px;">${r.owner} &middot; ${r.pod} &middot; ${r.priority}</span>
                 </div>
             </div>
@@ -1759,7 +1759,7 @@ function renderYellowLeaders() {
     el.innerHTML = DATA.yellowLeaders.map(l => `
         <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:6px;">
             <div style="flex:1; min-width:0;">
-                <span style="font-size:13px; font-weight:600; color:#fff;">${l.name}</span>
+                <span style="font-size:13px; font-weight:600; color:var(--text-primary);">${l.name}</span>
                 <span style="font-size:11px; color:var(--text-muted); margin-left:8px;">${l.pod}</span>
                 ${l.items ? `<div style="font-size:10px; color:var(--text-muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${l.items}</div>` : ''}
             </div>
@@ -1788,7 +1788,7 @@ function renderQuickAttention() {
         <div style="display:flex; align-items:center; gap:10px; padding:10px 12px; background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--${a.level === 'risk' ? 'red' : 'yellow'}); border-radius:8px; margin-bottom:6px;">
             <div style="width:6px; height:6px; border-radius:50%; background:var(--${a.level === 'risk' ? 'red' : 'yellow'}); flex-shrink:0;"></div>
             <div style="flex:1; min-width:0;">
-                <span style="font-size:13px; font-weight:600; color:#fff;">${a.name}</span>
+                <span style="font-size:13px; font-weight:600; color:var(--text-primary);">${a.name}</span>
                 <span style="font-size:11px; color:var(--text-muted); margin-left:6px;">${a.pod}</span>
                 <div style="font-size:12px; color:var(--text-secondary); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${a.issues[0].text}</div>
             </div>
@@ -1993,7 +1993,7 @@ function renderPodKPIs() {
             ${groups[g].map(p => `
                 <div class="kpi-row" style="flex-direction:column; align-items:flex-start; gap:4px;">
                     <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-                        <span style="font-size:13px; font-weight:600; color:#fff;">${p.pod}</span>
+                        <span style="font-size:13px; font-weight:600; color:var(--text-primary);">${p.pod}</span>
                         <span style="font-size:11px; color:var(--text-muted);">${p.lead}</span>
                     </div>
                     <div style="display:flex; flex-wrap:wrap; gap:4px;">

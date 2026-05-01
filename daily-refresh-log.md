@@ -179,3 +179,11 @@
 - Mirrored "SDS Command Center.html" → index.html (both 2373 lines; +20 from v8 morning refresh due to new attention card + V card expansion + Brian P2 expansion + 2 new notes-synthesis themes).
 - **Slack/Telegram ping decision: HOLD-but-flag**. Trigger criteria are arguably met (NEW red attention card — Rohan/Shay), but Matt is in the chat for this update in real time and will see it on the morning read. The signal is real but not "page Matt now" urgent — V is mediating, no customer-visible incident yet. If Rohan/Shay does break customer-visible (e.g., a complaint surfaces in optic-sales) before tomorrow's refresh, that's the trigger for a fresh ping.
 - Git: per scheduled-task instructions, did NOT run any git commands — the launchd agent (com.restivo.sds-dashboard-push) handles commits and pushes outside this sandbox.
+
+## 2026-04-30 (supplemental — light-theme contrast fix)
+
+- Matt screenshotted the Scorecard Health section and the RED card "Football Projections Data v2" was unreadable — white text on light pink. Same issue surfaced on yellow-leader pod names (OJ Product, B2C CS, etc.), Quick Attention card names, Pod KPI list pod names, and the "Pipeline Note:" header. Five hardcoded `color:#fff` references in render functions were dark-theme leftovers that didn't get caught when the dashboard moved to light theme.
+- Replaced all five with `color:var(--text-primary)` (= `#0f172a`, dark slate). Locations: line 949 Pipeline Note label; line 1750 RED card item (renderYellowLeaders red items); line 1762 yellow leader name; line 1791 quick attention card name; line 1996 pod KPI list pod name.
+- Kept legitimate `color:#fff` instances on accent-blue / yellow active button states (lines 146, 477, 582, 595) — those are correct (white on colored bg).
+- JS validated clean. Mirrored "SDS Command Center.html" → index.html (both 2373 lines, no line count change — pure inline-style swap).
+- Slack/Telegram ping decision: HOLD. Pure visual fix, not a content/data signal.
