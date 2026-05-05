@@ -259,3 +259,25 @@
 - JS sanity-check: parsed the embedded `<script>` block via Node `vm` — clean. No syntax breakage from the new constants.
 - launchd auto-push is still broken on Matt's Mac (Xcode license needs re-acceptance). Edits are local until that's fixed; documented separately in chat.
 - No notification sent (Matt is in the loop; this came from him).
+
+### 2026-05-05 — 05:35 ET (daily refresh)
+
+- Updated header timestamp: "Updated: May 4, 2026" → "Updated: May 5, 2026". Notes synthesis updatedDate 2026-05-04 → 2026-05-05.
+- Slack-driven changes (Group Context + Individual Context May 4 → May 5, generated overnight 2026-05-05 01:18 / 01:19):
+  - **Highest-signal item** — Ryan DM thread (May 4 7:34 PM MDT). Matt sent long-form weekend write-up: SDS needs eng REDUNDANCY on Copilot + Odds Optimizer AI; Rohan signaled MORE TIME OFF coming (engagement); Sport+League Coverage dashboard from Boulder STILL hasn't landed (third surface in 2 weeks). Ryan engaged but didn't commit ('fyi'). At 8:51-8:52 PM Matt + Ryan converged on V's wedge: 'yeah need him to help solve espn reliability.' Added a NEW top-of-stack red attention card 'Eng Redundancy / Rohan Time-Off' with 3 issues (P0 bus-factor, P1 V/ESPN reliability, P2 stalled Boulder ask) and a suggested Ryan message. Pre-pended a corresponding theme to notesSynthesis.
+  - Bet365 MI escalated from T-1 → T-0 ('GO-LIVE TODAY'). Updated attention card pod label, REVENUE OPP issue copy, suggested message, and the Bet365 deal-pipeline entry stageLabel ('T-1 · GO-LIVE TOMORROW' → 'T-0 · GO-LIVE TODAY'). Day count Apr 17 → Apr 18 live.
+  - Nick replied to Matt's Sun-night Claude design ask ('haven't designed anything new yet, will today. was working on requirements and ideas… ready to rip once I get collective buyin'). Softer than ask implied. Cycle 3 Priority Reset card P1 flipped from 'MATT'S COURT' → 'NICK'S COURT (check back Tue EOD)' with new copy + action.
+  - Brian flagged Nick cancelled NYC trip this week. Brian Stephens P2 (recruiting motion) card rewritten — incorporates Nick cancel, the Brian/DJ/Tim mpim where Matt pushed creator-call target 20 → 25-30, Tim's July 15 anchor (~10 weeks of runway), and the implied math (250-300 first conversations). Added matching theme to notesSynthesis.
+  - Letran card P0 issue updated: Ryan still hasn't posted in #sds-oj-management 5 days after committing to. Pattern called out alongside the new May-4 'engagement without commitment' read. Pipeline note updated to match.
+  - #optic-sales weekly bot: 523 open / 2W / 15L this week; BetConstruct $80K (Shay) top of pipeline; Leidata + ProphetX $10K each unassigned for Leo. Captured as new yellow theme in notesSynthesis + folded into pipeline note.
+  - Vincenzo back in OJ SEO/B2C loop (post-squash w/ Ryan); running OJ vs BetterBet live EV side-by-side during NBA games today. Polymarket banner work confirmed good-to-go. Jeremy posted PM-arbitrage tools competitive scan. Captured as a green theme.
+  - Jeremy's `growth.oddsjam.com` subdomain hosting proposal for Brian's affiliate admin tools sitting unanswered — captured as a yellow theme (decision today).
+  - Scorecard skipped 2nd consecutive week (Matt + Pedro #sds-leads). Pattern flag added to scorecardIntro callout (left-border now mentions skip + new C3 sheet wiring) and as a new theme in notesSynthesis. Did NOT change scorecard counts (no new color cycle pulled).
+- Granola-driven changes: NONE — Obsidian Vault not mounted in this sandbox; consistent with prior runs. Scheduled task instructions called out the path under /Users/Matt/Documents/Obsidian Vault/_granola but that path isn't available from /sessions. Yesterday (May 4) was a Monday with no meeting notes captured in the Slack-derived sources, so the gap is likely real, not a missing context source.
+- Xlsx-driven changes: NONE — Forecast workbook v8 mtime Apr 30 06:34, untouched in last 24h. RW budget/forecast/aboveBudget/abovePct unchanged.
+- Cycle 3 keyDates rewritten: May 4 entry converted to past-tense recap with the actual Day-1 movements; May 5 flipped to "TODAY — Bet365 MI affiliate GO-LIVE" with the Tyler priority-list deadline + Nick design check-back.
+- Pipeline note (snap-pipelineNote) substantially rewritten: new lead is Cycle 3 Wk1 Day 2; Bet365 MI status flipped to GO-LIVE TODAY; new red item for eng-redundancy fire; new yellow items for Optic May Wk1 ratio, Nick NYC cancel + creator-pipeline 25-30 target, scorecard 2nd skip, Letran post still pending. Onyx + Optic April + Perplexity + FlyCode greens preserved.
+- MBR_LIVE: no new flips. opticCustomers stays wired; FlyCode lift still not in workbook.
+- Mirrored SDS Command Center.html → index.html (confirmed identical 180,300 bytes).
+- launchd agent will pick up the commit + push.
+- Notification: SHOULD SEND. New red attention card on the board (Eng Redundancy) + Bet365 MI flipped from T-1 to T-0 today. Material movements in both directions. Will queue a brief Slack DM ping below.
