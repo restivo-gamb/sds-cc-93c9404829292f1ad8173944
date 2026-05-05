@@ -244,3 +244,18 @@
 - Verified HTML state vs morning log: header "Updated: May 4, 2026" current; Cycle 3 W1 + Bet365 T-1 framing live; FlyCode win, Onyx $230,345.61, Optic+Perplexity, Matt→Nick Claude design ask, G2E/SBC, ArbFather, Letran roadmap all captured in notesSynthesis + attention cards.
 - `diff "SDS Command Center.html" index.html` → empty. Mirror still in sync.
 - No edits made. No notification sent (nothing material moved in 3 minutes).
+
+### 2026-05-04 — Optic April 2026 One-Pager fold-in (Matt-driven, for tomorrow's dashboard)
+
+- Source: `OpticOdds_April_2026_One_Pager v1.docx` uploaded by Matt.
+- Headline numbers extracted: 105 deals in April pipeline; 23 closed won = $144.5K gross new contracted value; 13 churned = ($72.5K); NET NEW $72K. April hit 74% of Q1 close count (23 vs 31), 80% of Q1 gross contracted value. YoY April: 3 → 23 = +667%. ~320 active partners net of churn. 53 partners on Odds Screen (+3 in April).
+- DATA.notesSynthesis: prepended a new top-of-list theme '📊 OPTIC ODDS — APRIL 2026 ONE-PAGER LANDED' covering deal flow, marquee wins (Verified Global $20K API+SGP Insight, CypherLab $15K, UCM $12.5K Copilot = UCM PET in Apr 28 list, Delta Sierra $10K, PURPLE $9K, RGC multi-product), product mix (API in 91% / Odds Screen 3 / SGP Insight 1 / Copilot 1), and full churn cluster with reasons.
+- DATA.attention: appended new yellow watch card 'Optic April Churn Cluster' with three issues — (1) COMPETITIVE: Betstrike → Betby is the only clear competitive displacement — pair with Pinnacle/Exigent latency complaints + Bet365 188-sb.com data-quality scrutiny → ask Karl + Ryan whether Betby is showing up as named alternative + build positioning sheet; (2) PIPELINE WATCH: Fanatics $15K April churn potentially contaminating the open 'Proposal sent' Fanatics deal — Ryan + Leo to confirm separate buyer pools; (3) GROWTH NARRATIVE: pin the 74%-of-Q1-in-one-month + 667% YoY April-to-April velocity story for next MBR opener.
+- DATA.deals: updated the existing Fanatics line to flag the April churn separately (label changed to 'Proposal — churn flag'); added a new summary entry 'Optic — April 2026 One-Pager' (stage: summary, +$72K Net New).
+- DATA pipeline note: inserted Optic April one-pager line immediately after Onyx ('Optic April one-pager loaded — 23 closed won …').
+- MBR_LIVE: flipped 'Optic B2B Customers' from pending → wired with placeholder '~320' and meta 'Active partners (Apr '26 one-pager, net of churn)'. Optic ARR remains pending — one-pager doesn't give a discrete ARR number.
+- Did NOT bump DATA.lastUpdated or notesSynthesis.updatedDate — Matt explicitly framed this as 'tomorrow's dashboard'; the May 5 morning refresh task will roll the timestamps naturally and layer in May 4-5 Slack signals on top.
+- Mirrored SDS Command Center.html → index.html (confirmed empty diff).
+- JS sanity-check: parsed the embedded `<script>` block via Node `vm` — clean. No syntax breakage from the new constants.
+- launchd auto-push is still broken on Matt's Mac (Xcode license needs re-acceptance). Edits are local until that's fixed; documented separately in chat.
+- No notification sent (Matt is in the loop; this came from him).
