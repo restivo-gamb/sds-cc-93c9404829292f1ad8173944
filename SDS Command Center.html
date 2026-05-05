@@ -1157,6 +1157,29 @@ const DATA = {
             suggestedMsg: "nick/ randall flagged $500+\/day churn on rw for the last week. what churn prevention do we have in place? prosperstack? what are the offers?\n\nbrian s has some ideas from the oj playbook — loop him in.\n\nthis is the most urgent thing on ur plate rn\n\nlmk"
         },
         {
+            name: "Eng Redundancy / Rohan Time-Off",
+            pod: "OJ ENG — BUS-FACTOR · COPILOT + ODDS OPTIMIZER · BOULDER ASKS STILL SLIPPING",
+            level: "risk",
+            issues: [
+                {
+                    priority: "P0 — BUS-FACTOR",
+                    text: "Highest-signal DM of May 4 (Matt → Ryan, 7:34 PM MDT, long-form weekend write-up): SDS needs redundancy on Copilot + Odds Optimizer AI. We need a NAMED second engineer with a real ramp-up plan — Rohan can't be the only eng who can take a ticket. When anyone is out, the other three should know 2 weeks ahead. Also flagged: Rohan signaled MORE TIME OFF coming (engagement) — Matt's read this as a real bus-factor risk, not a hypothetical. Ryan engaged but didn't commit ('fyi'); pattern matches Sunday's 'build the right what' nudge — engagement without ownership.",
+                    action: "Push Ryan for a written redundancy plan this week (named #2 + ramp-up + 2-week notice cadence for any planned absence). Tie this to the Cycle 3 priority reset so it lands inside this week's pod docs, not as a one-off. If Ryan doesn't post anything by Wed COB priorities deadline, escalate as agenda item for Thu reallocation meeting."
+                },
+                {
+                    priority: "P1 — VINCENZO ROLE DEFINITION (ESPN reliability)",
+                    text: "Same May 4 DM thread, 8:51 PM MDT — Matt: 'maybe a good time to ringfence ^ / how vincenzo can be helpful.' Ryan immediately landed the wedge: 'yeah need him to help solve espn reliability.' This is the cleanest, most actionable definition of V's near-term role we've gotten — specific, customer-visible, doable inside the cycle. Pairs well with V's data-source buy work but is its own discrete deliverable.",
+                    action: "Make 'V owns ESPN reliability' an explicit Cycle 3 priority — needs a 30/60/90 from V (or Scott on his behalf) by Wed COB. Don't let it become another pulled-thread that slips."
+                },
+                {
+                    priority: "P2 — STALLED BOULDER ASK (Sport+League Coverage dashboard)",
+                    text: "Same May 4 DM — Matt named that the Sport + League Coverage dashboard ask from Boulder STILL hasn't landed and he doesn't know status. This was already chased twice on Apr 30 (V + Ryan); now Matt has surfaced it a third time inside two weeks with no owner clearly driving the boulder-offsite version. Ryan's engagement-without-commitment pattern is more pronounced here than on the redundancy ask.",
+                    action: "Pick an owner this week — V or Ryan, not both — and get a status before Cycle 3 priorities lock Wed COB. If Ryan can't take it, give it to V and pull something else off V's plate to make room. Don't let this become a fourth chase next week."
+                }
+            ],
+            suggestedMsg: "ryan/ on the eng redundancy note from yesterday — i need a written plan this week. named #2 on copilot + odds optimizer, ramp-up, 2-week notice cadence for any planned absence. let's not have rohan be the only eng who can take a ticket, especially with him signaling more time off.\n\non v — yeah let's lock 'espn reliability' as his cycle 3 priority. need a 30/60/90 from him (or scott) by wed cob.\n\nand sport + league coverage dashboard — third chase. pick an owner, you or v, not both. status before wed.\n\nlmk"
+        },
+        {
             name: "Bet365 Michigan Launch",
             pod: "ALL PROPERTIES — T-0 / GO-LIVE TODAY / JAMIE PIN STILL OPEN",
             level: "risk",
@@ -1262,9 +1285,9 @@ const DATA = {
                     action: "Block 90 min Mon AM to read whatever lands from pods overnight. Confirm Pedro's Cycle 3 scorecard is wired before Tue stand-up. Hold the line: Wed COB is the priorities deadline, Thu is reallocation — don't let it slip. Personal action from Granola: contact Jack Tyler PR firm for expanded publicity strategy. Add Jake + Shannon to the Granola distribution per Matt's private notes."
                 },
                 {
-                    priority: "P1 — MATT'S COURT (Nick P)",
-                    text: "Matt → Nick May 3 9:55 PM MDT: 'yoyo. how are the claude design artifacts coming.' No reply visible May 4 AM. Ties to the Optic + Perplexity launch motion — Ryan's framing is 'this can be bigger than [the] claude announcement,' and the Perplexity contract is expected to finalize end of next week. Design artifacts likely on the critical path for the launch comms.",
-                    action: "If Nick hasn't replied by Mon midday, second nudge — the Perplexity launch window is real and the marketing motion needs the design assets in hand to ship the motion-graphics video Ryan asked Sam Hill to start. Nick is also in NY office today/tomorrow with Brian S — easy to grab in person."
+                    priority: "P1 — NICK'S COURT (check back Tue EOD)",
+                    text: "Nick replied May 4 12:33 PM MDT: 'haven't designed anything new yet, will today. was working on requirements and ideas and getting nfl offseason built out in Jira so we're ready to rip once I get collective buyin.' Softer than the Sun-night ask implied — ball is now in Nick's court but the artifact has not landed. Brian flagged the same morning that Nick CANCELLED the NYC trip this week — Matt loses the in-person grab. Ryan's Perplexity launch comms still need these assets; agreement finalizes end of next week.",
+                    action: "If no design artifact has surfaced by EOD Tuesday May 5, second nudge — and ask what 'collective buyin' is gating, since the marketing motion is on a real clock. Nick is the dependency on the buyin loop — flag whoever he's waiting on so we unblock that gate, not just the design pass."
                 }
             ],
             suggestedMsg: "pods/ this week is cycle 3 priority week.\n\nwed cob = priorities locked. thu = reallocation if needed. pedro's running the new scorecard sheet — get him your inputs.\n\nmatt is open as optional to any of your brainstorm meets — pls add him, don't slow down for his cal.\n\nlmk by tue eod where each pod is landing."
