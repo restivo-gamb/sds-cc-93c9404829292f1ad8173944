@@ -866,7 +866,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). Updated Apr 9.
+                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). <strong style="color:var(--yellow);">May 4 — Matt waved off the weekly scorecard for the 2nd consecutive week (Pedro confirmed "yeah can skip this week").</strong> Pedro to wire the new C3 scorecard sheet this week per Granola action items.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1158,13 +1158,13 @@ const DATA = {
         },
         {
             name: "Bet365 Michigan Launch",
-            pod: "ALL PROPERTIES — T-1 / GO-LIVE TOMORROW / JAMIE PIN STILL OPEN",
+            pod: "ALL PROPERTIES — T-0 / GO-LIVE TODAY / JAMIE PIN STILL OPEN",
             level: "risk",
             issues: [
                 {
                     priority: "REVENUE OPP",
-                    text: "Bet365 Michigan — Day 17 live, GO-LIVE TOMORROW (May 5). Bet365 channels remained quiet through the May 1 → May 4 weekend window — no named risk list surfaced from Brian S / Steve Bulanda / Randall / Craig. Jamie's May 5 go-live confirmation is still not pinned in writing across ANY scan window from Apr 24 → May 4. This is now the single most time-sensitive item on the board: if the launch lands without a written sign-off, we're flying blind on what's actually compliant tomorrow morning. Today is the last business day before go-live.",
-                    action: "MONDAY MORNING ESCALATION — go over Jamie's head if confirmation is not in hand by mid-morning. Push Brian/Steve/Randall/Craig for the named risk list by 11a ET — green/yellow/red by property. Parallel-track the 188-sb.com data quality diff with V (lower priority than the go-live sign-off but next on the list once May 5 lands clean)."
+                    text: "Bet365 Michigan — Day 18 live, AFFILIATE GO-LIVE TODAY (May 5). Bet365 channels were silent again May 4 — no named risk list ever surfaced across Apr 24 → May 5 from Brian S / Steve Bulanda / Randall / Craig. Jamie's go-live confirmation was never pinned in writing across any scan window. Today's the day: if the launch is landing without a written sign-off, we're flying blind on what's actually compliant this morning. Escalation window is now.",
+                    action: "TUESDAY ESCALATION NOW — go over Jamie's head if confirmation isn't in hand by mid-morning. Push Brian/Steve/Randall/Craig for the named risk list by 11a ET — green/yellow/red by property. Once the go-live lands clean, pivot to the 188-sb.com data-quality diff with V (was the parallel track behind the sign-off)."
                 },
                 {
                     priority: "PRODUCT RISK",
@@ -1172,7 +1172,7 @@ const DATA = {
                     action: "Ask Vincenzo for a one-shot diff against the official 365 site so we have evidence-based answer for Leo + the prospect. Fold finding into Optic data-quality narrative for next MBR."
                 }
             ],
-            suggestedMsg: "brian s + steve + randall + craig/ day 17 live, go-live tomorrow. still no named risk list from any of u in the may 1-4 window. need it this morning. by property. green/yellow/red. by 11a et.\n\njamie — go-live is tomorrow and i still don't have your confirmation in writing anywhere. need it by mid-morning today or i'm escalating over your head before market open.\n\nthis is it. lmk."
+            suggestedMsg: "brian s + steve + randall + craig/ day 18 live, GO-LIVE TODAY. still never got a named risk list from any of u across the apr 24 → may 5 window. need it this morning. by property. green/yellow/red. by 11a et.\n\njamie — today is go-live and i still don't have your confirmation in writing anywhere. need it by mid-morning or i'm escalating over your head before market open.\n\nthis is it. lmk."
         },
         {
             name: "Polymarket Prod Access",
@@ -1488,7 +1488,7 @@ const DATA = {
     deals: [
         { name: "Polymarket", detail: "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 30. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). NEW Apr 30 (#vrr) — Polymarket holding production API keys until contract is signed; their legal review ETA next week per oj-ext-polymarket-oddsjam thread. V on Apr 30: 'we have their data, but its from a dev environment. so it's slower and rate limited. we hit the rate limit everyday now. when we get too many rate limits errors we pull the odds. so polymarket feels unstable in the product.' Ryan suggested Matt press Ari; Matt declined ('idt this is the ask'). Ryan: 'high degree of confidence it gets done.' James on Poly side engaged. Invite-code SEO push live (Apr 29, KD code). Jamie owns post-launch conversion report once data flows.", stage: "warm", stageLabel: "Contract Blocking Prod Access", size: "$2M" },
         { name: "Pinnacle", detail: "Term sheet drafted by Matt, passed to Stein/John. 60/40 split + price minimum. Mathieu says 'just needs sign off.' Ryan: 'I think we landed the plane.'", stage: "hot", stageLabel: "Near Close", size: "$1.2M/yr" },
-        { name: "Bet365 Michigan", detail: "Day 17 live across RW, OJ, DGF, local. AFFILIATE GO-LIVE TOMORROW (May 5). Bet365 channels remained silent through the May 1-4 weekend; no named risk list visible from any owner across any scan window. Jamie's May 5 confirmation still not pinned in writing — escalation Mon AM over Jamie's head if not landed by mid-morning today. Bet365 shadow-site discrepancy (Leo, Apr 28 / 188-sb.com) still parked with V — parallel track for after go-live lands clean.", stage: "hot", stageLabel: "T-1 · GO-LIVE TOMORROW", size: "Material" },
+        { name: "Bet365 Michigan", detail: "Day 18 live across RW, OJ, DGF, local. AFFILIATE GO-LIVE TODAY (May 5). Bet365 channels were silent again on May 4 — no named risk list surfaced from any owner across the entire Apr 24 → May 5 window. Jamie's confirmation was never pinned in writing — Tuesday AM escalation over Jamie's head is the right move if not landed by mid-morning today. Bet365 shadow-site discrepancy (Leo, Apr 28 / 188-sb.com) still parked with V — parallel track for after go-live lands clean.", stage: "hot", stageLabel: "T-0 · GO-LIVE TODAY", size: "Material" },
         { name: "Kalshi", detail: "ISV integration — trading inside OJ, rev share on trades. Need oAuth. Jeremy asked for contact to structure deal. Must be ready for football.", stage: "warm", stageLabel: "Building", size: "Rev Share" },
         { name: "GAN (BetFinder)", detail: "Jamie 'fairly confident' closes within 1 month (~from Apr 8). For Bookies betfinder. MLB/NBA/NHL/PGA launched on site.", stage: "warm", stageLabel: "Near Close", size: "TBD" },
         { name: "Toad Sports", detail: "Interested in BetFinder integration. ~150K socials. Matt suggests 'float 10k one-time softly.' Waiting on daily/monthly traffic data.", stage: "active", stageLabel: "Pricing", size: "$10K+" },
