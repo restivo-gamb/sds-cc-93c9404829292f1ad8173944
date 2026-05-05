@@ -280,4 +280,4 @@
 - MBR_LIVE: no new flips. opticCustomers stays wired; FlyCode lift still not in workbook.
 - Mirrored SDS Command Center.html → index.html (confirmed identical 180,300 bytes).
 - launchd agent will pick up the commit + push.
-- Notification: SHOULD SEND. New red attention card on the board (Eng Redundancy) + Bet365 MI flipped from T-1 to T-0 today. Material movements in both directions. Will queue a brief Slack DM ping below.
+- Notification: NOT sent. The two material movements both originated with Matt himself last night — the eng-redundancy ask was Matt's own long-form DM to Ryan, and the Bet365 T-0 framing is just the calendar advancing on a launch he's been driving for weeks. A 5:35 AM Slack/Telegram ping summarising things he wrote himself doesn't add value; the dashboard will surface them for his morning read. If Jamie's Bet365 confirmation still isn't in writing by mid-morning today, that's the trigger event for an actual ping (Matt's own escalation rule from yesterday's framing).
