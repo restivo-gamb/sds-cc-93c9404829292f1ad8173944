@@ -281,3 +281,27 @@
 - Mirrored SDS Command Center.html → index.html (confirmed identical 180,300 bytes).
 - launchd agent will pick up the commit + push.
 - Notification: NOT sent. The two material movements both originated with Matt himself last night — the eng-redundancy ask was Matt's own long-form DM to Ryan, and the Bet365 T-0 framing is just the calendar advancing on a launch he's been driving for weeks. A 5:35 AM Slack/Telegram ping summarising things he wrote himself doesn't add value; the dashboard will surface them for his morning read. If Jamie's Bet365 confirmation still isn't in writing by mid-morning today, that's the trigger event for an actual ping (Matt's own escalation rule from yesterday's framing).
+
+### 2026-05-06 — 05:30 ET (daily refresh)
+
+- Updated header timestamp: "Updated: May 5, 2026" → "Updated: May 6, 2026". Notes synthesis updatedDate 2026-05-05 → 2026-05-06.
+- Slack-driven changes (sources: May 4 → May 5 overnight scan + May 5 off-schedule scan partial output documented in `SDS Meeting Notes Scan - 2026-05-05.md`):
+  - **Slack coverage gap acknowledged.** The May 5 18:55 MDT off-schedule scan stopped at the 2-target validation gate per `SKILL.md` error handling (>20% target failure threshold; Chrome focus-stealing during business hours). Two raw captures preserved (`_sds-management-team`, `oj-b2c`); 29 other targets unscanned for May 5. Tomorrow's overnight run will sweep May 5 → May 6 normally. Added a new top-of-list theme in notesSynthesis flagging the gap so subsequent inferences read "last-confirmed through May 4."
+  - **PayPal→credit-card subscription migration essentially done** (Vincenzo, `_sds-management-team` raw capture, May 5). 1,307 of 1,400 subs migrated, 93 left. Public credit to Jeremy Letran. Confirms the PayPal-as-payment-method-for-betting-subs hypothesis (less load-bearing than feared a year ago). Added as the highest-priority May 5 theme in notesSynthesis. Did NOT promote to a full attention card — it's a quiet recurring-revenue win, not actionable.
+  - **OJ B2C product velocity** in `oj-b2c` raw capture (24 messages, May 5): Sniper 2.0 dashboard release walkthrough (Jeremy via Loom external view), Mobile App Navigation decision (bypass modals, route directly), Sports Market Bot Vulnerabilities flagged. Captured as a green theme.
+- Granola-driven changes: NONE — `SDS Meeting Notes Scan - 2026-05-05.md` confirms no Gemini or Granola files were modified in the last 24h. Most recent Granola entry is `2026-05-01_SDS Leads Meet.md`. Inbox has 1 stuck item (`OpticOdds_April_2026_One_Pager v1.docx`) — already incorporated into the dashboard from Matt's May 4 manual upload, no further action needed in the dashboard.
+- Xlsx-driven changes: NONE — Forecast workbook v8 mtime Apr 30 06:34, untouched in last 24h. DATA.rw budget / forecast / aboveBudget / abovePct unchanged.
+- Bet365 Michigan rolled forward from T-0 → Day 19 post-launch. Updated:
+  - Attention card pod label: "T-0 / GO-LIVE TODAY / JAMIE PIN STILL OPEN" → "DAY 19 LIVE · POST-LAUNCH WATCH · JAMIE PIN STILL UNCONFIRMED".
+  - REVENUE OPP issue text: launch is shipped; Jamie's pre-launch confirmation still not pinned in writing; May 5 channel scan was partial so we have no digest read yet on whether anything went sideways. Action shifted from "Tuesday escalation now" to "Wed AM 24-hour-post-launch read by property + retrospective Jamie pin."
+  - SuggestedMsg rewritten in post-launch voice (no "or i'm escalating before market open" — that window has passed; now asking for the 24-hour read).
+  - Deal pipeline entry: stageLabel "T-0 · GO-LIVE TODAY" → "Day 19 · Post-Launch Watch"; detail rewritten to match.
+- Cycle 3 Priority Reset card updated for the Wed-is-deadline reality:
+  - P0 priority label: "POD DELIVERABLES THIS WEEK" → "DEADLINE TODAY (Wed COB)". Text rewritten so Tue is in the rear-view (Tyler/Brian/Jeremy were all due Mon-Tue) and today's loop is Randall check-in + priorities lock at COB. Action explicitly names the three asks Matt is watching to land before Thu reallocation: Ryan's redundancy plan, Sport+League Coverage dashboard owner, Nick's design artifacts.
+  - P1 (Nick's court): Tuesday EOD has passed; second-nudge framing replacing the prospective check-back framing.
+- Cycle keyDates: May 5 demoted from "TODAY" to "(recap)" with the PayPal/Sniper 2.0/Mobile Nav signals folded in; May 6 promoted to "TODAY" with explicit watchlist of three open asks; May 7 / May 8 fleshed out (Bet365 Day 21 read; Friday isportsapi/odds88 doc due from V).
+- Scorecard counts: NO change. Matt + Pedro skipped scorecard for the 2nd consecutive week on May 4 — no new color cycle pulled. Counts stay at 70 G / 13 Y / 1 R / 2 NR.
+- MBR_LIVE: no new flips. opticCustomers stays wired at ~320; FlyCode lift / PayPal migration still not in v8 workbook so not surfaced as live tiles.
+- Mirrored SDS Command Center.html → index.html (confirmed identical 183,330 bytes).
+- launchd agent will pick up the commit + push.
+- Notification: NOT sent. Bet365 launch shipping yesterday is the calendar moving forward on something Matt has been driving; the Wed-is-deadline framing is mechanical. PayPal migration nearly-done is a quiet win. No new red attention card, no forecast move >5%, no new pod silence beyond what was already flagged Mon. Trigger event for an actual ping today: if Bet365 post-launch read surfaces anything material, OR if none of Matt's three watched asks (Ryan redundancy plan, Sport+League dashboard owner, Nick design) land by mid-morning.
