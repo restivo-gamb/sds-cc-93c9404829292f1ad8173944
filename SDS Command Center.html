@@ -1110,6 +1110,9 @@ const DATA = {
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
     notesSynthesis: {
         keyThemes: [
+            "📊 MAY 5 — PAYPAL→CREDIT-CARD MIGRATION ESSENTIALLY DONE (Vincenzo, #_sds-management-team raw capture). 1,307 of 1,400 subscriptions migrated, 93 remaining. Public credit to Jeremy Letran. Confirms the PayPal-as-payment-method-for-betting-subs hypothesis (less load-bearing than feared a year ago). Worth folding into the FlyCode/Stripe payment-recovery narrative for v9 forecast — both are quiet recurring-revenue tailwinds the consolidated forecast hasn't fully absorbed yet.",
+            "🟢 MAY 5 — OJ B2C SHIPPING IN #oj-b2c (24-msg raw capture from off-schedule scan). Sniper 2.0 dashboard release: Jeremy walking through external-view design via Loom. Mobile App Navigation decision: bypass modals, route directly (UX simplification). Sports Market Bot Vulnerabilities flagged as prime exploitation targets. Read alongside Apr 30 OJ stability work — pod is shipping product through cycle 3 reset week.",
+            "⚠️ MAY 5 — SLACK COVERAGE GAP. Off-schedule 6:55 PM scan stopped at the 2-target validation gate (Chrome focus-stealing during business hours; logged in `slack-scan-errors.log`). Two raw captures preserved (_sds-management-team, oj-b2c). Tomorrow's overnight run will sweep May 5 → May 6 normally. Effect: today's dashboard runs with full visibility through May 4 EOD + raw-capture surface from two May 5 channels only. Pod-lead DM activity from May 5 is unscanned; treat any pod silence inferences below as 'last-confirmed' through May 4.",
             "🚨 MAY 4 — HIGHEST-SIGNAL DM (Matt → Ryan, 7:34 PM MDT). Long-form weekend write-up: SDS needs eng REDUNDANCY on Copilot + Odds Optimizer AI — name a #2 with a real ramp-up, Rohan can't be the only eng who can take a ticket. Rohan signaled MORE TIME OFF coming (engagement) — Matt explicitly named the bus-factor risk. Sport + League Coverage dashboard ask from Boulder STILL hasn't landed (third surface in two weeks, no clear owner). Ryan: 'fyi' (engagement without commitment, same pattern as Sun-night 'build the right what' nudge). At 8:51-8:52 PM Matt + Ryan converged on V's wedge issue: 'yeah need him to help solve espn reliability.' Cleanest, most actionable Vincenzo role definition we've gotten — pair with the data-source buy work but make it its own deliverable. Tying to Cycle 3 priority reset this week.",
             "🟡 MAY 4 — OPTIC PIPELINE WEEK STARTS HEAVY ON THE LOST SIDE. #optic-sales weekly bot (11:48 AM MDT): 523 open deals, 2 Closed-Won, 15 Closed-Lost. Read alongside Pedro's forecasting cadence — not a flag yet but a number to ask Leo about in the Mon pod-lead 1:1. Top of pipeline unchanged: BetConstruct $80K (Shay), White Swan $25K (Leo), Rothera $15K (Ryan W), Scorely $13.5K (Abe), Cactus Gaming $10K (Chirag). Two unassigned $10K deals (Leidata, ProphetX) sitting on Leo to assign.",
             "🟡 MAY 4 — SCORECARD SKIPPED 2nd CONSECUTIVE WEEK. Matt 8:06 AM MDT in #sds-leads ('think we can skip this ^'); Pedro 8:14 AM ('yeah can skip this week'). Pattern flag: if scorecard skips become routine, the AI Steering Committee → Operating Cadence dependency on color signals starts to drift. Pedro is wiring the new C3 scorecard sheet this week per Granola action items — until that lands, the dashboard is operating without the underlying telemetry it was designed to read from.",
@@ -1145,7 +1148,7 @@ const DATA = {
             "📱 SMART MONEY STUCK: Still 20 subs (2 annual, 18 monthly). Lucas made short-term scoring fixes but more needed. Jeremy: 'at 20 subs there's a larger issue around demand and customer objections.' Needs long-form talent video + marketing push.",
             "🤖 AUTOMATION THESIS VALIDATED: Tyler's OJ Baseball bot ($0.30/day, 810 followers/350K impressions in 48hrs). RW Instagram +400% YoY (carousels). Craig automating 90%+ of Search workflows. Clark building content ideation AI. RW Breaking News tool live. 'Humans as orchestrators not executors.'"
         ],
-        updatedDate: "2026-05-05"
+        updatedDate: "2026-05-06"
     },
 
     // Attention items — ONLY people/issues that need intervention
@@ -1188,13 +1191,13 @@ const DATA = {
         },
         {
             name: "Bet365 Michigan Launch",
-            pod: "ALL PROPERTIES — T-0 / GO-LIVE TODAY / JAMIE PIN STILL OPEN",
+            pod: "ALL PROPERTIES — DAY 19 LIVE · POST-LAUNCH WATCH · JAMIE PIN STILL UNCONFIRMED",
             level: "risk",
             issues: [
                 {
                     priority: "REVENUE OPP",
-                    text: "Bet365 Michigan — Day 18 live, AFFILIATE GO-LIVE TODAY (May 5). Bet365 channels were silent again May 4 — no named risk list ever surfaced across Apr 24 → May 5 from Brian S / Steve Bulanda / Randall / Craig. Jamie's go-live confirmation was never pinned in writing across any scan window. Today's the day: if the launch is landing without a written sign-off, we're flying blind on what's actually compliant this morning. Escalation window is now.",
-                    action: "TUESDAY ESCALATION NOW — go over Jamie's head if confirmation isn't in hand by mid-morning. Push Brian/Steve/Randall/Craig for the named risk list by 11a ET — green/yellow/red by property. Once the go-live lands clean, pivot to the 188-sb.com data-quality diff with V (was the parallel track behind the sign-off)."
+                    text: "Bet365 Michigan — Day 19 live; AFFILIATE GO-LIVE SHIPPED May 5. Bet365 channels remained silent across the entire Apr 24 → May 5 scan window — no named risk list ever surfaced from Brian S / Steve Bulanda / Randall / Craig. Jamie's go-live confirmation was never pinned in writing pre-launch. The off-schedule May 5 evening scan stopped at the 2-target validation gate, so we have no May 5 channel digest yet to confirm whether anything went sideways yesterday. Tomorrow's overnight scan (May 5 → May 6) will close the loop. Until it lands: treat as 'shipped, unconfirmed.'",
+                    action: "Wed AM — first ask is to Brian / Steve / Randall / Craig for a 24-hour-post-launch read by property: did anything fail, what's the reaction in inbox/CS, any compliance flags from MI? Green/yellow/red by 11a ET. Get Jamie's launch confirmation pinned in writing (retrospective is fine — we just need the artifact). Once the post-launch read lands clean, pivot to the 188-sb.com data-quality diff with V (the parallel track that was sitting behind the sign-off)."
                 },
                 {
                     priority: "PRODUCT RISK",
@@ -1202,7 +1205,7 @@ const DATA = {
                     action: "Ask Vincenzo for a one-shot diff against the official 365 site so we have evidence-based answer for Leo + the prospect. Fold finding into Optic data-quality narrative for next MBR."
                 }
             ],
-            suggestedMsg: "brian s + steve + randall + craig/ day 18 live, GO-LIVE TODAY. still never got a named risk list from any of u across the apr 24 → may 5 window. need it this morning. by property. green/yellow/red. by 11a et.\n\njamie — today is go-live and i still don't have your confirmation in writing anywhere. need it by mid-morning or i'm escalating over your head before market open.\n\nthis is it. lmk."
+            suggestedMsg: "brian s + steve + randall + craig/ day 19 live, affiliate fired yesterday. need a 24-hour read this AM — by property, did anything fail, anything in inbox/CS, compliance flags from MI? green/yellow/red. by 11a et.\n\njamie — need your launch confirmation pinned in writing somewhere i can find it. retrospective is fine but i need the artifact. by 11a et.\n\nlmk."
         },
         {
             name: "Polymarket Prod Access",
