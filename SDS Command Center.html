@@ -866,7 +866,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). <strong style="color:var(--yellow);">May 4 — Matt waved off the weekly scorecard for the 2nd consecutive week (Pedro confirmed "yeah can skip this week").</strong> Pedro to wire the new C3 scorecard sheet this week per Granola action items.
+                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). <strong style="color:var(--yellow);">May 4 — Matt waved off the weekly scorecard for the 2nd consecutive week (Pedro confirmed "yeah can skip this week").</strong> No May 5→7 digest yet to confirm whether Pedro's new C3 scorecard sheet got wired this week — read inbox before assuming silence. Third week running without color signal is the pattern flag.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1110,6 +1110,7 @@ const DATA = {
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
     notesSynthesis: {
         keyThemes: [
+            "⚠️ MAY 7 — SLACK COVERAGE GAP CONTINUES (3rd consecutive day). Last available Slack digest covers through May 5 EOD; the expected May 5 → May 6 overnight scan never produced a file, and there's no May 6 → May 7 digest either. The dashboard is therefore operating on May 5 channel/DM context for the third straight day. Practical effect for Thu AM: any 'ball is in X's court' or 'pod silence' inference below should be read as last-confirmed-through-May-5, not 'as of this morning.' The three watchlist items Matt has been tracking (Ryan's redundancy plan, Sport+League Coverage dashboard owner, Nick's design artifacts) — we have no Slack-side read on whether any of them landed Wed COB; check inbox + Granola directly. Bet365 MI's Wed AM 24-hour-post-launch ask similarly has no Slack-confirmed answer. If the overnight scan job is genuinely stuck (vs. one missed run), that's the upstream issue to chase before anything else today.",
             "📊 MAY 5 — PAYPAL→CREDIT-CARD MIGRATION ESSENTIALLY DONE (Vincenzo, #_sds-management-team raw capture). 1,307 of 1,400 subscriptions migrated, 93 remaining. Public credit to Jeremy Letran. Confirms the PayPal-as-payment-method-for-betting-subs hypothesis (less load-bearing than feared a year ago). Worth folding into the FlyCode/Stripe payment-recovery narrative for v9 forecast — both are quiet recurring-revenue tailwinds the consolidated forecast hasn't fully absorbed yet.",
             "🟢 MAY 5 — OJ B2C SHIPPING IN #oj-b2c (24-msg raw capture from off-schedule scan). Sniper 2.0 dashboard release: Jeremy walking through external-view design via Loom. Mobile App Navigation decision: bypass modals, route directly (UX simplification). Sports Market Bot Vulnerabilities flagged as prime exploitation targets. Read alongside Apr 30 OJ stability work — pod is shipping product through cycle 3 reset week.",
             "⚠️ MAY 5 — SLACK COVERAGE GAP. Off-schedule 6:55 PM scan stopped at the 2-target validation gate (Chrome focus-stealing during business hours; logged in `slack-scan-errors.log`). Two raw captures preserved (_sds-management-team, oj-b2c). Tomorrow's overnight run will sweep May 5 → May 6 normally. Effect: today's dashboard runs with full visibility through May 4 EOD + raw-capture surface from two May 5 channels only. Pod-lead DM activity from May 5 is unscanned; treat any pod silence inferences below as 'last-confirmed' through May 4.",
@@ -1148,7 +1149,7 @@ const DATA = {
             "📱 SMART MONEY STUCK: Still 20 subs (2 annual, 18 monthly). Lucas made short-term scoring fixes but more needed. Jeremy: 'at 20 subs there's a larger issue around demand and customer objections.' Needs long-form talent video + marketing push.",
             "🤖 AUTOMATION THESIS VALIDATED: Tyler's OJ Baseball bot ($0.30/day, 810 followers/350K impressions in 48hrs). RW Instagram +400% YoY (carousels). Craig automating 90%+ of Search workflows. Clark building content ideation AI. RW Breaking News tool live. 'Humans as orchestrators not executors.'"
         ],
-        updatedDate: "2026-05-06"
+        updatedDate: "2026-05-07"
     },
 
     // Attention items — ONLY people/issues that need intervention
