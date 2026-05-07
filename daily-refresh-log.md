@@ -327,3 +327,25 @@
 - launchd agent will pick up the commit + push.
 - Notification: NOT sent. The material change today is a flag (Slack scan stale 3 days) on a workflow Matt owns the upstream of, not a new red on a deal or pod. The dashboard now surfaces it prominently in three places (top of notesSynthesis, scorecard intro, pipeline note) so it'll be the first thing Matt reads on his 5:30 AM pass. A Telegram ping summarising "the digest didn't run" doesn't add useful information he won't see in the dashboard. **Trigger event for a ping today:** if Matt's manual inbox pass uncovers a real fire that the missed digest hid (e.g., Bet365 post-launch CS escalation, a pod-lead unraised escalation), OR if the upstream scan job remains stuck through tonight (in which case tomorrow's dashboard will be operating on 4-day-old Slack data, which crosses the 96h line where the dashboard's pod-silence inferences become structurally unreliable).
 - Git: per scheduled-task instructions, did NOT run any git commands.
+
+### 2026-05-07 — supplemental (v9 forecast miss flagged by Matt)
+
+- **Miss acknowledged.** Matt flagged that v9 forecast was available and the morning run didn't process it. Confirmed: `2026 SDS Revenue & Forecasting (9).xlsx` is in `/Users/Matt/Documents/Obsidian Vault/gamb/__inbox/`, created Wed May 6 14:44 MDT, 161,820 bytes (~+208 bytes vs v8 — small content delta but real).
+- **Why the morning run missed it (two compounding issues):**
+  1. The scheduled task SKILL.md (Step 2c) scans `/Users/Matt/Documents/Claude/Projects/SDS Dashboard/2026 SDS Revenue & Forecasting*.xlsx`. That path is where forecasts live AFTER triage. New drops land in `/gamb/__inbox/` first. The inbox is not on the scan path, so a v9 drop can sit in the inbox indefinitely without the daily refresh ever noticing.
+  2. Even after finding the file via the obsidian-vault MCP, the sandbox cannot binary-read xlsx — same architectural blocker the 2026-05-05 meeting scan flagged for the OpticOdds docx. `read_text_file` returns the raw zip-archive bytes (PK header), not parseable financial data. Drive search returned no `Forecasting`-titled files, so the Drive-MCP `read_file_content` fallback isn't available either.
+- **Other inbox items confirmed:**
+  - `RotoWire Reset - April 2026.pptx.pdf` — present in inbox, not yet ingested. PDFs hit the same MCP read-binary blocker.
+  - `OpticOdds_April_2026_One_Pager v1.docx` — still stuck since 2026-05-04 (already incorporated into the dashboard from Matt's manual upload, but still sitting in inbox unfiled).
+- **Dashboard updates this pass (HTML edited a second time today):**
+  - **Pipeline note (snap-pipelineNote)**: prepended a red callout — "⚠️ V9 FORECAST DROPPED Wed May 6 14:44 MDT in `/gamb/__inbox/` — not yet folded in. Numbers below are still v8 (Apr 29). Scheduled task scans `/SDS Dashboard/` only; v9 needs to be moved or routed through Drive before it can be parsed." This goes ABOVE the SLACK SCAN STALE flag so v9 is the first thing visible on the 5:30 AM read.
+  - **notesSynthesis.keyThemes**: prepended a new top-of-stack item with the full diagnosis — what the file is, why the run missed it, what numbers are stale until it's folded in (forecast/target/RW/OJ/off-target %), and three resolution paths (move to /SDS Dashboard/, route through Drive, or paste Executive Dashboard tab into chat). Names the SKILL.md fix needed (add `/gamb/__inbox/` to scan path).
+- **Numbers NOT changed in this pass.** DATA.forecast, target, yoyGrowth, DATA.rw.* all carried forward at v8 values. Reason: I will not invent v9 numbers from the v8 numbers + a directional guess — the whole point of the daily refresh is data fidelity, and a 5% forecast move trigger needs actual numbers, not hand-waves. Once Matt routes v9 through a parseable path, the next pass will recompute RW budget vs forecast and bump DATA.forecast/target/etc. in one clean edit.
+- **Permanent fix needed (logged here so it's not lost):**
+  1. SKILL.md (`/sessions/inspiring-intelligent-ride/mnt/uploads/SKILL.md`) Step 2(c) needs to add `/Users/Matt/Documents/Obsidian Vault/gamb/__inbox/2026 SDS Revenue & Forecasting*.xlsx` as a scan path (in addition to the current `/SDS Dashboard/` path).
+  2. The inbox-triage flow needs a binary route for xlsx/docx/pdf — either Drive-routing as default (simplest), expanding the obsidian-vault MCP `read_media_file` allowlist to include xlsx/docx/pdf MIME (architecturally cleanest), or building a "vault-to-sandbox copy" launchd helper.
+- Mirrored "SDS Command Center.html" → index.html (both 186,811 bytes; +1,532 from the morning pass — entirely the new red v9-not-parsed callout + the new top-of-stack synthesis theme).
+- JS sanity-check: 125,937 chars, parsed clean via Node `new Function()`.
+- launchd agent will pick up the commit + push.
+- **Notification: NOT sent in this pass.** Matt is already in this thread — he flagged the miss and is reading my response live. A separate Telegram ping would be redundant. The dashboard now surfaces v9-pending in the same morning-read pipeline.
+- Git: did NOT run any git commands.
