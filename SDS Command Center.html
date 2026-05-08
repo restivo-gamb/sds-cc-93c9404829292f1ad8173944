@@ -1162,6 +1162,29 @@ const DATA = {
     // Attention items — ONLY people/issues that need intervention
     attention: [
         {
+            name: "Reorg Monday — Comp Model in Flight",
+            pod: "MATT-DRIVEN · MAY 11 LANDING · ANDREW S READ-IN TODAY",
+            level: "risk",
+            issues: [
+                {
+                    priority: "P0 — COMP/GROWTH MODEL WITH TIM",
+                    text: "Yesterday 6:43-10:23 PM MDT — Tim is building Matt a side-by-side comp/growth-incentive model. Matt sent a 2-minute Loom (8:49 PM) asking for the growth plan pulled into a parallel view with the same growth-lever changes, then scenarios down column I plus a recommendation. Matt pushed back on Tim's 5% existing-deal renewal assumption — argued larger accounts should renew +15-25%; Tim agreed ('we can change that to anything … to what we're really shooting for'). Tim committed to producing 'a proposal or two late tonight.' Matt's framing on timing: 'i think ideally we hammer this out monday — day others are let go feels like the right day to do it tbh.' Tim 10:23 PM: 'Sounds like a plan!' Translation: Monday May 11 is layoff day; the comp/growth-incentive conversation with Tim is intentionally timed to land same day.",
+                    action: "AM today: review Tim's overnight proposal(s). Tim agreed to 15-25% renewal-growth scenarios, Matt asked specifically for diff scenarios in column I + a recommendation. If Tim's draft doesn't have the recommendation column or the scenarios, kick back same-day — Monday is non-negotiable as the landing date. Bias-check: what does the comp model look like under +15%, +20%, +25% renewal-growth assumptions on the larger accounts? That's the negotiating range Matt anchored last night."
+                },
+                {
+                    priority: "P1 — ANDREW S READ-IN TODAY",
+                    text: "V → Matt 12:00 PM yesterday: 'does Andrew S knows about the reorg / should he know.' Matt: 'no. not yet. i think we read him in tomorrow.' V kept quiet through his 1:1 with Andrew yesterday. Matt drives the read-in TODAY (May 8). First individual conversation in the Monday-cadence sequence (see Andrew Simkovsky card for the full transition-plan thread).",
+                    action: "Today's calendar should contain this conversation. Confirm with V post-call that the messaging matches what he expected so the Monday-cadence reads coherent across the team. Lock Nikola overlap + AWS migration ownership before EOD."
+                },
+                {
+                    priority: "P2 — MONDAY CADENCE RISK",
+                    text: "Two things land Monday May 11 in parallel: (a) layoff comms execute, (b) Matt + Tim finalize comp/growth-incentive model with new RW pod-lead expectations. The risk is timing slip — if the comp model doesn't have a recommendation column locked by Sunday, Monday becomes a comp conversation AND a layoff day, which compresses bandwidth across both. Other pod leads have no visibility into either piece yet (V is looped only on Andrew S timing). No leak risk visible in scans, but the longer the model sits in a Tim-Matt loop, the higher the chance someone's calendar surfaces a question.",
+                    action: "Sunday self-checkpoint: is the comp model in a final-shape proposal, or do we need an emergency Sunday-night iteration? If the latter, schedule it Sat/Sun with Tim now, not Monday morning. Layoff comms script — confirm Tim/Pedro/V are aligned on what gets said when before Monday standup time."
+                }
+            ],
+            suggestedMsg: "tim/ comp model — ty for the late-night turn. before i look:\n\n1. did u get the renewal-growth scenarios into column i? +15 / +20 / +25 on the larger accounts.\n2. recommendation column w/ ur pick + why?\n3. anything else u'd want me to look at before monday?\n\nplanning to lock this monday morning so we can hammer it out same day."
+        },
+        {
             name: "RW Churn Spike",
             pod: "RW — ACTIVE FIRE",
             level: "risk",
@@ -1412,18 +1435,23 @@ const DATA = {
         },
         {
             name: "Vincenzo Ampolo",
-            pod: "Data / Optic Eng — FBM LAWSUIT + DATA-SOURCE GAP + CATCH-UP",
+            pod: "Data / Optic Eng — 6-WEEK DOC COMMITTED · FRIDAY #vrr CALL · LAWSUIT + DATA-SOURCE",
             level: "risk",
             issues: [
                 {
+                    priority: "P0 — TODAY (Fri) #vrr CALL",
+                    text: "Today's #vrr Friday call is the deadline V has been working toward all week. NEW May 7 (#vrr) — V committed at 10:27 AM 'I see. i'll work on the document for the 6 weeks' and at 6:17 PM dropped 3 files: 'Data Ingest, OJ, RW.' That's the 6-week OJ pod operating-cadence document landing in the channel as initial draft. Pairs with the data-source-buy 1-pager Matt asked for ahead of today's call (isportsapi $4-10K/mo + odds88, with Scott ghost-writing). Read the 3 dropped files this AM before the call; if the data-source-buy summary is part of the bundle, great; if not, that's the call's first ask.",
+                    action: "Read V's 3 #vrr drops this AM. Confirm on the call: (1) is the data-source-buy 1-pager (isportsapi vs odds88, pricing, coverage delta, recommendation) inside the bundle, separate, or still owed? (2) does the 6-week doc have a named owner per workstream + 30/60/90 milestones? (3) where does Scott pick up from here — and does Rohan need to weigh in on approach? Lock decision on isportsapi vs odds88 by next Mon."
+                },
+                {
                     priority: "LEGAL",
-                    text: "FBM lawsuit response: V's detailed answer landed Apr 28; Michael (outside counsel) wants a follow-up call. NEW Apr 30 (#vrr): V flagged that there's an unguarded third-party Discord channel ('oj-oo' among sport-API devs) where the lawsuit is being discussed — even the 'PTO guy' is commenting. Ryan was in it, found it toxic, left, but it's an open info-leak surface. Worth a heads-up to Michael / outside counsel. Matt's separate ask to V (Apr 28): 'we haven't caught up in a bit and i need to do better' — Wed/Thu 30-min catch-up still on the agenda.",
-                    action: "Loop Michael into the Discord-chatter heads-up so Legal has visibility on the surface. Schedule the Michael follow-up call this week. Book the 30-min Matt + V catch-up Wed/Thu."
+                    text: "FBM lawsuit response: V's detailed answer landed Apr 28; Michael (outside counsel) wants a follow-up call. Apr 30 (#vrr): V flagged that there's an unguarded third-party Discord channel ('oj-oo' among sport-API devs) where the lawsuit is being discussed — even the 'PTO guy' is commenting. Ryan was in it, found it toxic, left, but it's an open info-leak surface. Worth a heads-up to Michael / outside counsel. Matt's separate ask to V (Apr 28): 'we haven't caught up in a bit and i need to do better' — 30-min catch-up still on the agenda.",
+                    action: "Loop Michael into the Discord-chatter heads-up so Legal has visibility. Schedule the Michael follow-up call. Book the 30-min Matt + V catch-up — fold into next week given Friday call + reorg-Monday compression this week."
                 },
                 {
                     priority: "P1 OF P1S — DATA-SOURCE BUY",
-                    text: "Bet365/Pinnacle data-source gap has been on the plate for ~4 months. Ryan Apr 28: 'need v to actually focus.' Matt: 'i'm confused how this isn't the p1 of all p1s.' NEW Apr 30 (#vrr) — Scott now leading evaluation of TWO candidates: (1) isportsapi.com — pricing $4–10K/month depending on data consumption; appears to be what Pinnacle uses underneath. (2) odds88 — pricing unknown (Scott is friends with Ryan there, leaning on the relationship to get numbers). Matt asked for a clear options/pricing/leads summary ahead of Friday's call and whether Rohan's input is needed on approach. V's #vrr reply covers the asks but isn't a deck — gap to close before Fri.",
-                    action: "By Fri call: a 1-page options/pricing/leads doc (V owns; Scott can ghost-write). Decide isportsapi vs odds88 vs both based on price + coverage delta. 1-week deadline check next Mon. Treat as the P1 — Polymarket Direct Bet stays frozen, this comes ahead."
+                    text: "Bet365/Pinnacle data-source gap has been on the plate for ~4 months. Ryan Apr 28: 'need v to actually focus.' Matt: 'i'm confused how this isn't the p1 of all p1s.' Apr 30 (#vrr) — Scott now leading evaluation of TWO candidates: (1) isportsapi.com — pricing $4–10K/month depending on data consumption; appears to be what Pinnacle uses underneath. (2) odds88 — pricing unknown (Scott is friends with Ryan there, leaning on the relationship to get numbers). The 1-pager Matt asked for ahead of today's call may be inside V's 3-file drop yesterday (read first to confirm).",
+                    action: "Inside today's #vrr call: confirm 1-pager exists, decide isportsapi vs odds88 vs both based on price + coverage delta. 1-week deadline check next Mon. Treat as the P1 — Polymarket Direct Bet stays frozen, this comes ahead."
                 },
                 {
                     priority: "STALLED COMMITMENT — SPORT + LEAGUE COVERAGE DASHBOARD",
