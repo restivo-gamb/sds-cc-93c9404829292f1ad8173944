@@ -1202,11 +1202,15 @@ const DATA = {
         abovePct: 24.5          // % over budget
     },
 
-    // Scorecard counts — carried forward from Apr 7 visual audit (Google Sheets gviz blocked again Apr 15)
-    // 86 total items across 14 priority levels. Will refresh when Sheets accessible.
+    // Scorecard counts — Cycle 3 W1 (May 11-17), inferred from C3 SCORECARD tab in Pedro's sheet
+    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-05-19.
+    // Text sync doesn't carry cell colors yet — until that's resolved, status inferred from `Updated` column + `Notes`:
+    //   blank Updated = NotReported; populated Updated + progress notes = Yellow; explicit "Done"/"Complete" = Green; explicit blockage = Red.
+    // Cycle 3 = 93 total priorities across 17 pods. Of those, 52 rows have Updated dates (treated as Yellow/in-motion);
+    // 41 rows still blank (NR). No explicit Green or Red flags yet — early W1, expected.
     scorecard: {
-        green: 70, yellow: 13, red: 1, notReported: 2, total: 86,
-        prevGreen: 70, prevYellow: 13, prevRed: 1 // W1 counts from Apr 9 pull
+        green: 0, yellow: 52, red: 0, notReported: 41, total: 93,
+        prevGreen: 0, prevYellow: 52, prevRed: 0 // Cycle 3 baseline — no prior week to trend against yet
     },
 
     // Yellow leaders (who has the most yellows in W2) + red flag
