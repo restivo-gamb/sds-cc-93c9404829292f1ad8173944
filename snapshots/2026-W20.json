@@ -1,0 +1,1995 @@
+{
+  "meta": {
+    "week": "2026-W20",
+    "label": "Week of May 11 – May 17",
+    "weekStart": "2026-05-11",
+    "weekEnd": "2026-05-17",
+    "capturedAt": "2026-05-15T14:17:44.103Z",
+    "sourceHtml": "SDS Command Center.html"
+  },
+  "constants": {
+    "DATA": {
+      "forecast": 66.71,
+      "target": 69.38,
+      "budget": 68.37,
+      "yoyGrowth": 16.93,
+      "priorYear": 57.05,
+      "rw": {
+        "budget": 14.05,
+        "forecast": 17.48,
+        "aboveBudget": 3.43,
+        "abovePct": 24.5
+      },
+      "scorecard": {
+        "green": 70,
+        "yellow": 13,
+        "red": 1,
+        "notReported": 2,
+        "total": 86,
+        "prevGreen": 70,
+        "prevYellow": 13,
+        "prevRed": 1
+      },
+      "yellowLeaders": [
+        {
+          "name": "Jeremy Tran",
+          "pod": "OJ Product",
+          "yellows": 4,
+          "items": "Growth MCP, Stream-to-Clips, AMM Prediction Mkts, Stripe Migration"
+        },
+        {
+          "name": "Randall K / Bryan R",
+          "pod": "B2C CS (OJ/RW)",
+          "yellows": 2,
+          "items": "Churn Reduction, 4-Day Course Conversion"
+        },
+        {
+          "name": "Brian S / DJ T / Tim S",
+          "pod": "Talent (RW/OJ)",
+          "yellows": 2,
+          "items": "RW Football Talent, Smart Money Promo (P6)"
+        },
+        {
+          "name": "Nick Piovano",
+          "pod": "RW Product",
+          "yellows": 1,
+          "reds": 1,
+          "items": "ESPN Live Sync (Y), Football Projections v2 (RED)"
+        },
+        {
+          "name": "Samuel Hill",
+          "pod": "Optic Marketing",
+          "yellows": 1,
+          "items": "Revamp Website Copy for SEO"
+        },
+        {
+          "name": "Karl O'Brien",
+          "pod": "Optic Product",
+          "yellows": 1,
+          "items": "Expose Prediction Market Data"
+        },
+        {
+          "name": "Brian R",
+          "pod": "BetSyndicate",
+          "yellows": 1,
+          "items": "ParlayGrade SGP Clicks"
+        },
+        {
+          "name": "Ryan W",
+          "pod": "B2B Sales/Ops",
+          "yellows": 1,
+          "items": "Stabilize Pinnacle Relationship"
+        }
+      ],
+      "redItems": [
+        {
+          "name": "Football Projections Data v2",
+          "owner": "Nick Piovano",
+          "pod": "RW Product",
+          "priority": "P11",
+          "note": "Assuming this refers to RD-6227 and RD-5348. Expected completion..."
+        }
+      ],
+      "notesSynthesis": {
+        "keyThemes": [
+          "🟢 MAY 15 (FRI) — V9 FORECAST ABSORBED. The four forecast workbooks (v6→v9) were parsed May 14 into `/SDS Dashboard/data/forecast.json` (15KB). Dashboard now reflects v9 canonical numbers: Total SDS $66.71M (-$241K WoW vs v8), YoY +16.93% (-0.42pts), RW $17.48M (+$300K WoW, back above v7 levels). Headline movers WoW: 🟢 Rotowire +$300K / +1.75%, 🟢 OpticOdds +$250K / +1.12%, 🔴 OddsJam -$572K / -3.38% (second-largest single-vertical drop), 🔴 Bookies -$219K / -5.87% (biggest pct drop, reverses v7's first-positive-of-year). Partnerships + Local flat. The v8→v9 dashboard blocker called out in May 11 / May 12 logs is now closed. Forecast ingestion is now wired — daily refresh reads `forecast.json` directly going forward rather than carrying numbers forward.",
+          "⚠️ MAY 15 (FRI) — SLACK SCAN STILL STALE (~4 DAYS, well past 48h guardrail). Same caveat as Thu, now worse. Last digest still covers May 11 → May 12 AM (generated 2026-05-12 01:17). Thu and Fri nightly Slack scans both aborted before completing the 31-target sweep (kebab/Summarize flow timing fragility — green button activates only after both dates fill, so coordinate-based clicks before activation get silently consumed). Watermarks remain at 2026-05-12 so tonight's run will pick up the full May 12 → May 16 window IF it completes. Three full days of working-hours activity unconfirmed via digest: did C3 OJ priority dedup announcement land? Did V's surgery date lock? Did Ryan's redundancy plan + Sport+League Coverage owner land Wed COB? Did Swish/Aleksandra counter? Did Stripe checkout cutover happen? Operate from inbox + direct DM, not from carried-forward cards. One partial signal from May 14 oj-b2c capture (77 msgs, 9 users): frontend/backend release approvals May 12 (Nils, Salvatore, Aaron) + May 14 (Nils), prediction market / arbitrage research underway beyond Kalshi & Polymarket, active Stripe migration thread (Jeremy Letran ↔ Zach), Polymarket banner ticket ODJ-7242 (Aaron). Recommendation for SKILL.md update (carried from May 14 ingest): the actually-successful nightly runs in this codebase have used DOM-scrape via `a.c-timestamp` anchors rather than the documented Slack AI Summarize kebab flow — documenting DOM-scrape as the primary path would close this gap permanently.",
+          "⚠️ MAY 14 (THU) — SLACK SCAN STALE (~52h, past 48h guardrail). Last digest covers May 11 → May 12 AM (generated 2026-05-12 01:17). Two full days (Tue May 12 + Wed May 13) of working-hours activity unconfirmed via digest: did C3 OJ priority dedup land Tue and announcement go out Wed? Did V's surgery date get locked? Did Ryan's redundancy plan + Sport+League Coverage owner land Wed COB? Did Swish/Aleksandra counter? Did Tim's comp/growth model roll to broader org Wed AM? Did Stripe checkout cutover happen? Operate from inbox + direct DM today, not from carried-forward cards. Tonight's overnight scan needs to actually land — if it misses a 3rd night, the dashboard is structurally unreliable on Slack-derived pod inferences. Granola has no fresh notes accessible either. v8 forecast still the canonical workbook (v9 still in `__inbox/` Day 8 unparsed).",
+          "🚨 MAY 12 (TUE) — V SPINE SURGERY · OOO ~1 WK INSIDE NEXT 30 DAYS. Vincenzo announced in #vrr (3:00 PM Mon): long-standing fracture became symptomatic, surgery scheduled, exact dates within 30 days. He's 'fine.' Operational implication on Matt's plate today: coverage plan needs to land before V picks a date — three load-bearing lanes need named backups (1) OJ data ingestion + the isportsapi vs odds88 decision (Scott or Ryan covers), (2) DI hiring — Raffaele Day 1 + 3 active interviews this week (V's hire to make, not delegable; pull dates so V can finish or hand to Ryan w/ written brief), (3) BigQuery DW + strangler-fig kickoff on RW (most-deferrable; could slip 1 wk). Pair: PrizePicks late-limiting on OJ data requests is still ACTIVE — Vincenzo asked Ryan to check his PP relationship, IP-switch was needed last week to keep requests working. Both these threads sit on the same person — coverage plan needs to account for that.",
+          "🚨 MAY 12 (TUE) — SWISH / ALEKSANDRA: NON-EXCLUSIVE REDLINE REJECTED, AWAITING COUNTER. Aleksandra came back Mon with a non-exclusive license redline. Matt drafted definitive rejection citing: (a) no differentiation vs. open-market Swish access, (b) no clean-market commitment from Pinnacle, (c) no enforcement obligation. Charles green-lit ('Yep. Respond quickly and definitively so she thinks our view is clear and we don't need this. But be annoyingly polite. Call the bluff.') — Matt's reply sent 8:18 PM. Posture is now: hold the line, watch for her counter. Reading: Aleksandra was directionally aligned but senior team slow (per Charles back-channel intel); a non-exclusive walk-back from her side likely means senior team won the round. Don't soften without movement on at least one of the three cited gaps. If counter doesn't land within ~5 business days, this is essentially dead and we operate as if litigation-only (Quinn Emanuel track).",
+          "🟡 MAY 12 (TUE) — ZACH→OPTIC MOVE GATED ON RYAN PRODUCING LINEAR ROADMAP. Matt told Ryan (2:59 PM Mon DM): 'I do think you should make the roadmap clearer before we truly move move Zach to optic. I really want to press you on having the right linear roadmap beyond what we want there so you should grind Karl for that.' Ryan: 'On it. I agree.' Watch this week for the roadmap to land. If it slips past Fri without a written Linear artifact, the Zach move is the carry-forward — not the roadmap. Pairs w/ the existing Karl 'Expose Prediction Market Data' yellow (scorecard) — same person, same cadence problem.",
+          "🟡 MAY 12 (TUE) — BRIAN STEPHENS RE-FRAMING TO STABLE REVENUE. Brian mid-strategic-pivot in his evening DM thread (Mon 8:20-8:22 PM): away from 'growth initiatives' framing toward 'identify the most stable revenue' — Matt B (Brian's brother, finance) being tasked to map it. Worth Matt taking a checkpoint conversation this week: what does 'stable' mean operationally — net-retention threshold, multi-year customers, B2B vs B2C subs, affiliate vs sub mix? Without that anchor, the work could land as a finance taxonomy exercise rather than a planning input for Cycle 3 priorities. Pair with: Brian's competitor read ('literal shit / 0 growth initiatives / past OF in a month lmao') — he's calibrating the up-spend ask in a sharper competitive frame than 2 weeks ago.",
+          "🟡 MAY 12 (TUE) — CYCLE 3 OJ PRIORITY LIST: 17 ITEMS, MATT REJECTED. Pedro's Cycle 3 OJ priority list landed with 17 items and too many duplicates ('no way there's 17 priorities' — Matt). Matt's direction: dedup via Vincenzo (data ingestion split) + Craig (Bookies inside of Search). Liked Pedro's PM/Designer split. Hold-and-don't-distribute discipline still active until tomorrow's announcement. Translation: today is the Pedro+V+Craig dedup pass — should land same-day so the Wed announcement doesn't slip. Note: V's surgery looming makes this even more time-pressured if his sign-off on the data-ingestion dedup is on the critical path.",
+          "🟢 MAY 12 (TUE) — KEVIN MCCRYSTLE WANTS GAVIN LOOPED ON FP&A. Kevin DM (2:42 PM Mon, triggered by his sds-finance review): 'you may want to start looping in gavin on fp&a stuff' + 'niall is here for a bit but on certain projects. had to read him in already.' Read: Gavin is the durable FP&A partner; Niall is finite-duration. Action this week: start cc'ing Gavin on FP&A artifacts (Pedro's MBR runs, v9 forecast when it lands, Anastasia AR escalation status). Side signal: Kevin actively watching sds-finance channel — be aware. Matt's 9:00 PM follow-up ('all good on the one pager?') still pending Kevin's read.",
+          "🟢 MAY 12 (TUE) — NICK PIOVANO HOMEPAGE CONVERGING + COMP CHANGE. Nick shipped a homepage design draft for Shiny to riff on (Mon 8:49-9:00 PM); Matt liked it. Tagline workshop landed on 'smarter fans' (Matt's pick) over 'smart fans.' Polish notes: drop big logo (already on site), bigger headline font, fade right bg image. Nick: 'yeah nice, getting there!' Handoff to Shiny is next step. Separately: Nick moves to hourly 6/1 — admin/comp change to track in next review/comp cycle. This is the cleanest Nick→Shiny handoff cadence we've gotten this month.",
+          "🟢 MAY 12 (TUE) — OJ B2C STRIPE CHECKOUT IN ACTIVE PRE-LAUNCH. Zach Silveira shared dev-Stripe issue list (Linear ODJ-7174) + second list for tomorrow (ODJ-7179) in #oj-b2c Mon. Both Zach + Nils explicitly carving out tomorrow for fix list. Salvatore flagged 'most prematch odds expired on dev' — Nils asked if weekend-stop related; root cause still TBD. Watch for cutover signal late this week. Risk surface: 'most prematch expired on dev' is the kind of thing that bites a launch — worth confirming root cause before any prod cutover.",
+          "📋 MAY 12 (TUE) — DJ BEHIND ON CREATOR-CALL TARGET. Group DM w/ Brian/DJ/Tim (Sun PM ET = May 11 UTC): DJ's read on the 40-50 call landscape — affiliated creators not responding or locked in, non-affiliated mixed, Andrew K + Nick types showing real interest, reaching out to new unfamiliar names; holding JJ Zacharias + Davis Vetri (the 'white whales') for now. Matt: 'is everything in the sheet updated? let's catch up tomorrow 1:1 afternoon best like 5et.' DJ confirmed sheet, invited 5 ET. DECISION POINT in today's 5 ET 1:1: green-light DJ reaching out to Zachariason + Vetri this week? Math anchor: 250-300 first conversations to close NFL talent by July 15; DJ is materially behind on pace. Pairs with Mon Granola (Creator Catch-Up): Jeff to be leveraged for 'big accounts answer other big accounts' outreach to non-responders; Hard Hits to be teased for Madison visit.",
+          "📋 MAY 12 (TUE) — PEDRO NETSUITE ACCESS STILL NOT LANDED. NetSuite ticket closed Fri per Niall, but Pedro has username only — no initial password. Mike Gregoline owns the follow-through (Welcome email link suspected, will check offline). If this isn't resolved this week, it becomes an MBR/FP&A blocker. Pair: Cello review ownership unresolved between Jeremy Letran and Randall Knaak (V flagged 7:07 PM #sds-oj-management) — small item, watch for either to pick up by tomorrow.",
+          "💰 MAY 11 — INVESTMENT NOTE GRANOLA · $300-400K COMMITMENT BY FRI. Granola from Mon 'Investment note terms and deployment strategy — 12 vs 24 month options' — current note yields 23%; new options 12mo @ 18% / 24mo @ 23%. Fund 3 launches June 2026, $20M target raise; one major LP committed $10M rolling over 3 yrs. Excelsior Works absorption $4M last month (up from $2M avg). Matt considering $300-400K mix of 12/24 mo terms; potential 20% rate on 12mo at $300-400K size. Action: Nathan owes deployment/return data + KYC link (Parallel Markets) within 10 min of call; Matt's commitment by EOW. Outside SDS scope but flagged here because it's on Matt's plate this week and the Fri deadline is real.",
+          "🚨 MAY 11 (MON) — REORG / LAYOFF DAY — EXECUTION. This is the Monday Matt + Tim locked Thu PM ('day others are let go feels like the right day to do it tbh' / Tim: 'Sounds like a plan!'). Today's three execution beats: (1) **Layoff conversations run today** — script + sequencing should be locked from Sun PM Tim+Pedro sync; if it isn't, that's the first 30 min of the morning before any other meeting. Andrew S already read in Fri; Nikola overlap + AWS migration ownership should be in writing somewhere V/Tim/Pedro can point to if questions surface mid-day. (2) **Comp/growth model lands same-day with Tim** — +15/+20/+25 renewal-growth scenarios on column I + recommendation; review session sometime today, ideally before standup so the go-forward incentive frame is in place when the rest of the org reads the Mon AM signal. (3) **Cycle 3 Wk2 kickoff inherits three Wk1 carry-forwards** — Ryan's redundancy plan (no movement Mon-Thu Wk1), Sport+League Coverage dashboard owner (no movement Mon-Thu Wk1), Pedro's new C3 scorecard sheet (status unclear — scorecard skipped 2 consecutive weeks). Push these in the Mon AM 1:1 cadence, not in the broader org standup (which is layoff-framed). ⚠️ **Slack scan stale — last digest May 7→May 8 AM (generated 2026-05-08 01:26, ~76h old, well past the 48h guardrail).** Three full days of working-hours activity unconfirmed via digest: Andrew S read-in Fri, V's #vrr Friday call outputs (isportsapi $4-10K/mo vs odds88 decision), Tim's Thu/Fri/Sat comp-model iteration, Craig's priority dashboard delivery, weekend pod traffic. Operate from inbox + direct DM, not from carried-forward cards. Tonight's overnight scan needs to actually land — if it misses a 4th night, the dashboard is structurally unreliable on Slack-derived pod inferences. Granola has no fresh notes since May 1 (Day 10). Forecast workbook still v8 (v9 in `/gamb/__inbox/` Day 5 unparsed — SKILL.md inbox-path fix from May 7 supplemental still pending).",
+          "🚨 MAY 8 (THU recap) — REORG-MONDAY CLUSTER LOCKED. Highest-signal cluster from Thu's DMs. (1) **Comp/growth model live with Tim.** Tim is building Matt a side-by-side comp/growth-incentive model with scenario columns (per Matt's Loom + 8:50 PM message stack). Matt pushed back on Tim's 5% existing-deal renewal assumption — argued larger accounts should renew +15-25%; asked for scenarios down column I + a recommendation. Tim agreed; said he'd produce 'a proposal or two late tonight.' Matt's framing: 'i think ideally we hammer this out monday — day others are let go feels like the right day to do it tbh.' Tim: 'Sounds like a plan!' (10:23 PM). Translation: Monday May 11 is layoff day; comp/growth conversation is intentionally timed against it. (2) **Andrew Simkovsky read-in scheduled for TODAY.** V → Matt 12:00 PM 'does Andrew S know about the reorg / should he know.' Matt: 'no. not yet. i think we read him in tomorrow.' V to keep quiet through his 1:1 with Andrew yesterday; Matt fills him in today. Means today's calendar likely contains an Andrew S conversation Matt is driving. Andrew Simkovsky attention card pre-existing (AWS migration, dogshit-energy reads, Nikola as replacement path) — the read-in is the next beat in that thread. (3) Implied wider Monday cadence: comp model finalized AM, layoff comms execute, Tim+Matt go-forward incentives land same day. No other pod leads have visibility into this yet (V was looped only on the Andrew S timing piece).",
+          "🟢 MAY 7 — SLACK SCAN BACK ONLINE after 3-day gap. May 5 → May 6 / May 6 → May 7 / May 7 → May 8 digests now landed; pod-lead activity through May 8 AM is current again. Practical effect: every 'last-confirmed-through-May-5' caveat in attention cards / pipeline note can be retired. Three previously-stale watchlist items now read out as: (a) Ryan's redundancy plan — STILL NO MOVEMENT in #sds-oj-management or DM; engagement-without-commitment pattern continues. (b) Sport+League Coverage dashboard — STILL no owner; no movement. (c) Nick design artifacts — Nick gave a substantive read on Shiny (designer) yesterday: still ramping, harder to evaluate while she finishes Lucas-originated work, will reprioritize her work today around NFL plans. That's not 'design artifacts done' but it's a softer landing than 'name the gate' would have been. Matt floated wanting in-person work cadence: 'i wish we had an office in person so much easier but w/e.'",
+          "📦 MAY 7 — POD-LEAD MOVEMENT THAT LANDED YESTERDAY (good week for cycle-3 inputs). (1) **Tim closed out RW-Talent / RW-News / RW-Features assignments** in #sds-leads (4:21 PM). Three RW pods now have priority-list owners. (2) **Vincenzo committed in #vrr** (10:27 AM): 'I see. i'll work on the document for the 6 weeks.' Plus 6:17 PM: 'Data Ingest, OJ, RW' (3 files dropped). The 6-week document is the OJ-pod operating-cadence artifact V owes — material progress vs. the 'V is overcommitted' read from last week. (3) **Pedro unblocked on NetSuite/Cube connector** — Niall O Leary 10:19 AM #sds-finance: 'actioned with our system admin Matt @Pedro Olinger Claudes connector with Cube should be good source of info for you. Gavin can explain in more detail in your follow up call.' Pedro's MBR-data pipeline now has a path. (4) **Pedro reissued @channel reminder** in #sds-leads at 1:54 PM — 'reminder to get these in today please ^^.' Implies most leads still slow on the priorities-on-shared-sheet ask; Tim's RW close-out was the only confirmed landing. (5) **Jeremy did Linear deep clean** (3:24 PM #oj-b2c) — projects in correct status, start/end dates removed from un-planned projects, high-pri = committed convention written down. Linear board now reflects what's actually committed. (6) **Polymarket CPA data live in Mixpanel** — Aaron Ashery's last delivery before exit (3rd & 4th graphs); Polymarket attribution queryable now.",
+          "🎙️ MAY 7 — DOUG MONAHAN RECRUIT IN MOTION (Brian/DJ/Tim mpim, 1:32-1:49 PM). Matt floated Doug as Billy's potential replacement on the OJ Master Class / 4-day course. DJ pegged comp at 100-150K full-time. Brian flagged risks: Doug's 'all over the place,' weak at marketing (70 subs despite real betting skill), 'going to be a complete shift in his thinking' to teach the tool. Landed on: full speed ahead on OJ for Doug, NO RotoWire role (DJ: 'His name is more meaningful in the OJ space'). Next step is shaping Doug's strict lane (live-stream OJ vs. push OJ vs. teach-the-tool); Brian is the natural onboarder. Pairs with the larger creator-recruiting motion (25-30 calls/wk × 10 weeks to July 15 = 250-300 first conversations). Doug = potentially the highest-name single hire in that pipeline.",
+          "🎨 MAY 7 — BRIAN'S 'DESIGN HURTS UX' THREAD in #oj-b2c (2:25 PM, IMG_3359, 27 replies). Largest oj-b2c thread of the week. Resolution not yet pulled into this run; if a design call needs a tiebreaker today, eyeball the thread before pinging Brian. Pairs with Nick's note that Shiny will be reprioritized today around NFL plans — design bandwidth is the constrained resource right now.",
+          "📋 MAY 7 — JONATHAN CONTRACT EXTENSION ALIGNED (Matt + Nick DM, 1:41-1:46 PM). 6-month renewal on Jonathan's contract — Lucas Reller's ask, Nick agreed ('fine, but has been working on things lucas originated still'). Designer Shiny still ramping; Nick will have a cleaner read in 'next few weeks' once she's heads-down on NFL plans. Matt: 'i'd be working w/ her multiple times a day honestly / i wish we had an office.' Recurring in-person-cadence theme.",
+          "📊 MAY 7 — JAKE LETARSKI SHIPPED CLAUDE-DRIVEN GA4 RECAPS (#sds-general, 3:49 PM). Pilot tooling: Claude reads RotoWire GA4 content-calendar updates, generates daily summary of trending content. Surfaced Truist Championship golf dominance, WNBA emerging, Bayern-PSG UCL climbing. Tooling is portable to other content surfaces — Tyler/Brian/DJ/Craig should know it exists. Quiet AI-orchestration win that fits Ryan's 'ride the AI wave' thesis pattern.",
+          "⚠️ MAY 11 — V9 FORECAST STILL UNPARSED (Day 5). `2026 SDS Revenue & Forecasting (9).xlsx` remains in `/Users/Matt/Documents/Obsidian Vault/gamb/__inbox/` (created Wed May 6 14:44 MDT). 5:30 AM scheduled refresh still misses it because (a) SKILL.md scans `/SDS Dashboard/` only and (b) the sandbox can't binary-read xlsx. ALL v8-derived numbers below (forecast $66.95M / target $69.38M / RW $17.18M / OJ flat $16.92M / -3.5% off target) are now 5 days stale. Resolution paths unchanged: move v9 to `/SDS Dashboard/`, upload to Drive for Drive-MCP read, or paste the Executive Dashboard tab. Same fix needed for `RotoWire Reset - April 2026.pptx.pdf` (also stuck in inbox since May 4) and the OpticOdds docx already incorporated manually. Today is reorg/layoff day — not the day to chase the fix, but flag explicitly here so it doesn't slip another week.",
+          "📊 MAY 5 — PAYPAL→CREDIT-CARD MIGRATION ESSENTIALLY DONE (Vincenzo, #_sds-management-team raw capture). 1,307 of 1,400 subscriptions migrated, 93 remaining. Public credit to Jeremy Letran. Confirms the PayPal-as-payment-method-for-betting-subs hypothesis (less load-bearing than feared a year ago). Worth folding into the FlyCode/Stripe payment-recovery narrative for v9 forecast — both are quiet recurring-revenue tailwinds the consolidated forecast hasn't fully absorbed yet.",
+          "🟢 MAY 5 — OJ B2C SHIPPING IN #oj-b2c (24-msg raw capture from off-schedule scan). Sniper 2.0 dashboard release: Jeremy walking through external-view design via Loom. Mobile App Navigation decision: bypass modals, route directly (UX simplification). Sports Market Bot Vulnerabilities flagged as prime exploitation targets. Read alongside Apr 30 OJ stability work — pod is shipping product through cycle 3 reset week.",
+          "⚠️ MAY 5 — SLACK COVERAGE GAP. Off-schedule 6:55 PM scan stopped at the 2-target validation gate (Chrome focus-stealing during business hours; logged in `slack-scan-errors.log`). Two raw captures preserved (_sds-management-team, oj-b2c). Tomorrow's overnight run will sweep May 5 → May 6 normally. Effect: today's dashboard runs with full visibility through May 4 EOD + raw-capture surface from two May 5 channels only. Pod-lead DM activity from May 5 is unscanned; treat any pod silence inferences below as 'last-confirmed' through May 4.",
+          "🚨 MAY 4 — HIGHEST-SIGNAL DM (Matt → Ryan, 7:34 PM MDT). Long-form weekend write-up: SDS needs eng REDUNDANCY on Copilot + Odds Optimizer AI — name a #2 with a real ramp-up, Rohan can't be the only eng who can take a ticket. Rohan signaled MORE TIME OFF coming (engagement) — Matt explicitly named the bus-factor risk. Sport + League Coverage dashboard ask from Boulder STILL hasn't landed (third surface in two weeks, no clear owner). Ryan: 'fyi' (engagement without commitment, same pattern as Sun-night 'build the right what' nudge). At 8:51-8:52 PM Matt + Ryan converged on V's wedge issue: 'yeah need him to help solve espn reliability.' Cleanest, most actionable Vincenzo role definition we've gotten — pair with the data-source buy work but make it its own deliverable. Tying to Cycle 3 priority reset this week.",
+          "🟡 MAY 4 — OPTIC PIPELINE WEEK STARTS HEAVY ON THE LOST SIDE. #optic-sales weekly bot (11:48 AM MDT): 523 open deals, 2 Closed-Won, 15 Closed-Lost. Read alongside Pedro's forecasting cadence — not a flag yet but a number to ask Leo about in the Mon pod-lead 1:1. Top of pipeline unchanged: BetConstruct $80K (Shay), White Swan $25K (Leo), Rothera $15K (Ryan W), Scorely $13.5K (Abe), Cactus Gaming $10K (Chirag). Two unassigned $10K deals (Leidata, ProphetX) sitting on Leo to assign.",
+          "🟡 MAY 4 — SCORECARD SKIPPED 2nd CONSECUTIVE WEEK. Matt 8:06 AM MDT in #sds-leads ('think we can skip this ^'); Pedro 8:14 AM ('yeah can skip this week'). Pattern flag: if scorecard skips become routine, the AI Steering Committee → Operating Cadence dependency on color signals starts to drift. Pedro is wiring the new C3 scorecard sheet this week per Granola action items — until that lands, the dashboard is operating without the underlying telemetry it was designed to read from.",
+          "🟢 MAY 4 — VINCENZO BACK IN OJ SEO/B2C LOOP after AM squash with Ryan. Running OJ vs BetterBet live EV side-by-side during NBA games today; results going into shared doc. Momentum, not blocked. OJ vs BB comparisons starting to surface 'good action items.' Polymarket banner work confirmed good-to-go (cc Aaron Ashery / Juan). Jeremy posted competitive scan of PM-arbitrage tools (predictefy, oddspool, alertpilot, monsterbet).",
+          "🟡 MAY 4 — JEREMY HOSTING DECISION OPEN. Jeremy proposed hosting Brian's new affiliate admin tools under a new GitHub repo behind a `growth.oddsjam.com` subdomain via GDC Vercel — keeps separation but stays inside the official OJ domain. Sitting unanswered May 5 AM; pod-lead reply expected today.",
+          "🟡 MAY 4 — NICK CANCELLED NYC TRIP (Brian DM, 10:20 AM MDT). Matt loses an in-person leverage point this week with Nick P; the mentorship loop ('he needs more brian than letran') slips. Logistics note primarily, not a flag — but ties into Nick's softer reply on Claude design artifacts the same day ('haven't designed anything new yet, will today. was working on requirements and ideas… ready to rip once I get collective buyin').",
+          "🟢 MAY 4 — CREATOR-PIPELINE TARGET RAISED 20 → 25-30. Brian/DJ/Tim mpim, ~7:15-7:55 PM MDT. DJ: '20 is a realistic number, I'd say.' Matt: 'yeah i think we're gunna need 25-30 this week … something about reading a calendar that says May really makes me feel a LOT closer to NFL.' DJ accepted with the caveat that creator availability — not bandwidth — is the gate. Brian opted into all calls 'as optional' (visibility, not control — healthy). Tim anchored the implicit deadline: 'in our world we always say if things aren't set in stone by July 15 … it's simply not happening for the coming football season' = ~10 weeks of runway from May 5. The math: 25-30 calls/wk × 10 weeks = 250-300 first conversations to close NFL talent by July 15.",
+          "📊 OPTIC ODDS — APRIL 2026 ONE-PAGER LANDED. 105 deals in April pipeline → 23 closed won = $144.5K gross new contracted value, 13 churned = ($72.5K), NET NEW $72K. April alone hit 74% of Q1's full-quarter close count (23 vs 31), 80% of Q1 gross contracted value. YoY April closed deals: 3 (Apr 2025) → 23 (Apr 2026) = +667%. Marquee wins: Verified Global $20K (API + SGP Insight, largest April deal), CypherLab $15K (quant/algo trading), United Capital Mgmt $12.5K (Copilot, sportsbook = UCM PET in Apr 28 list), Delta Sierra Intelligence $10K (API), PURPLE $9K (API), Responsible Gaming Corp (API + Odds Screen). Product mix: API anchor in 91% of deals (21/23), Odds Screen 3 deals (53 partners total, +3 in April), SGP Insight 1 (Verified Global), Copilot 1 (Digital Win). ~320 active partners globally net of churn. Q3 '25 revenue growth was 304% YoY; 9-mo '25 374% YoY — April velocity signals platform inflection. Top churn: Betstrike $15K (switched to Betby — better pricing + full-solution bundle, ONLY clear competitive displacement of the month), Fanatics $15K (wouldn't allocate budget — note: separate from the open 'Proposal sent' Fanatics deal in pipeline), MainCard $10K (pivoted out of sports data), Apex Global / Maxwell Bruce $8K (reorg, may return 1-2mo), RareBet / Value Profits $8K (cash, scraping in-house), 5 others $16.5K (out of business / non-payment). Churn concentrated in smaller / early-stage partners — Fanatics was the only enterprise-tier loss; remaining churn was cash-constraint / pivot, not competitive. Worth surfacing in next MBR + checking whether Fanatics churn affects the open proposal track.",
+          "🚨 MAY 4 — CYCLE 3 WEEK 1 KICKS OFF. Bet365 MI now T-1 (go-live tomorrow May 5) — Jamie's confirmation still not pinned in writing across any scan window; escalation Mon AM if not landed by EOD today. Granola SDS Leads action items: Pedro scorecard sheet, Craig priority dashboard Fri, Tyler new priority list Tue, Brian Bookies priorities Tue, Randall Wed OJ check-in, Jeremy Mon/Tue product check-in, Ryan early-week Polymarket call. Brian S + Jeremy + Nick P all in NY office today/tomorrow — ~20× 15-min creator recruiting slots queued (JJ Zachariason / Mattek / Evan Silva intros). Matt's 'build the right what before rushing' open invite to pods (#sds-leads May 3 evening) means pod docs surface Mon AM.",
+          "🟢 MAY 3 — FLYCODE × STRIPE WIN ANNOUNCED (Tim, #sds-general). Last 2 weeks of April: $4,300 recovered above expected. Run-rate: $8-10K/mo lift for the foreseeable future. Cost: $2,100/mo (Granola). Net: subscription leakage now actively recovered as recurring revenue. Public credit to Lucas Reller — rare shoutout from Tim, note for review/comp cycle. Future expansion possible.",
+          "🟡 MAY 3 — MATT'S COURT (waiting on Nick): 'yoyo. how are the claude design artifacts coming' DM at 9:55 PM MDT. No reply visible May 4 AM. Watch Monday response — these tie back to the Optic + Perplexity launch motion (Ryan's 'bigger than the Claude announcement' framing).",
+          "🟢 MAY 1 ONYX APRIL FEE = $230,345.61 (Ryan DM, 3:36 PM). Ryan: 'honestly tg for onyx... they carry us lol.' Matt: 'i know, seriously.' Onyx is the carrying revenue line — load-bearing for SDS. Granola SDS Leads Apr 30: Onyx 'recently closed Series A' so renewal motion should be locked. Worth flagging in next MBR.",
+          "🟡 MAY 1 — G2E vs SBC LISBON CONFLICT CONFIRMED (Ryan DM). G2E (Sep 28 – Oct 1, Las Vegas) overlaps SBC Summit Lisbon (Sep 29 – Oct 1). Ryan committed Mon AM team invites; Matt: 'lets book early i got ideas.' Travel ops: FLL hotel + LIS booking still open. Decision pending Mon: split / coverage plan with Samuel.",
+          "🟡 MAY 1 — ARBFATHER FRICTION (Brian S DM). Brian forwarded 2 files from ArbFather, described him as 'pretty beat,' dismissed pushback as business reality. Matt's framing: 'building products is a better long-term path than just betting for the rest of his life; he's thinking hour-by-hour, not on a 10-year horizon.' Reading the situation as difficult to land — likely heads toward personnel change rather than reset. Carries forward into Letran/OJ roadmap conversation.",
+          "🟢 MAY 1 — OPTIC + PERPLEXITY MARKETING MOTION (Ryan, #optic-marketing). Ryan asked Sam Hill to start motion-graphics video announcing Optic + Perplexity computer; agreement expected to finalize end of next week. Ryan framing: 'this can be bigger than [the] claude announcement.' Watch contract close + launch coordination.",
+          "🚨 APR 30 — POLYMARKET PRODUCTION ACCESS BLOCKED on contract signature; their legal review ETA this week (May 4-8 window). V: 'we have their data, but its from a dev environment. so it's slower and rate limited. we hit the rate limit everyday now.' OJ feels unstable in product. Ryan: 'high degree of confidence it gets done.' Matt declined Ryan's suggestion to press Ari ('idt this is the ask'). Patch dev-env this week so users don't see degradation while contract closes.",
+          "⚠️ APR 30 — LETRAN ROADMAP SHARED, MATT/RYAN SKEPTICAL. 3-init plan (rec / pro / PM users $). Matt to Ryan 9:09 PM: 'letran is maybe the wrong guy / hire back arb father instead / brian and him are tight.' Ryan: 'ill post in sds-oj-management' — has not yet posted as of May 4. Personnel call in motion against the AI/MCP positioning thesis.",
+          "📉 APR 30 — RW B2B Apr revenue $792K → $728K (-8% MoM). Matt flagged to Ryan ('monitoring in bigger group / all good'). Single-month step-down on a line v8 forecast treats as stable; needs cause analysis before May close.",
+          "📉 APR 30 — AR ESCALATION (Anastasia). Pedro 3:31 PM: 'their ar is a huge problem. tim was being too optimistic.' Matt: 'we need to threaten to kill services / make sure shannon is harassing.' Pedro: 'ill talk to jean and olga or niall.' Tim's optimistic forecast on this customer being walked back.",
+          "🟢 APR 30 WINS — Smokin' Sixteen launched (Kevin OBrien): James Anderson weekly minor-league prospects column on IG/X. James A also 4th overall out of 900 in NFBC flagship baseball. Dylan Corbet first OJ YT video LIVE ($38K airport story). PGA Tour Shotlink data lever — Matt has direct contact at PGAT, Kevin OBrien wants pursuit. Optic bet builder shipping 'VERY soon' (Ryan, #optic-sales).",
+          "🟢 KEVIN MCCRYSTLE FORECAST SENSE-CHECK (Apr 30 AM) — Kevin opened Q3+ growth realism check. Matt held the line on single-forecast methodology, won the round. Kevin: 'ok that makes sense then.' Open option to add low/high band on base case if asked again. Roto Q3/Q4 jump = affiliate-driven (safer than pure sub upside per Kevin); RW sub upside hinges on talent landing.",
+          "🟢 OJ BASEBALL APRIL WRAP (Tyler W) — 3.1M Twitter impressions, 77.4K engagements, 3,344 new followers in first full month — expanded to Threads + Facebook mid-month. RW Best Ball page LIVE (Kurt + JM 2026 rankings + Dylan Ramsey build). OJ social auto-post profile shipped (Brian/Tyler — '$1 parlay would have won a million' framing). Two product ships + a viral content engine in 24h heading into NFL ramp.",
+          "🟡 APR 30 WATCHES — Rohan/Shay 'at each other daily' (V flagged in #vrr, mediating). Lawsuit chatter on third-party Discord 'oj-oo' channel among sport-API devs (heads-up to Michael/legal). LineStar (LS) showing 'massive churn' per Shay — flagged to Matt as 'take over the biz' opportunity. Sport + League Coverage dashboard stalled (Matt chased on V + Ryan in same day; offsite version still without owner). Charles back-channel re Bobby/Aleksandra: Charles reading senior-team slowness despite Aleksandra pushing — partnership/M&A intel worth tracking.",
+          "🤖 RYAN AI THESIS HARDENING — repeating 'ride the AI wave' across multiple channels (vrr, mgmt-team, Ryan DM). Met heisenberg.so founder Apr 30 (MCP that surfaces best Polymarket trader → wallet → tx → recent bets). Ryan: 'this shit seems easier than building new products and hopefully can kill the revenue erosion.' Kevin McCrystle separately shared every.to/consulting in #operating-com Apr 30 7:03 PM — AI-implementation consulting at exec level. Pattern worth surfacing in MBR framing.",
+          "🚨 RW CHURN SPIKE: $500+/day for about a week (Randall, Apr 9 in #sds-leads). 21-reply thread — hottest operational issue. Nick P investigating prevention (Prosperstack?). Brian S + Randall have OJ-playbook ideas to try. Annualizes to $1.3M+ at risk.",
+          "🚨 REVENUE FORECAST DECLINING: Craig's Week 2 reforecast (Apr 15) shows SDS Affiliate TOTAL down $1.213M to $16.342M. Bookies worst (-$540K to $3.63M). RW down from $5.94M peak. GAN/Partnerships more conservative. Only Local held flat. 'Still on pace to beat total target' but growth opps must materialize.",
+          "🔥 BET365 MICHIGAN LAUNCH: Embargoed until Apr 18, affiliate go-live May 5 (Jamie). Matt mobilized all assets across RW/OJ/DGF/Local — emails, banners, social, chats with b365 links for ALL Michigan users. Material near-term revenue upside.",
+          "📈 RW AFFILIATE RECORD: $597K March — record single month (prev $528K Oct '23). 3.5K NDCs. Revenue +571% YoY. Already eclipsed full 2025 revenue ($1.45M vs $1.07M) in 100 days. Prediction markets growing fast: Jan $0 → Feb $9.7K → Mar $29.4K.",
+          "⚠️ NY AG SUBPOENA WAS DUE APR 9: Ryan shared detailed analysis Apr 1. Widget branding debate now has regulatory dimensions. Matt wants 'OddsJam' on consumer widgets, Karl argues Optic is correct for B2B. Monitoring for AG follow-up.",
+          "🏗️ PRODUCT VELOCITY: Dynasty tools live (50K+ searches/mo target). RW Breaking News tool demo'd (Jake L, Apr 14). OpticOdds Claude MCP in prod + PR coverage. OJ Baseball bot automated ($0.30/day, viral). Post-offsite execution momentum high.",
+          "👤 RW TRANSITION: Harry Thompson leaving (told team Apr 6). Kurt Kroll 2mo paternity in June. Vincenzo planning backend/frontend lead split. Nick P ramping — first priority fantasy football draft assistant. Andrew Parr likely lead. Whale picker contractor (Matthew, $50/hr) approved.",
+          "💰 BETSYNDICATE PROGRESS: $8-8.5K MRR, ~170 paying subs, 800 freemium signups, $35K gross total. Breakeven projected by NFL. Toad Sports + NASCAR Digital interested in BetFinder integration. Vincenzo skeptical of Roth ('cowboy, waste of time').",
+          "📱 SMART MONEY STUCK: Still 20 subs (2 annual, 18 monthly). Lucas made short-term scoring fixes but more needed. Jeremy: 'at 20 subs there's a larger issue around demand and customer objections.' Needs long-form talent video + marketing push.",
+          "🤖 AUTOMATION THESIS VALIDATED: Tyler's OJ Baseball bot ($0.30/day, 810 followers/350K impressions in 48hrs). RW Instagram +400% YoY (carousels). Craig automating 90%+ of Search workflows. Clark building content ideation AI. RW Breaking News tool live. 'Humans as orchestrators not executors.'"
+        ],
+        "updatedDate": "2026-05-15"
+      },
+      "attention": [
+        {
+          "name": "⚠️ Slack Scan Stale — STRUCTURAL — Day 4",
+          "pod": "INFRA · LAST DIGEST MAY 11→12 · ~96H OLD · SKILL.md FIX NEEDED",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — DASHBOARD READS STRUCTURALLY DEGRADED",
+              "text": "The overnight Slack scan has now failed to land for THREE consecutive nights (Tue/Wed/Thu). Last good digest still covers May 11 → May 12 AM (generated 2026-05-12 01:17) — ~96 hours stale as of Fri AM, twice past the 48h guardrail. Three full days of working-hours activity unconfirmed via digest: C3 OJ priority dedup announcement, V's surgery date lock, Ryan's redundancy plan + Sport+League Coverage owner, Swish/Aleksandra counter, Stripe checkout cutover. Every attention card below carries the implicit caveat 'last confirmed via Slack May 12 AM.' This is now structural, not transient — the kebab/Summarize flow timing fragility is the root cause (green Summarize button activates only after both dates are filled, so pre-activation coordinate clicks get silently consumed). Watermarks remain at May 12, so tonight's run picks up May 12 → May 16 IF it completes.",
+              "action": "(1) THIS IS NOW THE TOP INFRA ITEM: escalate SKILL.md update — actually-successful nightly runs in this codebase (May 5, 7, 8, 12) used DOM-scrape via `a.c-timestamp` anchors, NOT the documented kebab/Summarize flow. Move DOM-scrape to primary path in SKILL.md and demote AI Summarize to optional layer for high-activity targets. (2) Until that lands, operate from inbox + direct DM for the 7 hot threads (V surgery date, Ryan redundancy plan, Sport+League dashboard owner, Swish counter, C3 OJ priorities v2, Stripe cutover, Pedro NetSuite access). (3) Granola pipeline also dark — no fresh notes since May 11. (4) One partial signal preserved from May 14 oj-b2c capture (77 msgs): Stripe migration active in Jeremy↔Zach thread, Polymarket banner ODJ-7242 (Aaron), prediction market / arbitrage research beyond Kalshi+Polymarket — surface in next 1:1 with Letran."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "V Spine Surgery — Coverage Plan",
+          "pod": "OJ DATA · DI HIRING · BIGQUERY DW — V OOO ~1 WK INSIDE NEXT 30 DAYS",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — COVERAGE PLAN BEFORE V PICKS A DATE",
+              "text": "NEW May 11 (3:00 PM #vrr) — Vincenzo announced surgery for a long-standing spine fracture that's now symptomatic. Out ~1 week, exact dates confirmed inside the next 30 days. He's 'fine.' The operational issue: three load-bearing lanes all sit on V. (1) OJ data ingestion + the isportsapi vs odds88 decision — Scott is already deputized on that 1-pager, Ryan can backstop via the odds88 relationship. (2) DI hiring — Raffaele's Day 1 + 3 active interviews this week. The interview cadence is V's call but if surgery dates fall inside this window, hand-off should be to Ryan with a written brief, not a verbal one. (3) BigQuery DW + strangler-fig kickoff on RW — most-deferrable; could slip 1 week without consequence. Side risk: PrizePicks late-limiting on OJ data requests is still ACTIVE (V asked Ryan to check his PP relationship Mon; team had to IP-switch last week to keep requests working). Both threads sit on V — coverage plan needs to account for that single point of failure.",
+              "action": "Today: DM V — 'when you have a date, send it to me + Pedro + Ryan same hour so we can lock coverage before the standup that day.' Build the coverage matrix this week before he locks in: Scott on isportsapi/odds88 (with named decision owner if V is out), Ryan on PrizePicks relationship + DI interview backstop, RW BigQuery slips. Get all three in writing — verbal commitments don't survive a week-long absence. If V's date lands inside the next 10 days, accelerate the C3 OJ priority dedup (see Cycle 3 card) so V's sign-off is in hand before he's out."
+            },
+            {
+              "priority": "P1 — TIMING RISK ON ISPORTSAPI VS ODDS88",
+              "text": "The data-source-buy decision (isportsapi $4-10K/mo vs odds88) is the P1-of-P1s and Scott is already 1-pagering it. If V is out during the decision-week, Scott's call needs an escalation path that isn't 'wait for V to be back.' Cleanest path: Scott + Ryan co-own the decision while V is out, with the constraint that Polymarket Direct Bet stays frozen until the data-source-buy lands. This sequencing means V's absence doesn't push the whole Polymarket thread by a week.",
+              "action": "Confirm with Scott this week: 'if V is out the week of [date], are you and Ryan comfortable making the isportsapi vs odds88 call without me? Yes/No.' If yes, document the escalation path in #vrr. If no, push the decision week up so it lands before V's surgery window."
+            }
+          ],
+          "suggestedMsg": "v/ ack on the surgery — appreciate the heads up. take care of it first.\n\n2 things on coverage before you pick a date:\n\n1. when you have the date, send it to me + pedro + ryan same hour. we'll lock coverage same day.\n\n2. on isportsapi vs odds88 — if scott + ryan are comfortable calling it without you during the week you're out, let's document that in #vrr. if not, let's push the decision week up so it lands before. either way, polymarket direct bet stays frozen until the data-source buy lands.\n\nDI interviews and the bigquery push we can absorb. data ingestion is the lane i don't want to leave open.\n\nlmk"
+        },
+        {
+          "name": "Swish / Aleksandra — Counter Awaited",
+          "pod": "LICENSING · MATT HOLDING THE LINE · CHARLES GREEN-LIT",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — REPLY SENT, AWAITING COUNTER",
+              "text": "NEW May 11 — Aleksandra came back with a non-exclusive license redline. Matt drafted definitive rejection citing: (a) no differentiation vs. open-market Swish access, (b) no clean-market commitment from Pinnacle, (c) no enforcement obligation. Charles green-lit the posture ('Yep. Respond quickly and definitively so she thinks our view is clear and we don't need this. But be annoyingly polite. Call the bluff.'). Reply sent 8:18 PM Mon. Now waiting on her counter. Reading the room: Aleksandra was directionally aligned but senior team has been slow per Charles's back-channel intel; a non-exclusive walk-back from her side is the senior team winning the round. Don't soften without movement on at least one of the three cited gaps.",
+              "action": "Watch inbox this week. If counter lands: do NOT respond same-day — read with Charles first, response should be the same hold-the-line posture unless she's moved meaningfully on differentiation, clean-market, or enforcement. If no counter lands within ~5 business days, treat the commercial track as dead and we operate as if litigation-only (Quinn Emanuel discovery cadence already running). Either way, fold Mon's exchange + the response posture into Charles's litigation log so the commercial vs. litigation track is documented as one piece."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "Cycle 3 OJ Priority Dedup — TODAY",
+          "pod": "OJ · PEDRO + V + CRAIG · 17 ITEMS TOO MANY",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — DEDUP BEFORE TOMORROW'S ANNOUNCEMENT",
+              "text": "NEW May 11 (Pedro DM 9:42 AM) — Pedro's Cycle 3 OJ priority list landed with 17 items and too many duplicates. Matt's call: 'no way there's 17 priorities.' Direction: dedup via Vincenzo (data ingestion split) + Craig (Bookies inside of Search). Matt liked Pedro's PM/Designer split. Hold-and-don't-distribute discipline holding ('yea defs not' — don't share yet) until tomorrow's announcement. This is the same announcement that needs to land on the post-layoff Tuesday, so the dedup pass is on the critical path of today.",
+              "action": "Sequence today: (1) Matt + Pedro alignment AM (15 min) — confirm the consolidation rule (dedup criteria: same owner, same product surface, same metric — collapse). (2) Pedro + V same-day on data-ingestion split (don't slip — V's surgery window could compress this). (3) Pedro + Craig same-day on Bookies-inside-of-Search split. (4) Pedro circulates v2 (8-10 items target) for Matt's review before tomorrow's announcement. Don't let this carry past Wed."
+            }
+          ],
+          "suggestedMsg": "pedro/ on the c3 priority list — let's land the dedup today before tomorrow's announcement.\n\nquick rule of thumb: same owner + same surface + same metric = collapse. should get us from 17 to 8-10.\n\nyou + v on the data ingestion split today (he's got surgery coming, don't slip on his sign-off). you + craig on bookies-inside-of-search today. circulate v2 by eod for me to review.\n\n15 min am works if you want to align on the dedup criteria first.\n\nlmk"
+        },
+        {
+          "name": "Layoffs Done — Post-Reorg Stabilization Week",
+          "pod": "MATT-DRIVEN · MAY 11 EXECUTED · WK2 LIVE",
+          "level": "watch",
+          "issues": [
+            {
+              "priority": "P0 — POST-LAYOFF TUE: WATCH FOR DRIFT IN THE 1:1 CADENCE",
+              "text": "Mon May 11 executed — layoff conversations ran, comp/growth model lands with Tim same-day per the pre-locked plan. No inbound signal that any conversation went sideways (no DMs flagging issues; pod leads quiet). Reading: the day landed clean. This week's job is stabilization, not announcement. Watch surfaces: (a) pod-leads who were NOT in the loop pre-Monday — V/Pedro/Tim are read in; others may need a brief acknowledgment in their 1:1 if anything in their pod was affected. (b) Comp/growth model rollout — if Tim's model needs to land in the broader org, sequence it Wed+, not Tue. (c) Affected employees' offboarding logistics (Pedro+HR own) — don't get pulled in unless escalated. Slack scan is back online — operating from fresh digests now, not carried-forward cards.",
+              "action": "Tue AM: 5-min DM to each pod lead acknowledging Mon ('Mon landed — hold the line on cycle 3 priorities this week, lmk anything surfaces'). Don't say more in writing. Keep the 1:1 cadence (Ryan, Pedro, V, Tim) tight this week — these are the four people who carry the post-reorg story. If Tim's comp model is final-shape, sequence the broader-org communication Wed AM, not Tue (let Mon land first)."
+            },
+            {
+              "priority": "P1 — CYCLE 3 WK2 CARRY-FORWARDS STILL OPEN",
+              "text": "Three Wk1 carry-forwards going into Wk2 (status unchanged from Mon's read): (a) Ryan's eng redundancy plan — push for named #2 on Copilot + Odds Optimizer + 2-week notice cadence by Wed COB. (b) Sport+League Coverage dashboard owner — pick V or Ryan, not both. (c) Pedro's C3 scorecard sheet wiring — confirm wired this week or escalate. These belong in the 1:1 cadence, not the broader org standup.",
+              "action": "Push Ryan in today's catch-up (or DM if no scheduled time): redundancy plan + Sport+League Coverage owner before Wed COB. Push Pedro: confirm scorecard sheet wiring this week."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "RW Churn Spike",
+          "pod": "RW — ACTIVE FIRE",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "$500+/day in RW churn for about a week (Randall, Apr 9). 21-reply thread in #sds-leads — highest engagement item in channel this period. Nick P investigating churn prevention (Prosperstack?). Brian S and Randall have OJ-playbook ideas to try. Annualizes to $1.3M+ at risk.",
+              "action": "Get Nick's churn analysis ASAP. Confirm Prosperstack offers. Apply OJ churn playbook. This is the #1 operational fire."
+            }
+          ],
+          "suggestedMsg": "nick/ randall flagged $500+/day churn on rw for the last week. what churn prevention do we have in place? prosperstack? what are the offers?\n\nbrian s has some ideas from the oj playbook — loop him in.\n\nthis is the most urgent thing on ur plate rn\n\nlmk"
+        },
+        {
+          "name": "Eng Redundancy / Rohan Time-Off",
+          "pod": "OJ ENG — BUS-FACTOR · COPILOT + ODDS OPTIMIZER · BOULDER ASKS STILL SLIPPING",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — BUS-FACTOR",
+              "text": "Highest-signal DM of May 4 (Matt → Ryan, 7:34 PM MDT, long-form weekend write-up): SDS needs redundancy on Copilot + Odds Optimizer AI. We need a NAMED second engineer with a real ramp-up plan — Rohan can't be the only eng who can take a ticket. When anyone is out, the other three should know 2 weeks ahead. Also flagged: Rohan signaled MORE TIME OFF coming (engagement) — Matt's read this as a real bus-factor risk, not a hypothetical. Ryan engaged but didn't commit ('fyi'); pattern matches Sunday's 'build the right what' nudge — engagement without ownership.",
+              "action": "Push Ryan for a written redundancy plan this week (named #2 + ramp-up + 2-week notice cadence for any planned absence). Tie this to the Cycle 3 priority reset so it lands inside this week's pod docs, not as a one-off. If Ryan doesn't post anything by Wed COB priorities deadline, escalate as agenda item for Thu reallocation meeting."
+            },
+            {
+              "priority": "P1 — VINCENZO ROLE DEFINITION (ESPN reliability)",
+              "text": "Same May 4 DM thread, 8:51 PM MDT — Matt: 'maybe a good time to ringfence ^ / how vincenzo can be helpful.' Ryan immediately landed the wedge: 'yeah need him to help solve espn reliability.' This is the cleanest, most actionable definition of V's near-term role we've gotten — specific, customer-visible, doable inside the cycle. Pairs well with V's data-source buy work but is its own discrete deliverable.",
+              "action": "Make 'V owns ESPN reliability' an explicit Cycle 3 priority — needs a 30/60/90 from V (or Scott on his behalf) by Wed COB. Don't let it become another pulled-thread that slips."
+            },
+            {
+              "priority": "P2 — STALLED BOULDER ASK (Sport+League Coverage dashboard)",
+              "text": "Same May 4 DM — Matt named that the Sport + League Coverage dashboard ask from Boulder STILL hasn't landed and he doesn't know status. This was already chased twice on Apr 30 (V + Ryan); now Matt has surfaced it a third time inside two weeks with no owner clearly driving the boulder-offsite version. Ryan's engagement-without-commitment pattern is more pronounced here than on the redundancy ask.",
+              "action": "Pick an owner this week — V or Ryan, not both — and get a status before Cycle 3 priorities lock Wed COB. If Ryan can't take it, give it to V and pull something else off V's plate to make room. Don't let this become a fourth chase next week."
+            }
+          ],
+          "suggestedMsg": "ryan/ on the eng redundancy note from yesterday — i need a written plan this week. named #2 on copilot + odds optimizer, ramp-up, 2-week notice cadence for any planned absence. let's not have rohan be the only eng who can take a ticket, especially with him signaling more time off.\n\non v — yeah let's lock 'espn reliability' as his cycle 3 priority. need a 30/60/90 from him (or scott) by wed cob.\n\nand sport + league coverage dashboard — third chase. pick an owner, you or v, not both. status before wed.\n\nlmk"
+        },
+        {
+          "name": "Bet365 Michigan Launch",
+          "pod": "ALL PROPERTIES — DAY 25 LIVE · DAY 8 AFFILIATE · POST-LAUNCH SILENT · JAMIE PIN STILL UNWRITTEN",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE OPP",
+              "text": "Bet365 Michigan — Day 25 live; affiliate go-live shipped May 5 (Day 8). Slack digests now back online (May 8 → May 11/12 digests landed) but Bet365 channels still silent across the post-launch window through Mon — no named risk list, no CS escalations, no compliance flags, no NDC pacing read. 'No news = clean ship' is the working interpretation, but the absence of a written confirmation from Jamie remains the open artifact gap.",
+              "action": "Today (Tue Wk2): pin Jamie on a written one-week retrospective ('what shipped, NDC pacing Days 1-8, anything in CS/compliance from MI, affiliate run-rate first 7 days'). One-sentence is fine — needs to exist for the audit trail. Once Jamie's read lands, pivot to the 188-sb.com data-quality diff with V (note: V's spine surgery in next 30 days — get the diff out of him before he's out). If Brian has OJ-side affiliate numbers from Days 1-7, fold into this week's MBR as the launch's first measurable outcome."
+            },
+            {
+              "priority": "PRODUCT RISK",
+              "text": "Bet365 shadow-site discrepancy flagged by Leo Apr 28 (#optic-sales): a prospect noticed our 365 prices matched 188-sb.com instead of the official 365 site. Vincenzo's first answer ('we get from official API, we don't alter') didn't address the divergence claim. Leo pushed back. Latency-sensitive prospects (Exigent Closed Lost, Pinnacle complaints) keep scrutinizing data quality — this is the second customer-visible data signal in a week.",
+              "action": "Ask Vincenzo for a one-shot diff against the official 365 site so we have evidence-based answer for Leo + the prospect. Fold finding into Optic data-quality narrative for next MBR."
+            }
+          ],
+          "suggestedMsg": "brian s + steve + randall + craig/ day 20 live now. if you didn't get me the 24-hour read yesterday, i still need it — by property, anything fail, anything in inbox/CS, compliance flags from MI? green/yellow/red. by 11a et today.\n\njamie — i still don't have your launch confirmation pinned in writing anywhere i can find it. retrospective is fine but i need the artifact. by 11a et.\n\nlmk."
+        },
+        {
+          "name": "Polymarket Prod Access",
+          "pod": "OJ — CONTRACT BLOCKING DATA · OJ FEELS UNSTABLE",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P1",
+              "text": "NEW Apr 30 (#vrr): Polymarket is holding production API keys until contract is signed. Their legal review ETA is next week per the oj-ext-polymarket-oddsjam shared thread. We're running on a dev environment that V described as 'slower and rate limited. we hit the rate limit everyday now. when we get too many rate limits errors we pull the odds. so polymarket feels unstable in the product.' This is now a customer-visible stability issue on OJ tied to a signature gap. Ryan's read: 'not ideal but idt this is the end of the world… high degree of confidence it gets done.' Ryan suggested Matt press Ari; Matt declined ('i don't think this is the ask'). Right call — but the product instability cost is real every day this drags.",
+              "action": "Two parallel tracks: (1) DEAL — chase Poly legal weekly until contract is back; don't press Ari (Matt's read), but DO press whoever Poly counsel is to stay on schedule for next week's ETA. (2) PRODUCT — V to harden the dev-environment fallback so 'we pull the odds when we hit rate limit' doesn't keep showing as instability to OJ users; what's the smallest patch (caching, backoff, graceful degradation copy) that buys us another week without product erosion?"
+            }
+          ],
+          "suggestedMsg": "v/ on the polymarket dev-env stability — when we hit rate limits and pull the odds, that's showing in the product. we're another week+ from contract signature. what's the smallest patch we can put in this week so it stops feeling unstable to users? caching, backoff, even copy that says 'data delayed.'\n\nseparately — let's get a status from poly counsel on legal review by tues. we need a name on their side, not just 'next week.'\n\nlmk"
+        },
+        {
+          "name": "NY AG Subpoena",
+          "pod": "LEGAL — WAS DUE APR 9",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "LEGAL",
+              "text": "Subpoena duces tecum from NY AG Letitia James — was due April 9. Targets Gambling.com/OddsJam/OpticOdds explicitly. Ryan shared detailed analysis Apr 1. Widget branding debate has regulatory dimensions. No update on legal response status since due date.",
+              "action": "Confirm legal response was filed. Monitor for AG follow-up."
+            },
+            {
+              "priority": "BRAND RISK",
+              "text": "Widget branding: Matt wants OddsJam on consumer-facing, Karl argues Optic for B2B. Featured Parlays product scoping underway in Linear. Yahoo interested in widgets.",
+              "action": "Resolve branding policy: OJ consumer / Optic B2B. Get reskin timeline from Karl."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "PT / PI Contraction",
+          "pod": "OJ Product — QUANTIFIED IN v7 FORECAST (-$1.13M OJ)",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "Forecast v8 (Apr 29) — OJ vertical held flat at $16.92M (no change from v7). PT/PI story didn't worsen but didn't reverse either: $71K MRR contraction on Prediction Insiders ($165K → $105K) is still in the run rate, no recovery booked yet. Total SDS now -$2.43M (-3.5%) off $69.4M target (was -3.2% under v7). Matt's 'ride Randall' commitment + SDS Leads PT-fix mandate is now into Week 2 without a visible turn. Worth probing Randall directly: what's actually been done since Apr 23, and what's the realistic path back to $165K MRR.",
+              "action": "Randall check-in this week — has anything actually been tried since the SDS Leads PT mandate? If no, that's the escalation. Need a quantified fix plan + 30/60/90 milestones, not 'we're working on it.' Keep Polymarket Direct Bet frozen until PT shows recovery."
+            },
+            {
+              "priority": "COUNTER-BETS",
+              "text": "Counter-bets in test window this week on oj-b2c: whale tracker push notifications (Aaron Ashery, backend#10447) + new algo integration built on Matthew's LSTM/XGBoost pipeline (Nils PR). Aaron on Day 2 sick — whale tracker release timing at minor risk.",
+              "action": "Track whale-tracker + new-algo release. If Aaron stays out, push Nils or Zach to cover the release so we don't lose the test window."
+            }
+          ],
+          "suggestedMsg": "randall/ v8 forecast just dropped — oj stayed flat at $16.92m, pi mrr still in the run rate at $105k vs $165k pre-contraction. we're now 3.5% off target.\n\nit's been a week since sds leads where pt was agenda #1. what's actually been tried since then? need a quantified fix plan + 30/60/90 milestones, not 'we're working on it.'\n\nlmk by eod"
+        },
+        {
+          "name": "Jeremy Tran",
+          "pod": "OJ Product — ROADMAP/PERSONNEL UNDER REVIEW",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — PERSONNEL CALL IN MOTION",
+              "text": "Apr 30 — letran shared a 3-initiative OJ roadmap restructure (rec bettors $ via top-funnel automation/lead magnet/easy trial; pro bettors $ via live speed/bookiebeats-style devigging/latest edges; PM users $ via PT upgrades/PM arbs/direct bets). Matt's response in DM with Ryan (9:09 PM): 'honestly share all of what you sent to v to brian / i have been thinking letran is maybe the wrong guy / and we should hire back arb father instead / brian and him are tight.' Ryan: 'ill post in sds-oj-management.' STATUS: 5 days later (May 5 AM), Ryan still has not posted. Pattern matches Ryan's broader May-4 'engagement without commitment' read on the redundancy + Sport+League dashboard asks. Matt + Ryan also aligned (10:14–10:20 PM Apr 30) on 'oj + claude just seems easy marketing' — letran's roadmap doesn't lean into AI/MCP positioning the way Ryan's been pitching all week.",
+              "action": "Decide this week whether the personnel call gets made or letran gets a 30-day window to course-correct toward the AI/MCP positioning. If it's a make, line up Brian's relationship with arb father before any letran convo. Ryan's #sds-oj-management post is the trigger event — push him to land it Mon AM so the call doesn't drift through cycle 3 reset week."
+            },
+            {
+              "priority": "P1",
+              "text": "Poly deal still NOT signed as of Apr 30 (production API keys held until contract close — see Polymarket Prod Access card). Holding PI→PT rename until close. Polymarket Direct Bet explicitly frozen behind PT fixes (Matt → Vincenzo, Apr 22). Jeremy's bandwidth reallocated to tweet-bot recaps + remotion.dev video automation — don't let him get pulled back to Polymarket prematurely. Algo architecture proposal 'Revenue Through Better Algorithms' on the table. Kalshi oAuth — no progress, asked 'who's the contact for that deal?'",
+              "action": "Push Poly to close. Keep Direct Bet frozen until PT is in motion. Review algo architecture doc. Connect Jeremy with Kalshi contact for oAuth."
+            },
+            {
+              "priority": "P2",
+              "text": "Madison trip → changed to May 4-5 NY office visit (flights to Madison $1K+). Will coordinate with Nick P there. Smart Money scoring partially fixed (Lucas short-term) but Jeremy says deeper demand issue at 20 subs.",
+              "action": "Confirm May 4-5 NY office. Push SM demand investigation."
+            },
+            {
+              "priority": "P3",
+              "text": "$29 course LP 'too much text' and 'pretty janky.' Pikkit API scoping with Zach — 'should be fine for MVP.' ParlayGrader low adoption. Jeremy suggested selling picks on Bookies.",
+              "action": "Push $29 course LP redesign. Check Pikkit API progress."
+            }
+          ],
+          "suggestedMsg": "ryan/ on the letran call — when are u posting in sds-oj-management? need that landed early next week so the conversation doesn't drift through cycle 3 reset week. and let's talk to brian first re: arb father before any letran convo.\n\njeremy — poly still not signed (prod access blocked on contract). hold on PI rename. how's the algo architecture proposal? kalshi oauth contact? $29 course LP needs another pass. may 4-5 ny office confirmed w nick?\n\nlmk"
+        },
+        {
+          "name": "Cycle 3 Priority Reset — THIS WEEK",
+          "pod": "ALL PODS — Granola action items + Matt's open invite",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — CYCLE 3 WK1 CLOSED (Sat) · OPEN ITEMS INTO WK2",
+              "text": "Cycle 3 Wk1 closed Friday. Wk1 landing recap (from Thu Slack scan): (a) **Tim closed RW-Talent / RW-News / RW-Features** in #sds-leads — three RW pods now have priority owners. (b) **Vincenzo committed in #vrr** to the 6-week OJ pod operating-cadence document and dropped 3 files Thu 6:17 PM (Data Ingest / OJ / RW). (c) **Pedro reissued @channel** in #sds-leads at 1:54 PM Thu ('reminder to get these in today please ^^') — translates to: most other leads still slow on the priorities-on-shared-sheet ask. Tim's RW close-out is the only confirmed landing across the leads channel as of Thu PM. (d) **Pedro unblocked on NetSuite/Cube** via Niall (10:19 AM Thu #sds-finance). Friday-afternoon activity isn't yet captured (next overnight scan tonight) — Craig's priority dashboard delivery + V's #vrr Friday call outputs (isportsapi $4-10K/mo vs odds88 decision) surface in tomorrow's digest. Three Wk1 watchlist items going INTO WK2: Ryan's redundancy plan (no movement Mon-Thu), Sport+League Coverage dashboard owner (no movement Mon-Thu), Nick design artifacts (substantive non-design update Thu — see P1).",
+              "action": "Sun: confirm via inbox whether Craig's priority dashboard arrived Fri (read if so) + whether V's isportsapi/odds88 decision documented anywhere. Mon AM Wk2 kickoff: Pedro names which leads still owe priorities (Tim's RW close-out is the model). On the two stuck watchlist items — Ryan's redundancy plan + Sport+League Coverage dashboard owner — Wk1 closed without movement on either; do NOT carry into Wk2 without a named owner. Push Ryan in Mon AM 1:1 to land both. Personal Granola actions still open: Jack Tyler PR firm contact + add Jake + Shannon to Granola distribution."
+            },
+            {
+              "priority": "P1 — NICK'S COURT (softer landing than expected)",
+              "text": "Nick gave a substantive read yesterday (1:44-1:45 PM DM), not the dodge a 'name the gate' nudge would have produced: Shiny (designer) is still ramping, harder to evaluate while she finishes Lucas-originated work, but Nick will reprioritize her work today around NFL plans and 'will be working very closely w her moving fwd … will see how fast she can go soon, gotta get some designs teed up quickly for devs.' That's not 'design artifacts done' — but it's the cleanest landing we've gotten on the through-line: design bandwidth is the constraint, NFL plans are the prioritization frame, ramp-speed is the Q. Matt floated wanting in-person cadence: 'i wish we had an office.' Separately, Jonathan's contract extension (Lucas's ask, 6-month renewal) aligned with Nick same window.",
+              "action": "Stop nudging on artifacts this week. Re-check next Fri (May 15) for the first batch of NFL-plan designs from Shiny. If Ryan's Perplexity launch surface lands and still needs assets, that's a Ryan→Nick escalation, not a Matt→Nick one. Side track: keep an eye on Nick's in-person remark — third or fourth surface of 'we'd be faster in an office' from Matt this month."
+            }
+          ],
+          "suggestedMsg": "pods/ this week is cycle 3 priority week.\n\nwed cob = priorities locked. thu = reallocation if needed. pedro's running the new scorecard sheet — get him your inputs.\n\nmatt is open as optional to any of your brainstorm meets — pls add him, don't slow down for his cal.\n\nlmk by tue eod where each pod is landing."
+        },
+        {
+          "name": "FlyCode × Stripe Win — May 3",
+          "pod": "RW B2C — RECURRING-REVENUE LIFT BAKED IN",
+          "level": "watch",
+          "issues": [
+            {
+              "priority": "WIN — RUN-RATE BUILT INTO FORECAST",
+              "text": "Tim Schuler announced May 3 in #sds-general: FlyCode/Stripe payment-recovery integration recovered $4,300 above expected in last 2 weeks of April. Run-rate: $8-10K/mo lift for the foreseeable future (Granola: $2,100/mo cost). Public credit to Lucas Reller — rare shoutout from Tim. Annualizes to ~$100-120K of recovered subscription revenue. Should be folded into v9 forecast as a clean line item rather than absorbed into noise.",
+              "action": "(1) Push Pedro to fold the FlyCode lift into v9 RW B2C as a discrete line — keeps the credit visible and lets us track over time. (2) Note Lucas Reller in the next review/comp cycle — Tim explicitly framed this as Lucas-led. (3) Granola flagged 'future expansion possible' — ask Tim what other FlyCode surfaces (OJ B2C? Bookies?) before NFL ramp."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "Karl O'Brien",
+          "pod": "Optic Product",
+          "level": "watch",
+          "issues": [
+            {
+              "priority": "P1",
+              "text": "Widget reskin (OddsWire → Optic Widgets) proposed. Infrastructure ready. Claude MCP went idea→prod quickly as proof of velocity. Yahoo interested in widgets. Featured Parlays scoping in Linear.",
+              "action": "Get reskin timeline. Focus on selling what we have + Yahoo opportunity."
+            },
+            {
+              "priority": "P2",
+              "text": "Branding resolved: consumer-facing = OJ, B2B white-label = Optic. Hold on play-by-play widgets. Scorecard yellow on 'Expose Prediction Market Data' — Biagio working on it per offsite.",
+              "action": "Close out prediction market data item this cycle. Hold on PBP."
+            }
+          ],
+          "suggestedMsg": "karl/ branding is settled — consumer sites say oddsjam, b2b white-label says optic.\n\nwhat's the reskin timeline? yahoo is interested. hold on pbp. and close out the prediction market data item this cycle.\n\nlmk"
+        },
+        {
+          "name": "Brian Stephens",
+          "pod": "Growth Ops / Talent — UP-SPEND ASK NEEDS A NUMBER",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P1 — UP-SPEND ASK",
+              "text": "Apr 28: Brian wants to up spend across the board to fix TOF — fund Sal-led influencer motion + Choi-led short-form (UGC + big creators) + scale RTs (March 2025 64K vs March 2026 30K). Matt directionally agreed but no $ number, no horizon, no allocation. This is the most consequential open item from Brian this week — risk is greenlight slips into a forecast surprise without going through Pedro first.",
+              "action": "Anchor Brian's ask to a specific monthly $ budget by Wed. Loop Pedro before sign-off so the consolidated forecast can absorb. Ask Brian for a one-pager: where the spend lands (Sal/influencer vs Choi/short-form vs RT scale), expected CAC, and the kill-criteria."
+            },
+            {
+              "priority": "P2 — RECRUITING MOTION · DOUG MONAHAN IN PIPELINE",
+              "text": "NEW May 7 (Brian/DJ/Tim mpim, 1:32-1:49 PM MDT) — Matt floated **Doug Monahan** as Billy's potential replacement on the OJ Master Class / 4-day course. DJ pegged comp at 100-150K full-time. Brian flagged risks: 'all over the place,' 70 subs despite real betting skill (weak at marketing), 'going to be a complete shift in his thinking' to teach the tool. Brian: 'monahan lost triple the amount of wins he had / and guy crushes / he'd just have to shift his thinking.' Landed: full speed ahead on OJ for Doug, NO RotoWire role (DJ: 'His name is more meaningful in the OJ space'). Next step is shaping Doug's strict lane — live-stream OJ vs. push OJ vs. teach-the-tool / 4-day course. Brian is the natural onboarder. Pairs with the larger creator-recruiting motion: the Apr/May Brian/DJ/Tim mpim raised creator-call target 20 → 25-30 (Matt's push); DJ accepted with the caveat creator availability — not bandwidth — is the gate. Tim anchored July 15 as the not-set-in-stone-by-then = no-NFL-season line — ~10 weeks runway from May 5. JJ Zachariason, Davis Mattek, @LordReebs queued; Tim views Mattek as ahead of any 'young and underpaid' NFL front-office hire and would 'take Mattek if he'd jump over.'",
+              "action": "Doug Monahan: Brian to scope the strict-lane (live-stream / push / teach-the-tool) by EOW + return with comp anchor (DJ 100-150K) + onboarding plan. If Doug is a yes, slot him into the 4-day course replacement track and start fading Billy's role. Math against July 15: 25-30 calls/wk × 10 weeks = 250-300 first conversations. Push Tim for 'would you jump' read on Mattek. Plan ~20 15-min slots on Matt's calendar each of the next 8 weeks — feed Liam (recruiting) the running candidate list so dossier prep is parallel, not serial."
+            },
+            {
+              "priority": "P3 — SMART MONEY + CHURN + BET365 MI",
+              "text": "Smart Money still stuck at 20 subs — no long-form talent video yet despite Matt's Apr 7 push. RW churn — Brian has OJ playbook ideas to apply with Nick P. Bet365 MI is now post-cutoff (Day 13 live, 5 days to May 5) — Brian owes a named risk list by property today, green/yellow/red, of whatever didn't land by EOD yesterday.",
+              "action": "Smart Money long-form video — Brian to confirm talent + timeline. RW churn playbook — loop in with Nick P this week. Bet365 MI — get the named risk list by property today, by 11a ET."
+            },
+            {
+              "priority": "P4 — DONVITO / TYLER UNBLOCK / +50K AFFIL / CREATOR-IP",
+              "text": "Pending micro-items: (1) DonVitoBetz X post boost — directional ✅ from Matt ('lfg / i hate him'); execution path TBD. (2) Tyler's Cowork/Claude unblock list — Brian/Tyler to draft; Matt approved 1-month personal Claude expense in interim. (3) +50K affiliate deal: Brian asked for clarification on scope (CPA / post count) before responding. (4) NEW Apr 29 — Jacob Choi flagged an external IG creator (2 reels) using OddsJam in content but presenting the tool as his own. Recurring creator-IP / brand-attribution pattern — right next step is a quick 'do we engage him as an affiliate' thread, not a takedown. Brian S or affiliate lead to pick up.",
+              "action": "Sleep on DonVito boost once before greenlight (could backfire as petty). Push GAMB IT to centralize Cowork unblocks (third week of friction). Get Brian the +50K scope answer. On the Choi-flagged creator: Brian/Sal to assess whether to engage as affiliate vs. ignore — pattern recognition, not a one-off."
+            }
+          ],
+          "suggestedMsg": "brian/ on the up-spend ask — i'm in directionally but i need a number before i greenlight. send me a one-pager: where it lands (sal influencer vs choi short-form vs rt scale), expected cac, kill criteria. and ping pedro before sign-off so the forecast doesn't get surprised.\n\nalso — bet365 mi cutoff was yesterday (day 13 live, 5 days to may 5). need the named risk list by property today, by 11a et. nyc may 4-5 w nick all set?\n\nlmk"
+        },
+        {
+          "name": "OddsJam B2C",
+          "pod": "Revenue Alert",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "OJ+DGF subs continuing YoY decline. Q1 actuals: Jan $1.50M, Feb $1.37M, Mar $1.35M — each month down. Trial abuse flagged via Verisoul (36-reply thread investigating accuracy, Apr 1). App store reviews trending 1-star (Randall flagged Apr 11, 26-reply thread).",
+              "action": "Track PI growth as offset. Validate Verisoul trial abuse flags. Address app store review problem — get affiliates to leave positive reviews."
+            },
+            {
+              "priority": "COMPETITIVE",
+              "text": "Apr 29 — Alexander Monahan flagged a new X/Twitter account 'otterodds' in #oj-b2c, asking whether they're already on OJ's data. Same-day posts back-to-back at 02:49 UTC. Worth a fast read from data team: is otterodds pulling from us, from Pinnacle, or from a third party? Don't let it get buried.",
+              "action": "Vincenzo / data team — quick same-day investigation of otterodds source attribution. If they're scraping us, loop into the 'we don't want our site scraped' offsite item (Vincenzo, Commercial). Reply to Alex in-channel so the team has closure."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "Bookies / Local",
+          "pod": "Revenue Alert",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "v8 (Apr 29) Bookies +$10K WoW ($3.733M, second consecutive positive move). Pedro's note: 'bumping US slightly as rev share is starting to lean our way for April. No other major changes.' Still -$2.50M below $6.23M budget, but the bottoming pattern from v7 ($3.63M → $3.74M, +$110K) is holding into v8. Partnerships flat at $5.61M. BetSyndicate bright spot: $8.5K MRR, 170 subs, breakeven by NFL.",
+              "action": "Track whether US rev-share lean continues into May. Craig's restructure plan in motion (7+ heads). Track BetSyndicate as offset. Toad Sports + NASCAR Digital new BetFinder prospects."
+            },
+            {
+              "priority": "SEARCH",
+              "text": "Partnerships -46% exit clicks in March (spam sites returning in SERPs). Craig's Week 2 reforecast more conservative about summer and EOY. Alberta launch flagged as growth opportunity.",
+              "action": "Monitor SERP volatility. Push Alberta launch as upside catalyst."
+            },
+            {
+              "priority": "GAN DEAL",
+              "text": "GAN/BetFinder — Jamie 'fairly confident' closes within 1 month (from ~Apr 8). Toad Sports asking about BetFinder pricing — Matt suggests 'float 10k one-time softly.' NASCAR Digital also interested.",
+              "action": "Track GAN close. Price Toad Sports ($10K one-time or rev share). Pursue NASCAR Digital."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "Vincenzo Ampolo",
+          "pod": "Data / Optic Eng — #vrr FRI CALL OUTPUTS STILL UNCONFIRMED (Slack gap 3d) · LAWSUIT + DATA-SOURCE",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — DATA-SOURCE-BUY + SPINE-SURGERY OVERLAY (Tue Wk2)",
+              "text": "Fri May 8 #vrr call surface still hasn't been written up as a summary in any reachable channel through Tue AM. V's Thu deliverables on record: 10:27 AM commit on the 6-week doc + 6:17 PM 3-file drop (Data Ingest/OJ/RW). May 11 update: V announced spine surgery in #vrr (3:00 PM Mon) — out ~1 wk inside next 30 days. Now the data-source-buy decision (isportsapi $4-10K/mo vs odds88) sits on a single-point-of-failure: if V is out during decision week, Scott can carry the 1-pager but the call needs an explicit escalation path (see new V Spine Surgery card). Don't let Polymarket Direct Bet thaw before this lands.",
+              "action": "DM V: '(1) where did Fri call land on isportsapi vs odds88 — put the decision + Scott's next step in #vrr as a written summary. (2) when you have a surgery date, send to me + Pedro + Ryan same hour.' If 6-week doc lacks named owners + 30/60/90 milestones, push V to add by Wed Wk2. Confirm w/ Scott: 'comfortable making the isportsapi vs odds88 call without V if his window overlaps?' — yes/no, documented in #vrr."
+            },
+            {
+              "priority": "LEGAL",
+              "text": "FBM lawsuit response: V's detailed answer landed Apr 28; Michael (outside counsel) wants a follow-up call. Apr 30 (#vrr): V flagged that there's an unguarded third-party Discord channel ('oj-oo' among sport-API devs) where the lawsuit is being discussed — even the 'PTO guy' is commenting. Ryan was in it, found it toxic, left, but it's an open info-leak surface. Worth a heads-up to Michael / outside counsel. Matt's separate ask to V (Apr 28): 'we haven't caught up in a bit and i need to do better' — 30-min catch-up still on the agenda.",
+              "action": "Loop Michael into the Discord-chatter heads-up so Legal has visibility. Schedule the Michael follow-up call. Book the 30-min Matt + V catch-up — fold into next week given Friday call + reorg-Monday compression this week."
+            },
+            {
+              "priority": "P1 OF P1S — DATA-SOURCE BUY",
+              "text": "Bet365/Pinnacle data-source gap has been on the plate for ~4 months. Ryan Apr 28: 'need v to actually focus.' Matt: 'i'm confused how this isn't the p1 of all p1s.' Apr 30 (#vrr) — Scott now leading evaluation of TWO candidates: (1) isportsapi.com — pricing $4–10K/month depending on data consumption; appears to be what Pinnacle uses underneath. (2) odds88 — pricing unknown (Scott is friends with Ryan there, leaning on the relationship to get numbers). The 1-pager Matt asked for ahead of today's call may be inside V's 3-file drop yesterday (read first to confirm).",
+              "action": "Inside today's #vrr call: confirm 1-pager exists, decide isportsapi vs odds88 vs both based on price + coverage delta. 1-week deadline check next Mon. Treat as the P1 — Polymarket Direct Bet stays frozen, this comes ahead."
+            },
+            {
+              "priority": "STALLED COMMITMENT — SPORT + LEAGUE COVERAGE DASHBOARD",
+              "text": "Apr 30 — Matt chased the Sport + League Coverage dashboard on both V and Ryan ('socialize the dashboard for Sport + League Coverage / where are we on this?'). V's reply was the OO competitors GSheet (Salvo + Anastasia overlaying with real-time data — full real-time still in progress). Matt clarified at 6:23 PM he was actually asking about the Boulder offsite dashboard, which is a different ask. Ryan, separately at 4:20 PM, said 'No' when asked if it had been socialized. Net: this is a stalled offsite commitment that's been chased twice in one day with no owner clearly driving the boulder-offsite version. Swish/legal scoping (V's 6:29 PM ask) is on a different question — Matt steering toward minimum viable disclosure ('let them suggest').",
+              "action": "Don't let this become a third chase next week — pick one of V or Ryan as owner of the boulder-offsite Sport + League Coverage dashboard before cycle 3 starts. Use the cycle-reset week meetings to assign. Swish scoping ('do we include NCAAB?') — V's framing 'why give more, let them suggest' is right; document it in a one-line policy and move on."
+            },
+            {
+              "priority": "INTERCOM EXPORT",
+              "text": "Randall asked V to export 2,200 Intercom refund conversations. V questioned if scope is right ('No human is going to go over so many conversations'). Matt's read: scope this with Randall before more eng hours go in.",
+              "action": "Matt DM Randall today to scope the export — what is he actually trying to learn? Cap engineering effort accordingly."
+            },
+            {
+              "priority": "TECH BACKLOG",
+              "text": "Carryover: Harry out (Apr 6), Kurt paternity June, backend/frontend lead split pending. Nikola ($75K Serbia DevOps) + Matthew (whale-picker, $50/hr) approved earlier this month. Bet365 shadow-site discrepancy (Leo Apr 28) — needs a one-shot diff against the official 365 site. RW data warehouse, FD API migration, GCP cost trajectory still on the list.",
+              "action": "Don't let backlog hide P1. Ship the data-source buy decision first; pick up backlog at Wed/Thu catch-up."
+            }
+          ],
+          "suggestedMsg": "v/ four things —\n\n1. friday call: i need a 1-pager from scott on isportsapi vs odds88 — pricing, coverage delta, recommendation. $4-10k/mo isportsapi is anchored, odds88 is the gap. don't show up with a chat thread.\n\n2. michael — let's loop him on the oj-oo discord chatter so legal has visibility on that surface.\n\n3. randall intercom export — what's the actual question he's trying to answer? scope before more hours go in.\n\n4. catch-up on the cal. wed or thu 30 min.\n\nlmk"
+        },
+        {
+          "name": "Rohan / Shay Friction",
+          "pod": "Optic Sales — INTERPERSONAL ESCALATION (V mediating)",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "PEOPLE",
+              "text": "NEW Apr 30 (#vrr) — Vincenzo flagged that Rohan and Shay are 'at each other daily' and V has been 'pouring water on it.' First time this surfaced as a recurring conflict (vs. one-off friction). Both sit on the Optic sales / commercial side; daily friction at this layer creates drag on Leo's GTM motion + the Shay weekly update cadence (which has been a positive signal). V mediating is the right short-term move but doesn't scale if it's daily.",
+              "action": "Don't pull V deeper into mediation — he's already overcommitted on lawsuit + data-source buy + AI spend + Stripe. Matt to read the room with Ryan first (Ryan owns Optic commercial, knows both): is this a 'managed' problem or does it need a 1:1 with each before it spills into a customer-visible incident? If the latter, schedule with Rohan first (he's the one Leo's GTM update flagged Huddle as 'annoying' about — Rohan tends to escalate)."
+            },
+            {
+              "priority": "RELATED — V'S AI SPEND COMMENT",
+              "text": "V also said in #vrr 'too many people too low' on AI spend — cryptic but reads as a callout that AI seat allocation is under-provisioned across the team. Worth surfacing in the Wed/Thu V catch-up for a real allocation conversation, not a slack one-liner.",
+              "action": "Add to V catch-up agenda: 'who needs more AI seats / budget, and what's the gating constraint?'"
+            }
+          ],
+          "suggestedMsg": "ryan/ v flagged in vrr that rohan and shay are at each other daily, he's been pouring water. before he gets pulled deeper — what's your read? managed problem or do we need to step in?\n\nasking before this leaks into a customer convo. lmk"
+        },
+        {
+          "name": "Andrew Simkovsky",
+          "pod": "RW Engineering — MON LAYOFF EXECUTED · TRANSITION CADENCE LIVE",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "P0 — TRANSITION CADENCE (POST-LAYOFF TUE)",
+              "text": "Mon May 11 layoff cadence executed; no inbound flags from V/Tim/Pedro on day-of issues. Operating assumption: Andrew S read-in (Fri or Mon) landed and the broader-org Mon AM standup framing held. This week is now about the AWS migration transition — Nikola overlap window + AWS ownership handoff are the open artifacts that need to exist in writing (not verbal commitments). Long-running thread context: Matt + V + Tim all flagged 'not a pusher / says no to everything / dogshit energy'; AWS migration depends on him; Nikola ($75K Serbia) onboarded as the replacement path.",
+              "action": "Tue: confirm with V via DM that Nikola overlap + AWS migration ownership is in writing somewhere V/Tim/Pedro can reference. If not, that's the 30-min lock today. Add to V catch-up agenda: 'what's left on Andrew's plate that someone else needs to own before his exit / transition deadline.' Note: V's spine surgery is now in the next 30 days — if V is the named owner of the AWS handoff cadence and is out for a week mid-transition, that hand-off needs a #2 (Ryan or Scott)."
+            },
+            {
+              "priority": "TRANSITION PLAN",
+              "text": "Nikola onboarding is the critical path. AWS migration cannot stall during the handoff. Andrew asked to go to Madison for Kurt transition — V told him not needed; that signal pre-staged Fri's read-in conversation.",
+              "action": "Use this weekend to lock the transition timeline + Nikola overlap with V so the Monday cadence has a clean Andrew-side answer if the team asks. If V wasn't able to do it Fri PM, get on his calendar Sat or Sun."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "AR Collections (Anastasia)",
+          "pod": "Finance — ESCALATION (Pedro driving)",
+          "level": "risk",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "NEW Apr 30 (Pedro DM, 3:31 PM) — Pedro: 'yeah their ar is a huge problem. tim was being too optimistic there.' Matt: 'definitely.' Pedro: 'anastasia is from europe and we know how they work.' Matt: 'we need to threaten to kill services / make sure shannon is harassing too.' Pedro: 'ill talk to jean and olga. or niall. or whoever the fuck in finance.' Matt 4:00 PM: 'just help be a part of the solution on that one / that we're gunna need some help.' Tim's prior optimistic forecast on this account is now being walked back.",
+              "action": "Pedro talking to Jean / Olga / Niall on the finance side this week. Shannon harassment cadence active. Trigger ready to threaten service kill if collections don't move. Re-run Tim's forecast input on this customer with the haircut once Pedro has a read."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "RW B2B Apr Decline",
+          "pod": "RW — REVENUE WATCH (Matt monitoring)",
+          "level": "watch",
+          "issues": [
+            {
+              "priority": "REVENUE",
+              "text": "NEW Apr 30 — RW Rotowire B2B dropped from $792K (Mar) → $728K (Apr), ~-8% MoM. Matt flagged in DM with Ryan ('we went from 792k -> 728k on rotowire b2b last mont[h]'); Ryan: 'monitoring in bigger group.' Matt: 'all good.' This isn't a fire today but it's a single-month -8% step-down on a vertical we've been calling stable in the v8 forecast (RW total $17.18M, +22.3% over budget). Worth pinning a cause before May closes — is it churn-driven, sales-cycle timing, or a single account roll-off?",
+              "action": "Ryan to share the Apr breakdown in the bigger group this week — by-account, churn vs. timing vs. roll-off. If the Apr step-down is a single-account event, fold into v9 forecast as a one-time. If it's churn / pipeline-quality, that's a Pedro + Ryan + Tim conversation about RW B2B sales motion before Q3."
+            }
+          ],
+          "suggestedMsg": null
+        },
+        {
+          "name": "Optic April Churn Cluster",
+          "pod": "OPTIC — APR ONE-PAGER ($72.5K CHURNED, NET NEW $72K)",
+          "level": "watch",
+          "issues": [
+            {
+              "priority": "COMPETITIVE",
+              "text": "Betstrike ($15K) churned in April — switched to Betby. Reason given: 'better pricing and full-solution bundle.' This is the ONLY clear competitive displacement in the April churn cluster — the rest were cash-constraint / pivot / out-of-business. Worth taking seriously: Betby is starting to show up as a full-stack alternative for sportsbooks weighing API+platform vs API-only. Pair this with the latency complaints (Pinnacle, Exigent) and the data-quality scrutiny on Bet365 prices (188-sb.com diff) — three discrete signals from prospects/customers that 'price + bundle + data quality' is becoming a sharper comparison than it was a quarter ago.",
+              "action": "Ask Karl + Ryan whether Betby is starting to show up as the named alternative in active deals (Bookiemarket, Digital Win, prospect feedback). If yes, get a one-page Optic vs Betby positioning sheet built — pricing, bundle scope, latency data, where we win — before the next 5 EU/Aussie deals come up for renewal. Don't over-react on one loss, but don't let it become a pattern Q2."
+            },
+            {
+              "priority": "PIPELINE WATCH",
+              "text": "Fanatics $15K Optic churn (April) — reason: 'Unwilling to allocate budget.' Note: separate Fanatics deal already in pipeline at 'Proposal sent' stage — possibly a different team / product / contact. Need to check whether the churn signal contaminates the open proposal track or whether they're cleanly separable buyer-pools. Other April losses skew small / non-strategic: MainCard $10K (pivoted out of sports data), Apex Global / Maxwell Bruce $8K (reorg — may return 1-2mo), RareBet / Value Profits $8K (cash, scraping in-house), 5 others $16.5K (out of business / non-payment).",
+              "action": "Ryan + Leo: confirm whether the open Fanatics proposal is a different relationship from the churned $15K account. If same buyer/budget pool, redirect proposal to whoever holds the discretionary spend. Maxwell Bruce return-watch — calendar nudge in 6 weeks."
+            },
+            {
+              "priority": "GROWTH NARRATIVE",
+              "text": "April closed-won: 23 deals = $144.5K gross new contracted value. 105 deals in pipeline. April closed deal count = 74% of Q1 full-quarter (23 vs 31); gross contracted value = 80% of Q1. YoY: 3 → 23 closed = +667%. Marquee wins: Verified Global $20K (API+SGP Insight), CypherLab $15K (quant/algo), UCM $12.5K (Copilot — = UCM PET in Apr 28 list), Delta Sierra $10K (API), PURPLE $9K (API), Responsible Gaming Corp (multi-product). Product mix: API in 91% of deals (21/23), Odds Screen on 3 (53 partners total, +3 in April), SGP Insight 1, Copilot 1. ~320 active partners globally. Builds on Q3 '25 +304% YoY revenue and 9-mo '25 +374% YoY.",
+              "action": "Pin the April velocity story as MBR opener (Optic April: 74% of Q1 in one month, 667% YoY April-to-April, NET +$72K after churn). Use the verticals diversification (intelligence, trading, responsible gaming) to support the 'concentration risk reducing' narrative. Wire opticCustomers to ~320 in the MBR live block."
+            }
+          ],
+          "suggestedMsg": null
+        }
+      ],
+      "deals": [
+        {
+          "name": "Polymarket",
+          "detail": "~$2M (50/50 Optic/affiliate) — NOT signed yet as of Apr 30. Jeremy holding PI→PT rename until close. ISV language softened ('preferred partner' not exclusive). NEW Apr 30 (#vrr) — Polymarket holding production API keys until contract is signed; their legal review ETA next week per oj-ext-polymarket-oddsjam thread. V on Apr 30: 'we have their data, but its from a dev environment. so it's slower and rate limited. we hit the rate limit everyday now. when we get too many rate limits errors we pull the odds. so polymarket feels unstable in the product.' Ryan suggested Matt press Ari; Matt declined ('idt this is the ask'). Ryan: 'high degree of confidence it gets done.' James on Poly side engaged. Invite-code SEO push live (Apr 29, KD code). Jamie owns post-launch conversion report once data flows.",
+          "stage": "warm",
+          "stageLabel": "Contract Blocking Prod Access",
+          "size": "$2M"
+        },
+        {
+          "name": "Pinnacle",
+          "detail": "Term sheet drafted by Matt, passed to Stein/John. 60/40 split + price minimum. Mathieu says 'just needs sign off.' Ryan: 'I think we landed the plane.'",
+          "stage": "hot",
+          "stageLabel": "Near Close",
+          "size": "$1.2M/yr"
+        },
+        {
+          "name": "Bet365 Michigan",
+          "detail": "Day 25 live across RW, OJ, DGF, local; Day 8 since affiliate go-live (May 5). Slack digests now back online. Through Mon: Bet365 channels silent across post-launch window — no risk list, no CS escalations, no compliance chatter. Reading as 'clean ship.' Jamie's launch confirmation was never written down pre- or post-launch. Tue ask: pin Jamie on a written one-week retrospective (NDC pacing Days 1-8, CS/compliance, affiliate-side run-rate first 7 days). Bet365 shadow-site discrepancy (Leo, Apr 28 / 188-sb.com) still parked with V — get the diff before V's spine surgery window opens.",
+          "stage": "hot",
+          "stageLabel": "Day 25 · Post-Launch Settled",
+          "size": "Material"
+        },
+        {
+          "name": "Kalshi",
+          "detail": "ISV integration — trading inside OJ, rev share on trades. Need oAuth. Jeremy asked for contact to structure deal. Must be ready for football.",
+          "stage": "warm",
+          "stageLabel": "Building",
+          "size": "Rev Share"
+        },
+        {
+          "name": "GAN (BetFinder)",
+          "detail": "Jamie 'fairly confident' closes within 1 month (~from Apr 8). For Bookies betfinder. MLB/NBA/NHL/PGA launched on site.",
+          "stage": "warm",
+          "stageLabel": "Near Close",
+          "size": "TBD"
+        },
+        {
+          "name": "Toad Sports",
+          "detail": "Interested in BetFinder integration. ~150K socials. Matt suggests 'float 10k one-time softly.' Waiting on daily/monthly traffic data.",
+          "stage": "active",
+          "stageLabel": "Pricing",
+          "size": "$10K+"
+        },
+        {
+          "name": "NASCAR Digital",
+          "detail": "Also interested in BetFinder. Early stage (Brian Roth, Apr 13).",
+          "stage": "active",
+          "stageLabel": "Discovery",
+          "size": "TBD"
+        },
+        {
+          "name": "Yahoo",
+          "detail": "Interested in widgets. Replace BetMGM, $100 tier, pitch running content like USAToday model.",
+          "stage": "active",
+          "stageLabel": "Proposal",
+          "size": "TBD"
+        },
+        {
+          "name": "Fanatics",
+          "detail": "Proposal sent. ⚠️ Apr 2026 one-pager flags a separate Fanatics relationship CHURNED in April ($15K, reason: 'unwilling to allocate budget'). Need Ryan + Leo to confirm whether this is the same buyer/budget pool or a different team / product line — if same, the open proposal is contaminated; if different, harmless and the proposal track stays live.",
+          "stage": "active",
+          "stageLabel": "Proposal — churn flag",
+          "size": "TBD"
+        },
+        {
+          "name": "Boom (rev-share ask)",
+          "detail": "Apr 28 — Ryan asked Matt to use his relationship with Steve (Boom CEO) to push for rev-share. Ryan's read: Boom's app lines are basically just our API; they're making money now and not giving us upside. Matt agreed ('yea steve and he's kind of a fuck too / but i can tell him rs'). Ryan to send screenshots of Boom app lines as evidence. No deadline set.",
+          "stage": "active",
+          "stageLabel": "Matt to Plant Seed",
+          "size": "Rev Share"
+        },
+        {
+          "name": "Bet Online (banked)",
+          "detail": "Apr 25 confirmed by Ryan — Shay + Ryan closed Bet Online (Leo did not). Currently $20K/mo, stepping to $65K/mo in August. Worth confirming with Pedro that the consolidated forecast already reflects the Aug step-up.",
+          "stage": "hot",
+          "stageLabel": "Banked → Aug step-up",
+          "size": "$20K → $65K/mo"
+        },
+        {
+          "name": "Optic — Closed Won (Apr 28)",
+          "detail": "Shay's weekly update: UCM PET $12.5K/mo + Luke Cashman Aussie syndicate $3K/mo. Contract Sent (sign by EOM): Trade1 $5K/mo, Baltika System $5K/mo, stoked.bet $20K/mo, New Israeli syndicate $3K/mo, remarkable $15K/mo (May 1), Poi Cash $3K/mo, plus Deportes Latinos rev-share + Thrillzz (sweeps moving). Trial / post-trial = 49 deals, including nextbet (Tier-1 Aussie) finalizing eval and Betfred (proposal: 6–8% GGR + $39.5K MMF).",
+          "stage": "hot",
+          "stageLabel": "Closing this week",
+          "size": "~$15.5K/mo Won + ~$51K/mo in flight"
+        },
+        {
+          "name": "Optic — April 2026 One-Pager",
+          "detail": "April monthly summary (loaded May 4): 105 deals in pipeline, 23 closed won ($144.5K gross new contracted), 13 churned ($72.5K), NET NEW $72K. April deal count = 74% of Q1 (23 vs 31); gross value = 80% of Q1. YoY April: 3 → 23 closed = +667%. Marquee wins: Verified Global $20K (API+SGP Insight), CypherLab $15K (quant), UCM $12.5K (Copilot — same as UCM PET in Apr 28 list), Delta Sierra Intelligence $10K, PURPLE $9K, Responsible Gaming Corp (API+Odds Screen). Product mix: API in 91% (21/23), Odds Screen on 3 (53 partners total, +3 in April), SGP Insight 1, Copilot 1. ~320 active partners globally net of churn. Builds on Q3 '25 +304% YoY revenue, 9-mo '25 +374% YoY. Top churn: Betstrike $15K (→Betby, ONLY competitive displacement), Fanatics $15K (budget — see open proposal note above), MainCard $10K (pivoted), Apex Global $8K (reorg, possible 1-2mo return), RareBet $8K (cash). See attention card 'Optic April Churn Cluster' for actions.",
+          "stage": "summary",
+          "stageLabel": "April Summary",
+          "size": "+$72K Net New (Apr)"
+        },
+        {
+          "name": "Leo GTM (EU)",
+          "detail": "Apr 27 GTM update: Divvy $20K (positive this week), Crypto.com $35K (final senior team Qs), CME Group $25K (good DM call), Sharada Capital $10K (now integrated into Poly/Kalshi/Crypto), La Liga $7K (proposal shared), Future Anthem $6K. Exigent $5K Closed Lost — flagged latency vs competitor (likely Pinnacle), not replying to feedback ask. Entain commercial call this week (incl. tennis). CME = partnership-platform model possibility. Leo at SBC Summit Malta this week.",
+          "stage": "active",
+          "stageLabel": "Multiple in flight",
+          "size": "~$103K total"
+        }
+      ],
+      "mbr": [
+        {
+          "title": "OddsJam / Optic Combined — Feb 2026",
+          "metrics": [
+            {
+              "label": "Total Revenue",
+              "value": "$2.78M",
+              "cls": "down"
+            },
+            {
+              "label": "B2C Subscriptions",
+              "value": "$1.31M",
+              "cls": "down"
+            },
+            {
+              "label": "B2B (Optic)",
+              "value": "$1.52M",
+              "cls": ""
+            },
+            {
+              "label": "EBITDA Margin",
+              "value": "62.5%",
+              "cls": ""
+            },
+            {
+              "label": "B2C Subs",
+              "value": "8,263",
+              "cls": "down"
+            },
+            {
+              "label": "ARPS",
+              "value": "$148 (+15% YoY)",
+              "cls": "up"
+            },
+            {
+              "label": "Retention",
+              "value": "76-78%",
+              "cls": "up"
+            }
+          ],
+          "insight": "Fewer subs but higher value. <strong>Fantasy (-61%) and EV (-59%) tiers hemorrhaging.</strong> Platinum and Sharp Money are bright spots. ARPS up 15%. Prediction Insiders ($175K MRR, up from $162K) is the key offset."
+        },
+        {
+          "title": "RotoWire — Feb/Mar 2026",
+          "metrics": [
+            {
+              "label": "Total Revenue",
+              "value": "$1.28M",
+              "cls": "up"
+            },
+            {
+              "label": "Subscribers",
+              "value": "46,907",
+              "cls": ""
+            },
+            {
+              "label": "ARPS",
+              "value": "$10.24",
+              "cls": ""
+            },
+            {
+              "label": "Retention",
+              "value": "94%",
+              "cls": "up"
+            },
+            {
+              "label": "Affiliate Rev",
+              "value": "$400K (+236% YoY)",
+              "cls": "up"
+            },
+            {
+              "label": "Direct Traffic",
+              "value": "+197.8% YoY",
+              "cls": "up"
+            }
+          ],
+          "insight": "Reliable base performing well. <strong>Direct traffic exploded +197.8%.</strong> SEO declined -13.3% but offset by direct surge. Affiliate revenue breakout at +236% YoY. Pricing move ($84→$99+) in play."
+        },
+        {
+          "title": "Key Concerns to Watch",
+          "metrics": [
+            {
+              "label": "OJ B2C",
+              "value": "-12% vs budget",
+              "cls": "down"
+            },
+            {
+              "label": "Bookies",
+              "value": "-29% vs budget",
+              "cls": "down"
+            },
+            {
+              "label": "Local",
+              "value": "-66% vs budget",
+              "cls": "down"
+            },
+            {
+              "label": "OJ Labor Cost Ratio",
+              "value": "20% (was 13%)",
+              "cls": "down"
+            }
+          ],
+          "insight": "Three verticals underperforming budget. OJ labor cost ratio jumped from 13% to 20% — <strong>headcount holding while revenue declines.</strong> Monitor whether Prediction Insiders revenue can offset B2C decline by Q2."
+        }
+      ],
+      "cycle": {
+        "number": 3,
+        "start": "2026-05-01",
+        "end": "2026-06-12",
+        "keyDates": [
+          {
+            "date": "May 1",
+            "label": "Cycle 2 ended → Cycle 3 launched · RW MBR (Pedro running solo) · #vrr Friday call (V owes options/pricing/leads doc on isportsapi $4-10K/mo + odds88) · Creator pitch slate: SDS Leads, Andrew Kiorkof, NotoriusFantasy · Onyx April fee landed at $230,345.61 (Ryan: 'thank god for onyx, they carry us')"
+          },
+          {
+            "date": "May 1 (Granola — SDS Leads)",
+            "label": "Cycle 3 planning: Pedro to set up new scorecard sheet; Craig to finalize priority dashboard by Friday; Tyler delivers new priority list by Tue; Brian returns Tue with Bookies priorities; Randall Wed check-in on OJ goals; Jeremy Mon/Tue check-in on product priorities; Ryan early-week call on Polymarket. Action: Matt to contact Jack Tyler PR firm. Granola action items captured."
+          },
+          {
+            "date": "May 2",
+            "label": "Weekend hold pattern · Matt → Tim 6:13 AM MDT 'honestly feel good about all plans' · No new escalations · Mobile v4 work cadence carrying over the weekend (Salvatore PRs from May 1)"
+          },
+          {
+            "date": "May 3",
+            "label": "Tim Schuler announced FlyCode/Stripe partnership in #sds-general — $4,300 recovered above expected in last 2 weeks of April; expected $8-10K/mo lift ongoing. Public credit to Lucas Reller (rare from Tim) · Matt 3-message stack in #sds-leads ~7:54 PM MDT opening door for pod-lead-driven priorities ('build the right what before rushing'); calendar invites + roadmap docs expected Mon-Tue · Matt → Nick 9:55 PM MDT: 'how are the claude design artifacts coming' (no reply yet visible)"
+          },
+          {
+            "date": "May 4 (recap)",
+            "label": "Cycle 3 Wk1 Day 1 · Matt + Pedro skipped scorecard 2nd consecutive week · #optic-sales pipeline 523 open, 2W/15L (heavy ratio), BetConstruct $80K Shay top, 2 unassigned $10K (Leidata, ProphetX) on Leo · Vincenzo back in OJ SEO loop post squash w/ Ryan · Jeremy proposed `growth.oddsjam.com` subdomain for affiliate admin tools · Brian: Nick (Piovano) cancelled NYC trip · Brian/DJ/Tim mpim — DJ said 20 creator calls realistic, Matt pushed to 25-30, Tim anchored July 15 deadline · 7:34 PM MDT — Matt's long-form Copilot/Odds Optimizer redundancy ask to Ryan · V wedge: ESPN reliability · Nick replied 12:33 PM 'haven't designed anything new yet, will today'"
+          },
+          {
+            "date": "May 5 (recap)",
+            "label": "Cycle 3 Wk1 Day 2 · Bet365 MI affiliate go-live shipped (Day 18) — Jamie's confirmation still not pinned in writing in any scanned window · #_sds-management-team raw capture: PayPal→credit-card subscription migration essentially done — 1,307 of 1,400 migrated, 93 left, jeremy letran credited (confirms PayPal-as-payment-method-for-betting-subs less load-bearing than feared) · #oj-b2c raw capture (24 msgs): Sniper 2.0 dashboard release walkthrough (Jeremy via Loom), Mobile App Navigation decision (bypass modals, route directly), Sports Market Bot Vulnerabilities flagged · Tyler new Cycle 3 priority list due (Granola) · Nick design artifacts EOD check-back · Slack Phase 2 SKIPPED on the off-schedule 6:55 PM run (Chrome focus-stealing in business hours); tomorrow's overnight run will sweep May 5 → May 6 normally"
+          },
+          {
+            "date": "May 6 (recap)",
+            "label": "Cycle 3 Wk1 Day 3 · Wed COB priorities deadline · Polymarket legal review ETA window opened. No fresh Slack digest captured what landed Wed (digests now back online but May 6 itself was a quiet day on channel)."
+          },
+          {
+            "date": "May 7 (recap)",
+            "label": "Cycle 3 Wk1 Day 4 (Thu) · **Reorg/comp model thread opened with Tim** (DM 6:43-10:23 PM MDT) — Tim building side-by-side comp/growth-incentive model, Matt pushed +15-25% renewal-growth scenarios; Matt's 'hammer this out monday — day others are let go' line locked Monday cadence · **V committed in #vrr** to the 6-week OJ pod operating-cadence document + dropped 3 files (Data Ingest, OJ, RW) · **Tim closed RW-Talent / RW-News / RW-Features** in #sds-leads · **Pedro reissued @channel** in #sds-leads at 1:54 PM (most other leads still slow) · **Pedro unblocked on NetSuite/Cube** via Niall O Leary · **Doug Monahan recruit conversation** (Brian/DJ/Tim mpim) — full speed ahead on OJ, no RW role, comp anchor 100-150K · **Andrew S read-in scheduled for Fri** (Matt + V coordination) · Brian's 'design hurts UX' 27-reply thread in #oj-b2c · Jeremy did Linear deep clean · Polymarket CPA data live in Mixpanel (Aaron Ashery's last delivery) · Nick on Shiny: still ramping, will reprioritize today around NFL plans · Jonathan contract extension aligned w/ Nick (6-month renewal) · Jake Letarski piloted Claude-driven GA4 content-calendar recap"
+          },
+          {
+            "date": "May 8 (Fri recap)",
+            "label": "**Andrew S reorg read-in** (Matt drove, V silent — confirmation in tonight's overnight scan) · **#vrr Friday call** with V (decision on isportsapi vs odds88 + 6-week doc owners surfaces in tonight's scan) · **Craig's priority dashboard delivery** expected · Tim was due to deliver overnight comp-model proposal Thu PM. None of these have Slack-side confirmation yet — tonight's overnight digest will close the books on Wk1."
+          },
+          {
+            "date": "May 9 (Sat recap)",
+            "label": "T-2 weekend prep. Tim's overnight comp-model expected to be in inbox for Matt's Sat AM review (+15/+20/+25 renewal-growth scenarios on column I + recommendation). Sat-night iteration with Tim available if Sat AM read surfaced gaps. Slack-side unconfirmed (digest gap)."
+          },
+          {
+            "date": "May 10 (Sun recap)",
+            "label": "Sunday self-checkpoint. Two threads expected to have landed: (1) Comp model in final-shape proposal form after Sat AM review (or Sun-night iteration if not). (2) 30-min Tim + Pedro layoff-comms sync — sequencing for Mon AM locked. Andrew S read-in Fri confirmed with V (DM); Nikola overlap + AWS migration ownership locked in writing. None of this has Slack-side confirmation — operate from inbox + DM Mon AM."
+          },
+          {
+            "date": "May 11 (Mon recap)",
+            "label": "**REORG / LAYOFF DAY EXECUTED.** Layoff conversations ran. Pod leads not in the loop quiet through Tue AM — no inbound issues flagged. V announced spine surgery in #vrr 3:00 PM (out ~1 wk inside next 30 days). Aleksandra/Swish came back with non-exclusive license redline — Matt drafted definitive rejection, Charles green-lit, reply sent 8:18 PM. Pedro's C3 OJ priority list landed at 17 items — Matt rejected ('no way'), directed dedup via V + Craig. Kevin McCrystle: loop Gavin on FP&A (Niall finite-duration). Nick homepage draft converging on 'smarter fans' tagline; moves to hourly 6/1. Slack scan + Granola back online — 3 Granola notes for the day (Creator Catch-Up, Investment note terms, RotoWire Football Product Planning)."
+          },
+          {
+            "date": "May 12 (Tue recap)",
+            "label": "Post-layoff stabilization + V surgery coverage plan day. Planned beats: C3 OJ priority dedup (Pedro + V + Craig, target 8-10 items, circulate v2 by EOD for Matt review); V coverage plan DM (surgery date + assignment matrix — Scott on isportsapi/odds88, Ryan on PrizePicks + DI interview backstop, BigQuery slips); DJ 5 ET 1:1 (Zachariason + Vetri decision); 5-min DMs to each pod lead acknowledging Mon landed; watch inbox for Swish counter (do NOT respond same-day, read with Charles first); cc Gavin on FP&A artifacts; Stripe checkout pre-launch (Zach + Nils fix list). ⚠️ Slack digest from Tue PM was the last one captured (May 11 – May 12 window, generated 01:17 Tue) — no confirmation yet on what actually landed Tue PM through today AM."
+          },
+          {
+            "date": "May 13 (Wed recap — UNCONFIRMED)",
+            "label": "Planned: C3 priorities announcement (post-dedup). Cycle 3 Wk2 priority lock — Ryan's redundancy plan + Sport+League Coverage owner due Wed COB. Tim comp/growth model broader-org rollout window opens (don't sequence before Wed AM). ⚠️ NO SLACK DIGEST FOR THIS DAY — overnight scan didn't run Wed night. Confirm via inbox + DM whether the announcement went out, who owns redundancy, and whether Tim's model rolled. If announcement slipped, it's now the carry-forward into Thu."
+          },
+          {
+            "date": "May 14 (Thu)",
+            "label": "**TODAY — STALE-SLACK DAY. Operate from inbox + DM, not carried-forward cards.** Open items to chase by hand: (1) Did C3 priorities announcement land Wed? If not, push Pedro this AM. (2) V surgery date — is it on Matt + Pedro + Ryan's calendar in writing yet? If silence since Tue, DM V before standup. (3) Ryan's redundancy plan + Sport+League Coverage owner — were they named Wed COB? If not, this is the Thu escalation. (4) Swish/Aleksandra — any counter inbound? If yes, read with Charles before any reply. (5) Stripe checkout — did cutover happen? Check oj-b2c via inbox. (6) Pedro NetSuite access — Mike Gregoline owed the password follow-through Tue; still working? (7) Tonight's Slack scan MUST land — if it misses a 3rd night, dashboard is structurally unreliable on pod-level signals."
+          },
+          {
+            "date": "May 15 (Fri)",
+            "label": "Soft check-back on Nick → Shiny NFL design artifacts. EOW deadline for Matt's $300-400K investment note commitment to Nathan (12 vs 24 mo terms). If Swish/Aleksandra counter hasn't landed by EOW, treat commercial track as dead → litigation-only posture."
+          }
+        ]
+      }
+    },
+    "KPI": {
+      "searchAffiliate": [
+        {
+          "label": "RotoWire Affiliate",
+          "sub": "Exit Clicks / Revenue — reforecast down from peak",
+          "current": "52K clicks / reforecast declining",
+          "target": "Was $5.94M → $5.60M (W1) → lower (W2)",
+          "delta": "-$340K+ from peak",
+          "deltaType": "negative",
+          "barPct": 88,
+          "barColor": "yellow",
+          "source": "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+          "sparkData": [
+            40,
+            42,
+            44,
+            49,
+            52,
+            48
+          ]
+        },
+        {
+          "label": "Partnerships Affiliate",
+          "sub": "Revenue / GAN declining — more conservative summer+EOY",
+          "current": "Declining / GAN run rate lower",
+          "target": "Was $6.15M → $5.67M (W1) → lower (W2)",
+          "delta": "-$480K+ from W1",
+          "deltaType": "negative",
+          "barPct": 72,
+          "barColor": "red",
+          "source": "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+          "sparkData": [
+            85,
+            75,
+            70,
+            60,
+            45,
+            38
+          ]
+        },
+        {
+          "label": "Bookies Affiliate",
+          "sub": "Worst decliner — Bookies UK adjusted down",
+          "current": "$3.63M → lower / UK market adjusted",
+          "target": "Was $4.17M → $3.63M (W1) → lower (W2)",
+          "delta": "-$540K from W1 — worst",
+          "deltaType": "negative",
+          "barPct": 50,
+          "barColor": "red",
+          "source": "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+          "sparkData": [
+            90,
+            80,
+            65,
+            55,
+            42,
+            35
+          ]
+        },
+        {
+          "label": "Local Affiliate",
+          "sub": "Revenue vs Target — only vertical holding flat",
+          "current": "$1.275M forecast",
+          "target": "Unchanged WoW",
+          "delta": "Flat (only stable)",
+          "deltaType": "neutral",
+          "barPct": 33,
+          "barColor": "blue",
+          "source": "#sds-search-performance (Craig, Apr 15 W2 reforecast)",
+          "sparkData": [
+            30,
+            25,
+            22,
+            28,
+            35,
+            33
+          ]
+        }
+      ],
+      "subscriptions": [
+        {
+          "label": "RotoWire B2C",
+          "sub": "Subscribers / YoY",
+          "current": "46,907 subs",
+          "target": "Best YoY since Apr '25",
+          "delta": "+6.7% YoY",
+          "deltaType": "positive",
+          "barPct": 95,
+          "barColor": "green",
+          "source": "#sds-general (Tim, Mar 22)"
+        },
+        {
+          "label": "RotoWire Affiliate Rev",
+          "sub": "100 days in — already eclipsed full 2025",
+          "current": "$1.45M (100 days)",
+          "target": "$1.07M (full 2025) — ECLIPSED",
+          "delta": "+571% YoY / +34% MoM",
+          "deltaType": "positive",
+          "barPct": 100,
+          "barColor": "green",
+          "source": "#sds-general (Craig, Apr 13) — record $597K March"
+        },
+        {
+          "label": "OddsJam B2C Subs",
+          "sub": "Active subscribers",
+          "current": "8,263 subs",
+          "target": "Was 10,040 (-39% YoY)",
+          "delta": "-39% YoY",
+          "deltaType": "negative",
+          "barPct": 60,
+          "barColor": "red",
+          "source": "MBR Feb 2026"
+        },
+        {
+          "label": "Smart Money (RW)",
+          "sub": "New product — early stage",
+          "current": "20 subs",
+          "target": "TBD — needs ramp target",
+          "delta": "Pre-PMF",
+          "deltaType": "caution",
+          "barPct": 5,
+          "barColor": "yellow",
+          "source": "#_sds-management-team (Tim, Apr 3)"
+        },
+        {
+          "label": "Prediction Insiders",
+          "sub": "MRR — OJ offset play",
+          "current": "$175K MRR",
+          "target": "Month 1 launch",
+          "delta": "Strong launch",
+          "deltaType": "positive",
+          "barPct": 70,
+          "barColor": "green",
+          "source": "MBR Feb 2026"
+        }
+      ],
+      "growth": [
+        {
+          "label": "HYHAU: Google Search",
+          "sub": "Top channel, pulling away",
+          "current": "22% share",
+          "target": "Was 20% in Jan",
+          "delta": "+2pp",
+          "deltaType": "positive",
+          "barPct": 22,
+          "barColor": "green",
+          "source": "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+          "label": "HYHAU: Instagram",
+          "sub": "Fastest grower",
+          "current": "8.1% share",
+          "target": "Was 5.8% in Jan",
+          "delta": "+37% volume",
+          "deltaType": "positive",
+          "barPct": 40,
+          "barColor": "green",
+          "source": "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+          "label": "HYHAU: YouTube",
+          "sub": "Declining share",
+          "current": "16.6% share",
+          "target": "Was 19.3% in Jan",
+          "delta": "-2.7pp",
+          "deltaType": "negative",
+          "barPct": 60,
+          "barColor": "yellow",
+          "source": "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+          "label": "HYHAU: TikTok",
+          "sub": "Flat despite paid spend",
+          "current": "8.5% share",
+          "target": "Paid not translating",
+          "delta": "Flat",
+          "deltaType": "caution",
+          "barPct": 50,
+          "barColor": "yellow",
+          "source": "#sds-growth (Bendett, Mar 31)"
+        },
+        {
+          "label": "Automated Content",
+          "sub": "Video views MoM",
+          "current": "929K views",
+          "target": "+203.7% MoM",
+          "delta": "+203%",
+          "deltaType": "positive",
+          "barPct": 90,
+          "barColor": "green",
+          "source": "#sds-general (Nigel, Mar 23)"
+        },
+        {
+          "label": "OJ Baseball Twitter Bot",
+          "sub": "Automated, $0.30/day — first full month wrap (Apr): expanded to Threads + Facebook mid-month",
+          "current": "3.1M imps / 77.4K eng / 3,344 new followers",
+          "target": "April 2026 monthly",
+          "delta": "First full month at scale",
+          "deltaType": "positive",
+          "barPct": 100,
+          "barColor": "green",
+          "source": "#sds-growth (Tyler W April wrap, Apr 30)"
+        },
+        {
+          "label": "RW Instagram",
+          "sub": "Carousel strategy — Matt says 'everyone should be doing them'",
+          "current": "+400 followers/week",
+          "target": "+400% YoY",
+          "delta": "+400% YoY",
+          "deltaType": "positive",
+          "barPct": 80,
+          "barColor": "green",
+          "source": "#sds-growth (Lauren, Apr 1; Matt, Apr 6)"
+        }
+      ],
+      "product": [
+        {
+          "label": "Kalshi ISV Integration",
+          "sub": "Strategic — trading inside OJ, rev share model",
+          "current": "Needs oAuth",
+          "target": "Ready for football",
+          "delta": "Blocked on API",
+          "deltaType": "caution",
+          "barPct": 20,
+          "barColor": "yellow",
+          "source": "DMs (Jeremy, Mar 25). Vincenzo flagged Apple/Stripe risks."
+        },
+        {
+          "label": "Optic Roadmap",
+          "sub": "Moved to Linear",
+          "current": "In Linear",
+          "target": "Karl owns delivery",
+          "delta": "Tracking",
+          "deltaType": "neutral",
+          "barPct": 40,
+          "barColor": "blue",
+          "source": "#sds-leads (Karl, Mar 30)"
+        },
+        {
+          "label": "BetSyndicate",
+          "sub": "170 paying subs, 800 freemium, $59.99/mo — breakeven by NFL",
+          "current": "$35K gross / $8.5K MRR",
+          "target": "~$10K MRR by Apr end",
+          "delta": "+21% MRR MoM",
+          "deltaType": "positive",
+          "barPct": 42,
+          "barColor": "green",
+          "source": "DMs (Brian Roth, Apr 14)"
+        },
+        {
+          "label": "ParlayGrade (Bookies)",
+          "sub": "New product launch",
+          "current": "1,000 views",
+          "target": "Week 1",
+          "delta": "Early signal",
+          "deltaType": "positive",
+          "barPct": 25,
+          "barColor": "blue",
+          "source": "#sds-general (Andrew A, Mar 27)"
+        },
+        {
+          "label": "NFL Mock Draft Sim (RW)",
+          "sub": "First-party data capture + community ADP",
+          "current": "Live + community big board",
+          "target": "Engagement TBD",
+          "delta": "Launched",
+          "deltaType": "positive",
+          "barPct": 50,
+          "barColor": "green",
+          "source": "#sds-general (Shawn H, Mar 31)"
+        },
+        {
+          "label": "Dynasty Tools (RW)",
+          "sub": "Mock Draft Sim + Trade Calculator — targeting 50K+ searches/mo from FantasyPros",
+          "current": "Live — Thornbury gave 9+3 feedback items",
+          "target": "40K+ monthly (mock draft) + 14K+ (trade calc)",
+          "delta": "Launched Apr 8, iterating on feedback",
+          "deltaType": "positive",
+          "barPct": 70,
+          "barColor": "green",
+          "source": "#sds-general (Craig Apr 8, Thornbury Apr 9): 'both tools are really good' — values too age-focused, need league size option"
+        },
+        {
+          "label": "Data Warehouse (RW)",
+          "sub": "Centralized data infra",
+          "current": "Under investigation",
+          "target": "Vincenzo exploring",
+          "delta": "Discovery",
+          "deltaType": "neutral",
+          "barPct": 10,
+          "barColor": "blue",
+          "source": "#_sds-management-team (Vincenzo, Apr 3)"
+        },
+        {
+          "label": "RW Breaking News Tool",
+          "sub": "Modernized player note workflow — Jake Letarski demo Apr 14",
+          "current": "Live — Loom demo shared",
+          "target": "First change to RW player notes in a long time",
+          "delta": "Launched",
+          "deltaType": "positive",
+          "barPct": 80,
+          "barColor": "green",
+          "source": "#sds-general (Jake Letarski Apr 14, shoutout from KOB)"
+        },
+        {
+          "label": "OJ Overlay Rollout",
+          "sub": "Post-click OJ overlay on all platforms",
+          "current": "Halfway on Local",
+          "target": "All SDS platforms",
+          "delta": "In progress",
+          "deltaType": "caution",
+          "barPct": 40,
+          "barColor": "yellow",
+          "source": "DMs (Craig, Mar 23)"
+        }
+      ],
+      "paidMedia": [
+        {
+          "label": "OJ Total Ad Spend",
+          "sub": "TikTok + Meta — copy campaigns",
+          "current": "$4.5K/wk",
+          "target": "Prior week: $5.1K",
+          "delta": "-11.6% WoW",
+          "deltaType": "positive",
+          "barPct": 50,
+          "barColor": "green",
+          "source": "Paid Media Dashboard (Apr 5)",
+          "sparkData": [
+            4.2,
+            5.1,
+            4.5
+          ]
+        },
+        {
+          "label": "Cost per Trial (Blended)",
+          "sub": "Meta: $35.31 | TikTok: $89.29",
+          "current": "$41.20",
+          "target": "Prior: $47.05",
+          "delta": "-12.4% WoW ✓",
+          "deltaType": "positive",
+          "barPct": 70,
+          "barColor": "green",
+          "source": "Paid Media Dashboard (Apr 5)",
+          "sparkData": [
+            52,
+            47,
+            41
+          ]
+        },
+        {
+          "label": "Cost per Paid Sub (Blended)",
+          "sub": "Meta: $384.50 | TikTok: $535.74",
+          "current": "$412.00",
+          "target": "Prior: $366.32",
+          "delta": "+12.5% WoW ⚠",
+          "deltaType": "negative",
+          "barPct": 55,
+          "barColor": "yellow",
+          "source": "Paid Media Dashboard (Apr 5)",
+          "sparkData": [
+            320,
+            366,
+            412
+          ]
+        },
+        {
+          "label": "Trials (All Channels)",
+          "sub": "110 trials — 64% click-attributed",
+          "current": "110",
+          "target": "Prior: 109",
+          "delta": "+0.9% WoW",
+          "deltaType": "neutral",
+          "barPct": 50,
+          "barColor": "blue",
+          "source": "Paid Media Dashboard (Apr 5)",
+          "sparkData": [
+            95,
+            109,
+            110
+          ]
+        },
+        {
+          "label": "Paid Conversions",
+          "sub": "Trial→Paid rate dropped to 10% (was 12.8%)",
+          "current": "11 subs",
+          "target": "Prior: 14",
+          "delta": "-21.4% WoW",
+          "deltaType": "negative",
+          "barPct": 40,
+          "barColor": "red",
+          "source": "Paid Media Dashboard (Apr 5)",
+          "sparkData": [
+            12,
+            14,
+            11
+          ]
+        },
+        {
+          "label": "ROAS (CTA+VTA Blended)",
+          "sub": "Meta: 1.13x | TikTok: 0.27x",
+          "current": "0.93x",
+          "target": "Break-even = 1.0x",
+          "delta": "Below break-even",
+          "deltaType": "caution",
+          "barPct": 47,
+          "barColor": "yellow",
+          "source": "Paid Media Dashboard (Apr 5)"
+        },
+        {
+          "label": "Top Creator: Choi",
+          "sub": "72 trials at $33.12 CPT — 53% of spend",
+          "current": "$33.12 CPT",
+          "target": "vs Billy $56.42 CPT",
+          "delta": "Best performer",
+          "deltaType": "positive",
+          "barPct": 80,
+          "barColor": "green",
+          "source": "Paid Media Dashboard (Apr 5)"
+        },
+        {
+          "label": "Meta vs TikTok Efficiency",
+          "sub": "Meta CPT $35 vs TT $89 — 2.5x more efficient",
+          "current": "Meta winning",
+          "target": "Shift spend to Meta",
+          "delta": "Meta 2.5x better CPT",
+          "deltaType": "positive",
+          "barPct": 75,
+          "barColor": "green",
+          "source": "Paid Media Dashboard (Apr 5)"
+        }
+      ]
+    },
+    "POD_KPIS": [
+      {
+        "pod": "OJ Product",
+        "lead": "Jeremy T",
+        "group": "Product",
+        "kpis": [
+          "Product Launches",
+          "Trials",
+          "MRR"
+        ]
+      },
+      {
+        "pod": "RW Product",
+        "lead": "Nick Piovano",
+        "group": "Product",
+        "kpis": [
+          "Feature delivery",
+          "Model accuracy",
+          "50%+ of PRs coauthored by Claude Code"
+        ]
+      },
+      {
+        "pod": "Data Ingestion",
+        "lead": "Vincenzo A",
+        "group": "Data",
+        "kpis": [
+          "# Leagues # Sports # Markets",
+          "Latency (ms)",
+          "Uptime %"
+        ]
+      },
+      {
+        "pod": "B2B Sales/Ops (OO/RW)",
+        "lead": "Ryan W",
+        "group": "Optic",
+        "kpis": [
+          "Deals closed",
+          "Pipeline value",
+          "EMEA revenue"
+        ]
+      },
+      {
+        "pod": "Optic Marketing",
+        "lead": "Samuel Hill",
+        "group": "Optic",
+        "kpis": [
+          "Qualified Leads",
+          "Visitors"
+        ]
+      },
+      {
+        "pod": "Optic Product",
+        "lead": "Karl O'Brien",
+        "group": "Optic",
+        "kpis": [
+          "API uptime",
+          "Demo conversion",
+          "Integration count"
+        ]
+      },
+      {
+        "pod": "Growth Ops (OJ/RW)",
+        "lead": "Brian S",
+        "group": "Growth",
+        "kpis": [
+          "MRR",
+          "Subs",
+          "Trials",
+          "HYHAU/Promo Code attribution"
+        ]
+      },
+      {
+        "pod": "Talent (RW/OJ)",
+        "lead": "Brian S / DJ T / Tim S",
+        "group": "Growth",
+        "kpis": [
+          "Social + Video Posts",
+          "Subs by Code (SXM, VSiN, YouTube)",
+          "Views",
+          "Followers"
+        ]
+      },
+      {
+        "pod": "RW Features",
+        "lead": "Jason T / Tim S",
+        "group": "Growth",
+        "kpis": [
+          "New Subscribers",
+          "Number of Articles/SEO Articles",
+          "Unique Visitors"
+        ]
+      },
+      {
+        "pod": "RW News",
+        "lead": "Kevin O / Tim S",
+        "group": "Growth",
+        "kpis": [
+          "Speed"
+        ]
+      },
+      {
+        "pod": "B2C CS (OJ/RW)",
+        "lead": "Randall K / Bryan R",
+        "group": "Growth",
+        "kpis": [
+          "5m Response time",
+          "Sales",
+          "CSAT",
+          "Retention rate"
+        ]
+      },
+      {
+        "pod": "Bookies Aff",
+        "lead": "Brian R",
+        "group": "Bookies",
+        "kpis": [
+          "Affiliate Rev",
+          "SGP Clicks"
+        ]
+      },
+      {
+        "pod": "BetSyndicate",
+        "lead": "Brian R",
+        "group": "Bookies",
+        "kpis": [
+          "BetSyndicate MRR/ARR"
+        ]
+      },
+      {
+        "pod": "Bookies Intl",
+        "lead": "Brian R / Adam K",
+        "group": "Bookies",
+        "kpis": [
+          "Affiliate Rev"
+        ]
+      },
+      {
+        "pod": "Search Affiliate",
+        "lead": "Blake Weishaar",
+        "group": "Search",
+        "kpis": [
+          "Exit Clicks",
+          "NDCs",
+          "Revenue (CPA + Rev Share)"
+        ]
+      },
+      {
+        "pod": "Search Subscription",
+        "lead": "Tyler Huntington",
+        "group": "Search",
+        "kpis": [
+          "New Subscribers",
+          "Returning Users",
+          "Churn",
+          "Revenue"
+        ]
+      },
+      {
+        "pod": "Search Media",
+        "lead": "Jacqui Kouassi",
+        "group": "Search",
+        "kpis": [
+          "Back Links",
+          "Brand Mentions",
+          "Domain Authority (DA)"
+        ]
+      }
+    ],
+    "MBR_LIVE": [
+      {
+        "label": "Total SDS MTD Revenue",
+        "metric": "monthlyRevenue",
+        "placeholder": "$—.—M",
+        "meta": "Current month pacing",
+        "status": "pending"
+      },
+      {
+        "label": "Total SDS MTD EBITDA",
+        "metric": "monthlyEbitda",
+        "placeholder": "$—.—M",
+        "meta": "Pedro's workbook",
+        "status": "pending"
+      },
+      {
+        "label": "EBITDA Margin",
+        "metric": "ebitdaMargin",
+        "placeholder": "—%",
+        "meta": "Target ≥ 60%",
+        "status": "pending"
+      },
+      {
+        "label": "OJ+OO MRR",
+        "metric": "ojOoMrr",
+        "placeholder": "$—.—M",
+        "meta": "Subscription revenue",
+        "status": "pending"
+      },
+      {
+        "label": "OJ B2C Subs",
+        "metric": "ojSubs",
+        "placeholder": "—,—",
+        "meta": "Active subscribers",
+        "status": "pending"
+      },
+      {
+        "label": "OJ B2C ARPS",
+        "metric": "ojArps",
+        "placeholder": "$—.—",
+        "meta": "Avg revenue per sub",
+        "status": "pending"
+      },
+      {
+        "label": "RW Subscribers",
+        "metric": "rwSubs",
+        "placeholder": "—,—",
+        "meta": "End of month",
+        "status": "pending"
+      },
+      {
+        "label": "RW ARPS",
+        "metric": "rwArps",
+        "placeholder": "$—.—",
+        "meta": "12-mo blended",
+        "status": "pending"
+      },
+      {
+        "label": "RW Retention",
+        "metric": "rwRetention",
+        "placeholder": "—%",
+        "meta": "Target ≥ 90%",
+        "status": "pending"
+      },
+      {
+        "label": "Optic ARR",
+        "metric": "opticArr",
+        "placeholder": "$—.—M",
+        "meta": "Contracted ARR",
+        "status": "pending"
+      },
+      {
+        "label": "Optic B2B Customers",
+        "metric": "opticCustomers",
+        "placeholder": "~320",
+        "meta": "Active partners (Apr '26 one-pager, net of churn)",
+        "status": "wired"
+      },
+      {
+        "label": "ARR per FTE",
+        "metric": "arrPerFte",
+        "placeholder": "$—K",
+        "meta": "Efficiency ratio",
+        "status": "pending"
+      },
+      {
+        "label": "Labor Cost Ratio",
+        "metric": "laborCostRatio",
+        "placeholder": "—%",
+        "meta": "Below 20% = healthy",
+        "status": "pending"
+      },
+      {
+        "label": "Trials (MTD)",
+        "metric": "trials",
+        "placeholder": "—",
+        "meta": "Across brands",
+        "status": "pending"
+      },
+      {
+        "label": "Trial→Paid %",
+        "metric": "trialConv",
+        "placeholder": "—%",
+        "meta": "30-day window",
+        "status": "pending"
+      },
+      {
+        "label": "Blended CAC",
+        "metric": "cac",
+        "placeholder": "$—",
+        "meta": "Marketing ÷ new paid",
+        "status": "pending"
+      }
+    ],
+    "OFFSITES": {
+      "items": [
+        {
+          "text": "Can we fire Karl?",
+          "owner": "Matt Restivo",
+          "business": "Optic Odds",
+          "status": "pending"
+        },
+        {
+          "text": "Put Nick Piovano on Optic for 3 hrs/week with Matt + V + Ryan 45 mins monthly",
+          "owner": "Matt Restivo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Automate agents to ingest call content + ideate",
+          "owner": "Nick Piovano",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "What new products?",
+          "owner": "Nick Piovano",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Future Roadmap: Product Faster + Cut Cost post DevOps",
+          "owner": "Nick Piovano",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Expand Optic AI Coverage",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Zach — MCP",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": "done"
+        },
+        {
+          "text": "Biagio — Prediction Markets Data",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Nikola — Infrastructure Dashboarding in 1mo for Optic Odds",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Gerson — human in the loop on AI Auto-Mapping?",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Socialize the dashboard for Sport + League Coverage",
+          "owner": "Vincenzo",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Leo — shit or get off pot. HR plan.",
+          "owner": "Ryan Weinstock",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Featured Parlays/Predictions",
+          "owner": "Ryan Weinstock",
+          "business": "Optic Odds",
+          "status": ""
+        },
+        {
+          "text": "Widgets — centralize it or give it to data ingestion",
+          "owner": "TBD",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "OJ — Wordpress",
+          "owner": "Jeremy Le-Tran",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "RW — Every new feature gets built in NextJS",
+          "owner": "TBD",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "RW — Change the Strategy to wrap with NextJS",
+          "owner": "TBD",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "Hire Nikola to eventually replace Andrew",
+          "owner": "Vincenzo",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "7 People — Analyze in the next 24 hours",
+          "owner": "Vincenzo",
+          "business": "Technology",
+          "status": "done"
+        },
+        {
+          "text": "Look at Andrew Parr, Kurt Kroll, Chris Knudsvig, James Nicholas Jewson",
+          "owner": "Vincenzo",
+          "business": "Technology",
+          "status": "done"
+        },
+        {
+          "text": "Do we make another Italian hire?",
+          "owner": "Vincenzo",
+          "business": "Technology",
+          "status": "done"
+        },
+        {
+          "text": "Fix Scott",
+          "owner": "Vincenzo",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "Ability to build New RW pages for Craig",
+          "owner": "TBD",
+          "business": "Technology",
+          "status": ""
+        },
+        {
+          "text": "Poly, Pinny, Yahoo, Kalshi",
+          "owner": "Matt Restivo / Ryan",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "We don't want our site scraped",
+          "owner": "Vincenzo",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Raisle — AE not a sales person, most of our team is just doing his job",
+          "owner": "Matt Restivo",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Get MBRs back on the calendar",
+          "owner": "Pedro",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Negotiate Stripe Rate — say 'we're considering Stripe' with MB",
+          "owner": "Pedro",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Openpay support sucks, we're moving off — also Loop",
+          "owner": "Pedro",
+          "business": "Commercial",
+          "status": "done"
+        },
+        {
+          "text": "Up level HeadCount Allocation to an SDS Overall MBR",
+          "owner": "Pedro",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Renegotiate Matt Bendett Fees — why not?",
+          "owner": "Matt Restivo",
+          "business": "Commercial",
+          "status": "done"
+        },
+        {
+          "text": "Restart Casino Motion for Social",
+          "owner": "Craig / Brian",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Polymarket Promo Code on all Local Sites — Top PM 'Ad'",
+          "owner": "Craig",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "BetSyndicate — do we kill it?",
+          "owner": "TBD",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Curtis to Brian's Team",
+          "owner": "TBD",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Move BetSyndicate to Bookies",
+          "owner": "TBD",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Picks plan on Bookies",
+          "owner": "TBD",
+          "business": "Commercial",
+          "status": ""
+        },
+        {
+          "text": "Brand Sprint — Lauren, Tim, KOB, Whalen, Brian, Nick P, Saal",
+          "owner": "Matt Restivo",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Steve Jordan program?",
+          "owner": "TBD",
+          "business": "Growth / Roto",
+          "status": "done"
+        },
+        {
+          "text": "Move RotoWire to PayPal with DJ/KOB?",
+          "owner": "Pedro",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Clark to 'automate' ALL DMs",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Hire Mick Jagger, put him with Nick W. Nick W to Content Daily, Produced by Alan",
+          "owner": "TBD",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Nigel to Edit a week's worth of content",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Nick W replaced with Bartel and Jenstad",
+          "owner": "Tim Schuler",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Talk to Craig's FSU guy",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "DJ to take over this sheet and report monthly on spend",
+          "owner": "DJ",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Build DFS hub",
+          "owner": "Tim Schuler",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Brian to train Sal and immediately get working on Football Influencers",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Shareable RotoWire branded Tiered Rankings ASAP",
+          "owner": "TBD",
+          "business": "Growth / Roto",
+          "status": "pending"
+        },
+        {
+          "text": "RW Rankings owner — Nick/Paul. Tech to enable. Need Paul, Jeff, Jim, etc.",
+          "owner": "Nick / Paul",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Plan for a $25 offering that can autorenew — maybe end of season?",
+          "owner": "TC",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Communicate 75K Goal with August — specifically every day",
+          "owner": "Pedro",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "CRM: RotoWire B2B Forecasting",
+          "owner": "Pedro / Ryan",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Podcasts — LEVEL UP POD MOTION IN MADISON. Reuse from XM? Paid only?",
+          "owner": "TC",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Clickable Meta images for Twitter",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "New Monahan Deal",
+          "owner": "Brian Stephens",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Hire new Big Name Football Talent",
+          "owner": "Tim Schuler",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Pedro — new org chart",
+          "owner": "Pedro",
+          "business": "Growth / Roto",
+          "status": ""
+        },
+        {
+          "text": "Subscription Code / Link",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        },
+        {
+          "text": "Thumb Optimization",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        },
+        {
+          "text": "More energy",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        },
+        {
+          "text": "Better backgrounds",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        },
+        {
+          "text": "Changing the layouts",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        },
+        {
+          "text": "Creator Codes",
+          "owner": "TBD",
+          "business": "Content Audit",
+          "status": ""
+        }
+      ]
+    }
+  },
+  "fragments": {
+    "snap-revenueHero": "\n                    <div class=\"revenue-top\">\n                        <span class=\"revenue-number\" style=\"color:var(--yellow);\">$66.71M</span>\n                        <span class=\"revenue-target\">/ $69.4M target &mdash; <span style=\"color:var(--red); font-weight:600;\">-3.85% behind</span></span>\n                    </div>\n                    <div class=\"revenue-bar-bg\">\n                        <div class=\"revenue-bar-fill\" style=\"width: 96.15%; background: linear-gradient(90deg, var(--yellow), var(--orange));\"></div>\n                    </div>\n                    <div class=\"revenue-sub\">\n                        2026 Forecast vs Budget &mdash; <strong>+16.93% YoY</strong> ($57.05M &rarr; $66.71M) &nbsp;|&nbsp; <span style=\"color:var(--text-muted);\">WoW: -$241K (v9 vs v8) &mdash; OJ drop offsets RW + OpticOdds gains; net still -2.43% off $68.4M budget</span>\n                    </div>\n                ",
+    "snap-wowForecast": "\n                    <strong style=\"color:var(--yellow);\">WoW Forecast Changes (v9 vs v8) &mdash; parsed May 14 from forecast.json</strong><br>\n                    <span style=\"color:var(--green);\">&#9650; RotoWire +$300K</span> &mdash; $17.18M &rarr; $17.48M (+1.75%). Back above v7 levels; RW now +24.5% above $14.05M budget. Affiliate momentum + FlyCode/Stripe recovery ($8-10K/mo) baking in<br>\n                    <span style=\"color:var(--green);\">&#9650; OpticOdds +$250K</span> &mdash; $22.28M &rarr; $22.53M (+1.12%). April pipeline ($72K net new contracted), platform velocity sustained<br>\n                    <span style=\"color:var(--red);\">&#9660; OddsJam -$572K</span> &mdash; $16.92M &rarr; $16.34M (-3.38%). Second-largest single-vertical drop; PT/PI contraction continuing to bite, no reversal booked. Now $2.68M below $19.03M target<br>\n                    <span style=\"color:var(--red);\">&#9660; Bookies -$219K</span> &mdash; $3.73M &rarr; $3.51M (-5.87%). Biggest pct drop; reverses v7's first-positive-of-year move. $2.72M below $6.23M budget<br>\n                    <span style=\"color:var(--text-muted);\">&#9679; Partnerships flat</span> &mdash; $5.61M (unchanged). Commercial held<br>\n                    <span style=\"color:var(--text-muted);\">&#9679; Local flat</span> &mdash; $1.23M (unchanged)<br>\n                    <strong style=\"color:var(--yellow);\">Net: -$241K WoW</strong> &mdash; Now -$1.66M (-2.43%) below $68.4M budget, -$2.67M (-3.85%) below $69.4M target. The Optic/RW gains were absorbed by OJ + Bookies erosion. OJ/PT remains the biggest single line item to fix.\n                ",
+    "snap-revGrid": "\n                <!-- Total SDS headline (v9 forecast) -->\n                <div class=\"fc-total-card\">\n                    <div>\n                        <div class=\"fc-total-label\">Total SDS &mdash; 2026 Forecast</div>\n                        <div class=\"fc-total-amount\">$66.71M</div>\n                        <div style=\"font-size:11px; color:var(--text-muted); margin-top:2px;\">Budget $68.37M &middot; Target $69.38M &middot; 25A $57.05M (+16.93% YoY)</div>\n                    </div>\n                    <div class=\"fc-total-deltas\">\n                        <span class=\"fc-d-bud\" style=\"color:var(--red);\">&minus;$1.66M vs Budget &nbsp;(&minus;2.43%)</span>\n                        <span class=\"fc-d-tgt\" style=\"color:var(--red);\">&minus;$2.67M vs Target &nbsp;(&minus;3.85%)</span>\n                    </div>\n                </div>\n\n                <!-- 4-parent forecast hierarchy (Optic / OddsJam / RotoWire / Search) -->\n                <div class=\"fc-grid\">\n\n                    <!-- Optic -->\n                    <div class=\"fc-card caution\">\n                        <div class=\"fc-head\">\n                            <span class=\"fc-name\">Optic</span>\n                            <span class=\"fc-amount\">$22.53M</span>\n                        </div>\n                        <div class=\"fc-deltas\">\n                            <span><span class=\"fc-d-label\">vs Budget:</span><span class=\"fc-d-val neg\">&minus;$0.07M (&minus;0.3%)</span></span>\n                            <span><span class=\"fc-d-label\">vs Target:</span><span class=\"fc-d-val neg\">&minus;$1.76M (&minus;7.2%)</span></span>\n                        </div>\n                        <div class=\"fc-rows\">\n                            <div class=\"fc-row fc-row-header\"><span>Stream</span><span style=\"text-align:right;\">Forecast</span><span style=\"text-align:right;\">vs Budget</span><span style=\"text-align:right;\">vs Target</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Fixed</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Rev-Share</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                        </div>\n                    </div>\n\n                    <!-- OddsJam -->\n                    <div class=\"fc-card negative\">\n                        <div class=\"fc-head\">\n                            <span class=\"fc-name\">OddsJam</span>\n                            <span class=\"fc-amount\">$16.34M</span>\n                        </div>\n                        <div class=\"fc-deltas\">\n                            <span><span class=\"fc-d-label\">vs Budget:</span><span class=\"fc-d-val neg\">&minus;$4.42M (&minus;21.3%)</span></span>\n                            <span><span class=\"fc-d-label\">vs Target:</span><span class=\"fc-d-val neg\">&minus;$2.68M (&minus;14.1%)</span></span>\n                        </div>\n                        <div class=\"fc-rows\">\n                            <div class=\"fc-row fc-row-header\"><span>Stream</span><span style=\"text-align:right;\">Forecast</span><span style=\"text-align:right;\">vs Budget</span><span style=\"text-align:right;\">vs Target</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Sub</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Affiliate</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                        </div>\n                    </div>\n\n                    <!-- RotoWire -->\n                    <div class=\"fc-card positive\">\n                        <div class=\"fc-head\">\n                            <span class=\"fc-name\">RotoWire</span>\n                            <span class=\"fc-amount\">$17.48M</span>\n                        </div>\n                        <div class=\"fc-deltas\">\n                            <span><span class=\"fc-d-label\">vs Budget:</span><span class=\"fc-d-val pos\">+$3.43M (+24.5%)</span></span>\n                            <span><span class=\"fc-d-label\">vs Target:</span><span class=\"fc-d-val pos\">+$2.63M (+17.7%)</span></span>\n                        </div>\n                        <div class=\"fc-rows\">\n                            <div class=\"fc-row fc-row-header\"><span>Stream</span><span style=\"text-align:right;\">Forecast</span><span style=\"text-align:right;\">vs Budget</span><span style=\"text-align:right;\">vs Target</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">B2C</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">B2C Affiliate/Ads</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">B2B</span><span class=\"fc-ramt\" style=\"text-align:right;\">TBD</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span><span class=\"fc-rd tbd\" style=\"text-align:right;\">&mdash;</span></div>\n                        </div>\n                    </div>\n\n                    <!-- Search (Bookies + Local + Partnerships) -->\n                    <div class=\"fc-card caution\">\n                        <div class=\"fc-head\">\n                            <span class=\"fc-name\">Search</span>\n                            <span class=\"fc-amount\">$10.36M</span>\n                        </div>\n                        <div class=\"fc-deltas\">\n                            <span><span class=\"fc-d-label\">vs Budget:</span><span class=\"fc-d-val neg\">&minus;$0.60M (&minus;5.5%)</span></span>\n                            <span><span class=\"fc-d-label\">vs Target:</span><span class=\"fc-d-val neg\">&minus;$0.86M (&minus;7.7%)</span></span>\n                        </div>\n                        <div class=\"fc-rows\">\n                            <div class=\"fc-row fc-row-header\"><span>Stream</span><span style=\"text-align:right;\">Forecast</span><span style=\"text-align:right;\">vs Budget</span><span style=\"text-align:right;\">vs Target</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Bookies</span><span class=\"fc-ramt\" style=\"text-align:right;\">$3.51M</span><span class=\"fc-rd neg\" style=\"text-align:right;\">&minus;43.6%</span><span class=\"fc-rd neg\" style=\"text-align:right;\">&minus;43.6%</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Local</span><span class=\"fc-ramt\" style=\"text-align:right;\">$1.23M</span><span class=\"fc-rd neg\" style=\"text-align:right;\">&minus;66.9%</span><span class=\"fc-rd neg\" style=\"text-align:right;\">&minus;66.9%</span></div>\n                            <div class=\"fc-row\"><span class=\"fc-rname\">Partnerships</span><span class=\"fc-ramt\" style=\"text-align:right;\">$5.61M</span><span class=\"fc-rd pos\" style=\"text-align:right;\">+461.2%</span><span class=\"fc-rd pos\" style=\"text-align:right;\">+346.1%</span></div>\n                        </div>\n                    </div>\n\n                </div>\n\n                <div style=\"font-size:10.5px; color:var(--text-muted); margin-bottom:12px; font-style:italic;\">\n                    Sub-stream breakouts (Optic Fixed/Rev-Share, OJ Sub/Affiliate, RW B2C/Affiliate-Ads/B2B) show TBD pending v10 ingest — the parsed <code>forecast.json</code> only carries vertical totals today. To wire these up, the next ingest needs to parse the per-stream rows from the source xlsx and add a <code>streams: {}</code> map to each vertical in <code>data/forecast.json</code>.\n                </div>\n                ",
+    "snap-efficiency": "\n                    <div class=\"rev-card positive\">\n                        <div class=\"rev-label\">Optic Odds</div>\n                        <div class=\"rev-amount\">$1.25M</div>\n                        <div class=\"rev-vs\">ARR/FTE &middot; 6 people</div>\n                    </div>\n                    <div class=\"rev-card caution\">\n                        <div class=\"rev-label\">OddsJam</div>\n                        <div class=\"rev-amount\">$528K</div>\n                        <div class=\"rev-vs\">ARR/FTE &middot; 31 people</div>\n                    </div>\n                    <div class=\"rev-card caution\">\n                        <div class=\"rev-label\">RotoWire</div>\n                        <div class=\"rev-amount\">$300K</div>\n                        <div class=\"rev-vs\">ARR/FTE &middot; 51 people</div>\n                    </div>\n                ",
+    "snap-scorecardIntro": "\n                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). <strong style=\"color:var(--yellow);\">May 4 — Matt waved off the weekly scorecard for the 2nd consecutive week (Pedro confirmed \"yeah can skip this week\").</strong> Slack scan now back online: no signal on whether Pedro's new C3 scorecard sheet got wired this week (Pedro reissued @channel May 7 on the broader priorities-on-shared-sheet ask — Tim closed RW-Talent/News/Features, others still owed). Third week running without scorecard color signal is the pattern flag.\n                ",
+    "snap-pipelineNote": "\n            <div style=\"font-size: 13px; color: var(--text-secondary);\">\n                <strong style=\"color: var(--text-primary);\">Pipeline Note:</strong> <strong style=\"color:var(--purple);\">Cycle 3 Week 2 Day 1 (Mon) — REORG / LAYOFF DAY · EXECUTION</strong>. <strong style=\"color:var(--red);\">🚨 LAYOFF CONVERSATIONS RUN TODAY · COMP MODEL LANDS WITH TIM SAME-DAY.</strong> Matt + Tim aligned Thu PM ('day others are let go feels like the right day to do it tbh' / Tim: 'Sounds like a plan!'). Sequence the layoff conversations first thing AM, brief Tim/Pedro/V after each so framing stays consistent across the day. Block 30-60 min w/ Tim today on the comp/growth-incentive model (+15/+20/+25 renewal-growth scenarios on column I + recommendation column) — ideally before standup so the go-forward frame is in place when the rest of the org reads the Mon AM signal. <strong style=\"color:var(--yellow);\">Andrew S read-in</strong> assumed landed Fri (Slack-stale, no inbound flags suggest otherwise) — confirm via DM first thing AM + lock Nikola overlap window + AWS migration ownership in writing before any broader layoff conversation runs. <strong style=\"color:var(--yellow);\">V's #vrr Friday call outputs</strong> (isportsapi $4-10K/mo vs odds88 decision) still unconfirmed after 3 days — DM V directly today, don't wait for tonight's scan. <strong style=\"color:var(--red);\">⚠️ SLACK SCAN STALE</strong> — last digest May 7→May 8 AM, ~76h old (well past 48h guardrail). Three full days of pod-lead activity unconfirmed via digest. Operate from inbox + direct DM, NOT from carried-forward attention cards. If tonight's scan misses a 4th night, the dashboard's pod-silence inferences become structurally unreliable. <strong style=\"color:var(--yellow);\">⚠️ V9 FORECAST STILL UNPARSED (Day 5)</strong> — `2026 SDS Revenue & Forecasting (9).xlsx` remains in `/gamb/__inbox/` since Wed May 6 14:44 MDT. Numbers below still v8 (Apr 29). SKILL.md inbox-path fix from May 7 supplemental still pending. Same fix needed for `RotoWire Reset - April 2026.pptx.pdf` (also stuck in inbox). <strong style=\"color:var(--green);\">Cycle 3 Wk2 kickoff TODAY</strong> with three Wk1 carry-forwards into 1:1 cadence (NOT broader standup): Ryan's eng redundancy plan, Sport+League Coverage dashboard owner, Pedro's C3 scorecard sheet wiring. Wk1 landed: Tim closed RW-Talent/News/Features assignments; V committed to 6-week OJ pod operating-cadence doc + dropped 3 files in #vrr; Pedro unblocked on NetSuite/Cube via Niall. Forecast v8 carries: Total SDS $66.95M, -3.5% off target. RW $17.18M (+22.3% over budget); OJ flat $16.92M. <strong style=\"color:var(--yellow);\">Bet365 MI Day 24 post-launch · Day 7 affiliate</strong> — channels remained silent through Thu (Slack-stale since); reading 'clean ship' with gap caveat. Tue ask: written one-week retrospective from Jamie (NDC pacing Days 1-7, CS/compliance, affiliate run-rate). <strong style=\"color:var(--red);\">Eng-redundancy</strong> — Matt's May 4 long-form ask to Ryan still no movement through Thu; Ryan engagement-without-commitment pattern continues. ESPN reliability remains V's wedge. <strong style=\"color:var(--red);\">Polymarket production API access blocked on contract</strong> (legal review window THIS WEEK); dev environment hitting rate limits daily, OJ feels unstable. Pinnacle near close. Bet365/Pinnacle data-source gap — V's Fri #vrr call should have produced isportsapi vs odds88 decision; DM today. <strong style=\"color:var(--green);\">FlyCode × Stripe win (May 3)</strong> — $8-10K/mo run-rate; Lucas Reller credit. <strong style=\"color:var(--green);\">Onyx April fee $230,345.61</strong>. <strong style=\"color:var(--green);\">Optic April one-pager</strong> — 23 closed won ($144.5K gross, $72K net new), 105 deals pipeline, +667% YoY April-to-April; ~320 active partners. Marquee: Verified Global $20K, CypherLab $15K, UCM $12.5K. Churn cluster: Betstrike → Betby (only competitive displacement), Fanatics $15K budget walk. <strong style=\"color:var(--yellow);\">Optic May Wk1 pipeline ratio</strong> — 523 open, 2W vs 15L; BetConstruct $80K (Shay) top of pipeline; 2 unassigned $10K (Leidata, ProphetX) on Leo. <strong style=\"color:var(--green);\">Doug Monahan recruit in motion</strong> (Brian/DJ/Tim mpim May 7) — Billy replacement on OJ Master Class / 4-day course; comp anchor 100-150K; OJ-only, no RW role; Brian to scope strict-lane by EOW. Creator-pipeline target 25-30/wk × 10wk to July 15. <strong style=\"color:var(--green);\">Optic + Perplexity launch motion</strong> — Ryan/Sam Hill motion-graphics in flight; contract finalizing end of next week. Nick on Shiny: still ramping, reprioritized Thu around NFL plans — softer landing than 'name the gate' ask. Jonathan contract extension aligned w/ Nick (6-month renewal). <strong style=\"color:var(--yellow);\">Scorecard skipped 2nd consecutive week</strong> — pattern flag; no signal yet on whether Pedro's new C3 sheet got wired this week. Letran roadmap restructure Apr 30 — arb-father floated; Ryan STILL has not posted in #sds-oj-management. RW B2B Apr -8% MoM watch. AR collections escalation w/ Anastasia (Pedro driving). PGA Tour Shotlink data lever (Matt has direct PGAT contact). Bet Online $20K → $65K Aug step-up confirmed. Boom rev-share — Matt to call Steve. Kalshi ISV oAuth still pending. GAN/BetFinder near close. Karl OddsWire → Optic Widgets reskin pending — Yahoo interested. Updated May 11.\n            </div>\n        "
+  }
+}
