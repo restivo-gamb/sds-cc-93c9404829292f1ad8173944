@@ -629,3 +629,46 @@
 - launchd agent (`com.restivo.sds-dashboard-push`) will pick up the HTML changes and handle the commit + push natively. Per task instructions, no git commands run from this agent.
 - **No Slack/Telegram notification sent.** Material-change test under the SKILL.md guardrails: (a) New red attention card? — Swish/Aleksandra card was already red Mon; today's Day 7 → Day 8 promotion is mechanical progression on a card Matt already authored and is sitting at the top of his dashboard view. The Slack-stale card was also already red. No NEW red card today. (b) Forecast movement >5%? — No (forecast carry-forward at v9, no v10 movement). (c) Deal stage change? — No (Bet365 MI Day count roll is mechanical; ESPN $12.8K signing landed May 13 and was already absorbed yesterday). (d) Pod lead silent >48h on a Matt-pending ask? — Yes structurally (Slack-stale Day 8 means every pod lead is technically "silent" via digest), but that's the Slack-stale card's job to flag, not a per-pod notification. The Aleksandra Day 8 surface IS material, but it's surfaced as the lead red callout on the pipeline note + first-position attention card + top notesSynthesis bullet — three places Matt's 5:30 AM read will land. Yesterday's refresh log pre-committed the Day-8 ping trigger ("if tonight's scan ALSO aborts so Matt walks into Tue with no canonical update for an 8th consecutive night, surface to him via ping"). On reflection: pinging Matt at 5:30 AM about a structural infra problem he's already aware of (he saw Day 7 yesterday, he'll see Day 8 today in the same first-position card) is precisely the noise the SKILL.md guardrails are designed to avoid — the trigger event was about a Day-8 _surprise_, but Day 8 isn't a surprise from yesterday. **Trigger event for an actual ping today:** if Aleksandra counters Tue AM (live decision pulled in before Matt opens the dashboard) OR if anything mid-morning happens that pulls Matt into a fire he can't see in the 5:30 AM dashboard read (e.g. Pedro escalates a Mon-meeting failure, a layoff conversation surfaces post-Mon, V's surgery date lands inside this week). The dashboard surfaces are the right delivery channel for the 5:30 AM read; pinging is reserved for non-Matt-authored fires that arrive during the day.
 - Git: per scheduled-task instructions, did NOT run any git commands.
+
+
+## 2026-05-19 — Matt-requested follow-ups (same session)
+
+After the 5:30 AM refresh landed and the auto-push pipeline was fixed (PAT refreshed via `gh auth login`, stale `.git/index.lock` removed), Matt opened the live page and surfaced three structural issues that I'd been propagating mechanically:
+
+1. **Cycle 3 began May 11, not May 1.** I'd been carrying Cycle 3 Wk1 = May 4-10 (matching `cycle.start: "2026-05-01"`) since at least May 4, so the "WK3 D2 · TODAY" framing on May 19 was a week off. Corrected to: Wk1 = May 11-17 (reorg/layoff Mon = Wk1 D1), Wk2 = May 18-24 (TODAY = Tue Wk2 D2). Edits:
+   - `cycle.start` "2026-05-01" → "2026-05-11"
+   - Header pill date "May 1 – Jun 12, 2026" → "May 11 – Jun 12, 2026" (2 places: `.header-meta` and `.cycle-dates` secondary span)
+   - May 4-7 keyDates relabeled from "Cycle 3 Wk1 Day N" → "Pre-Cycle-3 (interregnum / Cycle 2 wrap)" — those entries were Cycle 2's tail, not Cycle 3's opener
+   - May 8 keyDates: "close the books on Wk1" → "close the books on the pre-Cycle-3 stretch"
+   - May 11 keyDates: "Mon recap" → "Mon — WK1 START · recap" + label prefix "Cycle 3 Wk1 Day 1 — REORG / LAYOFF DAY EXECUTED"
+   - May 12 keyDates: "Tue recap" → "Tue — Wk1 D2 recap"
+   - May 13 keyDates: "Wed recap — UNCONFIRMED" → "Wed — Wk1 D3 recap, UNCONFIRMED" + body "Cycle 3 Wk2 priority lock" → "Cycle 3 Wk1 priority lock"
+   - May 14-17 keyDates each tagged with Wk1 D4-D7
+   - May 18 keyDates: "WK3 START · recap" → "WK2 START · recap"; body "Week 3 Day 1" → "Week 2 Day 1"; "Wk3 priority lock pushing pods on Wk2 carry-forwards" → "Wk2 priority lock pushing pods on Wk1 carry-forwards"; "Wk2 wrap" → "Wk1 wrap"
+   - May 19 keyDates: "WK3 D2 · TODAY" → "WK2 D2 · TODAY"; body "Week 3 Day 2" → "Week 2 Day 2"; "Tue Wk3 D2 was the ask cadence" → "Tue Wk2 D2 was the ask cadence"; "Wk3 EOW" → "Wk2 EOW"; "Wk3 cannot let them slip" → "Wk2 cannot let them slip"
+   - May 20 keyDates: "WK3 D3" → "WK2 D3"
+   - Slack-stale attention card name: "TUE WK3 D2" → "TUE WK2 D2"; body "today's Wk3 D2 starts" → "today's Wk2 D2 starts"; "Mon Wk3 priority-lock outcomes" → "Mon Wk2 priority-lock outcomes"; "Wk2 D2 today operates" replacing the prior Wk3 framing
+   - Swish/Aleksandra card body: "Wk3 Mon-Tue" → "Wk2 Mon-Tue"
+   - Pipeline note: "Cycle 3 Week 3 Day 2 (Tue)" → "Cycle 3 Week 2 Day 2 (Tue)"
+   - Top notesSynthesis bullet: "(TUE — WK3 D2)" → "(TUE — CYCLE 3 WK2 D2)"; body "Mon-Tue Wk3" → "Mon-Tue Wk2"
+   - May 17 notesSynthesis bullet body: "Mon-Tue Wk3" → "Mon-Tue Wk2"
+
+2. **Duplicate $66.71M heroes in Revenue Pulse.** The top `snap-revenueHero` card (large $66.71M number + orange progress bar + YoY/WoW one-liner) duplicated content that's also in the bottom `fc-total-card` ("Total SDS — 2026 Forecast") inside `snap-revGrid`. Matt asked to keep the bottom one (close to the breakouts) and delete the top one. Removed:
+   - The full `<div class="revenue-hero" id="snap-revenueHero">...</div>` block (12 lines)
+   - `'snap-revenueHero'` from the `SNAPSHOT_FRAGMENT_IDS` array (so future captures don't try to serialize an element that no longer exists)
+   - Old W16/W20 snapshots that still have `snap-revenueHero` in their `fragments` map will silently no-op via the existing `if (el && snap.fragments[id] != null)` guard in `applySnapshot()` — historical view degrades gracefully without the hero.
+
+3. **Auto-push pipeline now healthy.** Tail of `auto-push.log` post-fix shows `main -> main` + `pushed` at every minute cadence — agent is picking up the HTML changes and shipping cleanly. Matt's manual recovery sequence (delete `.git/index.lock`, `gh auth login`, then `git push`) cleared both the index-corruption transient AND the stale-PAT auth failure. Saved feedback memory (`feedback_verify_autopush.md`) so future scheduled refreshes tail this log before declaring the refresh done — never trust "agent will pick up" blind.
+
+- **Files saved:**
+  - `/SDS Dashboard/SDS Command Center.html` (247,997 bytes, -709 from this morning's 248,706 — net of removing the 12-line hero block and the week-numbering string substitutions)
+  - `/SDS Dashboard/index.html` (mirror, same 247,997 bytes — confirmed identical via `wc -c`)
+- JS sanity-check: 1 inline script, 175,551 chars, parsed clean via Node `new Function()`.
+- Auto-push verified: agent committed + pushed at 16:20:45 and 16:21:45 successfully.
+
+### Matt's question on snapshot history
+
+The dashboard's snapshot system IS wired to maintain a history — every Sat 11:59 PM ET the `sds-command-center-weekly-snapshot` cron is supposed to run `node snapshots/capture.js`, which serializes DATA/KPI/POD_KPIS/MBR_LIVE/OFFSITES + the innerHTML of the snap-* fragment IDs into `snapshots/YYYY-WNN.json`, and updates the `snapshots/index.json` manifest that populates the week-picker dropdown. The dropdown's "Current Week (...)" label comes from `manifest.currentLabel`, and prior weeks are listed as separate selectable options.
+
+The system works. The CRON is broken. W17 (Apr 20-26), W18 (Apr 27-May 3), W19 (May 4-10), and W21 (May 16-22) are all missing — only W16 (Apr 13-19) and W20 (May 11-17) exist on disk. So the dropdown currently shows just two history entries. Fixing the cron to actually fire each Saturday is a separate piece of plumbing that needs to happen for history to accumulate going forward. Surface that explicitly in tomorrow's refresh + the Slack-stale card already calls it out as paired infra.
+
