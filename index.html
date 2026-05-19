@@ -964,12 +964,12 @@
             <div class="section-body">
                 <div class="scorecard-summary">
                     <div class="sc-pill">
-                        <div class="sc-num green" id="scGreen">16</div>
+                        <div class="sc-num green" id="scGreen">0</div>
                         <div class="sc-label">On Track</div>
-                        <div class="sc-trend" id="scGreenTrend">of 86 items</div>
+                        <div class="sc-trend" id="scGreenTrend">of 93 items</div>
                     </div>
                     <div class="sc-pill">
-                        <div class="sc-num yellow" id="scYellow">6</div>
+                        <div class="sc-num yellow" id="scYellow">52</div>
                         <div class="sc-label">Watch</div>
                         <div class="sc-trend" id="scYellowTrend">&mdash;</div>
                     </div>
@@ -979,13 +979,13 @@
                         <div class="sc-trend" id="scRedTrend">&mdash;</div>
                     </div>
                     <div class="sc-pill">
-                        <div class="sc-num" style="color: var(--text-muted);" id="scNotReported">64</div>
+                        <div class="sc-num" style="color: var(--text-muted);" id="scNotReported">41</div>
                         <div class="sc-label">Not Reported</div>
-                        <div class="sc-trend worsening" id="scNrTrend">75% missing</div>
+                        <div class="sc-trend worsening" id="scNrTrend">44% missing</div>
                     </div>
                 </div>
-                <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    C2 W2 — <strong>84 of 86</strong> priorities have status updates (98% reporting). 81% green. Source: <strong>C2 SCORECARD</strong> tab, column D background colors. Counts carried forward from Apr 7 visual audit (Google Sheets API blocked). <strong style="color:var(--yellow);">May 4 — Matt waved off the weekly scorecard for the 2nd consecutive week (Pedro confirmed "yeah can skip this week").</strong> Slack scan now back online: no signal on whether Pedro's new C3 scorecard sheet got wired this week (Pedro reissued @channel May 7 on the broader priorities-on-shared-sheet ask — Tim closed RW-Talent/News/Features, others still owed). Third week running without scorecard color signal is the pattern flag.
+                <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--yellow);">
+                    <strong>Cycle 3 Wk2 D2 — 52 of 93 priorities have W1 updates (56% reporting).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, synced via MCP 2026-05-19. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> — status inferred from `Updated` date + `Notes` text. 0G / 52Y / 0R is a directional approximation until a Sheets-with-formatting connector lands (or Pedro DMs Matt color counts Mon AM). <strong style="color:var(--red);">5 pod-leads have zero W1 activity</strong> (Karl O'Brien, Scott Goodell, Steven Gorfman, Brian R, Jacqui Kouassi) and 4 are partial-reporting — see the "Nudges to Send" panel below for drafted Slack DMs per pod-lead.
                 </div>
 
                 <!-- RED FLAG -->
@@ -998,6 +998,159 @@
                 <div id="yellowLeaders">
                     <!-- Populated by JS -->
                 </div>
+
+                <!-- Nudges to Send — drafted Slack DMs for pod-leads with NR W1 priorities -->
+                <details style="margin-top:18px; border:1px solid var(--border); border-radius:10px; background:var(--bg-card); padding:0;">
+                    <summary style="cursor:pointer; padding:12px 14px; font-size:13px; font-weight:600; color:var(--text-primary); list-style:none; display:flex; justify-content:space-between; align-items:center;">
+                        <span>📩 Nudges to Send — Scorecard W1 Not Reported (9 pod-leads, 41 priorities)</span>
+                        <span style="font-size:11px; color:var(--text-muted); font-weight:400;">click to expand</span>
+                    </summary>
+                    <div style="padding:0 14px 14px 14px; border-top:1px solid var(--border);">
+                        <div style="font-size:11px; color:var(--text-muted); margin:10px 0 6px 0; text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">5 pods with zero W1 activity — broadcast first</div>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Karl O'Brien</strong> &middot; <span style="color:var(--text-muted);">OPTIC PRODUCT</span> &middot; <span style="color:var(--red); font-weight:600;">7 priorities NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">karl/ your c3 w1 row is still blank for all 7 optic product priorities. we're in wk2 d2 now so 8 business days of work that's not visible to me or pedro.
+
+quick ask: drop in G/Y/R + a 1-liner per priority by eod wed. doesn't need to be polished, bullet form is fine.
+
+priorities you owe status on:
+- partner support
+- stripe migration (separate account)
+- futures in copilot
+- monitoring dashboard
+- prediction markets
+- sportsbook-as-sales-asset
+- support revamp
+
+if any haven't started, that's a valid answer — just flag it. lmk if anything's in the way.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Scott Goodell</strong> &middot; <span style="color:var(--text-muted);">SPORTS DATA</span> &middot; <span style="color:var(--red); font-weight:600;">5 priorities NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">scott/ all 5 of your sports data w1 rows are blank on the c3 scorecard. wk2 d2 — would love to see status.
+
+drop in G/Y/R + 1-liner per priority by eod wed:
+- p2/p3 league coverage to pinnacle + bet365
+- fixtures, stats, live stats sources
+- new live stats / scores pipeline
+- mapping UI (leagues/teams/players)
+- embeddings AI ontology
+
+bullet form is fine. if something hasn't started, just say so. anything blocked? lmk.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Steven Gorfman</strong> &middot; <span style="color:var(--text-muted);">ODDS DATA</span> &middot; <span style="color:var(--red); font-weight:600;">4 priorities NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">steven/ all 4 odds data rows are blank on c3 scorecard w1. wk2 d2 now — want to make sure nothing's stalling silently.
+
+status by eod wed (G/Y/R + 1-liner each):
+- new websocket architecture
+- port ws-powered books to new arch
+- prediction markets support
+- odds monitor dashboard productionalization
+
+short bullets fine. anything blocked, surface it. lmk.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Brian R</strong> &middot; <span style="color:var(--text-muted);">BOOKIES AFF + BETSYNDICATE</span> &middot; <span style="color:var(--red); font-weight:600;">6 priorities NR (across 2 pods)</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">brian/ both your pods (bookies aff + betsyn) have blank w1 rows on the c3 scorecard. 6 priorities across the two.
+
+bookies aff (4):
+- league + player props + parlaygrade integration
+- core web vitals (INP)
+- picks modernization (kill handicappers)
+- geo-specific footer/nav by country
+
+betsyn (2):
+- prepaid card / churn reduction
+- user survey — retention drivers at 60 days
+
+G/Y/R + 1-liner each by eod wed. if a priority hasn't started, that's a valid answer. lmk if anything is in the way.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Jacqui Kouassi</strong> &middot; <span style="color:var(--text-muted);">MEDIA</span> &middot; <span style="color:var(--red); font-weight:600;">3 priorities NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">jacqui/ all 3 media rows blank on c3 w1. wk2 d2 — quick status drop?
+
+status by eod wed (G/Y/R + 1-liner each):
+- perplexity PR launch
+- RW prediction markets campaign
+- summer stakes tentpole (NBA finals, stanley cup, US open, college WS, NBA draft)
+
+bullet form fine. flag anything blocked or not-yet-started. lmk.</pre>
+                        </details>
+
+                        <div style="font-size:11px; color:var(--text-muted); margin:14px 0 6px 0; text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">4 pods partial-reporting — softer ask, 1:1 cadence</div>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Brian S</strong> &middot; <span style="color:var(--text-muted);">GROWTH OPS</span> &middot; <span style="color:var(--yellow); font-weight:600;">8 of 12 NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">brian/ top 4 growth ops priorities updated on c3 w1 — thanks. but items 5-12 are all blank:
+- continue scaling affiliate networks
+- white label "promo conversion" course
+- optimize 4-day course
+- redistribute X content via tyler's tool
+- scale YT video output back up
+- OJ/DGF affiliate program growth
+- build up paid content motion
+- scale social media boosting motion
+
+quick question — are these real cycle priorities you're actively working, or aspirational / parking-lot? if real, owe me weekly status. if aspirational, let's trim the list to top 4 and reflect that. either answer is fine, just need the call by eod wed.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Craig Cummings</strong> &middot; <span style="color:var(--text-muted);">AFFILIATE</span> &middot; <span style="color:var(--yellow); font-weight:600;">4 of 7 NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">craig/ top 3 affiliate items reported on c3 w1 — thanks. items 4-7 still blank:
+- league + player props + parlaygrade integration
+- core web vitals (INP)
+- picks modernization
+- geo-specific footer/nav
+
+are these real cycle priorities or parking-lot? real → owe weekly status. parking-lot → trim the list. lmk by eod wed.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Tyler Huntington</strong> &middot; <span style="color:var(--text-muted);">SUBSCRIPTION</span> &middot; <span style="color:var(--yellow); font-weight:600;">2 of 5 NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">tyler/ top 3 subscription items reported on c3 w1 — thanks. items 4-5 still blank:
+- BetSyn prepaid card / churn reduction
+- user survey on retention drivers (60-day)
+
+quick question — these real priorities or parking-lot? if real, owe me weekly status. if aspirational, trim the list. lmk by eod wed.</pre>
+                        </details>
+
+                        <details style="margin-bottom:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg-input);">
+                            <summary style="cursor:pointer; padding:8px 12px; font-size:12px; color:var(--text-primary); list-style:none;">
+                                <strong>Randall K + Bryan R</strong> &middot; <span style="color:var(--text-muted);">B2C CS (OJ/RW)</span> &middot; <span style="color:var(--yellow); font-weight:600;">2 of 3 NR</span>
+                            </summary>
+                            <pre style="margin:0; padding:10px 12px; background:transparent; font-size:12px; line-height:1.55; color:var(--text-primary); white-space:pre-wrap; font-family:inherit; user-select:all; border-top:1px dashed var(--border);">randall/bryan — only item 2 of b2c cs reported on c3 w1 (PT MRR to 142k, thanks). items 1 and 3 blank:
+- increase smart money MRR to 8.5k on RW
+- maintain <5min response time
+
+quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not getting active work, that's a valid answer too — just flag it.</pre>
+                        </details>
+
+                        <div style="font-size:10.5px; color:var(--text-muted); margin-top:14px; padding:8px 10px; background:var(--bg-input); border-radius:6px; border-left:3px solid var(--text-muted); font-style:italic;">
+                            Click any pre-formatted message to triple-click-select it, then ⌘C to copy. Each draft is in Matt's voice (lowercase, brief, no corporate filler). Recipient names follow the actual Slack handle convention.
+                        </div>
+                    </div>
+                </details>
 
                 <!-- Notes Synthesis -->
                 <div style="margin-top: 14px;">
