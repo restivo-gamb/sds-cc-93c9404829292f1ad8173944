@@ -1213,22 +1213,20 @@ const DATA = {
         prevGreen: 0, prevYellow: 52, prevRed: 0 // Cycle 3 baseline — no prior week to trend against yet
     },
 
-    // Yellow leaders (who has the most yellows in W2) + red flag
+    // Repurposed for C3 W1: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
+    // Until cell colors are sync'd, the actionable signal is who still owes W1 status, not who has the most yellows.
     yellowLeaders: [
-        { name: "Jeremy Tran", pod: "OJ Product", yellows: 4, items: "Growth MCP, Stream-to-Clips, AMM Prediction Mkts, Stripe Migration" },
-        { name: "Randall K / Bryan R", pod: "B2C CS (OJ/RW)", yellows: 2, items: "Churn Reduction, 4-Day Course Conversion" },
-        { name: "Brian S / DJ T / Tim S", pod: "Talent (RW/OJ)", yellows: 2, items: "RW Football Talent, Smart Money Promo (P6)" },
-        { name: "Nick Piovano", pod: "RW Product", yellows: 1, reds: 1, items: "ESPN Live Sync (Y), Football Projections v2 (RED)" },
-        { name: "Samuel Hill", pod: "Optic Marketing", yellows: 1, items: "Revamp Website Copy for SEO" },
-        { name: "Karl O'Brien", pod: "Optic Product", yellows: 1, items: "Expose Prediction Market Data" },
-        { name: "Brian R", pod: "BetSyndicate", yellows: 1, items: "ParlayGrade SGP Clicks" },
-        { name: "Ryan W", pod: "B2B Sales/Ops", yellows: 1, items: "Stabilize Pinnacle Relationship" },
+        { name: "Karl O'Brien", pod: "OPTIC PRODUCT", yellows: 7, items: "All 7 W1 priorities — pod has not reported any W1 status (blank Updated column on every row)" },
+        { name: "Brian S", pod: "GROWTH OPS (8 of 12 NR)", yellows: 8, items: "Items 5-12 (continue to scale affiliate networks, white label promo course, optimize 4-day course, redistribute X content, scale YT output, OJ/DGF aff growth, paid content motion, social boosting) — only top 4 priorities reported" },
+        { name: "Brian R", pod: "BOOKIES AFF + BETSYNDICATE (6 NR)", yellows: 6, items: "All 4 Bookies Aff priorities + both BetSyndicate priorities — no W1 status reported on either pod" },
+        { name: "Scott Goodell", pod: "SPORTS DATA", yellows: 5, items: "All 5 W1 priorities (P2/P3 league coverage, fixtures/stats sources, live stats pipeline, mapping UI, embeddings AI) — pod has not reported any W1 status" },
+        { name: "Steven Gorfman", pod: "ODDS DATA", yellows: 4, items: "All 4 W1 priorities (new websocket arch, port books to ws, PM support, Odds Monitor dashboard) — pod has not reported any W1 status" },
+        { name: "Craig Cummings", pod: "AFFILIATE (4 of 7 NR)", yellows: 4, items: "Items 4-7 (League/Player Props + ParlayGrade, Core Web Vitals INP, Picks Modernization, Geo-Specific Footer) — only top 3 priorities reported" },
+        { name: "Jacqui Kouassi", pod: "MEDIA", yellows: 3, items: "All 3 W1 priorities (Perplexity PR Launch, RW Prediction Markets Campaign, Summer Stakes Tentpole) — pod has not reported any W1 status" },
     ],
 
-    // Red items — immediate attention
-    redItems: [
-        { name: "Football Projections Data v2", owner: "Nick Piovano", pod: "RW Product", priority: "P11", note: "Assuming this refers to RD-6227 and RD-5348. Expected completion..." }
-    ],
+    // Red items — none flagged in C3 W1 yet (Notes column carries no explicit blockage/Red language)
+    redItems: [],
 
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
     notesSynthesis: {
