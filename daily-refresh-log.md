@@ -672,3 +672,48 @@ The dashboard's snapshot system IS wired to maintain a history — every Sat 11:
 
 The system works. The CRON is broken. W17 (Apr 20-26), W18 (Apr 27-May 3), W19 (May 4-10), and W21 (May 16-22) are all missing — only W16 (Apr 13-19) and W20 (May 11-17) exist on disk. So the dropdown currently shows just two history entries. Fixing the cron to actually fire each Saturday is a separate piece of plumbing that needs to happen for history to accumulate going forward. Surface that explicitly in tomorrow's refresh + the Slack-stale card already calls it out as paired infra.
 
+
+
+## 2026-05-19 — Matt-requested follow-ups #2 (same session: scorecard wiring)
+
+Matt surfaced that the dashboard's scorecard counts (70G/13Y/1R/2NR/86 total) hadn't moved since Cycle 2 W2 (~Apr 7 visual audit), and asked at what point in the daily refresh flow the scorecard gets updated. Honest answer was: NOWHERE — the SKILL.md scheduled task didn't have a scorecard-fetch step, the Google Sheets gviz path that used to fetch it was blocked Apr 15, and Pedro skipped scorecard updates 2 consecutive weeks at the end of C2. So the numbers were ~6 weeks stale, sitting on Cycle 2 data while the dashboard header showed Cycle 3.
+
+Matt then synced the sheet via MCP (`mcp__05de8f80-...` Google Drive/Sheets connector) and told me the durable rule: **look at the `C{cycle_number} SCORECARD` tab in the bottom of Pedro's sheet for every daily refresh.** Saved as `reference_sds_scorecard_sheet.md` in memory; added pointer to MEMORY.md.
+
+**What I extracted from C3 SCORECARD (W1, May 11–17):**
+- 17 pods, 93 total priorities (up from C2's 86 across 16 pods — DATA split into ODDS DATA + SPORTS DATA, BOOKIES INTL retired)
+- 52 priorities have populated `Updated` column = treated as Yellow / in-motion
+- 41 priorities have blank `Updated` column = Not Reported
+- 0 explicit Green or Red flags in Notes text (early W1, no completion language yet)
+
+**Important caveat:** the MCP that synced the sheet exposes TEXT only — cell colors don't make it through. Until a Sheets-with-formatting connector is wired, G/Y/R bucket counts must be inferred from `Updated` date + `Notes` text. Today's numbers are a directional approximation, not a literal read of Pedro's color codes. Two paths forward documented in the new attention card's P2 issue: (a) Pedro DMs Matt color counts Mon AM and we paste; (b) wire a Sheets API connector with formatting access. Path (b) is the durable answer.
+
+**Five pods with zero W1 activity (fully blank `Updated` across all their rows):**
+- Karl O'Brien / OPTIC PRODUCT — 7 priorities
+- Scott Goodell / SPORTS DATA — 5 priorities
+- Steven Gorfman / ODDS DATA — 4 priorities
+- Brian R / BOOKIES AFF + BETSYNDICATE — 6 priorities (across both pods, one person)
+- Jacqui Kouassi / MEDIA — 3 priorities
+
+**Four pods partial-reporting (top-N priorities updated, rest blank):**
+- Brian S / GROWTH OPS — 4 reported, 8 NR (items 5-12 of his 12)
+- Craig Cummings / AFFILIATE — 3 reported, 4 NR (items 4-7 of his 7)
+- Tyler Huntington / SUBSCRIPTION — 3 reported, 2 NR (items 4-5 of his 5)
+- Randall K + Bryan R / B2C CS — 1 reported, 2 NR (items 1, 3 of their 3)
+
+**Edits:**
+- `DATA.scorecard` rewritten: green=0, yellow=52, red=0, notReported=41, total=93. `prevGreen/Yellow/Red` set equal to current so no false trend flashes on the C2→C3 transition.
+- Inline comment above `DATA.scorecard` rewritten to point at the C3 SCORECARD tab + the MCP sync date + the color-sync-pending caveat.
+- `DATA.yellowLeaders` repurposed for C3 W1: now lists the 5 pod-leads with the most NR priorities (sorted by NR count: Karl O'Brien 7, Brian S 8, Brian R 6, Scott 5, Steven 4, Craig 4, Jacqui 3). The "yellows" field is repurposed to mean "NR priorities" — the rendering function shows it as a numeric badge; the items text makes the meaning clear.
+- `DATA.redItems` cleared to `[]` — no explicit Red flags in C3 W1.
+- **NEW attention card inserted at position 4** (between Swish/Aleksandra Day 8 and Cycle 3 OJ Priority Dedup): "📋 Scorecard W1 — 5 Pods Have Not Reported (10 leads, 41 priorities)". Watch level. P0 itemizes the 5 zero-activity pod-leads with named priority surfaces. P1 itemizes the 4 partial-reporting pods. P2 surfaces the color-sync gap with the path-forward decision Pedro needs to make. SuggestedMsg drafted in Matt's voice for the 5-pod broadcast nudge (eod wed deadline, bullet form fine, "if a priority hasn't started, that's a valid answer too").
+
+**Files saved:**
+- `/SDS Dashboard/SDS Command Center.html` (255,296 bytes, +7,299 from this morning's 247,997 — net of the new attention card + scorecard rewrite)
+- `/SDS Dashboard/index.html` (mirror, same 255,296 bytes)
+- JS sanity-check: 1 inline script, 182,788 chars, parsed clean via Node `new Function()`.
+- **Auto-push verified:** `8c05192` committed + pushed at 16:38:37 (most recent of several push successes today since the PAT + lockfile fixes).
+
+**Memory updates:**
+- NEW: `reference_sds_scorecard_sheet.md` — the durable rule: look for C{N} SCORECARD tab, infer from text until color sync is wired, reset prev counters on cycle transitions.
+- MEMORY.md index updated with one-liner pointer.
