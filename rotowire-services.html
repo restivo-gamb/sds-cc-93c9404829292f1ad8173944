@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RotoWire Services</title>
+<style>
+    :root {
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --border: #e2e6ec;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        --link: #2563eb;
+        --link-hover: #1d4ed8;
+        --rule: #e2e6ec;
+        --pill: #f1f5f9;
+        --shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 14px rgba(15,23,42,0.05);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text-primary);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+        max-width: 780px;
+        margin: 32px auto;
+        padding: 0 20px 80px;
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    .nav a.back {
+        color: var(--link);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .nav a.back:hover { text-decoration: underline; color: var(--link-hover); }
+    .nav .nav-actions { display: flex; gap: 12px; }
+    .nav .nav-actions a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 12px;
+        padding: 4px 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--surface);
+    }
+    .nav .nav-actions a:hover { color: var(--link); border-color: var(--link); }
+    .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 32px 36px;
+    }
+    h1 {
+        font-size: 26px;
+        font-weight: 600;
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+    }
+    .rule {
+        height: 1px;
+        background: var(--rule);
+        margin: 18px 0 22px;
+        border: 0;
+    }
+    .sender-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .sender-row .from {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+    .sender-row .date {
+        color: var(--text-muted);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+    .receipts-note {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin: 0 0 14px;
+    }
+    p { margin: 0 0 14px; color: var(--text-primary); }
+    a { color: var(--link); text-decoration: none; word-break: break-all; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    strong { font-weight: 600; }
+    .ratecard-line strong { text-decoration: underline; }
+    .divider {
+        text-align: left;
+        color: var(--text-muted);
+        margin: 22px 0;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+    }
+    .section-title {
+        text-decoration: underline;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin: 0 0 12px;
+    }
+    ul {
+        margin: 0 0 14px;
+        padding-left: 22px;
+    }
+    ul li {
+        margin-bottom: 10px;
+    }
+    ul li ul {
+        margin-top: 8px;
+        margin-bottom: 0;
+        padding-left: 22px;
+    }
+    ul li ul li {
+        list-style: circle;
+        margin-bottom: 6px;
+    }
+    .signoff p { margin-bottom: 4px; }
+    .footer-meta {
+        margin-top: 22px;
+        padding-top: 14px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+    .source-note {
+        margin-top: 26px;
+        font-size: 12px;
+        color: var(--text-muted);
+        background: var(--pill);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 14px;
+    }
+    @media (max-width: 600px) {
+        .wrap { margin: 16px auto; padding: 0 12px 60px; }
+        .card { padding: 22px 18px; }
+        h1 { font-size: 22px; }
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="nav">
+        <a class="back" href="index.html">&larr; Back to SDS Command Center</a>
+        <div class="nav-actions">
+            <a href="rotowire-services.pdf" target="_blank" rel="noopener">PDF</a>
+            <a href="https://kmlirl-my.sharepoint.com/:w:/g/personal/peter_schoenke_gdcgroup_com/IQDzITjNnJ_0S5ysOApo72hpAQHSxho2OKozugkiu5wNs1Q?e=4%3Az71aw0&amp;at=9" target="_blank" rel="noopener">Rate Card</a>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <h1>RotoWire Services</h1>
+        <hr class="rule">
+
+        <div class="sender-row">
+            <span class="from">Shannon to Matt, Alex, Shay, Ryan &amp; Abe</span>
+            <span class="date">May 5</span>
+        </div>
+        <p class="receipts-note">This message contains external receipts.</p>
+
+        <p>Matt,</p>
+
+        <p>Adding other Optic team members who could find these details helpful.</p>
+
+        <p class="ratecard-line">Here's our <strong>internal</strong> rate card: <a href="https://kmlirl-my.sharepoint.com/:w:/g/personal/peter_schoenke_gdcgroup_com/IQDzITjNnJ_0S5ysOApo72hpAQHSxho2OKozugkiu5wNs1Q?e=4%3Az71aw0&amp;at=9" target="_blank" rel="noopener">https://kmlirl-my.sharepoint.com/:w:/g/personal/peter_schoenke_gdcgroup_com/IQDzITjNnJ_0S5ysOApo72hpAQHSxho2OKozugkiu5wNs1Q?e=4%3Az71aw0&amp;at=9</a></p>
+
+        <p>See below for the list of available services that we send to leads and clients.</p>
+
+        <div class="divider">— — — —</div>
+
+        <p class="section-title">Content Deck:</p>
+        <p><a href="https://www.rotowire.com/advertise/content-syndication.pdf" target="_blank" rel="noopener">https://www.rotowire.com/advertise/content-syndication.pdf</a></p>
+
+        <p class="section-title">Overview:</p>
+
+        <p>RotoWire provides API solutions to 100+ prominent platforms, including ESPN, Amazon, Google, Yahoo Sports, <a href="https://NBA.com" target="_blank" rel="noopener">NBA.com</a>, <a href="https://NFL.com" target="_blank" rel="noopener">NFL.com</a>, DraftKings, FanDuel, Sleeper, Underdog and many other prominent platforms.</p>
+
+        <p>We cover the following leagues/sports: MLB, NFL, NBA, NHL, PGA, LIV, College Football, College Basketball, WNBA, EuroLeague Basketball, Soccer (EPL, LaLiga, Ligue 1, Serie A, Bundesliga, Champions League, MLS, Liga MX, World Cup, FA Cup), MMA, NASCAR, F1, UFL and CFL. Our coverage include the following services:</p>
+
+        <ul>
+            <li><strong>Player News</strong> &mdash; We publish over 250,000+ player news updates per year with coverage for 20+ leagues/sports.</li>
+            <li><strong>Injury Reports</strong> &mdash; Our injury reports are trusted by leagues, professional teams, prominent operators and major media companies.</li>
+            <li><strong>Depth Charts</strong> &mdash; Full-team depth charts for all major leagues/sports. NHL line combinations (power-play, short-handed and full strength) are also available.</li>
+            <li><strong>Starting Lineups</strong> &mdash; Our expected/confirmed starting lineups services include coverage for MLB lineups, MLB starting pitcher rotations, NHL starting goalies, NBA, WNBA and most major soccer leagues.
+                <ul>
+                    <li>NASCAR qualifying positions and PGA tournament fields are also available.</li>
+                </ul>
+            </li>
+            <li><strong>Projected Stats</strong> &mdash; We provide full-season, daily/weekly and rest-of-season categorical player projections.</li>
+            <li><strong>Seasonal Player Outlooks</strong> &mdash; Detailed seasonal player outlooks providing insights on a player's skillset, role and expectations for the upcoming season.</li>
+            <li><strong>Weather Reports</strong> &mdash; Available for MLB and NFL. We provide general forecast details and a 1-2 sentence summary detailing the weather's potential impact on each game.</li>
+            <li><strong>Daily/Weekly Matchup Ratings</strong> &mdash; Available for NFL and MLB. We provide a matchup rating (1-5) and a short blurb with insights on a player's matchup for each game.</li>
+            <li><strong>NFL Practice Reports</strong> &mdash; This service provides official participation data (limited, non- or full participant) following NFL practices.</li>
+            <li><strong>Rumors</strong> &mdash; Supplemental coverage to our player news services with a focus on rumors, such as trade speculation, a player's personal life, etc.</li>
+            <li><strong>Fantasy Player Rankings</strong> &mdash; Fantasy rankings crafted by the pros.</li>
+            <li><strong>Custom Seasonal Rankings/Salary Cap</strong> &mdash; A feed of season-long projected stats with customizable rankings and player salary cap values. Available for NFL, NBA and most soccer leagues.</li>
+            <li><strong>Prospect Rankings</strong> &mdash; Our prospect experts rank the top 400 MLB and top 200 NHL minor league and international prospects.</li>
+            <li><strong>Articles</strong> &mdash; RotoWire publishes 100s of articles each week. We can provide article coverage for season-long fantasy, DFS, sports betting and general sports topics.</li>
+            <li><strong>Historical News and Injury Services</strong> &mdash; Need historical data? We can provide up to 10 years of access to our historical player news and injury database for MLB, NFL, NBA and NCAA football.</li>
+        </ul>
+
+        <div class="divider">— — — —</div>
+
+        <p>Let me know if you have any questions.</p>
+
+        <div class="signoff">
+            <p>Thanks,</p>
+            <p>Shannon</p>
+        </div>
+
+        <div class="footer-meta">
+            <span>Reminder returned</span>
+            <span>12:00 PM</span>
+        </div>
+
+        <div class="source-note">
+            Source: email from Shannon, May 5. PDF: <a href="rotowire-services.pdf" target="_blank" rel="noopener">rotowire-services.pdf</a>. Internal rate card link is the latest Matt-provided URL (May 20).
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
