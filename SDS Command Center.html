@@ -1413,30 +1413,36 @@ const DATA = {
         abovePct: 24.5          // % over budget
     },
 
-    // Scorecard counts — Cycle 3 W1 (May 11-17), inferred from C3 SCORECARD tab in Pedro's sheet
-    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-05-19.
+    // Scorecard counts — Cycle 3 W1+W2 cumulative, inferred from C3 SCORECARD tab in Pedro's sheet
+    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-05-21.
     // Text sync doesn't carry cell colors yet — until that's resolved, status inferred from `Updated` column + `Notes`:
-    //   blank Updated = NotReported; populated Updated + progress notes = Yellow; explicit "Done"/"Complete" = Green; explicit blockage = Red.
-    // Cycle 3 = 93 total priorities across 17 pods. Of those, 52 rows have Updated dates (treated as Yellow/in-motion);
-    // 41 rows still blank (NR). No explicit Green or Red flags yet — early W1, expected.
+    //   blank Updated = NotReported; populated Updated + progress notes = Yellow; Notes containing "done/completed/shipped/launched/live now/migration complete" = Green; explicit blockage = Red.
+    // Cycle 3 = 95 total priorities across 18 pods (+2 priorities vs the May 19 sync). Status: 11 explicit Greens (vs 0 at May 19 sync),
+    // 43 Yellow/in-motion, 0 Red, 41 NotReported. The 11 Green pickups are real wins per Pedro's Notes: OJ PRODUCT (Stripe Migration / Prediction Arbitrage /
+    // PT algorithm winback / Game page free-tier OR picks / Parlay creation), ODDS DATA (Port websocket books), AFFILIATE (Canadian Market Expansion),
+    // OPTIC MARKETING (AI Search & SEO), RW FEATURES (DFS Hub), RW PRODUCT (DraftBot Submit-to-Site / Draft Analysis v2).
+    // NR total still 41 — composition shifted: Scott Goodell + Steven Gorfman moved from fully-silent → partial-reporting; Karl O'Brien + Brian R + Jacqui Kouassi still fully silent.
     scorecard: {
-        green: 0, yellow: 52, red: 0, notReported: 41, total: 93,
-        prevGreen: 0, prevYellow: 52, prevRed: 0 // Cycle 3 baseline — no prior week to trend against yet
+        green: 11, yellow: 43, red: 0, notReported: 41, total: 95,
+        prevGreen: 0, prevYellow: 52, prevRed: 0 // Prev = 2026-05-19 sync baseline (0G / 52Y / 0R / 41NR / 93T); +11G / -9Y / 0R / 0NR
     },
 
-    // Repurposed for C3 W1: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
-    // Until cell colors are sync'd, the actionable signal is who still owes W1 status, not who has the most yellows.
+    // Repurposed for C3 cumulative: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
+    // Until cell colors are sync'd, the actionable signal is who still owes status, not who has the most yellows.
     yellowLeaders: [
-        { name: "Karl O'Brien", pod: "OPTIC PRODUCT", yellows: 7, items: "All 7 W1 priorities — pod has not reported any W1 status (blank Updated column on every row)" },
-        { name: "Brian S", pod: "GROWTH OPS (8 of 12 NR)", yellows: 8, items: "Items 5-12 (continue to scale affiliate networks, white label promo course, optimize 4-day course, redistribute X content, scale YT output, OJ/DGF aff growth, paid content motion, social boosting) — only top 4 priorities reported" },
-        { name: "Brian R", pod: "BOOKIES AFF + BETSYNDICATE (6 NR)", yellows: 6, items: "All 4 Bookies Aff priorities + both BetSyndicate priorities — no W1 status reported on either pod" },
-        { name: "Scott Goodell", pod: "SPORTS DATA", yellows: 5, items: "All 5 W1 priorities (P2/P3 league coverage, fixtures/stats sources, live stats pipeline, mapping UI, embeddings AI) — pod has not reported any W1 status" },
-        { name: "Steven Gorfman", pod: "ODDS DATA", yellows: 4, items: "All 4 W1 priorities (new websocket arch, port books to ws, PM support, Odds Monitor dashboard) — pod has not reported any W1 status" },
-        { name: "Craig Cummings", pod: "AFFILIATE (4 of 7 NR)", yellows: 4, items: "Items 4-7 (League/Player Props + ParlayGrade, Core Web Vitals INP, Picks Modernization, Geo-Specific Footer) — only top 3 priorities reported" },
-        { name: "Jacqui Kouassi", pod: "MEDIA", yellows: 3, items: "All 3 W1 priorities (Perplexity PR Launch, RW Prediction Markets Campaign, Summer Stakes Tentpole) — pod has not reported any W1 status" },
+        { name: "Brian S", pod: "GROWTH OPS (8 of 12 NR)", yellows: 8, items: "Items 5-12 (continue to scale affiliate networks, white label promo course, optimize 4-day course, redistribute X content, scale YT output, OJ/DGF aff growth, paid content motion, social boosting) — only top 4 priorities reported. NO MOVEMENT since 2026-05-19 sync." },
+        { name: "Karl O'Brien", pod: "OPTIC PRODUCT", yellows: 7, items: "All 7 priorities still NR (Partner Support, Stripe migration separate account, Futures in Copilot, Monitoring Dashboard, Prediction Markets, Sportsbook-as-Sales-Asset, Support revamp) — fully silent across both syncs (2026-05-19 and 2026-05-21). 11+ days of no reporting." },
+        { name: "Brian R", pod: "BOOKIES AFF (4 NR) + BETSYNDICATE (2 NR)", yellows: 6, items: "All 4 Bookies Aff priorities + both BetSyndicate priorities still NR — Brian R fully silent across both syncs. 11+ days of no reporting on either pod." },
+        { name: "Craig Cummings", pod: "AFFILIATE (4 of 7 NR · 1 GREEN)", yellows: 4, items: "Items 4-7 still NR (League/Player Props + ParlayGrade, Core Web Vitals INP, Picks Modernization, Geo-Specific Footer). Canadian Market Expansion now GREEN (record exit-click days after AdOps added 18 offers). Top 3 priorities reported, lower 4 still blank." },
+        { name: "Jacqui Kouassi", pod: "MEDIA", yellows: 3, items: "All 3 priorities still NR (Perplexity PR Launch, RW Prediction Markets Campaign, Summer Stakes Tentpole) — fully silent across both syncs. 11+ days of no reporting." },
+        { name: "Scott Goodell", pod: "SPORTS DATA (3 of 6 NR ↓ from 5 of 5)", yellows: 3, items: "MOVED from fully-silent → partial-reporting since May 19. 3 priorities now reported (5/20 updates on P2/P3 league coverage close to completion / fixtures+stats sources / Pinnacle+Bet365 mapping). Still NR: new live stats pipeline, mapping UI improvements, embeddings AI ontology." },
+        { name: "Steven Gorfman", pod: "ODDS DATA (2 of 4 NR ↓ from 4 of 4 · 1 GREEN)", yellows: 2, items: "MOVED from fully-silent → partial-reporting + 1 GREEN. Port websocket books now GREEN (Polymarket ingestion finished, working on mobile web). new Websocket architecture YELLOW (Kalshi using it, 100ms data). Still NR: Prediction Markets support, Odds Monitor dashboard productionalization." },
+        { name: "Jeremy T", pod: "OJ PRODUCT (4 of 14 NR · 5 GREEN)", yellows: 4, items: "Most-improved pod — 5 priorities now GREEN (Stripe Migration complete by Jun 12 / Prediction Arbitrage / PT algorithm winback launched May 18 / Game page + Parlay creation designs 90% done). Still NR: Sharp Money presets, 4-day $29 course, +EV presets, X Livestream Clipper." },
+        { name: "Randall K / Bryan R", pod: "B2C CS (2 of 3 NR)", yellows: 2, items: "Items 1 + 3 still NR (Smart Money MRR to 8.5K on RW, <5min response time). Only PT MRR to 142K reported." },
+        { name: "Tyler Huntington", pod: "SUBSCRIPTION (2 of 5 NR)", yellows: 2, items: "Items 4-5 still NR (BetSyndicate Prepaid Card, User Survey 60-day retention). Top 3 reported (YT Tutorials, Positional Rankings Rework, International SEO Audit)." },
     ],
 
-    // Red items — none flagged in C3 W1 yet (Notes column carries no explicit blockage/Red language)
+    // Red items — none flagged in C3 yet (Notes column carries no explicit blockage/Red language as of 2026-05-21 sync)
     redItems: [],
 
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
