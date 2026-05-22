@@ -786,3 +786,42 @@ The 2026-05-21 daily ingest landed at 10:48 AM (later than the 5:30 AM dashboard
 - **Auto-push VERIFIED healthy:** Tail of `auto-push.log` confirms 5:30 AM batch pushed at 2026-05-21 05:50:01 → 32f8757 and 05:52:01 → ddc767a. Today's post-ingest edits saved to disk; agent will pick up the next minute-tick.
 - **No notification sent.** Material check: the Pedro v9 re-upload is the closest thing to a "new red card" today — but it's actually a *positive* signal (deliverable likely landed, just needs verification/diff). Surfacing it as a fire would mis-frame it. Matt will see "HOT LEAD: PEDRO RE-UPLOADED v9 XLSX WED 12:52 MDT" as the top-of-card header on his next dashboard load — that's the right surfacing path. Slack-stale Day 10 + Aleksandra Day 10 are roll-forward, no new fire trigger.
 - Git: per scheduled-task instructions, did NOT run any git commands. launchd agent (`com.restivo.sds-dashboard-push`) handling commit + push natively.
+
+## 2026-05-21 (supplemental — scorecard re-ingest at user request, ~3 PM)
+
+Matt asked whether the daily 5:30 AM dashboard refresh re-scans Pedro's scorecard sheet daily. **Answer: no — the 5:30 task spec only reads Slack scans, Granola notes, the forecast xlsx, and the workspace context md files. The C3 SCORECARD numbers were last sourced via one-shot MCP sync on 2026-05-19 and carried forward.** Matt asked for a fresh re-ingest. Pulled `Sports Data Services - Weekly Ops Sheet (ex Reorg)` (Drive file 1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4, modified 2026-05-21 22:22:14 UTC) via Google Drive MCP `read_file_content`, parsed the C3 SCORECARD tab (121 raw rows → 95 priority rows across 18 pods).
+
+**Material movement vs 2026-05-19 sync (DATA.scorecard):**
+- Total priorities: 93 → 95 (+2, Pedro added 2 items)
+- Pods: 17 → 18 (+1)
+- **Greens: 0 → 11** — first explicit wins now detectable in Notes language ("done / completed / shipped / launched / live now / migration complete"). The 11: OJ PRODUCT 5 of 14 (Stripe Migration complete Jun 12, Prediction Arbitrage, PT Algorithm winback launched May 18, Game Page + Parlay Creation 90% designs), RW PRODUCT 2 of 12 (DraftBot Submit-to-Site Sleeper/Fantrax done, Draft Analysis v2 designs done), ODDS DATA 1 (Port websocket books — Polymarket ingestion finished), AFFILIATE 1 (Canadian Market Expansion record exit-click days), OPTIC MARKETING 1 (AI Search & SEO multilingual audit done), RW FEATURES 1 (DFS Hub MLB page launched).
+- Yellows: 52 → 43 (-9 — most of the loss is reclassification of previously-Yellow into Green now that done-language is detectable)
+- Reds: 0 → 0 (still no explicit blockage language in Notes)
+- NR: 41 → 41 (same total, **composition shifted** — see below)
+
+**Composition shift in the 41 NR:**
+- 2026-05-19 sync had 5 pod-leads fully silent (zero priorities reported): Karl O'Brien, Scott Goodell, Steven Gorfman, Brian R, Jacqui Kouassi.
+- 2026-05-21 sync has 3 pod-leads still fully silent: **Karl, Brian R, Jacqui** — both syncs blank, 11+ days. Karl + Brian R + Jacqui are now the Fri COB escalation gate (Karl + Brian R → V; Jacqui → Ryan).
+- Scott Goodell MOVED from fully-silent → partial-reporting: reported 3 of 6 priorities by 5/20 (P2/P3 Soccer close to completion, basketball next, fixtures+stats sources active). Still NR: new live stats pipeline, mapping UI improvements, embeddings AI ontology.
+- Steven Gorfman MOVED from fully-silent → partial-reporting + 1 Green: new Websocket architecture (Kalshi using it, 100ms data) + Port websocket books GREEN. Still NR: Prediction Markets support, Odds Monitor dashboard.
+
+**Dashboard edits applied:**
+- `DATA.scorecard`: green 0→11, yellow 52→43, total 93→95; prev still tracking the 2026-05-19 baseline so the trend chips show +11G / -9Y / 0R movement
+- Comment block at line 1416 rewritten to capture the new sync date, the inference rules update, and the 11 Green pickups by pod
+- `DATA.yellowLeaders` fully restructured: reordered by current NR count (Brian S 8 top), added Karl/Brian R/Jacqui as the "11+ days no reporting" group, added Scott/Steven as the "moved from fully-silent → partial" group, added Jeremy T as a "most-improved" pod with the 5 Green pickups visible
+- Scorecard W1 attention card rewritten end-to-end:
+  - Name: "5 Pods Have Not Reported" → "3 Pods Fully Silent (was 5) · 11 Greens Earned · 41 NR Total"
+  - Pod tag updated with fresh sync date + counts
+  - P0 rewritten: 3 fully-silent leads (was 5) + Fri COB escalation gate framing (Karl + Brian R → V; Jacqui → Ryan)
+  - NEW P1 inserted: "POSITIVE MOVEMENT — 11 GREENS EARNED + 2 PODS UN-SILENCED" with specific named wins worth MBR-opener surfacing (Jeremy T 5-of-14, Nick P 2-of-12, Steven, Craig, Samuel, Jason+Tim)
+  - P2 reframed for the remaining 25 NR concentrated in 6 partial-reporting pod-leads
+  - P3 (color sync) reframed — text-inference now more reliable for Greens (clear language), still unreliable for Y-vs-R boundary
+  - suggestedMsg rewritten to a 3-named-leads (Karl + Brian R + Jacqui) Thu-warning-Fri-cliff escalation voice with the V/Ryan routing made explicit
+
+**Files saved:**
+- `/SDS Dashboard/SDS Command Center.html` (298,787 bytes, +4,452 from earlier today)
+- `/SDS Dashboard/index.html` (mirror, same 298,787 bytes)
+**JS sanity-check:** parses clean — 210,339 chars in the inline script
+**Auto-push:** will pick up the next minute-tick — confirmed healthy through 10:52:01 push earlier today
+
+**Memory implication (for future scorecard re-ingests):** the scorecard sync via `mcp__05de8f80...__read_file_content` works cleanly, returns markdown-table format, requires Python parsing because the tool output exceeds the read-window. Recommend Matt either (a) trigger this re-ingest manually after Pedro's Mon AM updates, or (b) add a `sds-scorecard-weekly-sync` scheduled task that fires Tue AM after Pedro's Mon close-out cadence — that would let the daily 5:30 AM refresh stay focused on Slack/Granola/forecast and keep the scorecard data fresh weekly on its own cron.
