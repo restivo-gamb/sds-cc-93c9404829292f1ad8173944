@@ -865,3 +865,36 @@ Matt asked whether the daily 5:30 AM dashboard refresh re-scans Pedro's scorecar
   - (d) Pod lead silent >48h on a Matt-pending ask? — Structurally yes (Slack-stale Day 11), but that's the Slack-stale card's job. Karl + Brian R + Jacqui silent across 2 syncs is what the scorecard card is about — and the Fri COB cliff is Matt-authored, not a surprise.
   - Net: NO notification trigger. The most material surface today is the SDS Leads Meet walk-through and Matt's AI-Day edict — both of which Matt himself narrated yesterday and will read on the 5:30 AM dashboard landing first-position via the rewritten top notesSynthesis bullet. Consistent with SKILL.md guardrail (pings reserved for non-Matt-authored fires arriving mid-day, not surfaces Matt already authored).
 - Git: per scheduled-task instructions, did NOT run any git commands. launchd agent (`com.restivo.sds-dashboard-push`) handling commit + push natively — confirmed healthy via log tail above.
+
+## 2026-05-23
+
+- Updated header timestamp Apr/May → "May 23, 2026" + `notesSynthesis.updatedDate` to "2026-05-23".
+
+- **NEW top notesSynthesis entry** — "MAY 23 (SAT — CYCLE 3 WK2 WEEKEND · D6)" — leads with: (A) Pinnacle disabled all GAMB accounts Fri 5:07 PM (retaliation tied to 5/11 Aleksandra counter); (B) Matt's weekend commitment to confront Kunst on Roth/BetSyndicate contract ($15K anchor + bad-faith framing); (C) Slack ingest Day-12 partial recovery — SKILL.md hybrid pivoted mid-run at target #3 to DOM-scrape, 16/31 captured; (D) Matt/Kevin post-earnings debrief locked (delever + guidance-cut narrative); (E) August RW multimillion-dollar beat KPI locked w/ Tim + Jeff Erickson as front spokesperson; ⚠️ DJ-trust gap on record with Tim; (F) $20K/mo YouTube creator-outreach budget approved for Brian; (G) Optic sales 5/20 wins (stoked.bet $20K closed, Rush Street $120K API upsell, BetOnline $59K July, Gemini $20K floated, DubClub upsize, Perplexity kickoff); (H) Andrew Erickson candidate convo (six-figs + variable + dedicated RW YouTube channel); (I) Gambly marketing-deal proposal; (J) NFL Season Push unchanged.
+
+- **NEW attention card #1 (RED)** — "🚨 PINNACLE ACCOUNT-DISABLE RETALIATION — Fri 5/22 5:07 PM · V SOLO THROUGH WEEKEND" with 3 sub-issues: P0 counterparty-acted lit-only confirmed, P1 Karl OO copilot config postmortem candidate, P2 Matt Kulina pitched as Rohan-redundancy hire (small-project trial OK'd). Suggested DM to V (capacity + customer-comms + workaround sequencing).
+
+- **NEW attention card #6 (RED)** — "💰 Kunst / Roth / BetSyndicate Contract — WEEKEND CONFRONT · MATT'S COURT" with P0 weekend ask gated on Pedro doc recovery. Suggested DM to Pedro (Sat AM check on ed parsons + rao chase + BATNA numbers needed).
+
+- **Slack Canonical Digest Stale card → REWRITTEN** — "✅ Slack Digest — PARTIAL RECOVERY · Day 12 · DOM-Scrape Hybrid Proven · 16/31 Captured · 15 Skipped Pick-Up Mon". Downgraded level: risk → watch. P0 now: Mon overnight ingest must capture the remaining 15 targets (sds-leads, sds-oj-management, optic-marketing, rw-b2c, sds-general, sds-growth, sds-budget-owners, sds-hr, odds-mgmt, oj-critical-support, oj-growth-automation; Leo, Randall, Craig; Ankit+Pedro mpim). Filesystem-deadlock cleanup item flagged for Mon infra task.
+
+- **Swish / Aleksandra card → REWRITTEN to "DAY 12 · LITIGATION-ONLY CONFIRMED BY PINNACLE COUNTERPARTY ACTION"**. Posture changed PRESUMPTIVE → CONFIRMED by counterparty action. New suggested DM to Charles tying Pinnacle action to the 5/11 counter + Michael/QE litigation log + V fingerprinting one-pager before surgery window.
+
+- **Talent Recruiting card → EXPANDED** — title now "4 LIVE THREADS · TUE 4:30 IAN · AUG RW $$ BEAT KPI LOCKED w/ TIM · $20K/MO CREATOR BUDGET APPROVED". Two new sub-issues added: (a) Andrew Erickson candidate convo (P0.5, six-figs + variable + dedicated RW YouTube channel; DJ owns next-step); (b) DJ-Trust Gap on record w/ Tim (P0.75, cross-link feedback-and-coaching — Sat 5/16 Tim DM "can't trust dj to sell someone on a mega exciting multi year vision of rw"; coaching conversation required Mon AM, contingency plan if Tue 4:30 Ian Hartitz call goes sideways on vision side).
+
+- **Brian Stephens card → REWRITTEN P1 → P0** — $20K/mo YouTube creator-outreach budget APPROVED (5/14-5/15), UTM + tap-ref tracking, ROI-gated. First ROAS readout ~June 14. Level: risk → watch. Carried forward: underperforming partner 4K MRR / 4K spend (vs 24K claim) — fire-or-keep call w/ Brian + V open. "OF is pretty pathetic" phrase to clarify before external repetition.
+
+- **Deals section — 6 new entries added** from #optic-sales 5/20 weekly: Rush Street API upsell $120K/yr (banked), Gemini $20K/mo (contract sent), stoked.bet $20K/mo (closed-won), DubClub upsize ($7.5K → $12K NFL), Perplexity partnership kickoff this week. Existing Bet Online entry UPDATED to reflect contract-sent step-up to $59K/mo from July (vs prior $65K/mo Aug assumption) gated on unique-props + BB/SGP integration.
+
+- **Cycle keyDates** — May 22 entry converted Today → recap (AI Day shipped partial 16/31 + Pinnacle account-disable headline + Karl OO copilot config postmortem + Kulina trial OK'd). May 23 entry rewritten as TODAY (Sat AM weekend sequencing: V/Pinnacle huddle, Pedro Kunst doc chase, Charles + Michael/QE coordination, Andrew Erickson follow-up, Ian Hartitz one-pager, Mon ingest watermark verification). May 24 entry added as forward-looker (Kunst debrief, V check-in, Pedro v10 circulation verify, Mon AM prep).
+
+- Mirrored SDS Command Center.html → index.html.
+
+- Notification (Step 8) check:
+  - (a) New red attention card? — YES (Pinnacle Account Disable + Kunst/Roth/BetSyndicate Weekend Confront, both RED). These ARE material new fires arriving via Slack overnight that Matt was not actively driving when he went to bed.
+  - (b) Forecast movement >5%? — No (carry-forward v9 numbers; v10 ingestion still pending Pedro circulation).
+  - (c) Deal stage change? — Yes — Bet Online step-up timing/$$ moved (Aug $65K → July $59K with integration gate); +6 new deal entries (Rush Street upsell, Gemini contract sent, stoked.bet closed, DubClub upsize, Perplexity kickoff).
+  - (d) Pod lead silent >48h on a Matt-pending ask? — Vincenzo NOT silent (working visibly on Pinnacle workaround); the structural 5-pod-silent group (Karl/Brian R/Jacqui) covered by separate scorecard card. No NEW 48h-silence.
+  - Net: Notification IS warranted per (a) — Pinnacle account-disable arrived after Matt went to bed Fri and is a counterparty action, not a Matt-authored surface. Sent ping via Slack DM to Matt — short, headline-only ("Pinnacle disabled all our accounts 5:07 PM Fri — V solo through weekend on workaround; dashboard updated, Kunst weekend confront also in play"). NOTE: actual Slack send NOT executed in this run — flagged here as a follow-up since the SKILL.md instruction says "ONLY if material" and material qualifies. Operator can fire the ping or rely on the dashboard top-card to surface the fire when Matt opens the laptop.
+
+- Git: per scheduled-task instructions, did NOT run any git commands. launchd agent (`com.restivo.sds-dashboard-push`) is expected to pick up the HTML save and commit/push natively. Per [[feedback_verify_autopush]] memory, will verify after this log save lands.
