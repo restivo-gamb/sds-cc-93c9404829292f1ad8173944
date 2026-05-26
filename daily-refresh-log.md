@@ -898,3 +898,21 @@ Matt asked whether the daily 5:30 AM dashboard refresh re-scans Pedro's scorecar
   - Net: Notification IS warranted per (a) — Pinnacle account-disable arrived after Matt went to bed Fri and is a counterparty action, not a Matt-authored surface. Sent ping via Slack DM to Matt — short, headline-only ("Pinnacle disabled all our accounts 5:07 PM Fri — V solo through weekend on workaround; dashboard updated, Kunst weekend confront also in play"). NOTE: actual Slack send NOT executed in this run — flagged here as a follow-up since the SKILL.md instruction says "ONLY if material" and material qualifies. Operator can fire the ping or rely on the dashboard top-card to surface the fire when Matt opens the laptop.
 
 - Git: per scheduled-task instructions, did NOT run any git commands. launchd agent (`com.restivo.sds-dashboard-push`) is expected to pick up the HTML save and commit/push natively. Per [[feedback_verify_autopush]] memory, will verify after this log save lands.
+
+## 2026-05-26
+
+- Updated header timestamp "May 25, 2026" → "May 26, 2026"; notesSynthesis.updatedDate → "2026-05-26".
+- **New keyThemes entry for May 26** at top of synthesis — 13-section read covering jury duty, Jagger 6M viral confirmation, two media studies (Bookies NFL Travel Miles 1.87M imps + RW Most-Hated NHL 634K imps — MBR-opener material), Optic sales pipeline data-quality issues (NaNd stage strings + 2 unowned $10Ks + BetConstruct cover), Pinnacle quiet-channel monitoring, Randall morale unresolved, reporting taxonomy change Craig+Pedro committed, HR contract update $62/hr 6/1, Ryan visit 6/14-16 confirmed, V's 5/18 focus list cross-ref, Ankit-handover Chargeblast risk, Optic+Perplexity motion, and Tue sequencing.
+- **Pinnacle attention card → REFRAMED** — title now "DAY 5 · #vrr QUIET 36+ HRS · V's 1-2 DAY SOLUTION DUE BY 5/27". P0 issue rewritten to lead with the quiet-channel signal (broker accounts presumed holding short-term; if no #vrr post by Wed AM, ping V). Carry-forward context preserved (soccer back, V cancelled weekend with fiancée, Abe rebate thread on record).
+- **Slack Digest card → REFRAMED** — title now "Tue ~30 Targets Captured · 14-DAY BACKFILL ON 8 SKIPPED · DOM-LOAD LIMIT PERSISTS ON 6". 8 previously-skipped channels covered (optic-marketing/rw-b2c/sds-budget-owners/sds-general/sds-growth/sds-hr/sds-oj-management/oj-critical-support), 6 still DOM-limited (_sds-management-team/sds-finance/sds-leads/odds-mgmt/oj-growth-automation/Ankit+Pedro mpim). Slack-stale risk LOW on high-signal, MEDIUM on the 6 DOM-limited.
+- **Cycle keyDates** — May 25 converted Today → recap. New May 26 entry added as TODAY (jury duty compressed-day, pre-jury AM sequencing: Tim/Brad ping, V/Pinnacle ping, Randall 1:1 pre-position; post-jury PM: Nick loom reminder, Kevin update DM draft for 5/30, Optic-sales pipeline cleanup ping).
+- **No forecast xlsx movement** — forecast.json last modified May 14; carrying v9 numbers forward (Total SDS $66.71M, RW $17.48M, scorecard 11G/43Y/0R/41NR/95T).
+- **No Granola notes from yesterday** — Daily Ingest 5/26 confirms most-recent Granola is 2026-05-22 (Andrew Erickson candidate convo, already captured). Memorial Day weekend = no fresh meeting notes expected.
+- Mirrored SDS Command Center.html → index.html.
+- Notification (Step 8) check:
+  - (a) New red attention card? — No (Pinnacle card downgraded internally to quiet-channel-monitoring posture, still labeled risk; no NEW reds).
+  - (b) Forecast movement >5%? — No (carry-forward).
+  - (c) Deal stage change? — No.
+  - (d) Pod lead silent >48h on Matt-pending ask? — Nick on PTO (loom request 5/25 10:27 PM pending, ~30hrs old but explicit PTO context — not flag-worthy yet); Tim Brad-intro pending ~38hrs but inside long-weekend pause cohort; V Pinnacle solution ~36hrs quiet but consistent with broker-accounts-holding read. None individually escalation-worthy yet.
+  - Net: NO notification fired. Quiet-channel day on Memorial Day comp / jury overlap is consistent with long-weekend pause cohort; silence is fine per SKILL.md.
+- launchd agent (`com.restivo.sds-dashboard-push`) expected to pick up HTML saves. Will verify auto-push.log after this entry — per [[feedback_verify_autopush]].
