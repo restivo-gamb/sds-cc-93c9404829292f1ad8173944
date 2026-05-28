@@ -947,3 +947,31 @@ Matt asked whether the daily 5:30 AM dashboard refresh re-scans Pedro's scorecar
   - (d) Pod lead silent >48h on a Matt-pending ask? — Nick on PTO (loom ask 5/25 10:27 PM is now 60+ hrs old but explicit PTO context — not flag-worthy). Tim Brad-intro pending 65+ hrs but reframed today as "now additive" (Theo took the slot) — pressure relief, not escalation. None individually escalation-worthy.
   - Net: NO notification fired. Matt will see Theo + V surgery + Pinnacle clarity + Trove on the 5:30 AM dashboard landing first-position via the rewritten top keyTheme — that's the right surfacing path.
 - launchd agent (`com.restivo.sds-dashboard-push`) expected to pick up HTML saves. Will verify in next refresh per [[feedback_verify_autopush]].
+
+
+## 2026-05-28
+
+- **Header timestamp** → `"Updated: May 28, 2026"` (was May 27).
+- **Context sources scanned:**
+  - `SDS Daily Ingest - 2026-05-28.md` (generated 07:05Z) — Phase 1 + Phase 2 clean. **Phase 3 (Slack scan) ABORTED 8th consecutive night** (2 of 31 targets attempted: `_sds-management-team` zero-activity confirmed; `oj-b2c` partial summary). No new `SDS Group Context` / `SDS Individual Context` files written. Watermarks held at 2026-05-26. Root cause unchanged since 5/17: Slack AI Summarize streaming throughput.
+  - **Canonical Slack scan files now ~3 days stale** (`SDS Group Context — Channel Activity (May 25 – May 26, 2026).md` + `SDS Individual Context — Pod Lead DMs (May 25 – May 26, 2026).md` are the most recent). Past the 48h guardrail. Carry-forward attention cards mechanically per task spec, but flagged "Slack-stale Day 3" in the new top keyTheme.
+  - **Granola scan**: 0 fresh notes in 24h window. Matt re-edited `2026-05-26_Theo + Restivo.md` at Wed 17:14Z (active offer-outline work product, but copy at `gamb/meeting-notes/` already exists → idempotency skip per ingest spec). Brian S's `2026-05-26_New Growth Meeting` modified Tue 19:22Z (outside 24h window). **No new Wed-PM meeting notes landed.**
+  - **NFL Push Monitor**: Unchanged. Snapshot `last_fetched` updated to 2026-05-28T07:05:00Z; no row adds/removes, no status-flag changes. Same open at-risk/TBD items (Kurt, Shiny, Jonathan, DFS Sim Product owner, Parr SIS Script on hold).
+  - **Forecast xlsx**: `/SDS Dashboard/data/forecast.json` last modified 2026-05-14 21:00. No update. Workspace folder has no v10 file yet. Carrying v9 numbers forward (Total SDS $66.71M, RW $17.48M, Bookies $3.51M, +24.5% over RW budget).
+- **Specific dashboard edits applied:**
+  - `<span id="lastUpdated">` text → "Updated: May 28, 2026" (line 789).
+  - **cycle.keyDates**: May 27 (Wed) converted "TODAY · POST-JURY" → "recap · POST-JURY". **NEW May 28 (Thu — WK3 D4 · TODAY · THEO FOLLOW-UP)** entry inserted with full day-shape: AM block (Theo call prep, V T-4 check-in, Pedro 15-min carryover, Optic-sales ping to Tim) + PM block (Theo PM call, Randall 1:1 lock-in, Kevin DM draft, Trove status confirm). Watchpoints carried: #vrr quiet = ping V mid-day; Slack-stale risk Day 4 if Thu→Fri scan fails; Aleksandra/Pinnacle counter still awaited; Andrew Lawhead end-of-July depart thread.
+  - **NEW TOP `notesSynthesis.keyThemes` entry** for Thu May 28 — 10-section read leading with: **(A) Theo Gremminger PM follow-up call TODAY** (offer outline confirm + Nick video send-status + call talking points, mega-get #2 landing); **(B) V surgery T-4** (Mon 6/1, cracking-project handoff posture must firm up Thu/Fri, Saba pipeline + Rafael/Proddy/Scott coverage matrix); **(C) Slack scan stale Day 3 — 8 consecutive aborts**, no new Granola overnight, SKILL.md fix recommended every run for 12 days not implemented; **(D) Pedro 15-min carryover** — Kunst IT access status, C3 scorecard re-sync (last MCP sync 5/21, 7-day cold), v10 forecast circulation + taxonomy verify; **(E) Randall 1:1 lock-in** (feedback-and-coaching frame, Chargeblast cross-ref); **(F) Trove $15K/mo one-sheeter status confirm**; **(G) Kevin update DM — T-2 to Sat 5/30** with bundle (Theo + Ian + Jagger 6M + Kyle Pitts 32K + Frank + Brad additive); **(H) Optic-sales cleanup ping to Tim** (carry-forward); **(I) Against-the-day watchpoints** (#vrr quiet, Aleksandra/Pinnacle counter, Ankit mid-June 3-way, Andrew Lawhead depart, HR $62/hr starts 6/1 same day as V surgery); **(J) Thu sequencing — two-centers day** (low overnight surface area, high mid-day leverage, protect the 6-hour window around Theo PM call). Prior May 27 lead theme demoted to recap framing.
+- **DATA.scorecard counts**: NO change. Carried forward 11G / 43Y / 0R / 41NR / 95T from the 2026-05-21 sync. Pedro 15-min carryover today re-asks for fresh re-sync (now 7 days cold).
+- **Attention cards / Deals / MBR_LIVE / KPI**: no changes — Slack scan failure means no fresh pod-lead-derived signals to act on; carrying yesterday's reframes forward verbatim.
+- **Files saved:**
+  - `/SDS Dashboard/SDS Command Center.html` — 404,788 bytes (+10,500 vs Wed's 394,288).
+  - `/SDS Dashboard/index.html` — mirrored, same 404,788 bytes.
+- **Auto-push verification** (per `feedback_verify_autopush.md`): last entry in `auto-push.log` confirms successful push at 2026-05-27 11:29:29 (`5b686b9..e4900af  main -> main pushed`). Today's edits saved to disk; launchd agent will fire on the next minute-tick. Will verify in tomorrow's refresh.
+- **Notification (Telegram/Slack)**: NOT sent. Material-change guardrails check —
+  - (a) New red attention card? No.
+  - (b) Forecast movement >5%? No (carry-forward v9).
+  - (c) Deal stage change? No.
+  - (d) Pod lead silent >48h on Matt-pending ask? Tim/Brad-intro now structurally "additive" per yesterday's reframe (pressure relief, not escalation). Nick on PTO (loom ask 5/25 is 80+ hrs old but explicit PTO context). No notification-worthy single signal.
+  - **Slack-stale Day 3 is the day's structural risk** but not an isolated "material moved" event — it's a continuing infra failure already surfaced in the top keyTheme. No ping fired.
+- launchd agent (`com.restivo.sds-dashboard-push`) will pick up HTML saves.
