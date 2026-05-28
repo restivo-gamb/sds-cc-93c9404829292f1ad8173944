@@ -273,6 +273,31 @@
         .fc-card.positive::before { background: var(--green); }
         .fc-card.negative::before { background: var(--red); }
         .fc-card.caution::before { background: var(--yellow); }
+        /* Brand-colored cards — top bar + vertical name */
+        .fc-card.brand-optic::before { background: var(--brand-optic); height: 3px; }
+        .fc-card.brand-optic .fc-name { color: var(--brand-optic); }
+        .fc-card.brand-oddsjam::before { background: var(--brand-oddsjam); height: 3px; }
+        .fc-card.brand-oddsjam .fc-name { color: #0369a1; }  /* darker readable text on light-blue bar */
+        .fc-card.brand-rotowire::before { background: var(--brand-rotowire); height: 3px; }
+        .fc-card.brand-rotowire .fc-name { color: var(--brand-rotowire); }
+        .fc-card.brand-affiliate::before { background: var(--brand-affiliate); height: 3px; }
+        .fc-card.brand-affiliate .fc-name { color: var(--brand-affiliate); }
+        /* Freshness chip — small "last updated" indicator on section headers */
+        .freshness-chip {
+            margin-left: auto;
+            font-size: 10.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            padding: 3px 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+        .freshness-chip.fresh { color: var(--green); border-color: var(--green-dim); background: var(--green-dim); }
+        .freshness-chip.stale { color: var(--yellow); border-color: var(--yellow-dim); background: var(--yellow-dim); }
+        .freshness-chip.very-stale { color: var(--red); border-color: var(--red-dim); background: var(--red-dim); }
         .fc-card .fc-head { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 8px; margin-bottom: 4px; }
         .fc-card .fc-name { font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.4px; }
         .fc-card .fc-amount { font-size: 18px; font-weight: 700; color: var(--text-primary); }
@@ -875,6 +900,7 @@
         <div class="section" id="sec-revenue">
             <div class="section-header" onclick="toggleSection('sec-revenue')">
                 <h2>Revenue Pulse</h2>
+                <span class="freshness-chip" id="forecastFreshness" title="Forecast ingestion timestamp">forecast: &mdash;</span>
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body">
@@ -909,7 +935,7 @@
                 <div class="fc-grid">
 
                     <!-- OpticOdds -->
-                    <div class="fc-card caution">
+                    <div class="fc-card brand-optic">
                         <div class="fc-head">
                             <span class="fc-name">OpticOdds</span>
                             <span class="fc-amount">$22.54M</span>
@@ -926,7 +952,7 @@
                     </div>
 
                     <!-- OddsJam -->
-                    <div class="fc-card negative">
+                    <div class="fc-card brand-oddsjam">
                         <div class="fc-head">
                             <span class="fc-name">OddsJam</span>
                             <span class="fc-amount">$17.57M</span>
@@ -943,7 +969,7 @@
                     </div>
 
                     <!-- RotoWire (NEW: subs + ads + B2B content — Roto Affiliate moved to Affiliate rollup) -->
-                    <div class="fc-card positive">
+                    <div class="fc-card brand-rotowire">
                         <div class="fc-head">
                             <span class="fc-name">RotoWire</span>
                             <span class="fc-amount">$11.34M</span>
@@ -961,7 +987,7 @@
                     </div>
 
                     <!-- Affiliate (NEW rollup: Bookies + Roto Affiliate + Local + Partnerships) -->
-                    <div class="fc-card positive">
+                    <div class="fc-card brand-affiliate">
                         <div class="fc-head">
                             <span class="fc-name">Affiliate <span style="font-size:9.5px; font-weight:500; color:var(--text-muted);">(NEW v11 rollup)</span></span>
                             <span class="fc-amount">$18.02M</span>
@@ -1026,6 +1052,7 @@
         <div class="section" id="sec-scorecard">
             <div class="section-header" onclick="toggleSection('sec-scorecard')">
                 <h2>Scorecard Health</h2>
+                <span class="freshness-chip" id="scorecardFreshness" title="C3 SCORECARD sync timestamp">scorecard: &mdash;</span>
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body">
@@ -1051,8 +1078,8 @@
                         <div class="sc-trend worsening" id="scNrTrend">44% missing</div>
                     </div>
                 </div>
-                <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--yellow);">
-                    <strong>Cycle 3 Wk2 D2 — 52 of 93 priorities have W1 updates (56% reporting).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, synced via MCP 2026-05-19. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> — status inferred from `Updated` date + `Notes` text. 0G / 52Y / 0R is a directional approximation until a Sheets-with-formatting connector lands (or Pedro DMs Matt color counts Mon AM). <strong style="color:var(--red);">5 pod-leads have zero W1 activity</strong> (Karl O'Brien, Scott Goodell, Steven Gorfman, Brian R, Jacqui Kouassi) and 4 are partial-reporting — see the "Nudges to Send" panel below for drafted Slack DMs per pod-lead.
+                <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
+                    <strong>Cycle 3 Wk3 D4 &mdash; 64 of 93 priorities reporting (69%, up from 57% at last sync).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, synced via MCP 2026-05-28 09:25. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong style="color:var(--green);">Biggest behavior change this week:</strong> Jacqui Kouassi went from 3-of-3 fully silent &rarr; FULLY REPORTING + 1 Green. Scott Goodell 3 NR &rarr; 0 NR. Karl O'Brien 7 NR &rarr; 4 NR. <strong style="color:var(--red);">Still 100% silent for 9+ days &mdash; escalation candidates:</strong> Brian S (GROWTH OPS, 8 of 8 blank &mdash; worst single-lead gap) and Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2). <strong style="color:var(--orange);">First Red surfaced:</strong> Tyler H's BetSyndicate International Search Audit (&ldquo;complete but proposing to put any action on hold&rdquo;) &mdash; needs 5-min clarification.
                 </div>
 
                 <!-- RED FLAG -->
