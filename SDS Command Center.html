@@ -1444,6 +1444,14 @@ const DATA = {
     yoyGrowth: 21.75,  // 69.47 / 57.05 − 1
     priorYear: 57.05,
 
+    // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
+    // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
+    forecastMeta: {
+        version: "v11",
+        ingestedAt: "2026-05-28T09:20:00-07:00",   // ISO 8601 w/ TZ offset
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (11).xlsx"
+    },
+
     // RotoWire vs Budget — NEW DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate now lives under Affiliate rollup
     // NEW RW: Forecast $11.34M · Budget $11.14M → +$0.20M (+1.78%) — On Track at the line level
     // Note: combined RW+RotoAffiliate is $19.19M (forecast) vs $13.00M (budget) = +$6.19M / +47.6% — but the new dashboard
@@ -1476,7 +1484,12 @@ const DATA = {
     //   ⚠️ Tyler Huntington's RED is "BetSyndicate International Search audit complete but PROPOSING TO PUT ANY ACTION ON HOLD, not most important" — worth a 5-min on whether this is a real punt or just deprioritization
     scorecard: {
         green: 11, yellow: 52, red: 1, notReported: 29, total: 93,
-        prevGreen: 11, prevYellow: 43, prevRed: 0 // Prev = 2026-05-21 sync (11G / 43Y / 0R / 41NR / 95T)
+        prevGreen: 11, prevYellow: 43, prevRed: 0, // Prev = 2026-05-21 sync (11G / 43Y / 0R / 41NR / 95T)
+        // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
+        // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
+        lastSynced: "2026-05-28T09:25:00-07:00",   // ISO 8601 w/ TZ offset
+        prevSynced: "2026-05-21T00:00:00-07:00",   // for "X days fresher" delta
+        source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
     // Repurposed for C3 cumulative: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
@@ -2737,6 +2750,54 @@ function renderMBR() {
     `).join('');
 }
 
+// Freshness chips — show when forecast was last ingested and when scorecard was last synced.
+// Color-coded: fresh (<24h, green), normal (1-2 days, neutral), stale (3-6 days, yellow), very-stale (≥7 days, red).
+function renderFreshness() {
+    const now = Date.now();
+    const fmtRel = (iso) => {
+        if (!iso) return '—';
+        const t = new Date(iso).getTime();
+        if (isNaN(t)) return '—';
+        const ageMs = now - t;
+        const ageH = ageMs / 3_600_000;
+        const ageD = ageH / 24;
+        if (ageH < 1) return `${Math.max(0, Math.floor(ageMs / 60_000))}m ago`;
+        if (ageH < 24) return `${Math.floor(ageH)}h ago`;
+        if (ageD < 14) return `${Math.floor(ageD)}d ago`;
+        return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    };
+    const bandClass = (iso) => {
+        if (!iso) return 'very-stale';
+        const ageH = (now - new Date(iso).getTime()) / 3_600_000;
+        if (ageH < 24) return 'fresh';
+        if (ageH < 48) return '';            // neutral
+        if (ageH < 168) return 'stale';      // 3-7 days
+        return 'very-stale';                 // ≥7 days
+    };
+    // Forecast chip
+    const fEl = document.getElementById('forecastFreshness');
+    if (fEl && DATA.forecastMeta) {
+        const v = DATA.forecastMeta.version || '?';
+        const t = DATA.forecastMeta.ingestedAt || '';
+        fEl.textContent = `forecast ${v} · ${fmtRel(t)}`;
+        fEl.className = `freshness-chip ${bandClass(t)}`;
+        if (DATA.forecastMeta.sourceFile) {
+            fEl.title = `Forecast ${v} ingested ${new Date(t).toLocaleString()}\nSource: ${DATA.forecastMeta.sourceFile}`;
+        }
+    }
+    // Scorecard chip
+    const sEl = document.getElementById('scorecardFreshness');
+    if (sEl && DATA.scorecard && DATA.scorecard.lastSynced) {
+        const t = DATA.scorecard.lastSynced;
+        sEl.textContent = `scorecard · ${fmtRel(t)}`;
+        sEl.className = `freshness-chip ${bandClass(t)}`;
+        const detail = (DATA.scorecard.source ? `Source: ${DATA.scorecard.source}\n` : '') +
+                       `Last synced: ${new Date(t).toLocaleString()}` +
+                       (DATA.scorecard.prevSynced ? `\nPrior sync: ${new Date(DATA.scorecard.prevSynced).toLocaleDateString()}` : '');
+        sEl.title = detail;
+    }
+}
+
 function renderRWAboveBudget() {
     const rw = DATA.rw;
     if (!rw) return;
@@ -3069,6 +3130,7 @@ renderCycleProgress();
 renderAllKPIs();
 renderOffsites('business');
 renderRWAboveBudget();
+renderFreshness();
 
 // Update scorecard — uses real C2 SCORECARD W2 data
 const sc = DATA.scorecard;
@@ -3163,6 +3225,7 @@ function applySnapshot(snap) {
     renderAllKPIs();
     renderOffsites(document.querySelector('.offsite-toggle-btn.active')?.dataset.view || 'business');
     renderRWAboveBudget();
+    renderFreshness();
 
     // Re-run scorecard trend update
     const sc2 = DATA.scorecard;
