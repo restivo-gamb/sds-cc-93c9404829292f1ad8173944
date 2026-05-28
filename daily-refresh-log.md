@@ -1055,3 +1055,44 @@ Pedro's C3 SCORECARD pulled fresh via `mcp__05de8f80...read_file_content(fileId=
 **JS sanity-check**: parses clean — 322,532 chars in inline script.
 
 **auto-push.log verification**: last entry 2026-05-28 09:19:19 (~11 min old, fully healthy — launchd watcher firing reliably across all today's runs: 06:00, 09:06, 09:18, 09:19).
+
+
+### 2026-05-28 (BRAND COLORS + FRESHNESS CHIPS @ 13:50)
+
+Per Matt: re-color the four Revenue Pulse vertical cards by brand + surface "last updated" indicators for forecast ingestion and scorecard sync so he can verify the overnight runs are landing.
+
+**Brand colors applied** (replaces semantic .positive/.negative/.caution on the 4 vertical cards):
+- OpticOdds: **dark blue** (`--brand-optic` #1e3a8a) — top bar 3px + name color
+- OddsJam: **light blue** (`--brand-oddsjam` #38bdf8) — top bar 3px + darker readable name color (#0369a1)
+- RotoWire: **purple** (`--brand-rotowire` #7c3aed)
+- Affiliate: **green** (`--brand-affiliate` #16a34a) — unchanged per Matt
+
+CSS variables added in `:root` block. New `.fc-card.brand-*` classes added after the existing .positive/.negative/.caution rules so semantic classes remain available for other cards.
+
+**Freshness chips wired into section headers:**
+- `<span class="freshness-chip" id="forecastFreshness">` inserted in Revenue Pulse section header.
+- `<span class="freshness-chip" id="scorecardFreshness">` inserted in Scorecard Health section header.
+- CSS for `.freshness-chip` + age-band variants (`.fresh` <24h green, neutral 1-2d, `.stale` 3-6d yellow, `.very-stale` ≥7d red).
+- New JS function `renderFreshness()` reads `DATA.forecastMeta.ingestedAt` and `DATA.scorecard.lastSynced`, formats as relative time (`5h ago`, `2d ago`, `May 28`), applies the age-band class. Tooltip shows full timestamp + source file (forecast) or source tab + prior-sync date (scorecard).
+- `renderFreshness()` is called from the initial render block AND from the snapshot-switch handler so chips update when Matt loads a different week snapshot.
+
+**DATA constants added:**
+- `DATA.forecastMeta = { version: "v11", ingestedAt: "2026-05-28T09:20:00-07:00", sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (11).xlsx" }` — added directly under `priorYear`.
+- `DATA.scorecard.lastSynced: "2026-05-28T09:25:00-07:00"` + `prevSynced: "2026-05-21T00:00:00-07:00"` + `source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"` — added alongside the existing scorecard counts.
+
+**Stale paragraph fixed:** `#snap-scorecardIntro` rewritten from May-19 commentary ("Cycle 3 Wk2 D2 — 52 of 93 priorities have W1 updates (56% reporting) … 5 pod-leads have zero W1 activity") to current state ("Cycle 3 Wk3 D4 — 64 of 93 reporting (69%, up from 57%) … Brian S + Brian R still silent 9+ days; Tyler H first Red surfaced"). Left-border color also flipped from yellow to green to reflect the improved reporting.
+
+**SKILL.md updated** (`sds-command-center-daily-refresh`):
+- STEP 2(c) "CRITICAL" block now lists FOUR things to update on a forecast move: DATA constants, `DATA.forecastMeta`, static Revenue Pulse HTML (with explicit brand-class names so future runs don't revert to .positive/.negative), top keyThemes entry.
+- STEP 2(d) "UPDATE THESE WHEN SCORECARD SYNCS" lists FIVE things including `DATA.scorecard.lastSynced` / `prevSynced` + the `#snap-scorecardIntro` paragraph.
+- STEP 4 explicitly authorizes editing the Pipeline Note + Revenue Pulse HTML + scorecardIntro paragraph (previously the "do not rewrite markup" rule made these stale traps).
+- Guardrail added: if scorecard sync FAILS, do NOT bump `lastSynced` — let the chip turn yellow/red so Matt sees the staleness on the dashboard.
+- New notification trigger: "Scorecard sync FAILED" (chip would otherwise silently turn stale).
+
+**Files saved:**
+- `/SDS Dashboard/SDS Command Center.html` — 418,328 bytes (+6,654 vs prior 411,688).
+- `/SDS Dashboard/index.html` — 564,386 bytes (re-encrypted with new salt/iv).
+
+**JS sanity-check**: parses clean — 325,794 chars.
+
+**auto-push.log verification**: 13:49:18 push for SDS Command Center.html ("1 file changed, 64 insertions, 1 deletion"), 13:51:06 push for index.html ("1 file changed, 1 insertion, 1 deletion" — only the embedded PAYLOAD JSON line changed because encryption uses fresh random salt/iv each run; this is expected). Both landed cleanly.
