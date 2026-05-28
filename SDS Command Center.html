@@ -3284,13 +3284,50 @@ async function onWeekChange(weekKey) {
     }
 }
 
+// Compute the current week label CLIENT-SIDE from DATA.cycle.start.
+// Do not trust snapshots/index.json's `currentLabel` — that file is only updated
+// by the weekly snapshot task, which has been intermittent. Computing locally
+// guarantees the picker always shows today's week regardless of manifest state.
+function computeCurrentWeekLabel() {
+    const cycleStartIso = (DATA.cycle && DATA.cycle.start) ? DATA.cycle.start : null;
+    if (!cycleStartIso) return null;
+    // Parse YYYY-MM-DD as local date (avoid UTC shift)
+    const [y, m, d] = cycleStartIso.split('-').map(Number);
+    const cycleStart = new Date(y, m - 1, d);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const dayMs = 24 * 60 * 60 * 1000;
+    const daysSinceCycleStart = Math.floor((today - cycleStart) / dayMs);
+    if (daysSinceCycleStart < 0) {
+        // Pre-cycle — fall back to literal cycle-start week
+        return null;
+    }
+    const weekIdx = Math.floor(daysSinceCycleStart / 7);  // 0-indexed
+    const weekStart = new Date(cycleStart.getTime() + weekIdx * 7 * dayMs);
+    const weekEnd = new Date(weekStart.getTime() + 6 * dayMs);
+    const fmt = (dt) => dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return {
+        weekNum: weekIdx + 1,
+        label: `${fmt(weekStart)} – ${fmt(weekEnd)}`,
+        cycleNum: DATA.cycle.number || null
+    };
+}
+
 async function populateWeekPicker() {
+    const picker = document.getElementById('weekPicker');
+    if (!picker) return;
+    // Always compute current label locally so it's never stale.
+    const cur = computeCurrentWeekLabel();
+    const curOptionText = cur
+        ? `Current Week (${cur.label})`
+        : 'Current Week';
+    picker.innerHTML = `<option value="current">${curOptionText}</option>`;
+
+    // Layer in historical snapshots from the manifest (best-effort — no manifest is fine).
     try {
         const res = await fetch('snapshots/index.json', { cache: 'no-cache' });
-        if (!res.ok) return; // No manifest yet — leave dropdown with just "Current Week"
+        if (!res.ok) return;
         const manifest = await res.json();
-        const picker = document.getElementById('weekPicker');
-        picker.innerHTML = `<option value="current">Current Week${manifest.currentLabel ? ' (' + manifest.currentLabel + ')' : ''}</option>`;
         (manifest.snapshots || []).forEach(s => {
             const opt = document.createElement('option');
             opt.value = s.week;
@@ -3298,7 +3335,6 @@ async function populateWeekPicker() {
             picker.appendChild(opt);
         });
     } catch (e) {
-        // Silent — dashboard still works without historical snapshots
         console.debug('Week manifest not available yet:', e.message);
     }
 }
