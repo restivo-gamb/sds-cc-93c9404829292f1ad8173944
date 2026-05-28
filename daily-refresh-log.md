@@ -975,3 +975,41 @@ Matt asked whether the daily 5:30 AM dashboard refresh re-scans Pedro's scorecar
   - (d) Pod lead silent >48h on Matt-pending ask? Tim/Brad-intro now structurally "additive" per yesterday's reframe (pressure relief, not escalation). Nick on PTO (loom ask 5/25 is 80+ hrs old but explicit PTO context). No notification-worthy single signal.
   - **Slack-stale Day 3 is the day's structural risk** but not an isolated "material moved" event — it's a continuing infra failure already surfaced in the top keyTheme. No ping fired.
 - launchd agent (`com.restivo.sds-dashboard-push`) will pick up HTML saves.
+
+
+## 2026-05-28 (MANUAL RE-RUN @ 09:20 — v11 forecast ingest + structural fixes)
+
+Matt flagged that the 05:35 refresh missed the v11 forecast he placed directly into `gamb/finance/` (the ingest only watched `__inbox/`). Re-running with v11 absorbed + Pipeline Note rewritten + going-forward fixes applied to BOTH scheduled-task SKILL.mds.
+
+- **v11 forecast absorbed.** `gamb/finance/2026 SDS Revenue & Forecasting (11).xlsx` (file mtime 2026-05-28 09:00). Parsed Executive Dashboard tab via openpyxl. `data/forecast.json` rewritten: `_meta.latest_version` v9 → v11; new `v11` entry added to `versions/`; `latest` block points to v11. WoW deltas recomputed vs v9 (no v10 file existed — v10 was an implicit re-upload of v9 per 2026-05-21 keyTheme, captured in `wow_delta.skipped_versions`).
+- **Headline numbers moved BIG**:
+  - Total SDS Forecast: $66.71M (v9) → **$69.47M (v11)** = +$2.75M / **+4.13%**.
+  - Total SDS Budget: $68.37M → **$66.75M** = −$1.62M / −2.37% (**BUDGET RESET DOWN**).
+  - Total SDS Target: $69.38M → **$68.37M** = −$1.01M (= old budget; target re-baselined to old budget).
+  - YoY growth: 16.93% → **21.75%** (+4.82 pts).
+  - First version since v6 (May 14) where **forecast > budget** (+$2.71M / +4.07%).
+- **Taxonomy reorg landed in canonical workbook** (Craig+Pedro #sds-budget-owners 5/21 commit):
+  - **NEW "Affiliate" rollup** = Bookies + Roto Affiliate + Local + Partnerships = $18.02M forecast vs $12.25M budget = +$5.77M / +47%, status 🟢 On Track.
+  - **NEW Rotowire vertical** = subs + ads + B2B content only (no Roto Affiliate). Forecast $11.34M / Budget $11.14M / Target $12.04M = +$0.20M over budget / +1.78%, status 🟢.
+  - **Apples-to-apples vertical movers vs v9**:
+    - Rotowire-combined (new RW + Roto Aff): $17.48M → $19.19M (**+$1.71M / +9.80%**).
+    - OddsJam: $16.34M → **$17.57M** (+$1.22M / **+7.48%**) — first material uptick in 3 versions.
+    - Bookies: $3.51M → $3.36M (−$151K / −4.29%) — continuing softness.
+    - OpticOdds: $22.53M → $22.54M (essentially flat).
+    - Local & Partnerships: ~flat (−$10K and −$31K).
+- **DATA constants updated**: `forecast` 66.71 → 69.47; `target` 69.38 → 68.37; `budget` 68.37 → 66.75; `yoyGrowth` 16.93 → 21.75; `priorYear` 57.05 unchanged. `rw` block re-pinned to NEW RW definition (no Roto Affiliate): `budget` 14.05 → 11.14; `forecast` 17.48 → 11.34; `aboveBudget` 3.43 → 0.20; `abovePct` 24.5 → 1.78. Comment block above `DATA = {` rewritten explaining the structural cut.
+- **`notesSynthesis.keyThemes`**: new TOP entry "🟢 MAY 28 (THU AM — v11 FORECAST LANDED · STRUCTURAL CUT)" inserted ABOVE the existing 05:35 Theo/Slack-scan entry. Covers the budget reset, target reset, taxonomy reorg, vertical movers, 6 readouts (taxonomy verify w/ Pedro, budget reset narrative for Kevin DM, OddsJam +$1.22M assumption-change ask, Bookies continued drift, v10-skipped note).
+- **`cycle.keyDates`**: today's May 28 (Thu — WK3 D4 · TODAY) entry left intact (already current from 05:35 refresh — Theo + V + Pedro carryover + Trove + Kevin DM all still apply).
+- **Pipeline Note (id="snap-pipelineNote") REWRITTEN** — had been stale at "Cycle 3 Week 2 Day 2 (Tue) — Aleksandra Day 8" since 2026-05-19. Now reflects Thu WK3 D4 reality: v11 forecast headline + Theo PM call + V T-4 surgery + Slack scan stale Day 3 + Pedro 15-min carryover + Randall 1:1 + Trove + Kevin DM T-2 + Aleksandra/Pinnacle pending + Ankit handover + Optic-sales cleanup + new deal surfaces. Marked "Updated May 28 AM (post v11 ingest)."
+- **STRUCTURAL FIXES APPLIED via scheduled-tasks MCP** (so this doesn't happen again):
+  - `sds-command-center-daily-refresh` SKILL.md: Step 2(c) Forecast section rewritten — now scans **two locations**: (1) canonical `gamb/finance/` (where Matt drops files directly), (2) legacy `/SDS Dashboard/` path. Parses Executive Dashboard tab via openpyxl. Recomputes WoW deltas. Handles taxonomy changes (apples-to-apples Rotowire-combined normalization). Updates `forecast.json` versions + `latest` + `_meta`. Adds vN WoW hero entry to top of `keyThemes`. Forecast version moves now ALWAYS trigger a notification (per Step 8). Step 3 explicitly authorizes rewriting the Pipeline Note text (previously a staleness trap). Step 6 now requires verifying `auto-push.log` is fresh (no more blind "launchd will pick up").
+  - `sds-slack-daily-scan` SKILL.md: Added Phase 2 — Forecast Pickup that scans `gamb/finance/` for new vN files and flags them in the Daily Ingest summary for the 5:30 AM refresh to absorb. Slack scan promoted from "Phase 3" → "Phase 4". Phase 4 DOM-scrape now PRIMARY (Slack AI Summarize Retired — failed 8 consecutive nights since 5/20; DOM-scrape proven on 5/12 + 5/23). Per-target budget reduced ~45s → ~25s = ~13 min for 31 targets. Watermark advancement only on success; partial-coverage allowed; >20% failure rate still produces files but flagged in headers (previously aborted entirely). Inbox triage now routes `2026 SDS Revenue & Forecasting*.xlsx` files to `gamb/finance/` automatically.
+- **C3 SCORECARD re-sync NOT attempted** in this run — would need Claude-in-Chrome to navigate Pedro's Google Sheet, and the underlying Chrome session is in active use by Matt at this hour. Scorecard counts (11G/43Y/0R/41NR/95T from 2026-05-21) carried forward unchanged. Flagged in the Pipeline Note + the May 28 keyTheme as a Pedro 15-min ask for today (now 7 days cold).
+- **Slack scan NOT manually triggered** in this run — the underlying issue is structural (Slack AI Summarize throughput; addressed in the SKILL.md fix above). Kicking off the existing task again would re-hit the same 8-night-running failure mode. The DOM-scrape fix takes effect on the next scheduled run (tonight 01:00).
+- **Files saved**:
+  - `/SDS Dashboard/SDS Command Center.html` — 407,374 bytes (+2,586 vs first 05:35 run's 404,788).
+  - `/SDS Dashboard/index.html` — mirrored, same 407,374 bytes.
+  - `/SDS Dashboard/data/forecast.json` — v11 entry added.
+- **JS sanity-check**: parses clean via Node `new Function()` — 318,637 chars in inline script.
+- **auto-push.log verification**: last entry 2026-05-27 11:29:29 (still healthy — the 05:35 saves should have been picked up by the launchd watcher). Today's edits saved at 09:06 + 09:18; will verify in tomorrow's refresh.
+- **Notification fired**: see Slack/Telegram ping summarizing v11 movement (forecast >5% rule + budget reset + new red/green status flips).
