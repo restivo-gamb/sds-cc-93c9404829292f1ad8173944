@@ -1396,21 +1396,27 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v9 (Executive Dashboard tab, parsed May 14 via forecast.json)
-    // Total SDS: Forecast $66.71M · Budget $68.37M · Target $69.38M · 25A $57.05M (+16.93% YoY)
-    forecast: 66.71,
-    target: 69.38,
-    budget: 68.37,
-    yoyGrowth: 16.93,  // 66.71 / 57.05 − 1
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v11 (Executive Dashboard tab, parsed May 28 via forecast.json)
+    // Total SDS: Forecast $69.47M · Budget $66.75M · Target $68.37M · 25A $57.05M (+21.75% YoY)
+    // v11 is a STRUCTURAL CUT: budget reset DOWN $1.62M (was $68.37M), target reset DOWN $1.01M (was $69.38M, now = old budget),
+    // and Affiliate-rollup taxonomy live (Roto Affiliate moved OUT of Rotowire into combined Affiliate vertical per Craig+Pedro 5/21 commit).
+    // Apples-to-apples WoW deltas vs v9: TOTAL SDS +$2.75M / +4.13%; Rotowire-combined (new RW + Roto Aff) +$1.71M / +9.80%;
+    // OddsJam +$1.22M / +7.48%; Bookies −$151K / −4.29%; OpticOdds essentially flat (+$8.8K).
+    forecast: 69.47,
+    target: 68.37,
+    budget: 66.75,
+    yoyGrowth: 21.75,  // 69.47 / 57.05 − 1
     priorYear: 57.05,
 
-    // RotoWire vs Budget — replaces old "Above RW Floor" concept
-    // RW Forecast $17.48M · Budget $14.05M → +$3.43M (+24.5%) — v9 added $300K vs v8, back above v7 levels
+    // RotoWire vs Budget — NEW DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate now lives under Affiliate rollup
+    // NEW RW: Forecast $11.34M · Budget $11.14M → +$0.20M (+1.78%) — On Track at the line level
+    // Note: combined RW+RotoAffiliate is $19.19M (forecast) vs $13.00M (budget) = +$6.19M / +47.6% — but the new dashboard
+    // tracks them separately per the 5/21 taxonomy change. Roto Affiliate $7.85M sits inside the new Affiliate rollup ($18.02M total).
     rw: {
-        budget: 14.05,          // $14,045,617 — 2026 RW Budget (source: Pedro's forecast workbook)
-        forecast: 17.48,        // Current forecast (v9, parsed May 14 from /SDS Dashboard/data/forecast.json)
-        aboveBudget: 3.43,      // forecast − budget
-        abovePct: 24.5          // % over budget
+        budget: 11.14,          // $11,143,335 — NEW 2026 RW Budget (subs+ads+content; v11 baseline)
+        forecast: 11.34,        // Current forecast (v11, parsed May 28 from /SDS Dashboard/data/forecast.json)
+        aboveBudget: 0.20,      // forecast − budget
+        abovePct: 1.78          // % over budget
     },
 
     // Scorecard counts — Cycle 3 W1+W2 cumulative, inferred from C3 SCORECARD tab in Pedro's sheet
