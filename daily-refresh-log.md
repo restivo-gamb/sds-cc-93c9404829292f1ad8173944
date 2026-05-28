@@ -1096,3 +1096,21 @@ CSS variables added in `:root` block. New `.fc-card.brand-*` classes added after
 **JS sanity-check**: parses clean — 325,794 chars.
 
 **auto-push.log verification**: 13:49:18 push for SDS Command Center.html ("1 file changed, 64 insertions, 1 deletion"), 13:51:06 push for index.html ("1 file changed, 1 insertion, 1 deletion" — only the embedded PAYLOAD JSON line changed because encryption uses fresh random salt/iv each run; this is expected). Both landed cleanly.
+
+
+### 2026-05-28 (WEEK PICKER + NOTES SYNTHESIS @ 14:00)
+
+**Week picker showing stale label.** `snapshots/index.json` hasn't been updated since 2026-05-15 (W20 capture; W21 + W22 snapshots never landed), so its `currentLabel: "May 11 – May 17"` was 17 days cold. Picker read that and showed "Current Week (May 11 – May 17)" — actively misleading.
+
+**Fix**: added `computeCurrentWeekLabel()` JS function that derives the current week from `DATA.cycle.start` ("2026-05-11") + today's date. Computes `weekIdx = floor((today − cycleStart) / 7days)` → `weekStart = cycleStart + weekIdx*7d`, `weekEnd = weekStart + 6d`. Formats as "MMM D – MMM D". `populateWeekPicker()` now ALWAYS uses this computed label for the "Current Week" option, regardless of manifest state. The manifest is still consulted for historical snapshot options (best-effort; no manifest is fine).
+
+Today's render: "Current Week (May 25 – May 31)" — correct.
+
+**Notes Synthesis subsection collapsed by default.** Per Matt — the subsection inside Scorecard Health (the long keyThemes list, ~12-section daily-context block) was always expanded, dominating the visual weight of the scorecard tab. Now wrapped in a native `<details>` element with custom summary styling (chevron + "(click to expand)" hint). Saves vertical space + makes the punch list above it the default focal point.
+
+**Files saved:**
+- `/SDS Dashboard/SDS Command Center.html` — 414,222 bytes (+2,251).
+- `/SDS Dashboard/index.html` — 567,394 bytes (re-encrypted).
+- JS parses clean — 327,298 chars.
+
+**auto-push.log verification**: pending (launchd should fire on the next minute-tick).

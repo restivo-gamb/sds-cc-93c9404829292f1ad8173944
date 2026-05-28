@@ -1246,13 +1246,21 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
                     </div>
                 </details>
 
-                <!-- Notes Synthesis -->
-                <div style="margin-top: 14px;">
-                    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Notes Synthesis</div>
-                    <div id="notesSynthesis" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                <!-- Notes Synthesis — collapsed by default per Matt 2026-05-28 -->
+                <details style="margin-top: 14px;">
+                    <summary style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 6px;">
+                        <span class="ns-chevron" style="display: inline-block; transition: transform 0.2s; font-size: 10px;">&#9654;</span>
+                        Notes Synthesis
+                        <span style="font-size: 10px; color: var(--text-muted); font-weight: 500; text-transform: none; letter-spacing: normal; margin-left: 4px;">(click to expand)</span>
+                    </summary>
+                    <div id="notesSynthesis" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-top: 8px;">
                         <!-- Populated by JS -->
                     </div>
-                </div>
+                </details>
+                <style>
+                    details[open] > summary .ns-chevron { transform: rotate(90deg); }
+                    details > summary::-webkit-details-marker { display: none; }
+                </style>
             </div>
         </div>
 
