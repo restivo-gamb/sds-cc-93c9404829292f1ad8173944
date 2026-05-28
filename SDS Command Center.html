@@ -1419,18 +1419,28 @@ const DATA = {
         abovePct: 1.78          // % over budget
     },
 
-    // Scorecard counts — Cycle 3 W1+W2 cumulative, inferred from C3 SCORECARD tab in Pedro's sheet
-    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-05-21.
-    // Text sync doesn't carry cell colors yet — until that's resolved, status inferred from `Updated` column + `Notes`:
-    //   blank Updated = NotReported; populated Updated + progress notes = Yellow; Notes containing "done/completed/shipped/launched/live now/migration complete" = Green; explicit blockage = Red.
-    // Cycle 3 = 95 total priorities across 18 pods (+2 priorities vs the May 19 sync). Status: 11 explicit Greens (vs 0 at May 19 sync),
-    // 43 Yellow/in-motion, 0 Red, 41 NotReported. The 11 Green pickups are real wins per Pedro's Notes: OJ PRODUCT (Stripe Migration / Prediction Arbitrage /
-    // PT algorithm winback / Game page free-tier OR picks / Parlay creation), ODDS DATA (Port websocket books), AFFILIATE (Canadian Market Expansion),
-    // OPTIC MARKETING (AI Search & SEO), RW FEATURES (DFS Hub), RW PRODUCT (DraftBot Submit-to-Site / Draft Analysis v2).
-    // NR total still 41 — composition shifted: Scott Goodell + Steven Gorfman moved from fully-silent → partial-reporting; Karl O'Brien + Brian R + Jacqui Kouassi still fully silent.
+    // Scorecard counts — Cycle 3 W1+W2 cumulative, re-synced from C3 SCORECARD tab in Pedro's sheet
+    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-05-28 09:25.
+    // Text sync doesn't carry cell colors — status inferred from `Updated` + `Notes`:
+    //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
+    //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
+    // Cycle 3 (WK3 D4) = 93 total priorities across ~20 pod-lead assignments. Status: 11 Greens / 52 Yellows / 1 Red / 29 NotReported.
+    // ─── MOVEMENT vs 2026-05-21 baseline (11G / 43Y / 0R / 41NR / 95T) ─────────────────────────────────────────
+    //   NR 41 → 29 (−12) — big improvement; reporting % 57% → 69%
+    //   Y  43 → 52 (+9)  — real motion across multiple pods
+    //   R   0 →  1 (+1)  — Tyler Huntington's International Search Audit flipped Red ("complete but proposing to put any action on hold")
+    //   G  11 → 11  — flat at top line; composition shifted (Jacqui got her first Green, Steven still has 1, OJ PRODUCT still anchors)
+    //   T  95 → 93 (−2) — two priorities pruned
+    // ─── BIG MOVERS ──────────────────────────────────────────────────────────────────────────────────────────
+    //   ✅ Jacqui Kouassi (MEDIA): 3 NR → 0 NR + 1 Green + 2 Yellow — FULL REPORTING now, biggest single-lead recovery this week
+    //   ✅ Karl O'Brien (OPTIC PRODUCT): 7 NR → 4 NR + 2 Yellow — partial reporting; still 4 silent (Stripe sep account, Monitoring Dashboard, Sportsbook-as-Sales-Asset, Support revamp)
+    //   ✅ Scott Goodell (SPORTS DATA): 3 NR → 0 NR + 1 Green + 4 Yellow — fully reporting now
+    //   ⚠️ Brian S (GROWTH OPS): 8 NR → 8 NR — STILL fully silent, all 8 priorities blank (worst single-lead reporting gap)
+    //   ⚠️ Brian R (BOOKIES AFF + BETSYNDICATE): 6 NR → 6 NR — STILL fully silent across both pods
+    //   ⚠️ Tyler Huntington's RED is "BetSyndicate International Search audit complete but PROPOSING TO PUT ANY ACTION ON HOLD, not most important" — worth a 5-min on whether this is a real punt or just deprioritization
     scorecard: {
-        green: 11, yellow: 43, red: 0, notReported: 41, total: 95,
-        prevGreen: 0, prevYellow: 52, prevRed: 0 // Prev = 2026-05-19 sync baseline (0G / 52Y / 0R / 41NR / 93T); +11G / -9Y / 0R / 0NR
+        green: 11, yellow: 52, red: 1, notReported: 29, total: 93,
+        prevGreen: 11, prevYellow: 43, prevRed: 0 // Prev = 2026-05-21 sync (11G / 43Y / 0R / 41NR / 95T)
     },
 
     // Repurposed for C3 cumulative: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
