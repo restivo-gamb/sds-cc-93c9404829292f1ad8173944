@@ -1013,3 +1013,45 @@ Matt flagged that the 05:35 refresh missed the v11 forecast he placed directly i
 - **JS sanity-check**: parses clean via Node `new Function()` — 318,637 chars in inline script.
 - **auto-push.log verification**: last entry 2026-05-27 11:29:29 (still healthy — the 05:35 saves should have been picked up by the launchd watcher). Today's edits saved at 09:06 + 09:18; will verify in tomorrow's refresh.
 - **Notification fired**: see Slack/Telegram ping summarizing v11 movement (forecast >5% rule + budget reset + new red/green status flips).
+
+
+### 2026-05-28 (SCORECARD RE-SYNC @ 09:30)
+
+Pedro's C3 SCORECARD pulled fresh via `mcp__05de8f80...read_file_content(fileId=1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4)` → first table (C3) parsed via Python regex over the markdown export. Last sync was 2026-05-21 (7 days cold).
+
+**Counts moved hard:**
+- NR: 41 → **29** (−12 priorities; reporting % 57% → 69%)
+- Y: 43 → **52** (+9 — real motion across multiple pods)
+- R: 0 → **1** (+1 — Tyler Huntington's BetSyndicate International Search Audit: "complete but proposing to put any action from subs team on hold, not most important")
+- G: **11** (flat at top; Jacqui got her first Green, OJ PRODUCT still anchors)
+- T: 95 → 93 (−2; two priorities pruned)
+
+**Biggest single-lead recoveries:**
+- **Jacqui Kouassi (MEDIA)**: 3 of 3 fully-silent → **FULLY REPORTING + 1 Green** (release draft complete waiting on internal approvals + Perplexity input). Biggest behavior change on the board this week.
+- **Scott Goodell (SPORTS DATA)**: 3 NR → 0 NR + 1 Green. P2/P3 soccer coverage close to completion, Basketball next.
+- **Karl O'Brien (OPTIC PRODUCT)**: 7 NR → 4 NR. Futures in Copilot + Prediction Markets now Yellow (both "not started" but at least surfaced). Still NR: Stripe sep account, Monitoring Dashboard, Sportsbook-as-Sales-Asset, Support revamp.
+
+**Still 100% silent (no movement in 9 days — escalation candidates):**
+- **Brian S (GROWTH OPS)**: 8 of 8 priorities blank. Worst single-lead reporting gap on the board.
+- **Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2)**: fully silent across both pods.
+
+**Most-active reporters:**
+- Jeremy T (OJ PRODUCT): 14 priorities with 11 fresh 5/27 updates + 2 Greens (Stripe Migration, Prediction Arbitrage).
+- Nick P (RW PRODUCT): 10 priorities all 5/27 updated, 4 Greens (DraftBot Submit-to-Site / Draft Plans v2 / Draft Analysis v2 / MyLeagues Freemium).
+
+**Dashboard edits:**
+- `DATA.scorecard` updated: `{green:11, yellow:52, red:1, notReported:29, total:93}` with `prevGreen:11, prevYellow:43, prevRed:0` (baseline 5/21).
+- Comment block above `DATA.scorecard` rewritten with the full movement breakdown.
+- `DATA.yellowLeaders` rebuilt — 10 entries sorted by NR-count desc. Jacqui + Nick now appear with `yellows: 0` to highlight their fully-reporting status as positive examples. Both Brians named explicitly as 9-day silent.
+- NEW top-position keyTheme entry "🟢 MAY 28 (THU AM — C3 SCORECARD LIVE RE-SYNC)" added above the existing v11 forecast entry, leading with NR delta and the Jacqui recovery.
+
+**Going-forward fix:**
+- `sds-command-center-daily-refresh` SKILL.md updated via scheduled-tasks MCP. New STEP 2(d) makes the scorecard sync part of EVERY refresh — uses the Drive MCP path verified 2026-05-21 + 2026-05-28. Classification rules + escalation triggers + DATA.scorecard / DATA.yellowLeaders update spec all encoded. Notification triggers added for scorecard NR delta ≥ ±10 and 9+ day silent leads.
+
+**Files saved:**
+- `/SDS Dashboard/SDS Command Center.html` — 411,688 bytes (+4,314 vs prior 407,374).
+- `/SDS Dashboard/index.html` — mirrored, same 411,688 bytes.
+
+**JS sanity-check**: parses clean — 322,532 chars in inline script.
+
+**auto-push.log verification**: last entry 2026-05-28 09:19:19 (~11 min old, fully healthy — launchd watcher firing reliably across all today's runs: 06:00, 09:06, 09:18, 09:19).
