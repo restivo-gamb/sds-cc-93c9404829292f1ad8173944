@@ -1114,3 +1114,19 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - JS parses clean — 327,298 chars.
 
 **auto-push.log verification**: pending (launchd should fire on the next minute-tick).
+
+## 2026-05-29
+
+- Updated header timestamp "May 28, 2026" → "May 29, 2026"
+- forecastMeta.ingestedAt: unchanged (v11 still current per forecast.json; today's daily ingest confirmed no new version). scorecard.lastSynced: 2026-05-28T09:25 → 2026-05-29T05:30; prevSynced rolled forward
+- Slack-driven changes: First clean Slack scan since 2026-05-19 (31/31 DOM-scrape, 0 failures, AI Summarize retired). Files dated 5/26→5/29 now canonical — 10-day blind window closed. Top signals folded into Pipeline Note + notesSynthesis top entry: Charles DM Pinnacle decision ("if you don't respond, you take pinnacle out?"); Craig DM 5/28 naming Tim Schuler as leadership problem ("undermining you"); Tim McKechnie ROI (22 views on 1.5hr stream); B2C +6.9% MoM May (Tim Schuler); old B2B OpticOdds customer lapsed Aug (Ryan W find); Randall workload pushback recovered ("it's all good")
+- Granola-driven changes: 2 notes 5/28 — Jack Taylor PR pitch (Aug start, target traditional press + ESPN/podcasts) + Matthew Berry partnership (Pete Jennings non-compete release, Ian recruitment greenlit, dollar-for-dollar cross-promo Card↔Guillotine League, handshake non-solicit). Matt next step today: bullet-summary + legal docs for Pete release. Folded into notesSynthesis + Pipeline Note
+- Xlsx/forecast version moves: NONE — v11 unchanged; static Revenue Pulse HTML and forecast.json untouched
+- Scorecard sync: counts flat day-over-day (11G/52Y/1R/29NR/93T); Updated dates moved — Steven flipped "new Websocket architecture" 🟢 COMPLETE 5/28 (ODDS DATA now 2G); Jeremy T multi-priority refresh 5/27 (Stripe migration on track for 6/12, Prediction Arbitrage FE MVP done). Big silent leads still open: Brian S (8/8 GROWTH OPS NR, 10 days); Brian R (BOOKIES AFF 4 + BETSYN 2, 10 days). yellowLeaders refreshed accordingly; snap-scorecardIntro paragraph refreshed
+- cycle.keyDates: May 28 (Thu) entry retitled "TODAY · THEO FOLLOW-UP" → "recap · THEO FOLLOW-UP"; new May 29 (Fri · TODAY · V SURGERY T-3) entry added at top
+- notesSynthesis.keyThemes: new top entry 🟢 MAY 29 (Fri AM — Slack scan back online + MB partnership landed + V T-3); updatedDate bumped 5/27 → 5/29
+- Top attention card retitled from Wed/Day-6 framing to Fri/Day-8 framing: Charles decision owed; V surgery T-3 (Mon 6/1) = handoff deadline EOD today
+- Pipeline Note rewritten end-to-end for Fri D5 reality (V T-3, Slack back online, Pinnacle/Charles, MB handshake locked, Tim two-signals judgment call, Randall recalibration, old B2B Optic customer, Kevin DM T-1)
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 · 250K iter) → 576,502 bytes from 421,018-char plaintext; encryption step succeeded cleanly
+- auto-push.log verification: last entry 2026-05-28 13:55 (~16h old, within 24h freshness window) ✓
+
