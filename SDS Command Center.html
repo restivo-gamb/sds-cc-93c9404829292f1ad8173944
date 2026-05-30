@@ -2873,6 +2873,87 @@ function renderFreshness() {
                        (DATA.scorecard.prevSynced ? `\nPrior sync: ${new Date(DATA.scorecard.prevSynced).toLocaleDateString()}` : '');
         sEl.title = detail;
     }
+    // Talent Scoreboard chip
+    const tEl = document.getElementById('talentFreshness');
+    if (tEl && DATA.creators && DATA.creators.ingestedAt) {
+        const t = DATA.creators.ingestedAt;
+        tEl.textContent = `talent · ${fmtRel(t)}`;
+        tEl.className = `freshness-chip ${bandClass(t)}`;
+        tEl.title = `Creator scoreboard (Brian S worker) pulled ${new Date(t).toLocaleString()}\nDate window: ${DATA.creators.date || '?'}`;
+    }
+}
+
+function renderTalentScoreboard() {
+    const c = DATA.creators;
+    if (!c) return;
+    const totalsEl = document.getElementById('talentTotals');
+    if (totalsEl && c.totals) {
+        const t = c.totals;
+        const hitColor = t.allHit > 0 ? 'var(--green)' : 'var(--text-muted)';
+        totalsEl.innerHTML = `
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">All Talent</div>
+                <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${t.allPoints} pts</div>
+                <div style="font-size:11px; color:${hitColor}; margin-top:2px;">${t.allHit}/${t.allTotal} hit goal today</div>
+            </div>
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px; border-left:3px solid var(--brand-oddsjam);">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">OJ Pod</div>
+                <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${t.ojPoints} pts</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">${t.ojTotal} creators · avg ${(t.ojPoints/Math.max(t.ojTotal,1)).toFixed(1)}</div>
+            </div>
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px; border-left:3px solid var(--brand-rotowire);">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">RW Pod</div>
+                <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${t.rwPoints} pts</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">${t.rwTotal} creators · avg ${(t.rwPoints/Math.max(t.rwTotal,1)).toFixed(1)}</div>
+            </div>
+        `;
+    }
+    const splitEl = document.getElementById('talentSplit');
+    if (splitEl) {
+        const renderItem = (cr, kind) => {
+            const podDim = cr.pod === 'OJ' ? 'var(--brand-oddsjam-dim)' : cr.pod === 'RW' ? 'var(--brand-rotowire-dim)' : 'var(--bg-input)';
+            const podColor = cr.pod === 'OJ' ? 'var(--brand-oddsjam)' : cr.pod === 'RW' ? 'var(--brand-rotowire)' : 'var(--text-muted)';
+            const ptsColor = kind === 'over' ? 'var(--green)' : 'var(--red)';
+            const targetTag = cr.onTarget ? `<span style="color:var(--green); font-weight:700; margin-left:6px;">✓ HIT GOAL</span>` : '';
+            return `
+            <div style="display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:start; padding:8px 10px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:6px;">
+                <div style="font-size:18px; font-weight:800; color:${ptsColor}; min-width:36px; text-align:center;">${cr.pts}</div>
+                <div>
+                    <div style="font-size:13px; font-weight:700; color:var(--text-primary);">
+                        ${cr.name}
+                        <span style="font-size:10px; color:${podColor}; background:${podDim}; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">${cr.pod}</span>
+                        <span style="font-size:11px; color:var(--text-muted); margin-left:4px;">@${cr.handle}</span>${targetTag}
+                    </div>
+                    <div style="font-size:11.5px; color:var(--text-secondary); margin-top:3px; line-height:1.4;">${cr.reason}</div>
+                </div>
+                <div style="font-size:10.5px; color:var(--text-muted); text-align:right; white-space:nowrap;">
+                    ${cr.tweets||0} tw · ${cr.replies||0} rep<br>${cr.likes||0} ❤ · ${cr.rts||0} ↻
+                </div>
+            </div>`;
+        };
+        const overHTML = (c.leaders||[]).map(l => renderItem(l, 'over')).join('') || '<div style="font-size:11.5px; color:var(--text-muted); padding:8px 10px;">No goal-clearing creators today.</div>';
+        const underHTML = (c.laggards||[]).map(l => renderItem(l, 'under')).join('') || '<div style="font-size:11.5px; color:var(--text-muted); padding:8px 10px;">No zero-output creators today.</div>';
+        splitEl.innerHTML = `
+            <div>
+                <div style="font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:0.5px; font-weight:700; margin-bottom:6px;">▲ Over-performing</div>
+                ${overHTML}
+            </div>
+            <div>
+                <div style="font-size:11px; color:var(--red); text-transform:uppercase; letter-spacing:0.5px; font-weight:700; margin-bottom:6px;">▼ Under-performing</div>
+                ${underHTML}
+            </div>
+        `;
+    }
+    const rosterEl = document.getElementById('talentFullRoster');
+    if (rosterEl && c.midTier) {
+        rosterEl.innerHTML = c.midTier.map(m => {
+            const podColor = m.pod === 'OJ' ? 'var(--brand-oddsjam)' : m.pod === 'RW' ? 'var(--brand-rotowire)' : 'var(--text-muted)';
+            return `<div style="display:grid; grid-template-columns:36px 1fr; gap:8px; padding:4px 0; border-bottom:1px dashed var(--border);">
+                <div style="font-weight:700; color:var(--text-secondary); text-align:center;">${m.pts}</div>
+                <div><strong style="color:var(--text-primary);">${m.name}</strong> <span style="color:${podColor}; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">${m.pod}</span> <span style="color:var(--text-muted); font-size:10.5px;">@${m.handle}</span><br><span style="color:var(--text-muted); font-size:10.5px;">${m.reason}</span></div>
+            </div>`;
+        }).join('');
+    }
 }
 
 function renderRWAboveBudget() {
@@ -3208,6 +3289,7 @@ renderAllKPIs();
 renderOffsites('business');
 renderRWAboveBudget();
 renderFreshness();
+renderTalentScoreboard();
 
 // Update scorecard — uses real C2 SCORECARD W2 data
 const sc = DATA.scorecard;
@@ -3303,6 +3385,7 @@ function applySnapshot(snap) {
     renderOffsites(document.querySelector('.offsite-toggle-btn.active')?.dataset.view || 'business');
     renderRWAboveBudget();
     renderFreshness();
+    renderTalentScoreboard();
 
     // Re-run scorecard trend update
     const sc2 = DATA.scorecard;
