@@ -3361,7 +3361,9 @@ function applySnapshot(snap) {
     DATA.rw = snap.constants.DATA.rw;
     DATA.scorecard = snap.constants.DATA.scorecard;
     DATA.cycle = snap.constants.DATA.cycle;
-    DATA.creators = snap.constants.DATA.creators;
+    // Talent Scoreboard data was added 2026-05-29 — pre-existing snapshots lack `creators`.
+    // Use a sentinel so the renderer can show an explicit empty state instead of stale today-data.
+    DATA.creators = snap.constants.DATA.creators || { _missing: true, _reason: "Creator Scoreboard was added 2026-05-29; this snapshot pre-dates the feature." };
 
     Object.keys(snap.constants.KPI).forEach(k => { KPI[k] = snap.constants.KPI[k]; });
     POD_KPIS.length = 0; snap.constants.POD_KPIS.forEach(p => POD_KPIS.push(p));
