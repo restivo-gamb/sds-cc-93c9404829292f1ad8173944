@@ -1130,3 +1130,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 · 250K iter) → 576,502 bytes from 421,018-char plaintext; encryption step succeeded cleanly
 - auto-push.log verification: last entry 2026-05-28 13:55 (~16h old, within 24h freshness window) ✓
 
+
+## 2026-05-29 (addendum — Creator Scoreboard integration)
+
+- Added Talent Scoreboard section to Overview tab (between Scorecard Health and Needs Your Attention)
+- New Quick Link entry in purple: "Creator Scoreboard" → https://creator-scoreboard-ui.pages.dev/
+- New `DATA.creators` block populated from Brian S's worker API (https://creator-scoreboard.brianstephens.workers.dev/api/scoreboard?days=1) — fields: date, ingestedAt, totals (allPoints/allHit/allTotal/ojPoints/ojTotal/rwPoints/rwTotal), leaders[], laggards[], midTier[]
+- New `renderTalentScoreboard()` JS render function — populates pod totals, over-performing column (green), under-performing column (red), full-roster collapsible
+- New "talent · Xh ago" freshness chip in section header (renderFreshness logic extended)
+- Wired into boot + week-change render paths; DATA.creators added to applySnapshot()
+- TODAY's data captured live from API: 40 total pts (OJ 20 / RW 20), 1 of 13 hit goal (+EV Bettors, 11 pts, 8 product pushes). 4 zero-output laggards: John McKechnie (RW · cross-refs Matt's 5/28 Tim DM about 22-view 1.5hr stream — same signal from a second source), James Anderson (RW), Clark Gary (OJ), Dustin (DGF). Mid-tier 7 creators 2-5 pts
+- SKILL.md (scheduled-task) updated via mcp__scheduled-tasks__update_scheduled_task — new STEP 2(e) Creator Scoreboard pull, STEP 3 DATA.creators bullet, STEP 7 log fields, STEP 8 notification triggers (creator-goal-flip / pod-zero-cluster / cross-DM laggard / API fail), STEP 4 mentions renderTalentScoreboard as preserved infrastructure
+- Re-validated JS parses (343,464 chars, ok). Re-encrypted index.html (593,334 bytes; was 576,502 before today's edits)
+
