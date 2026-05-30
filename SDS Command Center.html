@@ -2853,13 +2853,19 @@ function renderFreshness() {
     };
     // Forecast chip
     const fEl = document.getElementById('forecastFreshness');
-    if (fEl && DATA.forecastMeta) {
-        const v = DATA.forecastMeta.version || '?';
-        const t = DATA.forecastMeta.ingestedAt || '';
-        fEl.textContent = `forecast ${v} · ${fmtRel(t)}`;
-        fEl.className = `freshness-chip ${bandClass(t)}`;
-        if (DATA.forecastMeta.sourceFile) {
-            fEl.title = `Forecast ${v} ingested ${new Date(t).toLocaleString()}\nSource: ${DATA.forecastMeta.sourceFile}`;
+    if (fEl) {
+        if (DATA.forecastMeta) {
+            const v = DATA.forecastMeta.version || '?';
+            const t = DATA.forecastMeta.ingestedAt || '';
+            fEl.textContent = `forecast ${v} · ${fmtRel(t)}`;
+            fEl.className = `freshness-chip ${bandClass(t)}`;
+            if (DATA.forecastMeta.sourceFile) {
+                fEl.title = `Forecast ${v} ingested ${new Date(t).toLocaleString()}\nSource: ${DATA.forecastMeta.sourceFile}`;
+            }
+        } else {
+            fEl.textContent = 'forecast · n/a for snapshot';
+            fEl.className = 'freshness-chip';
+            fEl.title = 'forecastMeta was added 2026-05-28; this snapshot pre-dates the chip.';
         }
     }
     // Scorecard chip
@@ -2875,18 +2881,36 @@ function renderFreshness() {
     }
     // Talent Scoreboard chip
     const tEl = document.getElementById('talentFreshness');
-    if (tEl && DATA.creators && DATA.creators.ingestedAt) {
-        const t = DATA.creators.ingestedAt;
-        tEl.textContent = `talent · ${fmtRel(t)}`;
-        tEl.className = `freshness-chip ${bandClass(t)}`;
-        tEl.title = `Creator scoreboard (Brian S worker) pulled ${new Date(t).toLocaleString()}\nDate window: ${DATA.creators.date || '?'}`;
+    if (tEl) {
+        if (DATA.creators && DATA.creators._missing) {
+            tEl.textContent = 'talent · n/a for snapshot';
+            tEl.className = 'freshness-chip';
+            tEl.title = DATA.creators._reason || 'Not tracked for this snapshot';
+        } else if (DATA.creators && DATA.creators.ingestedAt) {
+            const t = DATA.creators.ingestedAt;
+            tEl.textContent = `talent · ${fmtRel(t)}`;
+            tEl.className = `freshness-chip ${bandClass(t)}`;
+            tEl.title = `Creator scoreboard (Brian S worker) pulled ${new Date(t).toLocaleString()}\nDate window: ${DATA.creators.date || '?'}`;
+        } else {
+            tEl.textContent = 'talent · —';
+            tEl.className = 'freshness-chip';
+        }
     }
 }
 
 function renderTalentScoreboard() {
     const c = DATA.creators;
-    if (!c) return;
     const totalsEl = document.getElementById('talentTotals');
+    const splitEl = document.getElementById('talentSplit');
+    const rosterEl = document.getElementById('talentFullRoster');
+    // Empty / pre-feature snapshot — clear out subsections and show explanation
+    if (!c || c._missing) {
+        const msg = (c && c._reason) || 'Creator Scoreboard data not available for this view.';
+        if (totalsEl) totalsEl.innerHTML = '';
+        if (splitEl) splitEl.innerHTML = `<div style="font-size:11.5px; color:var(--text-muted); padding:14px; background:var(--bg-input); border-radius:8px; text-align:center; font-style:italic;">${msg}</div>`;
+        if (rosterEl) rosterEl.innerHTML = '';
+        return;
+    }
     if (totalsEl && c.totals) {
         const t = c.totals;
         const hitColor = t.allHit > 0 ? 'var(--green)' : 'var(--text-muted)';
@@ -2908,7 +2932,6 @@ function renderTalentScoreboard() {
             </div>
         `;
     }
-    const splitEl = document.getElementById('talentSplit');
     if (splitEl) {
         const renderItem = (cr, kind) => {
             const podDim = cr.pod === 'OJ' ? 'var(--brand-oddsjam-dim)' : cr.pod === 'RW' ? 'var(--brand-rotowire-dim)' : 'var(--bg-input)';
@@ -2944,7 +2967,6 @@ function renderTalentScoreboard() {
             </div>
         `;
     }
-    const rosterEl = document.getElementById('talentFullRoster');
     if (rosterEl && c.midTier) {
         rosterEl.innerHTML = c.midTier.map(m => {
             const podColor = m.pod === 'OJ' ? 'var(--brand-oddsjam)' : m.pod === 'RW' ? 'var(--brand-rotowire)' : 'var(--text-muted)';
@@ -3361,6 +3383,9 @@ function applySnapshot(snap) {
     DATA.rw = snap.constants.DATA.rw;
     DATA.scorecard = snap.constants.DATA.scorecard;
     DATA.cycle = snap.constants.DATA.cycle;
+    // forecastMeta was added later — clear it out for snapshots that pre-date it so the chip
+    // doesn't misleadingly show today's forecast freshness while viewing an old week.
+    DATA.forecastMeta = snap.constants.DATA.forecastMeta || null;
     // Talent Scoreboard data was added 2026-05-29 — pre-existing snapshots lack `creators`.
     // Use a sentinel so the renderer can show an explicit empty state instead of stale today-data.
     DATA.creators = snap.constants.DATA.creators || { _missing: true, _reason: "Creator Scoreboard was added 2026-05-29; this snapshot pre-dates the feature." };
