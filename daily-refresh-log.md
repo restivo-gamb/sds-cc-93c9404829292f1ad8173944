@@ -1143,3 +1143,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - SKILL.md (scheduled-task) updated via mcp__scheduled-tasks__update_scheduled_task — new STEP 2(e) Creator Scoreboard pull, STEP 3 DATA.creators bullet, STEP 7 log fields, STEP 8 notification triggers (creator-goal-flip / pod-zero-cluster / cross-DM laggard / API fail), STEP 4 mentions renderTalentScoreboard as preserved infrastructure
 - Re-validated JS parses (343,464 chars, ok). Re-encrypted index.html (593,334 bytes; was 576,502 before today's edits)
 
+
+## 2026-05-30
+
+- Updated header timestamp → May 30, 2026.
+- forecastMeta.ingestedAt: unchanged (v11, no new xlsx — highest in gamb/finance/ is (11), matches forecast.json) · scorecard.lastSynced: 2026-05-30T05:30:00-07:00 · creators.ingestedAt: 2026-05-30T05:35:00-07:00.
+- Slack: FRESH (1-day window May 29→30, generated 08:40Z today, 31/31 DOM-scrape). Light Saturday. Key moves: Pinnacle reset to clean non-exclusive ($200K/yr flat, monthly, no escalation/upfront/per-client fees + client-blacklist mechanism) — offer OUT to Aleksandra, awaiting reply; Nick P FT "massive influencer" hire near-close (99%); Brian S waiting on Matt to sign off creator-scoreboard launch messaging; new at-risk surfaces: Clarity migration end-June (Rocky/Nikola not confident), Perplexity June 4 launch with no usage-billing, Stripe OO migration June 30 ownership gap. Optic pipeline: Betonline $59K/mo from July, chronobets $19K/mo won, Yahoo $40K CFB amendment exec ~next week.
+- Granola: NO file for yesterday (2026-05-29); latest note is 2026-05-28. Noted, proceeded.
+- Forecast: NO version move — v11 holds ($69.47M, F>B). Revenue Pulse static HTML untouched.
+- Scorecard: re-synced from C3 SCORECARD tab. Counts FLAT 3rd straight day (11G/52Y/1R/29NR/93T) — Pedro DM'd Matt 12:41 AM to hold scorecard-update asks until Monday AM sync, so no weekend pod-lead push. Silent-lead counters tick to 11 days: Brian S (8/8 GROWTH OPS NR), Brian R (BOOKIES AFF 4 + BETSYN 2). Intro paragraph refreshed.
+- Creator Scoreboard: API pulled via Chrome (curl/bash blocked, HTTP 000). Scored day still 2026-05-29 (5/30 not yet scored). Over: +EV Bettors 11 pts (only true hitter, 8 pushes). Edge: Billy C 9 pts. Laggards (0/0): John McKechnie (RW), James Anderson (RW), Clark Gary (OJ), Dustin (DGF). Data identical to yesterday's scored window — bumped ingestedAt only. McKechnie 0-post cross-refs 5/28 Tim DM (22-view stream).
+- Encrypted index.html (AES-256, 603,746 chars; plaintext 441,303 chars).
+- auto-push.log verification: FRESH — last entry 2026-05-30 12:49 UTC (within session, <24h).
+- Notification: none sent. No new red, forecast flat, scorecard flat; Pinnacle offer is Matt's own outbound (known), McKechnie zero is recurring/known. Silence appropriate.
