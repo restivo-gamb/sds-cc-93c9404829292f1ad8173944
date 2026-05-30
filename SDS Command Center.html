@@ -1268,6 +1268,38 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
             </div>
         </div>
 
+        <!-- Talent Scoreboard — daily creator-output signal pulled from Brian S's creator-scoreboard.workers.dev API -->
+        <div class="section" id="sec-talent">
+            <div class="section-header" onclick="toggleSection('sec-talent')">
+                <h2>Talent Scoreboard</h2>
+                <span class="freshness-chip" id="talentFreshness" title="Creator scoreboard ingestion timestamp">talent: &mdash;</span>
+                <span class="section-chevron">&#9660;</span>
+            </div>
+            <div class="section-body">
+                <div id="snap-talentIntro" style="font-size:11px; color:var(--text-muted); margin-bottom:10px; padding:6px 10px; background:var(--bg-input); border-radius:8px; border-left:3px solid var(--purple);">
+                    <strong>Daily creator content-points tracker</strong> &mdash; Source: <a href="https://creator-scoreboard-ui.pages.dev/" target="_blank" style="color:var(--purple); text-decoration:none; border-bottom:1px dashed var(--purple);">creator-scoreboard-ui.pages.dev</a> &middot; Brian S's worker, audited 9am &amp; 3pm ET. Goal = <strong>10 pts + at least 1 product push</strong>; caps force creators to mix formats. Watch for repeat zeros (cross-reference with Tim DMs / weekly LEADS asks).
+                </div>
+                <div id="talentTotals" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:12px;">
+                    <!-- Populated by JS -->
+                </div>
+                <div id="talentSplit" style="display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:10px;">
+                    <!-- Populated by JS — over- and under-performers -->
+                </div>
+                <details style="margin-top:6px;">
+                    <summary style="cursor:pointer; font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600; list-style:none; display:flex; align-items:center; gap:6px;">
+                        <span class="ts-chevron" style="display:inline-block; transition:transform 0.2s; font-size:10px;">&#9654;</span>
+                        Full Roster (13 creators)
+                    </summary>
+                    <div id="talentFullRoster" style="margin-top:8px; font-size:11.5px;">
+                        <!-- Populated by JS -->
+                    </div>
+                </details>
+                <style>
+                    details[open] > summary .ts-chevron { transform: rotate(90deg); }
+                </style>
+            </div>
+        </div>
+
         <!-- Quick Attention Summary -->
         <div class="section" id="sec-quickattn">
             <div class="section-header" onclick="toggleSection('sec-quickattn')">
@@ -2301,6 +2333,40 @@ const DATA = {
             insight: "Three verticals underperforming budget. OJ labor cost ratio jumped from 13% to 20% — <strong>headcount holding while revenue declines.</strong> Monitor whether Prediction Insiders revenue can offset B2C decline by Q2."
         }
     ],
+
+    // Creator Scoreboard — daily content-points pull from creator-scoreboard.brianstephens.workers.dev
+    // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
+    // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
+    creators: {
+        date: "2026-05-29",
+        ingestedAt: "2026-05-29T05:35:00-07:00",
+        totals: {
+            allPoints: 40, allHit: 1, allTotal: 13,
+            ojPoints: 20, ojTotal: 4,
+            rwPoints: 20, rwTotal: 8
+        },
+        // Sorted by points desc; goal-hitter at top
+        leaders: [
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 11, tweets: 12, replies: 5, likes: 174, rts: 14, onTarget: true, reason: "Active OddsJam tools push (Sharp Money, Prediction Traders) + Prediction Insiders across multiple posts. 8 product pushes." },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 9, tweets: 7, replies: 4, likes: 157, rts: 7, onTarget: false, reason: "Active OJ product push via dedicated posts + streams. 4 product pushes — just shy of 10-pt bar." }
+        ],
+        laggards: [
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "Zero posts today. Cross-ref: Matt → Tim DM 5/28 9:34 PM 'only 22 views on 1.5hr stream… is anyone looking at impact?' This is the same signal from a second source." },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 2, likes: 3, rts: 0, reason: "Zero qualifying posts. Only 2 reply-context RotoWire mentions, no promotional threads." },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 0, tweets: 0, replies: 2, likes: 8, rts: 0, reason: "Zero qualifying product pushes; 2 replies only." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "No posts today." }
+        ],
+        // Full roster mid-tier for context
+        midTier: [
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 6 replies · no product pushes" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 4, reason: "4 pts · game commentary + replies · 0 pushes" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 1 product push (RW Fantasy Baseball Podcast)" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 3, reason: "3 pts · 2 sports-analysis posts · 0 pushes" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 2, reason: "2 pts · 19 replies · 0 pushes (big reply volume, no product surface)" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 2, reason: "2 pts · 1 analysis post · 0 pushes" },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, reason: "Brand account · 0 posts today" }
+        ]
+    },
 
     // Cycle
     cycle: {
