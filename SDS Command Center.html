@@ -3037,7 +3037,9 @@ function renderMBRLiveScaffold() {
 function renderCycleProgress() {
     const start = new Date(DATA.cycle.start);
     const end = new Date(DATA.cycle.end);
-    const now = new Date();
+    // When viewing a snapshot, "now" should be the snapshot's capture date so the cycle
+    // progress reflects the historical state, not today. ACTIVE_AS_OF is set by applySnapshot.
+    const now = ACTIVE_AS_OF ? new Date(ACTIVE_AS_OF) : new Date();
     const total = end - start;
     const elapsed = Math.max(0, Math.min(now - start, total));
     const pct = Math.round((elapsed / total) * 100);
@@ -3046,6 +3048,10 @@ function renderCycleProgress() {
     document.getElementById('cycleProgress').style.width = pct + '%';
     document.getElementById('cycleWeek').textContent = `Week ${weekNum} of 6 — ${pct}% complete`;
 }
+
+// Tracks the "viewing as of" date — null for current-week (live), or the snapshot's capturedAt timestamp.
+// Read by renderCycleProgress and any other freshness-sensitive renders.
+let ACTIVE_AS_OF = null;
 
 // ═══════════════════════════════════════════════════
 // KPI RENDER
@@ -3371,6 +3377,9 @@ SNAPSHOT_FRAGMENT_IDS.forEach(id => {
 });
 
 function applySnapshot(snap) {
+    // Track "viewing as of" date so renderCycleProgress and freshness chips reflect the snapshot's
+    // historical state rather than today. null = current-week live mode.
+    ACTIVE_AS_OF = (snap !== CURRENT_STATE && snap.meta && snap.meta.capturedAt) ? snap.meta.capturedAt : null;
     // Overwrite global constants in place
     Object.assign(DATA, snap.constants.DATA);
     // Replace nested arrays/objects that Object.assign doesn't deeply merge
