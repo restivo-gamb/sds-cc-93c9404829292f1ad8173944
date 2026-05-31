@@ -1083,7 +1083,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong>Cycle 3 Wk3 D6 (Sat) &mdash; 64 of 93 priorities reporting (69%, flat for a 3rd straight day).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, re-synced via MCP 2026-05-30 05:30. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong>No weekend movement &mdash; by design:</strong> Pedro DM'd Matt 12:41 AM to <em>&ldquo;hold off on asking for scorecard updates on Monday&rdquo;</em> + &ldquo;connect Monday AM,&rdquo; so no pod-lead reporting push happened. Counts hold at 11G / 52Y / 1R / 29NR. <strong style="color:var(--red);">Silent-lead counters tick up &mdash; escalation candidates now 11 days dark:</strong> Brian S (GROWTH OPS, 8 of 8 blank &mdash; worst single-lead gap) and Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2). <strong style="color:var(--orange);">Red still open:</strong> Tyler H's BetSyndicate International Search Audit (&ldquo;complete but proposing to put any action on hold&rdquo;) &mdash; clarification still owed. Revisit the whole reporting cadence with Pedro at Monday AM sync.
+                    <strong>Cycle 3 Wk3 D7 (Sun) &mdash; 64 of 93 priorities reporting (69%, flat for a 4th straight day).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, re-synced via MCP 2026-05-31 05:30. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong>Second quiet weekend day &mdash; by design:</strong> Pedro DM'd Matt 5/30 12:41 AM to <em>&ldquo;hold off on asking for scorecard updates on Monday&rdquo;</em> + &ldquo;connect Monday AM,&rdquo; so the board is unchanged from Fri. Counts hold at 11G / 52Y / 1R / 29NR. <strong style="color:var(--red);">Silent-lead counters tick up &mdash; escalation candidates now 12 days dark:</strong> Brian S (GROWTH OPS, 8 of 8 blank &mdash; worst single-lead gap) and Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2). <strong style="color:var(--orange);">Red still open:</strong> Tyler H's BetSyndicate International Search Audit (&ldquo;complete but proposing to put any action on hold&rdquo;) &mdash; clarification still owed. <strong>Monday 6/1 AM Pedro sync</strong> (same day as V's surgery) is the reset point: reporting cadence + the two 12-day-dark escalations should finally get pushed.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1513,11 +1513,12 @@ const DATA = {
     //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
     //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
     // Cycle 3 (WK3 D5 · Fri) = 93 total priorities across ~20 pod-lead assignments. Status: 11 Greens / 52 Yellows / 1 Red / 29 NotReported.
-    // ─── MOVEMENT vs 2026-05-29 sync (11G / 52Y / 1R / 29NR / 93T) ────────────────────────────────────────────
-    //   Re-synced 2026-05-30 05:30. Counts FLAT for a 3rd straight day (11G / 52Y / 1R / 29NR / 93T) — no G/Y/R/NR threshold transitions.
-    //   Expected: Pedro DM (12:41 AM) told Matt to "hold off on asking for scorecard updates on Monday" + "connect Monday AM" — so no
+    // ─── MOVEMENT vs 2026-05-30 sync (11G / 52Y / 1R / 29NR / 93T) ────────────────────────────────────────────
+    //   Re-synced 2026-05-31 05:30. Counts FLAT for a 4th straight day (11G / 52Y / 1R / 29NR / 93T) — no G/Y/R/NR threshold transitions.
+    //   Expected: Pedro DM (5/30 12:41 AM) told Matt to "hold off on asking for scorecard updates on Monday" + "connect Monday AM" — so no
     //   pod-lead reporting push happened over the weekend; the sheet is unchanged from Fri. Silent leads' day-counters tick up:
-    //   Brian S now 11 days silent (8/8 GROWTH OPS NR), Brian R now 11 days silent (BOOKIES AFF 4 + BETSYN 2). Karl O'Brien 4 NR holding.
+    //   Brian S now 12 days silent (8/8 GROWTH OPS NR), Brian R now 12 days silent (BOOKIES AFF 4 + BETSYN 2). Karl O'Brien 5 NR holding.
+    //   Monday 6/1 AM Pedro sync (same day as V surgery) is when the reporting-cadence reset + escalation push should finally land.
     // ─── BIG MOVERS THIS WEEK (vs 5/21 baseline) ─────────────────────────────────────────────────────────────
     //   ✅ Steven (ODDS DATA): new Websocket architecture YESTERDAY 5/28 marked "Completed" — second Green for the pod, on top of Polymarket ingestion finish
     //   ⚠️ Brian S (GROWTH OPS): 8 NR → 8 NR — STILL fully silent, all 8 priorities blank · 10 days since any update (worst single-lead reporting gap)
@@ -1526,11 +1527,11 @@ const DATA = {
     //   ⚠️ Tyler Huntington's RED is "BetSyndicate International Search audit complete but PROPOSING TO PUT ANY ACTION ON HOLD" — still unresolved, worth a 5-min clarification
     scorecard: {
         green: 11, yellow: 52, red: 1, notReported: 29, total: 93,
-        prevGreen: 11, prevYellow: 52, prevRed: 1, // Prev = 2026-05-28 sync (11G / 52Y / 1R / 29NR / 93T) — counts flat WoW; Updated dates moved
+        prevGreen: 11, prevYellow: 52, prevRed: 1, // Prev = 2026-05-30 sync (11G / 52Y / 1R / 29NR / 93T) — counts flat 4th day; Pedro paused weekend updates
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-05-30T05:30:00-07:00",   // ISO 8601 w/ TZ offset
-        prevSynced: "2026-05-29T05:30:00-07:00",   // for "X days fresher" delta
+        lastSynced: "2026-05-31T05:30:00-07:00",   // ISO 8601 w/ TZ offset
+        prevSynced: "2026-05-30T05:30:00-07:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
