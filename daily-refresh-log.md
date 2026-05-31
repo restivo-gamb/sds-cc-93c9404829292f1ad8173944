@@ -1156,3 +1156,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256, 603,746 chars; plaintext 441,303 chars).
 - auto-push.log verification: FRESH — last entry 2026-05-30 12:49 UTC (within session, <24h).
 - Notification: none sent. No new red, forecast flat, scorecard flat; Pinnacle offer is Matt's own outbound (known), McKechnie zero is recurring/known. Silence appropriate.
+
+## 2026-05-31
+
+- Updated header timestamp → May 31, 2026.
+- forecastMeta.ingestedAt: 2026-05-28T09:20:00-07:00 (UNCHANGED — v11 holds, no new xlsx; chip now ~3d, neutral/yellow — accurate) · scorecard.lastSynced: 2026-05-31T05:30:00-07:00 · creators.ingestedAt: 2026-05-31T05:35:00-07:00
+- Slack: NO new overnight scan — canonical files still "May 29 – May 30" (1-day window, gen 2026-05-30T08:40Z, ~29h old). Within 48h, not stale. Same content already absorbed in the 5/30 refresh; no new pod-lead signal. Matt's-court items rolled forward unchanged (Pinnacle offer out, FT influencer, Brian S scoreboard sign-off, Randall 1:1).
+- Granola: NO notes for 2026-05-30 (Saturday — no meetings). Noted, proceeded.
+- Forecast: NO version move. gamb/finance/ highest file = (11); forecast.json _meta.latest_version = v11. Match. Static Revenue Pulse HTML + forecastMeta left untouched (correct — no move).
+- Scorecard: re-synced via Drive MCP (fileId 1jlW…G5g4). Counts FLAT 4th straight day: 11G / 52Y / 1R / 29NR / 93T (vs 5/30 sync 11/52/1/29/93). Pedro paused weekend update-asks (5/30 12:41 AM DM) → board frozen until Monday 6/1 AM sync. Silent-lead day-counters bumped: Brian S + Brian R now 12 days dark; Karl O'Brien 5 NR. Comment block + #snap-scorecardIntro refreshed to Wk3 D7 (Sun); prevSynced bumped to 2026-05-30.
+- Creator Scoreboard: API blocked via curl (proxy allowlist) → pulled via Claude in Chrome. 5/30 scored day. Over/under: 1 true hitter (+EV Bettors 11 pts/13 pushes, OJ), 5 zero-output laggards surfaced (McKechnie 2nd day 0 + cross-ref Tim 5/28 DM; Jeff Erickson, James Anderson, Nick Whalen, Dustin), RW pod 6-of-8 dark (weekend pattern). Billy C slid 9→5. Totals: all 22 pts / 1 hit / 13; OJ 17/4; RW 5/8.
+- Encrypted index.html (AES-256, 609,610 chars; plaintext 445,642 chars). JS parse: ok.
+- auto-push.log verification: HEALTHY — multiple "Daily refresh 2026-05-31" commits + pushes today (latest fb5d0b7, 08:36:50 local), deploys working within 24h.
+- Notification: HELD. Quiet-weekend hold — no forecast move, no new red, scorecard flat, no new Slack/Granola. Borderline creator triggers (McKechnie 0 named-in-DM; RW pod >50% zero) are weekend-dormancy patterns already surfaced 5/30 and unchanged — not material; respected "don't spam."
