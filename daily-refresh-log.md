@@ -1169,3 +1169,15 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256, 609,610 chars; plaintext 445,642 chars). JS parse: ok.
 - auto-push.log verification: HEALTHY — multiple "Daily refresh 2026-05-31" commits + pushes today (latest fb5d0b7, 08:36:50 local), deploys working within 24h.
 - Notification: HELD. Quiet-weekend hold — no forecast move, no new red, scorecard flat, no new Slack/Granola. Borderline creator triggers (McKechnie 0 named-in-DM; RW pod >50% zero) are weekend-dormancy patterns already surfaced 5/30 and unchanged — not material; respected "don't spam."
+
+## 2026-06-02
+
+- Updated header timestamp → June 2, 2026.
+- forecastMeta.ingestedAt: 2026-05-28T09:20:00-07:00 (unchanged — forecast holds v11, no new xlsx; highest file in gamb/finance/ is still (11)) · scorecard.lastSynced: 2026-06-02T05:30:00-07:00 · creators.ingestedAt: 2026-06-02T05:35:00-07:00
+- Slack: STALE — newest canonical scan is the 5/30→5/31 window (generated 5/31 07:40Z, ~2 days old, past 48h guardrail). No scan for 6/1 or 6/2. Flagged stale across pipelineNote, scorecard intro, top keyTheme, keyDates TODAY entry, and the Pinnacle attention card; did not mechanically invent new attention cards.
+- Granola: no notes for yesterday (6/1, Mon); latest vault note is 2026-05-28. Noted as missing/proceeded.
+- Forecast: no version move — v11 holds ($69.47M, F>B, +21.75% YoY). No static Revenue Pulse HTML changes.
+- Scorecard sync: re-pulled C3 SCORECARD via Drive MCP successfully. Counts FLAT — 11G / 52Y / 1R / 29NR / 93T (no movement vs 5/31). Monday 6/1 Pedro cadence reset has not surfaced as fresh status. Brian S (8/8 GROWTH OPS NR) + Brian R (BOOKIES AFF 4 + BETSYN 2 NR) now 14 days dark = hard escalation candidates. Tyler H Red (BetSyndicate Intl Search Audit "on hold") still open. Bumped lastSynced/prevSynced; refreshed intro paragraph + comment block + yellowLeaders day-counters.
+- Creator Scoreboard: API pull via Chrome OK (bash curl blocked by sandbox network). 6/1 scored day rebounded — 2 true goal-hitters (Dustin 15 pts DGF / 4 pushes; +EV Bettors 12 pts OJ / 8 pushes). allPoints 76, allHit 2/13. OJ 26 pts/4; RW 35 pts/8. Laggards (0 pts & 0 tweets): James Anderson (RW), Erik Halterman (RW) — RW weekend blackout cleared otherwise. McKechnie back posting (4 pts) but no product push — cross-ref to Matt→Tim 5/28 DM kept in reason. No creator notification trigger fired (no goal→0 flip captured, neither pod >50% zero, McKechnie not a 0-laggard).
+- Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K, 615,074 chars; plaintext 449,643 chars). JS parse check: ok.
+- auto-push.log verification: most recent entry 2026-06-02 05:41:53 (within 24h) — deploy pipeline healthy.
