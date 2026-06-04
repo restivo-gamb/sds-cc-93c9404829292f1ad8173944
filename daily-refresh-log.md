@@ -1194,3 +1194,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 620,514 chars). Byte count matches plaintext source (453,642 chars in).
 - auto-push.log verification: HEALTHY — launchd agent committed + pushed "Daily refresh 2026-06-03" (bcd85c8) this run.
 - Notification: SENT (Slack stale Day 3 + Creator Scoreboard API down — both operational/data-source flags Matt should know about).
+
+## 2026-06-04
+
+- Updated header timestamp: June 3 → June 4, 2026
+- forecastMeta.ingestedAt: unchanged (v11, 2026-05-28T09:20:00-07:00, no new xlsx found) · scorecard.lastSynced: 2026-06-04T05:30:00-07:00 · creators.ingestedAt: 2026-06-04T05:30:00-07:00
+- Slack-driven: Perplexity launch live today (6/4 6am EST BusinessWire, 5 embargo outlets); Leo Barker SBC Americas win; Google Cloud $25k/mo overrun flagged (Matt→Rohan, no reply yet); Pinnacle still down (~400 OJ churn risk, no ETA); Ian Hartitz close imminent (Kevin: "sounds like Ian is in", no written close yet); Craig bumped Bookies FY forecast +$600K (not yet in new xlsx); BetSyndicate wind-down needs Craig call.
+- Granola: Vault not mounted — no Granola notes for Jun 3. Skipped.
+- Forecast: No new xlsx found (gamb/finance/ not mounted; Drive search returned empty for files newer than 2026-05-28). Forecast holds v11 ($69.47M, F>B, +21.75% YoY). forecastMeta unchanged.
+- Scorecard sync: G=12, Y=54 (+2), R=1, NR=28 (unchanged), total=95 (+2). Prev: 12G/52Y/1R/28NR/93T (Jun 3). NR delta = 0. Brian S (8/8 Growth Ops) and Brian R (Bookies Aff 4 + BetSyn 2) still never posted — force-update via Pedro overdue. Intro paragraph refreshed.
+- Creator Scoreboard (API via Chrome, 2026-06-04): ZERO true hitters. Board total 34 pts across 13. Jim Coventry closest at 9 pts (1 short, edge-of-goal in leaders). Laggards (0 pts, no posts): Billy C (OJ), Barutha (RW), Halterman (RW), OddsJam brand (OJ). No goal-to-zero flips (EVBettors 17→3, not 0; Clark 10→3, not 0; Jim 11→9, not 0). OJ pod zeros = 2/4 = 50% exactly (threshold >50%, not triggered).
+- pipelineNote, scorecardIntro, keyThemes, keyDates all updated for Jun 4 / Perplexity launch / Google Cloud overrun context.
+- NOTE: File corruption occurred during pipelineNote edit (checkpoint 6 — p_tag misidentified as p element, truncated file to 43KB). Recovered from git commit 9b23013 (checkpoint 4 state) and re-applied checkpoints 5+6 correctly via div-depth counting. All 14 validation checks passed.
+- Encrypted index.html (AES-256-CBC, 614,974 bytes from 449,574 chars).
+- auto-push.log verification: last push 2026-06-04 10:17:47 — FRESH ✓
+- Slack notification: NOT SENT — no triggers met (no new red cards, no forecast bump, NR delta=0, no creator goal-to-zero flips, no pod >50% zero, auto-push healthy, encryption succeeded).
