@@ -1083,7 +1083,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong>Cycle 3 Wk4 D2 (Tue) &mdash; 64 of 93 priorities reporting (69%, still flat).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, re-synced via MCP 2026-06-02 05:30. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong style="color:var(--orange);">The Monday 6/1 Pedro sync did not move the board:</strong> counts still hold at 11G / 52Y / 1R / 29NR through this morning's pull &mdash; the cadence reset Pedro committed to has not yet shown up as fresh status. <strong style="color:var(--red);">Silent-lead counters now 14 days dark:</strong> Brian S (GROWTH OPS, 8 of 8 blank &mdash; worst single-lead gap) and Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2) &mdash; these have not reported since 5/19 and are now hard escalation candidates. <strong style="color:var(--orange);">Red still open:</strong> Tyler H's BetSyndicate International Search Audit (&ldquo;complete but proposing to put any action on hold&rdquo;) &mdash; clarification still owed. <strong>Action:</strong> with V's surgery behind (Mon 6/1) and Pedro back, push Pedro to force-update the two 14-day-dark leads and confirm the reporting cadence actually restarted.
+                    <strong>Cycle 3 Wk4 D3 (Wed) &mdash; 65 of 93 priorities reporting (70%, first nudge in a week).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro's sheet, re-synced via MCP 2026-06-03 05:30. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong style="color:var(--green);">The cadence reset is finally surfacing:</strong> NR 29 &rarr; 28, G 11 &rarr; 12, and multiple pods posted fresh 6/1 status (Craig Cummings, Ryan Weinstock, Talent [Brian S/DJ], RW Features, RW News, B2C CS) &mdash; classifications mostly held but reporting recency improved. <strong style="color:var(--red);">Two leads still fully dark (15 days):</strong> Brian S (GROWTH OPS, 8 of 8 blank &mdash; worst single-lead gap) and Brian R (BOOKIES AFF 4/4 + BETSYNDICATE 2/2) &mdash; never reported, hard escalation candidates. <strong style="color:var(--orange);">Individual rows 9&ndash;16 days stale:</strong> Samuel Hill (Optic Mktg, 5/18), Matt Kulina + Vincenzo A (RW Product, 5/18), Karl O'Brien (Optic Product, 5/25). <strong style="color:var(--orange);">Red still open:</strong> Tyler H's BetSyndicate International Search Audit (&ldquo;complete but proposing to put any action on hold&rdquo;) &mdash; clarification still owed. <strong>Action:</strong> force-update the two 15-day-dark Brians and confirm the cadence restart holds beyond a single week.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1513,11 +1513,11 @@ const DATA = {
     //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
     //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
     // Cycle 3 (WK3 D5 · Fri) = 93 total priorities across ~20 pod-lead assignments. Status: 11 Greens / 52 Yellows / 1 Red / 29 NotReported.
-    // ─── MOVEMENT vs 2026-05-31 sync (11G / 52Y / 1R / 29NR / 93T) ────────────────────────────────────────────
-    //   Re-synced 2026-06-02 05:30. Counts STILL FLAT (11G / 52Y / 1R / 29NR / 93T) — no G/Y/R/NR threshold transitions.
-    //   The Monday 6/1 Pedro sync (planned cadence reset, same day as V's surgery) did NOT move the board through this morning's pull.
-    //   Silent leads' day-counters now hard: Brian S 14 days silent (8/8 GROWTH OPS NR), Brian R 14 days silent (BOOKIES AFF 4 + BETSYN 2).
-    //   Karl O'Brien 4-5 NR holding. With V's surgery behind and Pedro back, the force-update + escalation push is overdue, not pending.
+    // ─── MOVEMENT vs 2026-06-02 sync (11G / 52Y / 1R / 29NR / 93T) ────────────────────────────────────────────
+    //   Re-synced 2026-06-03 05:30. Counts NUDGED: 12G / 52Y / 1R / 28NR / 93T — NR 29 → 28 (−1), G 11 → 12 (+1). First movement off the frozen board in a week.
+    //   The cadence reset is FINALLY surfacing as fresher Updated dates: multiple pods posted 6/1 status (Craig Cummings, Ryan Weinstock, Talent [Brian S/DJ], RW Features [Jason T/Tim S], RW News [Kevin O/Tim S], B2C CS [Randall K/Bryan R]). Classifications mostly held but reporting recency improved.
+    //   Silent leads still dark: Brian S GROWTH OPS (8/8 NR, no date ever) and Brian R (BOOKIES AFF 4 + BETSYN 2, no date ever) — now 15 days dark. Hard escalation candidates.
+    //   Individual-row 9+ day stale: Samuel Hill (OPTIC MKTG, 5/18 · 16d), Matt Kulina + Vincenzo A (RW PRODUCT, 5/18 · 16d), Karl O'Brien (OPTIC PRODUCT, 5/25 · 9d). With V's surgery behind and Pedro back, the force-update push is overdue.
     // ─── BIG MOVERS THIS WEEK (vs 5/21 baseline) ─────────────────────────────────────────────────────────────
     //   ✅ Steven (ODDS DATA): new Websocket architecture YESTERDAY 5/28 marked "Completed" — second Green for the pod, on top of Polymarket ingestion finish
     //   ⚠️ Brian S (GROWTH OPS): 8 NR → 8 NR — STILL fully silent, all 8 priorities blank · 14 days since any update (worst single-lead reporting gap)
@@ -1525,12 +1525,12 @@ const DATA = {
     //   ⚠️ Karl O'Brien (OPTIC PRODUCT): 4 NR holding from last sync (Stripe sep account, Monitoring Dashboard, Sportsbook-as-Sales-Asset, Support revamp); no new reporting in 12 days
     //   ⚠️ Tyler Huntington's RED is "BetSyndicate International Search audit complete but PROPOSING TO PUT ANY ACTION ON HOLD" — still unresolved, worth a 5-min clarification
     scorecard: {
-        green: 11, yellow: 52, red: 1, notReported: 29, total: 93,
-        prevGreen: 11, prevYellow: 52, prevRed: 1, // Prev = 2026-05-31 sync (11G / 52Y / 1R / 29NR / 93T) — counts STILL flat through the 6/2 re-pull; Monday Pedro reset did not move the board yet
+        green: 12, yellow: 52, red: 1, notReported: 28, total: 93,
+        prevGreen: 11, prevYellow: 52, prevRed: 1, // Prev = 2026-06-02 sync (11G / 52Y / 1R / 29NR / 93T) — 6/3 re-pull nudged NR 29→28, G 11→12; cadence reset surfacing as fresher 6/1 Updated dates
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-06-02T05:30:00-07:00",   // ISO 8601 w/ TZ offset
-        prevSynced: "2026-05-31T05:30:00-07:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-03T05:30:00-07:00",   // ISO 8601 w/ TZ offset
+        prevSynced: "2026-06-02T05:30:00-07:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
