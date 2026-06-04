@@ -1181,3 +1181,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Creator Scoreboard: API pull via Chrome OK (bash curl blocked by sandbox network). 6/1 scored day rebounded — 2 true goal-hitters (Dustin 15 pts DGF / 4 pushes; +EV Bettors 12 pts OJ / 8 pushes). allPoints 76, allHit 2/13. OJ 26 pts/4; RW 35 pts/8. Laggards (0 pts & 0 tweets): James Anderson (RW), Erik Halterman (RW) — RW weekend blackout cleared otherwise. McKechnie back posting (4 pts) but no product push — cross-ref to Matt→Tim 5/28 DM kept in reason. No creator notification trigger fired (no goal→0 flip captured, neither pod >50% zero, McKechnie not a 0-laggard).
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K, 615,074 chars; plaintext 449,643 chars). JS parse check: ok.
 - auto-push.log verification: most recent entry 2026-06-02 05:41:53 (within 24h) — deploy pipeline healthy.
+
+## 2026-06-03
+
+- Updated header timestamp "June 2, 2026" → "June 3, 2026"
+- forecastMeta.ingestedAt: 2026-05-28T09:20:00-07:00 (unchanged, v11 holds) · scorecard.lastSynced: 2026-06-03T05:30:00-07:00 · creators.ingestedAt: 2026-06-02T05:35:00-07:00 (NOT bumped — API unreachable, see below)
+- Slack: STALE Day 3. Newest canonical scan still the 5/30→5/31 window; no 6/1 or 6/2 scan captured. Attention cards held as carry-forward (not mechanically refreshed). Flagged in pipeline note, keyThemes, keyDates.
+- Granola: no note for yesterday (6/2); latest vault note is 2026-05-28. Nothing to ingest.
+- Forecast: no new xlsx. Canonical gamb/finance/ tops out at (11); legacy project folder has none. forecast.json _meta.latest_version = v11. No version move — Revenue Pulse static HTML left as-is (still v11 / $69.47M).
+- Scorecard sync: SUCCESS via Drive MCP. C3 SCORECARD re-parsed (93 rows). Counts NUDGED vs 6/2: NR 29→28 (−1), G 11→12 (+1); Y 52, R 1 flat. Reporting 64→65 of 93 (70%). First movement off the frozen board in a week — cadence reset surfacing as fresh 6/1 Updated dates (Craig Cummings, Ryan Weinstock, Talent [Brian S/DJ], RW Features, RW News, B2C CS). Brian S (Growth Ops 8/8) + Brian R (Bookies Aff 4 + BetSyn 2) still fully dark → now 15 days, ESCALATION CANDIDATES. Individual rows 9–16d stale: Samuel Hill, Matt Kulina, Vincenzo A (5/18), Karl O'Brien (5/25). Updated scorecard DATA, comment block, yellowLeaders, #snap-scorecardIntro, pipeline note, keyThemes, keyDates.
+- Creator Scoreboard: API FAILED this run — worker endpoint network-blocked from the shell (HTTP 000) AND Claude-in-Chrome extension disconnected. Per guardrail: DATA.creators carried forward, ingestedAt NOT bumped (chip ages to ~1d, will redden if it keeps failing). Flagged in pipeline note + keyThemes + notification.
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 620,514 chars). Byte count matches plaintext source (453,642 chars in).
+- auto-push.log verification: HEALTHY — launchd agent committed + pushed "Daily refresh 2026-06-03" (bcd85c8) this run.
+- Notification: SENT (Slack stale Day 3 + Creator Scoreboard API down — both operational/data-source flags Matt should know about).
