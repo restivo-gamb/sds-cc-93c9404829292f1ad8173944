@@ -820,7 +820,7 @@
             <span>|</span>
             <span>17 pods &middot; 140+ people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: June 4, 2026</span>
+            <span id="lastUpdated">Updated: June 5, 2026</span>
         </div>
     </div>
 
@@ -1525,12 +1525,12 @@ const DATA = {
     //   ⚠️ Karl O'Brien (OPTIC PRODUCT): 4 NR holding from last sync (Stripe sep account, Monitoring Dashboard, Sportsbook-as-Sales-Asset, Support revamp); no new reporting in 12 days
     //   ⚠️ Tyler Huntington's RED is "BetSyndicate International Search audit complete but PROPOSING TO PUT ANY ACTION ON HOLD" — still unresolved, worth a 5-min clarification
     scorecard: {
-        green: 12, yellow: 54, red: 1, notReported: 28, total: 95,
-        prevGreen: 12, prevYellow: 52, prevRed: 1, // Prev = 2026-06-03 sync (12G / 52Y / 1R / 28NR / 93T) — 6/4 re-pull: Y 52→54, total 93→95 (2 new items added), NR unchanged
+        green: 11, yellow: 53, red: 1, notReported: 28, total: 93,
+        prevGreen: 12, prevYellow: 54, prevRed: 1, // Prev = 2026-06-04 sync (12G / 54Y / 1R / 28NR / 95T) — 6/5 re-pull: G 12→11 (−1), Y 54→53 (−1), total 95→93 (−2); NR unchanged at 28
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-06-04T05:30:00-07:00",   // ISO 8601 w/ TZ offset
-        prevSynced: "2026-06-03T05:30:00-07:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-05T05:30:00-07:00",   // ISO 8601 w/ TZ offset
+        prevSynced: "2026-06-04T05:30:00-07:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
@@ -2345,33 +2345,34 @@ const DATA = {
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
         date: "2026-06-04",
-        ingestedAt: "2026-06-04T05:30:00-07:00",
+        ingestedAt: "2026-06-05T05:30:00-07:00",
         totals: {
-            allPoints: 34, allHit: 0, allTotal: 13,
-            ojPoints: 6, ojTotal: 4,
-            rwPoints: 24, rwTotal: 8
+            allPoints: 102, allHit: 6, allTotal: 13,
+            ojPoints: 25, ojTotal: 4,
+            rwPoints: 60, rwTotal: 8
         },
-        // ZERO true hitters Thu 6/4 — board dropped sharply from Wed's partial comeback. Jim Coventry at 9 pts leads but fell 1 short. EVBettors dropped from 17 (on-target Wed) to 3. 4 zero-post laggards: Billy C, Barutha, Halterman, OddsJam brand.
+        // 6 TRUE HITTERS Fri 6/5 (scoring 6/4 day) — strong rebound after Wed zero-hitter board. Dustin leads at 17 pts. RW pod dominant: Jim Coventry (13), McKechnie (11 — cross-ref Tim DM concern, hitting goal today), Jeff Erickson (11), Jagger (10). EVBettors carries OJ at 10. Only laggard: OddsJam brand account (0 posts). No creator named in active Matt DMs shows as zero today.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 9, tweets: 9, replies: 37, likes: 66, rts: 5, onTarget: false, reason: "Edge of goal — promoted RotoWire rankings for DJ Moore fantasy analysis (video post). 9 pts, 1 product push, 1 pt short of target." }
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 17, tweets: 14, replies: 12, likes: 469, rts: 23, onTarget: true, reason: "Actively promoted OddsJam with dedicated pushes including code DUSTIN for discount" },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 6, replies: 36, likes: 69, rts: 4, onTarget: true, reason: "Actively promoted RotoWire through multiple posts naming the platform, linking to rankings and podcasts" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 11, tweets: 6, replies: 9, likes: 37, rts: 3, onTarget: true, reason: "Actively promoted RotoWire Best Ball simulator and podcast/YouTube channel in dedicated posts" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 11, tweets: 6, replies: 6, likes: 19, rts: 0, onTarget: true, reason: "Actively promoted RotoWire shows and Dynasty Rankings with explicit promo code" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 10, tweets: 6, replies: 51, likes: 215, rts: 9, onTarget: true, reason: "Actively promoted a live RotoWire stream with specific time and co-host announcement" },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 10, tweets: 6, replies: 8, likes: 191, rts: 15, onTarget: true, reason: "Actively promoted OddsJam Fantasy Optimizer, Prediction Traders, and Sharp Money tools throughout the day" }
         ],
         laggards: [
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "No posts today — silent after 7 pts on Wednesday." },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "No posts today — silent after 6 pts on Wednesday." },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "No posts today — 3rd consecutive zero; Tim/DJ nudge overdue." },
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, reason: "Brand account dark today — no posts." }
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 1, rts: 0, reason: "Brand account dark — single generic DM request post, no qualifying product promotion" }
         ],
         // Full roster mid-tier for context
         midTier: [
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 6, reason: "6 pts · 4 tweets · 7 replies · 1 push — RotoWire promo code (15% off) posted; 2 more threads needed for goal" },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 4, reason: "4 pts · 14 tweets · 10 replies · 0 pushes — active but no qualifying product push today" },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 3, reason: "3 pts · 15 tweets · 19 replies · 1 push — dropped from 17 on-target Wed; 1 OddsJam mention insufficient" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 3, reason: "3 pts · 7 tweets · 8 replies · 0 pushes — no qualifying product promotion" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 3, reason: "3 pts · 6 tweets · 10 replies · 0 pushes — general draft strategy, no product surface; KOB accountability plan pending" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 3, reason: "3 pts · 4 tweets · 0 replies · 1 push — Smokin' Sixteen post, still under goal; Tim/KOB following up" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 2, reason: "2 pts · 5 tweets · 28 replies · 0 pushes — massive engagement (928 likes) but zero product surface" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 1, reason: "1 pt · 4 tweets · 5 replies · 0 pushes — link-only posts, no promotional content" }
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 8, reason: "8 pts · 4 tweets · 6 replies · 1 product push" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 7, reason: "7 pts · 4 tweets · 4 replies · 1 push — RotoWire Best Ball hub direct callout" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 7, reason: "7 pts · 4 tweets · 1 reply · 3 pushes — multiple OddsJam tool posts" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 0 replies · 1 push — RotoWire Fantasy Baseball Podcast" },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 3, reason: "3 pts · 1 tweet · 0 replies · 1 push — Smokin' Sixteen post" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 1 reply · 0 pushes — no qualifying product pushes" }
         ]
+    },
     },
 
     // Cycle
