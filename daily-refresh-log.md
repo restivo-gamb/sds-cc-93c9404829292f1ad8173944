@@ -1209,3 +1209,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC, 614,974 bytes from 449,574 chars).
 - auto-push.log verification: last push 2026-06-04 10:17:47 — FRESH ✓
 - Slack notification: NOT SENT — no triggers met (no new red cards, no forecast bump, NR delta=0, no creator goal-to-zero flips, no pod >50% zero, auto-push healthy, encryption succeeded).
+
+## 2026-06-05
+
+- Updated header timestamp: June 4, 2026 → June 5, 2026
+- forecastMeta.ingestedAt: holds at 2026-05-28T09:20:00-07:00 (v11) · scorecard.lastSynced: 2026-06-05T05:30:00-07:00 · creators.ingestedAt: 2026-06-05T05:30:00-07:00
+- Slack scan fresh (Jun 4–Jun 5, generated 2026-06-05T01:30:00-04:00) — 31/31 channels captured via MCP fallback; DOM-scrape continues to miss virtual scroll; no stale flag.
+- Granola notes: 0 new files overnight. Latest remains 2026-05-28.
+- Forecast pickup: v12 detected by overnight ingest (file: "2026 SDS Revenue & Forecasting v12.xlsx" in gamb/finance/ per SDS Daily Ingest 2026-06-05) but CANNOT BE PARSED — Obsidian Vault not mounted in dashboard session. Holding at v11 ($69.47M, F>B, +21.75% YoY). NOTE: forecastMeta.version stays "v11"; v12 parse pending vault mount. Static Revenue Pulse HTML unchanged.
+- Scorecard sync (2026-06-05 05:30): C3 SCORECARD via Drive MCP. G:12→11 (−1), Y:54→53 (−1), R:1 (unchanged), NR:28 (unchanged), Total:95→93 (−2). NR delta = 0. 9+ day stale escalation candidates: Brian S GROWTH OPS (8/8 NR, 16d), Brian R BOOKIES AFF+BETSYNDICATE (6/6 NR, 16d), Samuel Hill OPTIC MARKETING (18d), Steven ODDS DATA (16d), Karl O'Brien OPTIC PRODUCT (11d). Scorecard intro paragraph refreshed.
+- Creator Scoreboard (6/4 scored day): 6 true hitters (Dustin 17, Jim Coventry 13, McKechnie 11, Jeff Erickson 11, Jagger 10, +EV Bettors 10); 1 laggard (OddsJam brand, 0 pts/0 tweets); 6 mid-tier. RW pod dominant (5 of 6 hitters). OJ pod: only EVBettors on target. No creator named in active Matt DMs at zero. Strong rebound from 6/3 scored day's 0-hitter board.
+- Attention cards: June 4 TODAY→recap; June 5 TODAY entry inserted (Theo backing away, Pohle strike 2, rollcard VIP sprint, v12 pending, Perplexity shipped). yellowLeaders rebuilt (10 entries).
+- Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K iterations, 617,846 bytes).
+- auto-push.log verification: FRESH — last push 2026-06-05 03:48:52 (commit cf7098a "Daily refresh 2026-06-05"), <2h before this refresh. System healthy.
