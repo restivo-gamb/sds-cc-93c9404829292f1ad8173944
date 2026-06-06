@@ -1234,3 +1234,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - WoW snap HTML replaced: v12 vs v11 narrative (+$635K total, Bookies +12.6% top mover).
 - keyThemes: v12 WoW entry prepended. Pipeline note heading + body updated.
 - Encrypted index.html (617,058 bytes).
+
+## 2026-06-06
+
+- Updated header timestamp: June 5, 2026 → June 6, 2026
+- forecastMeta.ingestedAt: unchanged (2026-06-05T05:30:00-07:00, v12) · scorecard.lastSynced: 2026-06-06T05:30:00-07:00 · creators.ingestedAt: 2026-06-06T05:30:00-07:00
+- Slack scan files: STALE DAY 6 — most recent files from May 30–31 (2026-05-31 12:43). No new channel signal. Not carrying attention cards forward mechanically.
+- Granola: No 2026-06-05 files found in Obsidian Vault/_granola/.
+- Forecast: v12 already current ($70.10M). No new xlsx found in gamb/finance/. No update to forecast constants or static Revenue Pulse HTML.
+- Scorecard sync (2026-06-06 05:30): G 11→14 (+3), Y 53→51 (−2), R 1→0 (−1), NR unchanged 28, total 93. Nick P delivered DraftBot suite to Green (5 RW Product items updated 6/5: Submit-to-Site, Draft Plans v2, Draft Analysis v2, Football App MyLeagues IA + Freemium, Homepage UI Highlight Tools). Tyler H International Search Audit reclassified Green (audit complete, action on hold). Red drops to 0. Intro paragraph refreshed. yellowLeaders updated (+1 day stale counts; Brian S + Brian R now 18d; Karl 12d; Samuel Hill 19d; Nick P updated to 8G/fresh 6/5).
+- Creator Scoreboard (2026-06-06T14:49:23Z / 7:49am MDT, AM-only pull): 0 true hitters today (early Saturday). Yesterday (6/5 scored day): 4 hitters — Dustin (14), Jim (14), EVBettors (13), Clark Gary (11). Today: Jim (1pt), EVBettors (1pt), McKechnie (1pt), 10 others at 0. Notification flags: Dustin + Clark Gary on_target yesterday → 0 today (AM only); OJ 3/4 at zero; RW 6/8 at zero. DATA.creators fully refreshed.
+- cycle.keyDates: June 5 TODAY → recap; new June 6 TODAY entry added.
+- keyThemes[0]: new June 6 entry added.
+- Pipeline Note updated for Wk4 D6 (Sat).
+- Encrypted index.html: AES-256-CBC · PBKDF2-SHA256 · 250,000 iterations · 618,250 chars output.
+- auto-push.log verification: Last successful push 2026-06-06 10:36:54 ✓ (within 24h). Note: DNS failure logged at 06:01:19 (no-change run, transient, later resolved). Dashboard deployed.
