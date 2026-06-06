@@ -1222,3 +1222,15 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Attention cards: June 4 TODAY→recap; June 5 TODAY entry inserted (Theo backing away, Pohle strike 2, rollcard VIP sprint, v12 pending, Perplexity shipped). yellowLeaders rebuilt (10 entries).
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K iterations, 617,846 bytes).
 - auto-push.log verification: FRESH — last push 2026-06-05 03:48:52 (commit cf7098a "Daily refresh 2026-06-05"), <2h before this refresh. System healthy.
+
+## 2026-06-05 (v12 FORECAST INGEST — supplemental)
+
+- Vault mounted on-demand by Matt request.
+- v12 parsed from `gamb/finance/2026 SDS Revenue & Forecasting (12).xlsx` (mtime 2026-06-04T16:08:51).
+- forecast.json updated: _meta.latest_version → v12; v12 entry added.
+- DATA.forecast 69.47 → 70.10 · DATA.yoyGrowth 21.75 → 22.87 · rw.forecast 11.34 → 11.31 · rw.aboveBudget 0.20 → 0.17 · rw.abovePct 1.78 → 1.53.
+- forecastMeta: version v11 → v12, ingestedAt → 2026-06-05T05:30:00-07:00, sourceFile → (12).xlsx.
+- Static Revenue Pulse HTML fully updated: Total $69.47M → $70.10M; OJ $17.57M → $17.81M; RW $11.34M → $11.31M; Affiliate $18.02M → $18.45M; Bookies sub-row $3.36M → $3.79M. All delta chips refreshed.
+- WoW snap HTML replaced: v12 vs v11 narrative (+$635K total, Bookies +12.6% top mover).
+- keyThemes: v12 WoW entry prepended. Pipeline note heading + body updated.
+- Encrypted index.html (617,058 bytes).
