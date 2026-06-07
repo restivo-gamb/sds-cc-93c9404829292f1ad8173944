@@ -1249,3 +1249,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Pipeline Note updated for Wk4 D6 (Sat).
 - Encrypted index.html: AES-256-CBC · PBKDF2-SHA256 · 250,000 iterations · 618,250 chars output.
 - auto-push.log verification: Last successful push 2026-06-06 10:36:54 ✓ (within 24h). Note: DNS failure logged at 06:01:19 (no-change run, transient, later resolved). Dashboard deployed.
+
+## 2026-06-07
+
+- Updated header timestamp → June 7, 2026
+- forecastMeta.ingestedAt: no change (v12 unchanged) · scorecard.lastSynced: 2026-06-07T05:30:00-07:00 · creators.ingestedAt: carry-forward 2026-06-06T05:30:00-07:00 (API unreachable)
+- Slack-driven changes: Jun 5–6 context files confirmed present (NOT stale — Group + Individual context files in SDS Dashboard). Key signals absorbed: Theo IMMINENT (NBA Finals signing bonus arranged by Brian S; Matt "FUCKING HUGE GET"); Pohle confirmed 2-week notice (going back to property management, Nick meeting Monday for work catalog); Tim Schuler alignment tension ("long term Tim ain't it" private to Kevin); Evans on hold pending Theo ink; OJ Apple Ads suspended (credit card, Brian S to resolve); OO Stripe crypto blocked for recurring subs; BetSharpMoney client no owner; RW 82-0 game builder viral (94 attempts in 20 min); Dustin react video 550K views; RollCard > Pat Mayo pitch in motion + NoVig fee waiver being explored; Ryan W ~$9K commission gap; Sumer Sports flagged as RW product aspiration.
+- Granola-driven changes: No new Granola notes in vault (most recent 2026-05-28).
+- Forecast: No version move — v12 $70.10M holds.
+- Scorecard sync — 6/7 05:30 re-pull (via Drive MCP): G 14→13 (−1), Y unchanged 51, R 0→1 (+1 Tyler H "on hold"), NR unchanged 28, T 93. Movement: Tyler Huntington International Search Audit flipped Red ("complete but proposing to put action on hold"). Brian S (8/8 NR, 19d) + Brian R (6/6 NR, 19d) still dark. Scorecard intro paragraph, yellowLeaders, and redItems all refreshed.
+- Creator Scoreboard: API unreachable (network-blocked from shell). Carrying forward Jun 6 AM data. ingestedAt NOT bumped (chip will age to ~1d / neutral).
+- Pipeline note rewritten: Theo IMMINENT, Pohle OUT, Tim tension, Slack back online, OJ Apple Ads suspended, OO Stripe blocked, BetSharpMoney no owner, RW viral 82-0 builder.
+- keyThemes: New June 7 entry inserted at top position with full signal summary.
+- keyDates: June 6 entry updated (TODAY → recap + Pohle confirmed note); June 7 TODAY entry inserted.
+- Encrypted index.html (AES-256, 623,798 bytes).
+- auto-push.log verification: last entry 2026-06-07 06:01:00 ✓ — within 24h, push healthy.
