@@ -1264,3 +1264,22 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - keyDates: June 6 entry updated (TODAY → recap + Pohle confirmed note); June 7 TODAY entry inserted.
 - Encrypted index.html (AES-256, 623,798 bytes).
 - auto-push.log verification: last entry 2026-06-07 06:01:00 ✓ — within 24h, push healthy.
+
+## 2026-06-09
+
+- ⚠️ No refresh ran Mon 2026-06-08 (gap; last prior run 6/7). This run catches up both days.
+- Updated header timestamp → June 9, 2026
+- forecastMeta.ingestedAt: unchanged (v12 $70.10M holds — no new xlsx; highest in gamb/finance/ is (12)) · scorecard.lastSynced: 2026-06-09T05:30:00-07:00 (prevSynced → 2026-06-07) · creators.ingestedAt: 2026-06-09T05:30:00-07:00 (fresh)
+- Slack: FRESH — Jun 7–9 Group + Individual context files (generated 6/9). Not stale. Key new signals: Funteron M&A (Kevin floated Wed 6/10 9am fact-find call); Nelson Sousa creator recruit (Brian/DJ/Tim role-doc iteration); Kalshi World Cup 2026 sportsbook-lineup placement ask on RotoWire+Bookies.com (Craig via Eyal); Pohle OUT (Nick catalogued hours Mon 6/8); Richard Fonseca Campos exit likely Matt's call; Clarity migration at risk end-June; optic-sales 496 open/8 won/27 lost + 'NaNd' report data bug + 2 unassigned top deals; Ryan W ~$9K commission gap; Charles/Schoenke noncompete-release friction.
+- Granola: No new notes (most recent in vault = 2026-05-28). Noted in log.
+- Forecast: No version move — v12 $70.10M holds. Static Revenue Pulse HTML untouched (correct — no forecast move).
+- Scorecard sync (6/9 05:30 via Drive MCP): G 13→15 (+2), Y 51→53 (+2), R unchanged 1 (Tyler H "on hold"), NR 28→24 (−4). Reporting 69/93 (74%) — best direction in weeks. BUT Brian S (8/8 Growth Ops NR) + Brian R (6/6 Bookies Aff+BetSyn NR) still fully dark at 21 days silent. Karl O'Brien on leave Jun 12 (3 days) — NR items need owners. Comment block, intro paragraph, yellowLeaders, static pills all refreshed. redItems unchanged (Tyler H Red holds).
+- Creator Scoreboard (fresh pull 2026-06-09 11:38 UTC via Chrome; shell network blocked, Chrome succeeded): scored day 6/8. ZERO true goal-hitters despite high-point board — Jim Coventry (13), +EV Bettors (11), McKechnie (10) all cleared the 10-pt bar but 0 product pushes; Dustin edge-of-goal at 9. Only zero-output: OddsJam brand. OJ pod 22 pts / RW pod 48 pts. No goal→0 flip; no >50%-pod-zero; no Matt-DM-named laggard → no notification trigger. DATA.creators + leaders/laggards/midTier fully rebuilt; ingestedAt bumped.
+- keyThemes[0]: new June 9 entry inserted (scorecard improving + Funteron + Nelson Sousa + Kalshi + creator push-gap).
+- keyDates: June 7 TODAY → recap; added June 8 (Mon — NO REFRESH RAN) recap; added June 9 (Tue) TODAY.
+- Pipeline Note: rewritten for Wk4 Tue (scorecard improving, escalations dark 21d, Funteron, Nelson Sousa, Kalshi, Tyler Red, optic-sales bug).
+- Attention cards: left as-is (deeply stale late-May/Jun-2 carry; live signal captured in keyThemes/keyDates/pipeline note per prior-run convention).
+- JS validation: 1 script block parses OK (node Function check).
+- Encrypted index.html: AES-256-CBC · PBKDF2-SHA256 · 250,000 iterations · 630,794 chars output. ✓
+- auto-push.log verification: "Daily refresh 2026-06-09" committed + pushed (6fc8418..be89876) — within 24h, push healthy ✓.
+- Notification: HELD. No listed trigger fired on genuinely-new material (no forecast move, no new Red, no creator goal→0 flip, scorecard NR delta only −4, encryption + push healthy). Brian S/R 21-day silence is persistent and already surfaced repeatedly — re-DMing daily would be spam. Funteron Wed 9am call is new but already on Matt's calendar via Kevin.
