@@ -1083,7 +1083,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong>Cycle 3 Wk4 (Tue PM re-sync) &mdash; 70 of 93 priorities reporting (75%), and finally FRESH.</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro&rsquo;s sheet, re-synced via MCP 2026-06-09 ~20:50 at Matt&rsquo;s request. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong style="color:var(--green);">Board-wide cadence push today:</strong> ~50 rows now carry fresh 6/8&ndash;6/9 stamps &mdash; the board went from stale-but-counted to genuinely current. Aggregate vs this morning: <strong>G:15&rarr;16, Y:53&rarr;52, R:1&rarr;2, NR:24&rarr;23</strong>. <strong style="color:var(--green);">✅ Karl O&rsquo;Brien reported in before his Jun 12 leave</strong> (NR cleared); <strong style="color:var(--green);">✅ Steven back to reporting</strong> (Odds Data NR 2&rarr;1). <strong style="color:var(--red);">🆕 NEW RED:</strong> Scott &mdash; &ldquo;Improve UI to map leagues/teams/players&rdquo; flagged <strong style="color:var(--red);">stalled for resources</strong> (2nd Red alongside Tyler H&rsquo;s audit &ldquo;on hold&rdquo;). <strong style="color:var(--red);">Still dark through the push:</strong> <strong>Brian S</strong> (8/8 Growth-Ops-solo NR, <strong>21 days</strong> &mdash; the Talent pod posted 6/8 but his solo rows didn&rsquo;t) and <strong>Brian R</strong> (4 NR Bookies Aff + BetSyn, <strong>21 days</strong>, while Bookies forecast rose +12.6% in v12). These two are the only true escalations left &mdash; force-update via Pedro.
+                    <strong>Cycle 3 Wk4 (Wed AM re-pull) &mdash; 70 of 93 priorities reporting (75%), and current.</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro&rsquo;s sheet, re-synced via MCP 2026-06-10 ~05:30. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong>No movement overnight:</strong> Wed&rsquo;s pull is <strong>identical</strong> to last night&rsquo;s PM re-sync &mdash; <strong>G:16 / Y:52 / R:2 / NR:23</strong>, same fresh 6/8&ndash;6/9 stamps still carrying. <strong style="color:var(--green);">✅ Karl O&rsquo;Brien still current ahead of his Jun 12 leave; ✅ Steven still reporting</strong> (Odds Data). <strong style="color:var(--red);">2 Reds hold:</strong> Scott &mdash; &ldquo;map leagues/teams/players&rdquo; <strong style="color:var(--red);">stalled for resources</strong> (needs Matt/V triage), and Tyler H&rsquo;s audit &ldquo;on hold&rdquo; (15d). <strong style="color:var(--red);">Escalation candidates &mdash; still fully dark at 22 days (since 5/19):</strong> <strong>Brian S</strong> (8/8 Growth-Ops-solo NR &mdash; Talent pod posts, his solo rows never do) and <strong>Brian R</strong> (4 NR Bookies Aff + BetSyn, while Bookies forecast rose +12.6% in v12). These two are the only true escalations left &mdash; force-update via Pedro.
                 </div>
 
                 <!-- RED FLAG -->
@@ -2349,16 +2349,17 @@ const DATA = {
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
         date: "2026-06-09",
-        ingestedAt: "2026-06-09T20:50:00-06:00",
+        ingestedAt: "2026-06-10T05:30:00-06:00",
         totals: {
             allPoints: 83, allHit: 0, allTotal: 13,
             ojPoints: 19, ojTotal: 4,
             rwPoints: 53, rwTotal: 8
         },
-        // Fresh PM pull 2026-06-10 02:52 UTC (via Chrome). Scored day = 6/9 (full day, AM+PM windows).
+        // Fresh AM pull 2026-06-10 11:38 UTC (via Chrome). Scored day still = 6/9 (today not yet analyzed — today_am/today_pm null this early).
         // STORY HOLDS FOR A 2ND DAY: ZERO true goal-hitters and NOBODY made a product push (pushes:0 across all 13).
         //   Jeff (11), Dustin (11), Jim (10) cleared the 10-pt bar but 0 pushes; EVBettors edge at 9. The advice string on every card is literally "add 1 product push."
-        // No goal→0 flip (no true hitters yesterday either → no notification trigger). Only zero-output: OddsJam brand. OJ pod 19 pts / RW pod 53 pts.
+        // No goal→0 flip (no true hitters the prior day either → no notification trigger). Only zero-output: OddsJam brand. OJ pod 19 pts / RW pod 53 pts.
+        // McKechnie (named in Matt↔Tim DMs) NOT a laggard today — 6 pts, 3 tweets, trend +21 → no cross-ref flag.
         leaders: [
             { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 11, tweets: 17, replies: 10, likes: 66, rts: 4, onTarget: false, reason: "11 pts (beat the bar) but 0 product pushes — top RW output today, one push short of goal." },
             { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 9, replies: 9, likes: 79, rts: 4, onTarget: false, reason: "11 pts, 0 product pushes. Strong AM→PM build; just needs the push to convert." },
