@@ -1507,38 +1507,36 @@ const DATA = {
     },
 
     // Scorecard counts — Cycle 3 cumulative, re-synced from C3 SCORECARD tab in Pedro's sheet
-    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-06-06 05:30.
+    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-06-10 05:30.
     // Text sync doesn't carry cell colors — status inferred from `Updated` + `Notes`:
     //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
     //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
-    // Cycle 3 (WK4 · Tue PM) = 93 total priorities across ~20 pod-lead assignments. Status: 16 Greens / 52 Yellows / 2 Reds / 23 NotReported.
-    // ─── EVENING RE-SYNC 2026-06-09 ~20:50 (Matt pushed a board-wide update during the day) vs AM sync (15G/53Y/1R/24NR) ───
-    //   G 15→16 (+1), Y 53→52 (−1), R 1→2 (+1 NEW), NR 24→23 (−1). The headline isn't the aggregate — it's RECENCY:
-    //   ~50 rows now carry fresh 6/8–6/9 Updated stamps (board-wide cadence push). Reporting 70/93 (75%) and finally FRESH, not stale-but-counted.
-    //   🆕 NEW RED: Scott "Improve UI to map leagues/teams/players" — "ui usable but progress stalled for resources" → stalled keyword = Red.
-    //   ✅ Karl O'Brien REPORTED IN before his Jun 12 leave — Partner Support / Futures in Copilot / Sportsbook-as-Sales-Asset all stamped 6/8; his NR cleared (now 4Y/0NR).
-    //   ✅ Steven (ODDS DATA) back to reporting — Prediction Markets support + Monitoring Dashboard + Support revamp stamped 6/8–6/9 (NR 2→1).
-    // ─── STILL-DARK ESCALATIONS (unmoved through the board-wide push) ─────────────────────────────────────────
-    //   🚨 Brian S (GROWTH OPS solo): 8/8 NR — 21 days silent. The Talent pod (Brian S + DJ) DID post 6/8; the GROWTH-OPS-solo rows are still blank. Worst gap on the board.
-    //   🚨 Brian R (BOOKIES AFF 2 + BETSYNDICATE 2): 4 NR — 21 days silent. Bookies forecast +12.6% (v12) yet zero status. (Craig owns the other 2 Bookies Aff rows, also NR.)
-    //   🔴 Tyler H International Search Audit still Red ("on hold", 14d) — needs Matt's call to clear or park.
+    // Cycle 3 (WK4 · Wed) = 93 total priorities across ~20 pod-lead assignments. Status: 16 Greens / 52 Yellows / 2 Reds / 23 NotReported.
+    // ─── WED 2026-06-10 05:30 RE-PULL: IDENTICAL to last night's PM re-sync (16G/52Y/2R/23NR) ───
+    //   No board movement overnight — same fresh 6/8–6/9 stamps still carrying; reporting 70/93 (75%) and current. The Wed signal is staleness clock, not aggregate change.
+    //   Karl O'Brien still 4Y/0NR (reported in before his Jun 12 leave); Steven still 2G/2Y/1NR; Scott UI-mapping Red holds; Tyler H audit Red holds ("on hold").
+    // ─── STILL-DARK ESCALATIONS (now 22 days silent — unmoved since 5/19) ─────────────────────────────────────────
+    //   🚨 Brian S (GROWTH OPS solo): 8/8 NR — 22 days silent. The Talent pod (Brian S + DJ) posts; the GROWTH-OPS-solo rows stay blank. Worst gap on the board. ESCALATION CANDIDATE.
+    //   🚨 Brian R (BOOKIES AFF 2 + BETSYNDICATE 2): 4 NR — 22 days silent. Bookies forecast +12.6% (v12) yet zero status. (Craig owns the other 2 Bookies Aff rows, also NR.) ESCALATION CANDIDATE.
+    //   🔴 Tyler H International Search Audit still Red ("on hold", 15d) — needs Matt's call to clear or park.
+    //   🔴 Scott "Improve UI to map leagues/teams/players" still Red — stalled for resources; needs Matt/V triage.
     scorecard: {
         green: 16, yellow: 52, red: 2, notReported: 23, total: 93,
-        prevGreen: 15, prevYellow: 53, prevRed: 1, // Prev = 2026-06-09 AM sync (15G/53Y/1R/24NR/93T) — 6/9 PM re-pull: G 15→16 (+1), Y 53→52 (−1), R 1→2 (+1 NEW Scott Red), NR 24→23 (−1); big recency refresh board-wide
+        prevGreen: 16, prevYellow: 52, prevRed: 2, // Prev = 2026-06-09 PM re-sync (16G/52Y/2R/23NR/93T). 6/10 AM re-pull = IDENTICAL — no board movement overnight; same fresh 6/8–6/9 stamps still in place.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-06-09T20:50:00-06:00",   // ISO 8601 w/ TZ offset — evening re-sync at Matt's request
-        prevSynced: "2026-06-09T05:30:00-07:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-10T05:30:00-06:00",   // ISO 8601 w/ TZ offset — Wed 6/10 AM re-pull (clean; counts unchanged vs last night)
+        prevSynced: "2026-06-09T20:50:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
     // Repurposed for C3 cumulative: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
     // Until cell colors are sync'd, the actionable signal is who still owes status. Re-sync 2026-05-28 09:25 — sorted by NR count desc.
     yellowLeaders: [
-        { name: "Brian S", pod: "GROWTH OPS (8 of 8 NR · 100% silent · 21 DAYS · UNMOVED THROUGH THE 6/8 PUSH)", yellows: 8, items: "ALL 8 Growth-Ops-solo priorities STILL NR — scale affiliate networks, white label promo course, 4-day course, redistribute X content, scale YT output, OJ/DGF aff growth, paid content motion, social boosting. The board got a sheet-wide refresh 6/8 and the Talent pod (Brian S + DJ) DID post 6/8 — but the Growth-Ops-solo rows are still blank, now 21 days (since 5/19). Worst single-lead gap left on the board. Force-update via Pedro." },
-        { name: "Brian R", pod: "BOOKIES AFF (2 NR) + BETSYNDICATE (2 NR) · 21 DAYS · UNMOVED", yellows: 4, items: "4 priorities still NR (Brian R's 2 Bookies Aff rows + both BetSyndicate rows) — no movement since 2026-05-19 through today's board-wide push. Bookies forecast ticked +12.6% in v12 ($3.36M→$3.79M) yet zero status from the owner. The other 2 Bookies Aff rows (Craig's) are also NR. Only true escalation left alongside Brian S." },
+        { name: "Brian S", pod: "GROWTH OPS (8 of 8 NR · 100% silent · 22 DAYS · ESCALATION CANDIDATE)", yellows: 8, items: "ALL 8 Growth-Ops-solo priorities STILL NR — scale affiliate networks, white label promo course, 4-day course, redistribute X content, scale YT output, OJ/DGF aff growth, paid content motion, social boosting. The Talent pod (Brian S + DJ) keeps posting, but the Growth-Ops-solo rows have never moved — now 22 days (since 5/19). Worst single-lead gap on the board, and the 6/8–6/9 board-wide push went right past it. Force-update via Pedro / direct ask." },
+        { name: "Brian R", pod: "BOOKIES AFF (2 NR) + BETSYNDICATE (2 NR) · 22 DAYS · ESCALATION CANDIDATE", yellows: 4, items: "4 priorities still NR (Brian R's 2 Bookies Aff rows + both BetSyndicate rows) — no movement since 2026-05-19, including through the board-wide push. Bookies forecast ticked +12.6% in v12 ($3.36M→$3.79M) yet zero status from the owner. The other 2 Bookies Aff rows (Craig's) are also NR. Only true escalation left alongside Brian S." },
         { name: "Scott", pod: "SPORTS DATA (🆕 1 RED · 4Y · fresh 6/8)", yellows: 4, reds: 1, items: "🆕🔴 NEW RED: 'Improve UI to map leagues/teams/players' — 'ui is usable but progress is stalled for resources.' Resourcing blocker, needs Matt/V triage. Otherwise reporting cleanly: P2/P3 league coverage to Pinnacle+Bet365, fixtures/stats/live-stats sources, embeddings ontology, new live stats pipeline all 🟡 stamped 6/8." },
-        { name: "Tyler Huntington", pod: "SUBSCRIPTION (1R · fresh 6/8)", yellows: 1, reds: 1, items: "🔴 International Search Audit for OpticOdds — 'on hold' (14 days as Red). YouTube NFL Tutorials 🟢 + Positional Rankings 🟡 both refreshed 6/8. Needs Matt's call to clear the Red or formally park it." },
+        { name: "Tyler Huntington", pod: "SUBSCRIPTION (1R · fresh 6/8)", yellows: 1, reds: 1, items: "🔴 International Search Audit for OpticOdds — 'on hold' (15 days as Red). YouTube NFL Tutorials 🟢 + Positional Rankings 🟡 both refreshed 6/8. Needs Matt's call to clear the Red or formally park it." },
         { name: "Karl O'Brien", pod: "OPTIC PRODUCT (✅ REPORTED IN · 4Y/0NR · before Jun 12 leave)", yellows: 4, items: "✅ Cleared his NR before going on leave Jun 12 — Partner Support, Futures in Copilot, Sportsbook-as-Sales-Asset all stamped 6/8. Green-flag: came current ahead of the absence. Cover assignments for the leave window still worth confirming, but no longer a reporting gap." },
         { name: "Steven", pod: "ODDS DATA (✅ BACK REPORTING · 2G · 2Y · 1NR · fresh 6/8–6/9)", yellows: 2, items: "✅ Re-engaged after ~20d stale — Prediction Markets support + Monitoring Dashboard + Support revamp all stamped 6/8–6/9. Websocket architecture + Polymarket port still 🟢 COMPLETE. Down to 1 NR. Recovered." },
         { name: "Jeremy T", pod: "OJ PRODUCT (1 NR · 10Y · 3G · all fresh 6/8)", yellows: 10, items: "Largest book on the board (14) and now all freshly stamped 6/8 — Stripe Migration 🟢, Prediction Arbitrage 🟢, Parlay creation 🟢, plus 10 Yellows (Live speed, Sharp Money presets, Growth Agent, OJ MCP Server, +EV presets, etc.). Best-reporting heavy-load lead." },
