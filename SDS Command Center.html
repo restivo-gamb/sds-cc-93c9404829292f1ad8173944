@@ -1645,6 +1645,45 @@ const DATA = {
     // Attention items — ONLY people/issues that need intervention
     attention: [
         {
+            name: "🔴 OJ DATA-INFRA — KIBL FEED FAILING DAILY + GCP COST ~DOUBLED OVERNIGHT · V COACHING THREAD LIVE · DI PINCHED THROUGH END-JUNE",
+            pod: "OJ DATA · WED 6/10 WK4 · SLACK FRESH (Jun 9–10) · #vrr + Vincenzo DM · Ryan W traveling but owns the KIBL convo · GCP leak under active mitigation (OO compression test)",
+            level: "risk",
+            issues: [
+                {
+                    priority: "P0 — KIBL BOOKMAKER FEED FAILING 'ALMOST DAILY' (V → Ryan to own)",
+                    text: "Vincenzo flagged in #vrr (6/9 10:15 PM) that the **KIBL bookmaker feed is failing almost daily now** and named it a feed 'we really need.' He asked Ryan (traveling for the conference) to drive the counterparty conversation; **Ryan confirmed he can.** Cross-pod dependency — V architects, Ryan owns the relationship. Overlaps with Ryan's separate DM note about a data/partner counterparty that 'isn't really moving' commercially and Matt's 'we're struggling to get the data' read. Watch that these are the same feed.",
+                    suggestedMsg: "ryan/ before you're heads-down at the conf — two data-feed threads look like they might be the same one. (1) KIBL is failing almost daily per V in #vrr and he's handed you the counterparty convo. (2) your DM note that they 'sent a check-in' and aren't moving commercially. if same counterparty, let's not negotiate price while the feed is down — fix reliability first, leverage second. if different, tell me which feed is which. lmk a 15-min slot."
+                },
+                {
+                    priority: "P0 — GCP COST ~DOUBLED OVERNIGHT (~50% network traffic · budget-relevant)",
+                    text: "Vincenzo DM: **GCP cost roughly doubled overnight.** He's traced ~50% of the increase to network traffic, is testing OpticOdds compression to cut the bulk, and is 'hammering the GCP rep' on the price hike. Matt: 'plz prioritize getting something to show the leak.' This sits on top of the prior $25K/mo Cloud overrun thread — budget-relevant and needs a quantified leak readout, not just mitigation-in-progress.",
+                    suggestedMsg: "v/ on the gcp spike — don't just mitigate, quantify. i want a one-screen leak readout by EOD: what doubled, how much is the network-traffic half vs the rep's price hike, and what the compression test claws back. if the rep won't move on the hike, that's a number i can take up the chain. tie it to the $25k/mo overrun we already had open."
+                },
+                {
+                    priority: "P1 — MATT↔V COACHING THREAD (developing 1:1 · handle developmentally)",
+                    text: "Matt (6/9 9:08–9:10 PM): **'30% done looks bad — I'd accept 80%,'** said OJ doesn't seem faster than BookieBeats, that V 'got steamrolled' in that chat and isn't negotiating the bookmaker feed; framed as trust-you-as-elite-architect / stay-in-your-lane / no-excuses / well-intentioned. V (10:22 PM) pushed back: **prioritizing Pinnacle over the reds was the right call, capacity (esp. sports data) is the biggest constraint, plan is to add people so next cycle has less red.** Matt: 'fair enough on pinny.' This is a feedback-and-coaching surface, not a transactional one — the completion-rate frustration is real but V's capacity counter is also real and partly conceded.",
+                    suggestedMsg: null
+                },
+                {
+                    priority: "P2 — DI CAPACITY CRUNCH THROUGH END-JUNE (Scott solo · hires slipping)",
+                    text: "From #vrr: **Raffaele DI hire fell through** (couldn't commit to part-time); V pursuing another full-time contractor. 'Extremely pinched on DI with Scott until end of June' — no Marcel, no Mikael; one Steven-pipeline candidate fell off, another looks promising (1:1). V proposed **redeploying Richard Fonseca Campos** (Brazil contractor slated to be let go in Bookies) to DI — low risk, full-stack on paper; Matt: 'sure.' Confirm the redeploy actually happens and doesn't just become a dropped thread during the pinch.",
+                    suggestedMsg: null
+                }
+            ]
+        },
+        {
+            name: "⏰ SDS AGENT-A-THON (FRI JUN 12) — SIGN-UP DEADLINE EOD TODAY · UPTAKE SLOW · MATT NUDGED TWICE",
+            pod: "ALL PODS · WED 6/10 · #sds-general + #sds-ai-leads · Audrey running intake · sign up by EOD Wed 6/10 to be paired with an AI lead",
+            level: "watch",
+            issues: [
+                {
+                    priority: "P1 — LOW UPTAKE AS OF LAST NIGHT (adoption soft spot)",
+                    text: "Audrey set the June SDS Agent-a-thon for **Friday Jun 12**, sign-up deadline **EOD today (Wed 6/10)** to be paired with an AI lead. Matt pushed participation twice in one night — #sds-general (9:01 PM, 'allocate ~half a day every other week') and #sds-ai-leads (9:26 PM, 'pretty slow uptick,' asked leads to remind their teams. First submission is in (Audrey 2:18 PM) but adoption is the soft spot. If the goal is real headcount Friday, a same-morning leads-channel nudge + a couple of direct DMs to the pods that haven't signed beats another @here.",
+                    suggestedMsg: null
+                }
+            ]
+        },
+        {
             name: "🚨 PINNACLE — CLEAN NON-EXCLUSIVE $200K/YR OFFER STILL OUT TO ALEKSANDRA (NO REPLY CAPTURED) · V SURGERY DONE (MON 6/1) · CRACKING-HANDOFF NOW LIVE WITHOUT V · CHASE ALEKSANDRA THIS BUSINESS WEEK",
             pod: "OJ DATA · TUE 6/2 D2 WK4 · ⚠️ SLACK STALE (~2d, no scan since 5/31) — status below is carry-forward, verify via inbox/DM · OFFER OUT (Charles DM 5/28) $200K/yr flat non-exclusive + client-blacklist · PS338 CRACKING 2-3 WKS (handoff to Rafael/Proddy now that V is out) · SABA BACKUP · CONFIRM CRACKING DIDN'T STALL DURING SURGERY WEEK",
             level: "risk",
