@@ -1062,7 +1062,7 @@
             <div class="section-body">
                 <div class="scorecard-summary">
                     <div class="sc-pill">
-                        <div class="sc-num green" id="scGreen">15</div>
+                        <div class="sc-num green" id="scGreen">16</div>
                         <div class="sc-label">On Track</div>
                         <div class="sc-trend" id="scGreenTrend">of 93 items</div>
                     </div>
@@ -1072,18 +1072,18 @@
                         <div class="sc-trend" id="scYellowTrend">&mdash;</div>
                     </div>
                     <div class="sc-pill">
-                        <div class="sc-num red" id="scRed">0</div>
+                        <div class="sc-num red" id="scRed">2</div>
                         <div class="sc-label">At Risk</div>
                         <div class="sc-trend" id="scRedTrend">&mdash;</div>
                     </div>
                     <div class="sc-pill">
-                        <div class="sc-num" style="color: var(--text-muted);" id="scNotReported">24</div>
+                        <div class="sc-num" style="color: var(--text-muted);" id="scNotReported">23</div>
                         <div class="sc-label">Not Reported</div>
-                        <div class="sc-trend worsening" id="scNrTrend">26% missing</div>
+                        <div class="sc-trend worsening" id="scNrTrend">25% missing</div>
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong>Cycle 3 Wk4 (Tue) &mdash; 69 of 93 priorities reporting (74%).</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro&rsquo;s sheet, re-synced via MCP 2026-06-09 05:30 (no 6/8 refresh ran &mdash; Mon gap). <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. Board moved since 6/7: <strong style="color:var(--green);">G:13&rarr;15 (+2), Y:51&rarr;53 (+2), NR:28&rarr;24 (&minus;4)</strong> &mdash; reporting improving, 4 more priorities posted status. R holds at <strong>1</strong> (Tyler H International Search Audit still &ldquo;on hold&rdquo;, now 14d). <strong style="color:var(--red);">Escalation candidates (the two hard ones did NOT move):</strong> <strong>Brian S</strong> (8/8 Growth Ops NR, <strong>21 days silent</strong>) and <strong>Brian R</strong> (4+2=6 NR Bookies Aff + BetSyn, <strong>21 days silent</strong> &mdash; while Bookies forecast just rose +12.6% in v12). Samuel Hill (22d stale), Steven/Odds Data (20d, 2 NR). <strong style="color:var(--red);">Karl O&rsquo;Brien on leave Jun 12 (3 days)</strong> &mdash; Optic Product NR items need owners assigned by EOW or they go dark. Tyler H Red needs Matt&rsquo;s call to clear or formally park.
+                    <strong>Cycle 3 Wk4 (Tue PM re-sync) &mdash; 70 of 93 priorities reporting (75%), and finally FRESH.</strong> Source: <strong>C3 SCORECARD</strong> tab in Pedro&rsquo;s sheet, re-synced via MCP 2026-06-09 ~20:50 at Matt&rsquo;s request. <strong style="color:var(--orange);">Cell colors not transmitted by the connector</strong> &mdash; status inferred from <code>Updated</code> date + <code>Notes</code> text. <strong style="color:var(--green);">Board-wide cadence push today:</strong> ~50 rows now carry fresh 6/8&ndash;6/9 stamps &mdash; the board went from stale-but-counted to genuinely current. Aggregate vs this morning: <strong>G:15&rarr;16, Y:53&rarr;52, R:1&rarr;2, NR:24&rarr;23</strong>. <strong style="color:var(--green);">✅ Karl O&rsquo;Brien reported in before his Jun 12 leave</strong> (NR cleared); <strong style="color:var(--green);">✅ Steven back to reporting</strong> (Odds Data NR 2&rarr;1). <strong style="color:var(--red);">🆕 NEW RED:</strong> Scott &mdash; &ldquo;Improve UI to map leagues/teams/players&rdquo; flagged <strong style="color:var(--red);">stalled for resources</strong> (2nd Red alongside Tyler H&rsquo;s audit &ldquo;on hold&rdquo;). <strong style="color:var(--red);">Still dark through the push:</strong> <strong>Brian S</strong> (8/8 Growth-Ops-solo NR, <strong>21 days</strong> &mdash; the Talent pod posted 6/8 but his solo rows didn&rsquo;t) and <strong>Brian R</strong> (4 NR Bookies Aff + BetSyn, <strong>21 days</strong>, while Bookies forecast rose +12.6% in v12). These two are the only true escalations left &mdash; force-update via Pedro.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1547,9 +1547,10 @@ const DATA = {
         { name: "Jacqui Kouassi", pod: "MEDIA (0 NR · fully reporting · 14d stale)", yellows: 1, items: "PR for Perplexity 🟢 (launch shipped 6/4 6am). RW Prediction Markets content + Summer Stakes tentpole 🟡. Zero NR — fully reporting (green-flag example) though rows are ~14d stale post-Perplexity-launch." }
     ],
 
-    // Red items — Tyler H International Search Audit "on hold" (2026-06-07 sync)
+    // Red items — Tyler H "on hold" + NEW 6/9 PM: Scott UI-mapping stalled for resources
     redItems: [
-        { name: "Tyler Huntington — International Search Audit (OpticOdds)", owner: "Tyler H", pod: "SEARCH SUBSCRIPTION", priority: "On Hold" }
+        { name: "Tyler Huntington — International Search Audit (OpticOdds)", owner: "Tyler H", pod: "SEARCH SUBSCRIPTION", priority: "On Hold" },
+        { name: "Scott — Improve UI to map leagues/teams/players", owner: "Scott", pod: "SPORTS DATA", priority: "Stalled — needs resources" }
     ],
 
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
