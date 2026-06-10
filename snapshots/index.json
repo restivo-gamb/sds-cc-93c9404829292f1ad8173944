@@ -1,8 +1,15 @@
 {
-  "updatedAt": "2026-05-15T14:17:44.111Z",
-  "currentWeek": "2026-W20",
-  "currentLabel": "May 11 – May 17",
+  "updatedAt": "2026-06-10T03:00:00.000Z",
+  "currentWeek": "2026-W24",
+  "currentLabel": "Jun 8 – Jun 14",
   "snapshots": [
+    {
+      "week": "2026-W20",
+      "label": "Week of May 11 – May 17",
+      "weekStart": "2026-05-11",
+      "weekEnd": "2026-05-17",
+      "capturedAt": "2026-05-15T14:17:44.103Z"
+    },
     {
       "week": "2026-W16",
       "label": "Week of Apr 13 – Apr 19",
