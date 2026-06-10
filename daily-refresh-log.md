@@ -1283,3 +1283,17 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html: AES-256-CBC · PBKDF2-SHA256 · 250,000 iterations · 630,794 chars output. ✓
 - auto-push.log verification: "Daily refresh 2026-06-09" committed + pushed (6fc8418..be89876) — within 24h, push healthy ✓.
 - Notification: HELD. No listed trigger fired on genuinely-new material (no forecast move, no new Red, no creator goal→0 flip, scorecard NR delta only −4, encryption + push healthy). Brian S/R 21-day silence is persistent and already surfaced repeatedly — re-DMing daily would be spam. Funteron Wed 9am call is new but already on Matt's calendar via Kevin.
+
+## 2026-06-09 (PM re-sync — on-demand, Matt present)
+
+- Re-ran full sync at Matt's request (~20:50 MDT) after he pushed a board-wide scorecard update today.
+- Forecast: unchanged (v12 $70.10M; no new xlsx). Slack: unchanged (Jun 7–9 files still newest). Granola: unchanged (newest 5/28). No edits to forecast/Slack/Granola-driven sections.
+- Scorecard PM re-sync (Drive MCP): vs AM (15G/53Y/1R/24NR) → **16G / 52Y / 2R / 23NR**. G+1, Y−1, R+1, NR−1. Headline = RECENCY: ~50 rows now stamped 6/8–6/9 (board-wide cadence push); reporting 70/93 (75%) and genuinely fresh.
+  - 🆕 NEW RED: Scott "Improve UI to map leagues/teams/players" — "stalled for resources." redItems now has 2 (Tyler H "on hold" + Scott).
+  - ✅ Karl O'Brien reported in before Jun 12 leave (NR cleared). ✅ Steven (Odds Data) back reporting (NR 2→1).
+  - 🚨 Still dark through the push: Brian S (8/8 Growth-Ops-solo NR) + Brian R (4 NR Bookies Aff+BetSyn), both 21 days. Only true escalations left.
+  - Updated: scorecard DATA (counts + lastSynced 2026-06-09T20:50 / prevSynced 05:30 + comment block), static pills (16/2/23), intro paragraph, yellowLeaders (rebuilt — Karl/Steven now green-flag, Scott Red added), redItems (+Scott).
+- Creator Scoreboard (fresh PM pull 2026-06-10 02:52 UTC via Chrome): scored day advanced to 6/9 (full AM+PM). ZERO true hitters 2nd straight day; 0 product pushes across ALL 13 creators (every card's advice = "add 1 product push"). Jeff 11 / Dustin 11 / Jim 10 cleared points; EVBettors 9 (129K impressions). Only zero-output: OddsJam brand. OJ 19 / RW 53 pts. No goal→0 flip → no creator notification trigger. DATA.creators rebuilt; ingestedAt bumped.
+- keyThemes[0] + keyDates TODAY + Pipeline Note all updated to PM state.
+- JS validation: OK (1 block). Encrypted index.html: AES-256, 632,310 chars. ✓ auto-push.log: 4092f06..9b5f13a committed + pushed ✓.
+- Notification: NOT auto-sent (Matt present in session). NEW Scott Red is a notify-trigger item — surfaced in chat with offer to DM. No forecast move, no creator flip, NR delta −1.
