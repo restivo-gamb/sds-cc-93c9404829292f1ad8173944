@@ -1297,3 +1297,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - keyThemes[0] + keyDates TODAY + Pipeline Note all updated to PM state.
 - JS validation: OK (1 block). Encrypted index.html: AES-256, 632,310 chars. ✓ auto-push.log: 4092f06..9b5f13a committed + pushed ✓.
 - Notification: NOT auto-sent (Matt present in session). NEW Scott Red is a notify-trigger item — surfaced in chat with offer to DM. No forecast move, no creator flip, NR delta −1.
+
+## 2026-06-10
+
+- Updated header timestamp → June 10, 2026.
+- forecastMeta.ingestedAt: 2026-06-05T05:30:00-07:00 (unchanged — v12 holds) · scorecard.lastSynced: 2026-06-10T05:30:00-06:00 · creators.ingestedAt: 2026-06-10T05:30:00-06:00
+- Slack: FRESH (Jun 9–10 files, gen 07:10Z, 1-day window). New top attention cards added: (1) 🔴 OJ data-infra fires — KIBL bookmaker feed failing ~daily (V→Ryan to own) + GCP cost ~doubled overnight (~50% network traffic, OO compression test) + Matt↔V coaching thread ("30% looks bad") + DI crunch through end-June; (2) ⏰ Agent-a-thon Fri 6/12 sign-up deadline EOD today (slow uptake). Pipeline Note + top keyThemes + new June 10 keyDates TODAY entry rewritten to match.
+- Granola: none — newest _granola file is 2026-05-28 (noted in ingest). No deal movements from notes.
+- Forecast: NO version move. Highest gamb/finance/ file = (12), matches forecast.json _meta.latest_version v12 ($70.10M). Revenue Pulse static HTML left as-is (correct).
+- Scorecard: re-pulled C3 SCORECARD 05:30 → 16G/52Y/2R/23NR/93T — IDENTICAL to last night's PM re-sync (no overnight movement). prev* moved to 16/52/2; lastSynced bumped, prevSynced→2026-06-09T20:50. Brian S (8/8 NR) + Brian R (4 NR) now 22 days dark (escalation candidates); Scott UI-mapping Red + Tyler H audit Red ("on hold", 15d) hold. Intro paragraph + comment block refreshed for Wed.
+- Creator Scoreboard: pulled via Chrome (sandbox curl blocked, exit 56). 6/9 scored day (today not yet analyzed). Totals identical to last sync: 83 pts, 0 true hitters, OJ 19 / RW 53. ZERO true goal-hitters 2nd day running, 0 product pushes across all 13 (Jeff 11 / Dustin 11 / Jim 10). Only zero-output = OddsJam brand. McKechnie (named in Tim DMs) NOT a laggard (6 pts, +21 trend) → no cross-ref flag. ingestedAt bumped.
+- Encrypted index.html (AES-256, 644,434 bytes; plaintext 478,367 bytes). ✓ matching.
+- auto-push.log verification: FRESH — last entry 2026-06-09 21:30:31 (within 24h). ✓
+- Notification: SENT — new red attention card (OJ data-infra fires: KIBL feed + GCP cost spike).
