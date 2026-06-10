@@ -1511,23 +1511,24 @@ const DATA = {
     // Text sync doesn't carry cell colors — status inferred from `Updated` + `Notes`:
     //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
     //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
-    // Cycle 3 (WK4 D7 → end · Tue) = 93 total priorities across ~20 pod-lead assignments. Status: 15 Greens / 53 Yellows / 1 Red / 24 NotReported.
-    // ─── MOVEMENT vs 2026-06-07 sync (13G / 51Y / 1R / 28NR / 93T) ────────────────────────────────────────────
-    //   Re-synced 2026-06-09 05:30 (no 6/8 refresh ran — Mon gap). G 13→15 (+2), Y 51→53 (+2), R unchanged 1, NR 28→24 (−4).
-    //   NR improving — 4 more priorities reported since 6/7. Reporting now 69/93 (74%). Tyler H International Search Audit still Red ("on hold").
-    // ─── PERSISTENT ESCALATION CANDIDATES (NR 24, but the two hard ones unmoved) ──────────────────────────────
-    //   🚨 Brian S (GROWTH OPS): 8/8 NR — 21 days silent (since 2026-05-19). Worst single-lead gap on the board; force-update via Pedro overdue.
-    //   🚨 Brian R (BOOKIES AFF 4 + BETSYNDICATE 2): 6/6 NR — 21 days silent. Bookies forecast just ticked +12.6% (v12) yet zero status.
-    //   ⚠️ Karl O'Brien (OPTIC PRODUCT): NR items — ON LEAVE JUN 12 (in 3 days). NR items need owners assigned by EOW or they go dark.
-    //   ⚠️ Samuel Hill (OPTIC MKTG): Yellow items last updated 5/18 — 22 days stale (longest non-NR stale on the board).
-    //   ⚠️ Steven (ODDS DATA): NR (Prediction Markets + Odds Monitor) — last update ~5/20 (20d).
+    // Cycle 3 (WK4 · Tue PM) = 93 total priorities across ~20 pod-lead assignments. Status: 16 Greens / 52 Yellows / 2 Reds / 23 NotReported.
+    // ─── EVENING RE-SYNC 2026-06-09 ~20:50 (Matt pushed a board-wide update during the day) vs AM sync (15G/53Y/1R/24NR) ───
+    //   G 15→16 (+1), Y 53→52 (−1), R 1→2 (+1 NEW), NR 24→23 (−1). The headline isn't the aggregate — it's RECENCY:
+    //   ~50 rows now carry fresh 6/8–6/9 Updated stamps (board-wide cadence push). Reporting 70/93 (75%) and finally FRESH, not stale-but-counted.
+    //   🆕 NEW RED: Scott "Improve UI to map leagues/teams/players" — "ui usable but progress stalled for resources" → stalled keyword = Red.
+    //   ✅ Karl O'Brien REPORTED IN before his Jun 12 leave — Partner Support / Futures in Copilot / Sportsbook-as-Sales-Asset all stamped 6/8; his NR cleared (now 4Y/0NR).
+    //   ✅ Steven (ODDS DATA) back to reporting — Prediction Markets support + Monitoring Dashboard + Support revamp stamped 6/8–6/9 (NR 2→1).
+    // ─── STILL-DARK ESCALATIONS (unmoved through the board-wide push) ─────────────────────────────────────────
+    //   🚨 Brian S (GROWTH OPS solo): 8/8 NR — 21 days silent. The Talent pod (Brian S + DJ) DID post 6/8; the GROWTH-OPS-solo rows are still blank. Worst gap on the board.
+    //   🚨 Brian R (BOOKIES AFF 2 + BETSYNDICATE 2): 4 NR — 21 days silent. Bookies forecast +12.6% (v12) yet zero status. (Craig owns the other 2 Bookies Aff rows, also NR.)
+    //   🔴 Tyler H International Search Audit still Red ("on hold", 14d) — needs Matt's call to clear or park.
     scorecard: {
-        green: 15, yellow: 53, red: 1, notReported: 24, total: 93,
-        prevGreen: 13, prevYellow: 51, prevRed: 1, // Prev = 2026-06-07 sync (13G / 51Y / 1R / 28NR / 93T) — 6/9 re-pull: G 13→15 (+2), Y 51→53 (+2), R unchanged 1, NR 28→24 (−4)
+        green: 16, yellow: 52, red: 2, notReported: 23, total: 93,
+        prevGreen: 15, prevYellow: 53, prevRed: 1, // Prev = 2026-06-09 AM sync (15G/53Y/1R/24NR/93T) — 6/9 PM re-pull: G 15→16 (+1), Y 53→52 (−1), R 1→2 (+1 NEW Scott Red), NR 24→23 (−1); big recency refresh board-wide
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-06-09T05:30:00-07:00",   // ISO 8601 w/ TZ offset
-        prevSynced: "2026-06-07T05:30:00-07:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-09T20:50:00-06:00",   // ISO 8601 w/ TZ offset — evening re-sync at Matt's request
+        prevSynced: "2026-06-09T05:30:00-07:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
     },
 
