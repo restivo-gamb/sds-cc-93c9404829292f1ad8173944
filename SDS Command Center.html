@@ -1506,28 +1506,32 @@ const DATA = {
         abovePct: 1.53          // % over budget
     },
 
-    // Scorecard counts — Cycle 3 cumulative, re-synced from C3 SCORECARD tab in Pedro's sheet
-    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit) via MCP sync 2026-06-10 05:30.
-    // Text sync doesn't carry cell colors — status inferred from `Updated` + `Notes`:
-    //   blank Updated = NotReported; populated Updated + progress notes = Yellow;
-    //   Notes containing "done/complete/launched/shipped/live now/migration complete" = Green; explicit blockage/at risk/on hold = Red.
-    // Cycle 3 (WK4 · Wed) = 93 total priorities across ~20 pod-lead assignments. Status: 16 Greens / 52 Yellows / 2 Reds / 23 NotReported.
-    // ─── WED 2026-06-10 05:30 RE-PULL: IDENTICAL to last night's PM re-sync (16G/52Y/2R/23NR) ───
-    //   No board movement overnight — same fresh 6/8–6/9 stamps still carrying; reporting 70/93 (75%) and current. The Wed signal is staleness clock, not aggregate change.
-    //   Karl O'Brien still 4Y/0NR (reported in before his Jun 12 leave); Steven still 2G/2Y/1NR; Scott UI-mapping Red holds; Tyler H audit Red holds ("on hold").
-    // ─── STILL-DARK ESCALATIONS (now 22 days silent — unmoved since 5/19) ─────────────────────────────────────────
-    //   🚨 Brian S (GROWTH OPS solo): 8/8 NR — 22 days silent. The Talent pod (Brian S + DJ) posts; the GROWTH-OPS-solo rows stay blank. Worst gap on the board. ESCALATION CANDIDATE.
-    //   🚨 Brian R (BOOKIES AFF 2 + BETSYNDICATE 2): 4 NR — 22 days silent. Bookies forecast +12.6% (v12) yet zero status. (Craig owns the other 2 Bookies Aff rows, also NR.) ESCALATION CANDIDATE.
-    //   🔴 Tyler H International Search Audit still Red ("on hold", 15d) — needs Matt's call to clear or park.
-    //   🔴 Scott "Improve UI to map leagues/teams/players" still Red — stalled for resources; needs Matt/V triage.
+    // Scorecard counts — Cycle 3 cumulative, from C3 SCORECARD tab in Pedro's sheet
+    // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit).
+    // ─── 2026-06-10 PM: METHODOLOGY FIX — now reading the REAL status: column-D BACKGROUND COLOR ───
+    //   Status lives in the fill color of column D (the current week's column; a new week column is added each week, current week is always col D).
+    //   The old text-keyword heuristic (scan Notes for "blocked/stalled/on hold") was color-blind and undercounted Red badly (showed 2; truth is 16).
+    //   Fix: export the sheet to .xlsx via Drive download_file_content, read col-D fill with openpyxl. Color map:
+    //     FF00FF00=Green · FFFF0000=Red · FFFFFF00=Yellow · no-fill / FFD9D9D9 gray = NotReported (no status set).
+    //   TRUE Cycle 3 status (93 rows): 47 Green / 22 Yellow / 16 Red / 8 NotReported. Reporting (has a color) = 85/93 (91%).
+    // ─── RED CLUSTER (16) — the real story the text sync was hiding ─────────────────────────────────────────
+    //   🔴 Scott / SPORTS DATA = 5 RED (ALL 5 of his rows): Pinnacle P2/P3 coverage, fixtures/stats sources, new live-stats pipeline, UI league/team/player mapping, embeddings ontology. Biggest red concentration on the board — capacity/resourcing wall.
+    //   🔴 Craig C = 4 RED (2 Bookies Aff + 2 Affiliate): Picks Modernization "not pursuing", Geo-Specific Footer "will be missed", League/Player Props "not a good use of resources", Core Web Vitals (Javi left, no update). De-prioritized this cycle.
+    //   🔴 Tyler H / SUBSCRIPTION = 2 RED: BetSyn Prepaid-Card + User Survey both "no longer a priority now that BetSyn is being refunded."
+    //   🔴 Jeremy T / OJ PRODUCT = 2 RED: OJ MCP Server + Content Revamp — both "not started."
+    //   🔴 Samuel Hill (Localised direct mktg), Brian S/DJ (NFL preseason media plan), Matt Kulina (logged-out SSR stack) = 1 RED each.
+    // ─── TRUE NOT-REPORTED (8, no status color) + a correction ──────────────────────────────────────────────
+    //   🚨 Brian R (BOOKIES AFF 2 + BETSYNDICATE 2): 4 truly blank — no color, no date. THE real reporting escalation. Bookies forecast +12.6% (v12) yet zero status.
+    //   Other blanks: Samuel Hill (AI Search & SEO), Jeremy T (Prediction Arb non-sports [gray], 4-day course), Matt B (SEO+Paid LP).
+    //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
-        green: 16, yellow: 52, red: 2, notReported: 23, total: 93,
-        prevGreen: 16, prevYellow: 52, prevRed: 2, // Prev = 2026-06-09 PM re-sync (16G/52Y/2R/23NR/93T). 6/10 AM re-pull = IDENTICAL — no board movement overnight; same fresh 6/8–6/9 stamps still in place.
+        green: 47, yellow: 22, red: 16, notReported: 8, total: 93,
+        prevGreen: 16, prevYellow: 52, prevRed: 2, // Prev = text-keyword heuristic (16G/52Y/2R/23NR). This sync switched to true col-D color: 47G/22Y/16R/8NR. The jump is a methodology correction, not board movement.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
-        // Updated by the daily refresh task whenever Pedro's sheet is re-pulled via the Drive MCP.
-        lastSynced: "2026-06-10T05:30:00-06:00",   // ISO 8601 w/ TZ offset — Wed 6/10 AM re-pull (clean; counts unchanged vs last night)
-        prevSynced: "2026-06-09T20:50:00-06:00",   // for "X days fresher" delta
-        source: "C3 SCORECARD tab · Pedro's Weekly Ops Sheet"
+        // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
+        lastSynced: "2026-06-10T18:00:00-06:00",   // ISO 8601 w/ TZ offset — 6/10 PM color-based re-sync (live sheet, post-Craig/Tyler 6/10 edits)
+        prevSynced: "2026-06-10T05:30:00-06:00",   // for "X days fresher" delta
+        source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
     // Repurposed for C3 cumulative: pod-leads with the most NOT-REPORTED priorities (blank Updated column in C3 SCORECARD).
