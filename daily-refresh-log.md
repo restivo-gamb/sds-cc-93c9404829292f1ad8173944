@@ -1310,3 +1310,13 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256, 644,434 bytes; plaintext 478,367 bytes). ✓ matching.
 - auto-push.log verification: FRESH — last entry 2026-06-09 21:30:31 (within 24h). ✓
 - Notification: SENT — new red attention card (OJ data-infra fires: KIBL feed + GCP cost spike).
+
+### 2026-06-10 (PM correction — scorecard methodology)
+
+- Matt flagged the dashboard showing 2 Red when the live C3 SCORECARD has far more. ROOT CAUSE: status is encoded in the BACKGROUND COLOR of column D (current week's column), which the text-only Drive read_file_content never transmits. The old keyword heuristic was color-blind.
+- FIX: export sheet to xlsx via download_file_content (base64) + openpyxl read of col-D fill. Color map FF00FF00=G / FFFF0000=R / FFFFFF00=Y / none|FFD9D9D9=NR.
+- TRUE C3 status (col-D color): 47G / 22Y / 16R / 8NR (was shown 16G/52Y/2R/23NR). Red cluster: Scott/Sports Data=5 (all his rows), Craig=4 (de-prioritized 6/10), Tyler H=2, Jeremy T=2, +Samuel Hill/Brian S+DJ/Matt Kulina 1 ea.
+- CORRECTION surfaced: Brian S was NOT dark — his 8 Growth-Ops rows flagged "22 days NR" by the text method are color-coded 7G/1Y (he left Updated blank). Real NR escalation = Brian R (4 rows, no color). False-positive escalation retired.
+- Updated DATA.scorecard counts, redItems (now the real 16), yellowLeaders (ranked by red→NR + green-flag corrections), snap-scorecardIntro, keyThemes top entry, pipeline note, June 10 keyDates. scorecard.lastSynced → 2026-06-10T18:00 (color-based). intro border green→red.
+- Memory updated (reference_sds_scorecard_sheet.md) to the col-D-color method. NOTE: the 5:30 AM refresh task STEP 2(d) still describes the old text method — needs updating to stop regressing (pending Matt's OK).
+- JS parse: ok. Re-encrypted index.html (AES-256, 648,914 bytes; plaintext 481,722).
