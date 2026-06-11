@@ -912,26 +912,24 @@
 
                 <!-- WoW Forecast Changes -->
                 <div id="snap-wowForecast" style="background:rgba(34,197,94,0.06); border:1px solid rgba(34,197,94,0.2); border-radius:10px; padding:12px 14px; margin-bottom:12px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
-                    <strong style="color:var(--green);">WoW Forecast Changes (v12 vs v11) &mdash; parsed Jun 5 from gamb/finance/2026 SDS Revenue &amp; Forecasting (12).xlsx.</strong><br>
-                    <span style="color:var(--green);">&#9650; Bookies +$425K</span> &mdash; $3.36M &rarr; $3.79M (+12.6%). First material Bookies uptick in several versions — Brian R should note.<br>
-                    <span style="color:var(--green);">&#9650; OddsJam +$238K</span> &mdash; $17.57M &rarr; $17.81M (+1.4%). B2C Subs -$570K offset by Affiliate +$810K net.<br>
-                    <span style="color:var(--green);">&#9650; Affiliate rollup +$425K</span> &mdash; $18.02M &rarr; $18.45M (+2.4%). Roto Affiliate and Partnerships unchanged; Bookies gain drives the move.<br>
-                    <span style="color:var(--red);">&#9660; RotoWire -$28K</span> &mdash; $11.34M &rarr; $11.31M (-0.2%). Rounding-level drift; on track vs budget.<br>
-                    <span style="color:var(--text-muted);">&#9679; OpticOdds flat</span> &mdash; $22.54M unchanged.<br>
-                    <strong style="color:var(--green);">Net: +$635K WoW (+0.91%)</strong> &mdash; Forecast <strong>$70.10M</strong> — first time crossing $70M. Now <strong>+$3.35M (+5.02%) above</strong> $66.75M budget and +$1.73M (+2.53%) above target. YoY 21.75% &rarr; 22.87%.
+                    <strong style="color:var(--green);">WoW Forecast Changes (v13 vs v12) &mdash; parsed Jun 11 from gamb/finance/2026 SDS Revenue &amp; Forecasting (13).xlsx (mtime 6/10 23:44).</strong><br>
+                    <span style="color:var(--green);">&#9650; RotoWire +$20K</span> &mdash; $11.31M &rarr; $11.33M (+0.18%). Ads stream firmed (+21.9% vs budget); B2C + B2B Content flat. Above budget at the line.<br>
+                    <span style="color:var(--red);">&#9660; OddsJam -$10K</span> &mdash; $17.81M &rarr; $17.80M (-0.06%). Rounding-level; still -14.3% vs budget (the structural OJ gap, unchanged).<br>
+                    <span style="color:var(--text-muted);">&#9679; Affiliate / OpticOdds / Bookies flat</span> &mdash; $18.45M / $22.54M / $3.79M unchanged. Craig logged "no changes this week" on Affiliate in #sds-budget-owners.<br>
+                    <strong style="color:var(--green);">Net: +$10K WoW (+0.01%)</strong> &mdash; Forecast <strong>$70.11M</strong>, holding above $70M. Now <strong>+$3.36M (+5.03%) above</strong> $66.75M budget and +$1.74M (+2.55%) above target. YoY 22.87% &rarr; 22.88%. This is a settle, not a swing &mdash; final May numbers locking; Tim flagged bigger RW changes next week at mid-month.
                 </div>
 
                 <div id="snap-revGrid">
-                <!-- Total SDS headline (v11 forecast) -->
+                <!-- Total SDS headline (v13 forecast) -->
                 <div class="fc-total-card">
                     <div>
                         <div class="fc-total-label">Total SDS &mdash; 2026 Forecast</div>
-                        <div class="fc-total-amount">$70.10M</div>
-                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M &middot; Target $68.37M &middot; 25A $57.05M (+22.87% YoY)</div>
+                        <div class="fc-total-amount">$70.11M</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M &middot; Target $68.37M &middot; 25A $57.05M (+22.88% YoY)</div>
                     </div>
                     <div class="fc-total-deltas">
-                        <span class="fc-d-bud" style="color:var(--green);">+$3.35M vs Budget &nbsp;(+5.02%)</span>
-                        <span class="fc-d-tgt" style="color:var(--green);">+$1.73M vs Target &nbsp;(+2.53%)</span>
+                        <span class="fc-d-bud" style="color:var(--green);">+$3.36M vs Budget &nbsp;(+5.03%)</span>
+                        <span class="fc-d-tgt" style="color:var(--green);">+$1.74M vs Target &nbsp;(+2.55%)</span>
                     </div>
                 </div>
 
@@ -1490,9 +1488,9 @@ const DATA = {
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v12",
-        ingestedAt: "2026-06-05T05:30:00-07:00",   // ISO 8601 w/ TZ offset
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (12).xlsx"
+        version: "v13",
+        ingestedAt: "2026-06-11T05:30:00-06:00",   // ISO 8601 w/ TZ offset
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (13).xlsx"
     },
 
     // RotoWire vs Budget — NEW DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate now lives under Affiliate rollup
@@ -1501,9 +1499,9 @@ const DATA = {
     // tracks them separately per the 5/21 taxonomy change. Roto Affiliate $7.85M sits inside the new Affiliate rollup ($18.02M total).
     rw: {
         budget: 11.14,          // $11,143,335 — NEW 2026 RW Budget (subs+ads+content; v11 baseline)
-        forecast: 11.31,        // Current forecast (v12, parsed Jun 5 from gamb/finance/2026 SDS Revenue & Forecasting (12).xlsx)
-        aboveBudget: 0.17,      // forecast − budget
-        abovePct: 1.53          // % over budget
+        forecast: 11.33,        // Current forecast (v13, parsed Jun 11 from gamb/finance/2026 SDS Revenue & Forecasting (13).xlsx)
+        aboveBudget: 0.19,      // forecast − budget ($11,333,857 − $11,143,335)
+        abovePct: 1.71          // % over budget
     },
 
     // Scorecard counts — Cycle 3 cumulative, from C3 SCORECARD tab in Pedro's sheet
@@ -1526,11 +1524,11 @@ const DATA = {
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
         green: 47, yellow: 22, red: 16, notReported: 8, total: 93,
-        prevGreen: 16, prevYellow: 52, prevRed: 2, // Prev = text-keyword heuristic (16G/52Y/2R/23NR). This sync switched to true col-D color: 47G/22Y/16R/8NR. The jump is a methodology correction, not board movement.
+        prevGreen: 47, prevYellow: 22, prevRed: 16, // 6/11 AM color re-sync — IDENTICAL to 6/10 PM (47G/22Y/16R/8NR). No board movement overnight; same 16 reds, same Brian R 4-NR. Craig DM 6/11 noted Matt "added topics" but aggregate unchanged.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-10T18:00:00-06:00",   // ISO 8601 w/ TZ offset — 6/10 PM color-based re-sync (live sheet, post-Craig/Tyler 6/10 edits)
-        prevSynced: "2026-06-10T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-11T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/11 AM color-based re-sync (xlsx export + openpyxl col-D fill); flat vs 6/10 PM
+        prevSynced: "2026-06-10T18:00:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
