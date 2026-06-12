@@ -1332,3 +1332,19 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Creator Scoreboard: API DEGRADED — worker responded 200 but every creator returned upstream 'tweets 402' errors, so 6/10 scored-day points are artificially near-zero (Jim 3 / Clark 2 / Dustin 1 / Billy 1 / Jeff 1, rest 0). NOT a real behavior collapse. Per guardrails: carried prior DATA.creators, did NOT bump creators.ingestedAt (chip ages naturally). Flagged in notification.
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K iters): 660,298 chars. ✓ matching.
 - auto-push.log verification: ✓ FRESH — most recent entry is today's "Daily refresh 2026-06-11" commit e920569, pushed clean (prior healthy entry 6/10 20:22). Deploys live.
+
+## 2026-06-12
+
+- Updated header timestamp → June 12, 2026.
+- forecastMeta.ingestedAt: 2026-06-11T05:30:00-06:00 (unchanged — v13 holds, no version bump) · scorecard.lastSynced: 2026-06-12T05:30:00-06:00 · creators.ingestedAt: 2026-06-12T05:30:00-06:00 (bumped — board recovered).
+- Forecast: highest xlsx in gamb/finance/ is (13); forecast.json _meta.latest_version = v13. NO move. Revenue Pulse static HTML untouched.
+- Slack: FRESH (Group + Individual Context "Jun 9 – Jun 12, 2026", gen 2026-06-12T07:20Z). Not stale.
+- Granola (6/11): 3 notes — "Stats Perform + RotoWire/GDC" (5yr/$2.1M proposal, Matt countering Mon, $50K OO-reseller offset to verify), "Jack Taylor + OJ/OO" (PR agency too rich, Matt to call Judy/CEO, alts incl. Influencing.co by next Thu, Perplexity full rollout next week), "RotoWire 1:1s Day 2" (Joe Bartel/Lauren/Thorn; logo converging red/white/blue cap R/W option 1; 3 football hires close ~2wks; Matt taking over talent process from DJ; Lauren's Mission Control).
+- Scorecard sync (col-D fill via xlsx export + openpyxl): G:46 / Y:23 / R:16 / NR:8 vs prior 6/11 47/22/16/8 — ONE Green→Yellow; reds (Scott 5, Craig 4, Tyler H 2, Jeremy T 2, Samuel Hill 1, Brian S/DJ 1, Matt Kulina 1) + NR (Brian R 4, Jeremy T 2, Samuel Hill 1, Matt B 1) identical. Current-week column shifted to "w5" (still col D). Intro paragraph + DATA.scorecard + comment refreshed. Drive read OK.
+- Creator Scoreboard (API via Chrome, scored day 6/11): 70 pts total (recovered from 6/10 degradation — real/varied). 0 true hitters; Dustin 11, Jim 10, McKechnie climbing 6→8. CAVEAT: push classifier still degraded ("could not classify posts" on every card → 0 pushes shown, unverifiable) but points normal-range → ingestedAt bumped. OddsJam brand only zero-output. No notification trigger (no goal→0 flip; OJ pod 1/4 zero = 25%; McKechnie named in Tim DMs but climbing, not a laggard).
+- DM signals folded into keyDates/keyThemes/attention: Stripe rate ("aggressive," ~2wks, no 3-yr), Tim $40k/mo savings by Sept, Karl O'Brien likely out (~2wks, Ahti), Brian/Novig next week, Craig RW record 4,473 NDCs/~$700k w/CAN + Bookies $140k May, Polymarket D&E terms, Kevin/Theo severance + Randall outreach stalled. Channels: Apple Ads suspended (billing), GCP $80k vs $55k, Optic sales ~$72k closed won (CME redline pending), Agent-a-thon TODAY (11 submissions).
+- Attention: added 2 new cards (DEAL SURFACES — Stats Perform/Jack Taylor/Polymarket/Stripe/Karl; RW REBUILD — logo/3 hires/Matt-owns-talent). Rolled Theo + OJ-data-infra + Agent-a-thon (TOMORROW→TODAY) cards to 6/12.
+- Pipeline Note rewritten for 6/12.
+- JS parse: ok. Encrypted index.html (AES-256, 681,726 bytes).
+- auto-push.log verification: FRESH — last entry 2026-06-12 05:45:07 ("Daily refresh 2026-06-12" pushed); deploys healthy.
+- Notification: SENT (deal stage change — Stats Perform 5yr/$2.1M counter + Jack Taylor PR decision + RW talent process handoff + Karl O'Brien departure).
