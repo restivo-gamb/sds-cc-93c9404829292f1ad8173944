@@ -2477,18 +2477,19 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-06-11",
-        ingestedAt: "2026-06-12T05:30:00-06:00",
+        date: "2026-06-12",
+        ingestedAt: "2026-06-13T05:30:00-06:00",
         totals: {
-            allPoints: 70, allHit: 0, allTotal: 13,
-            ojPoints: 12, ojTotal: 4,
-            rwPoints: 47, rwTotal: 8
+            allPoints: 50, allHit: 0, allTotal: 13,
+            ojPoints: 17, ojTotal: 4,
+            rwPoints: 28, rwTotal: 8
         },
-        // Fresh AM pull 2026-06-12 11:38 UTC (via Chrome). Scored day = 6/11.
-        // BOARD RECOVERED FROM THE 6/10 API DEGRADATION — points are real and varied again (70 total vs the artificial near-zero on 6/10).
-        //   CAVEAT: every card's last_reason reads "Could not classify posts" — the PUSH classifier is still degraded, so all show 0 product pushes (can't confirm). Points themselves are normal-range, so the data is usable; ingestedAt bumped.
-        // STILL ZERO true goal-hitters (10 pts AND a push). Dustin (11) + Jim (10) cleared the points bar but pushes unverifiable; McKechnie climbed 6→8.
-        // No goal→0 flip; only zero-output = OddsJam brand (2nd day). OJ pod 12 pts / RW pod 47 pts / DGF (Dustin) 11. No notification trigger.
+        // Fresh AM pull 2026-06-13 12:31 UTC (via API). Scored day = 6/12 (Friday).
+        // POINTS COOLED to 50 (from 70 on 6/11) — Friday/pre-weekend softening, not a collapse. Data is real and varied.
+        //   CAVEAT: every card's last_reason STILL reads "Could not classify posts" — the PUSH classifier remains degraded, so all show 0 product pushes (unverifiable). Points are normal-range; ingestedAt bumped.
+        // STILL ZERO true goal-hitters. Jim Coventry (10) is the only one to clear the points bar; pushes unverifiable. No one else above 7.
+        // 3 zero-output (up from 1): OddsJam brand (3rd day) + Jeff Erickson (cooled 7→0) + James Anderson (3→0). McKechnie cooled 8→4 but still posting (NOT dark; Tim-DM name).
+        // No goal→0 flip (no one at goal 6/11). RW zero = 2/8 (25%), OJ zero = 1/4 (25%) — neither >50%. No notification trigger.
         // McKechnie (named in Matt↔Tim DMs re the 22-view stream) is NOT a laggard — 8 pts, climbing → no cross-ref flag, reads as recovery.
         leaders: [
             { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 14, replies: 7, likes: 95, rts: 6, onTarget: false, reason: "Top output (11 pts) — cleared the points bar; product push unverifiable (classifier degraded). Edge of goal." },
