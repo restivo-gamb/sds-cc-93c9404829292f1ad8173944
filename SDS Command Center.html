@@ -1081,7 +1081,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--red);">
-                    <strong>Cycle 3 Wk4 (Fri) &mdash; read from the REAL signal: column-D background color.</strong> Source: <strong>C3 SCORECARD</strong> tab, re-synced 2026-06-12 AM (essentially flat vs 6/11 &mdash; <strong>one Green&rarr;Yellow</strong>, reds + NR identical) by exporting to xlsx and reading the col-D fill (status lives in the color; a new week-column is added weekly &mdash; current week is now &ldquo;w5&rdquo; and remains col&nbsp;D). <strong style="color:var(--red);">The old text-keyword method was color-blind and undercounted Red 2 vs 16.</strong> <strong>True status: G:46 / Y:23 / R:16 / NR:8</strong> &mdash; 85/93 (91%) carry a color. <strong style="color:var(--red);">Red cluster (16):</strong> <strong>Scott / Sports Data = 5 (all his rows)</strong> &mdash; Pinnacle coverage, stats sources, live-stats pipeline, UI mapping, embeddings; a resourcing wall tied to V&rsquo;s DI crunch. <strong>Craig = 4</strong> (Bookies Aff + Affiliate items deliberately de-prioritized 6/10). <strong>Tyler H = 2</strong> (BetSyn items killed). <strong>Jeremy T = 2</strong> (OJ MCP + Content Revamp, not started). <strong style="color:var(--red);">Real reporting escalation:</strong> <strong>Brian R</strong> &mdash; 4 rows with no color at all (Bookies Aff + BetSyn), while Bookies forecast rose +12.6% in v12. <strong style="color:var(--green);">✅ Correction:</strong> <strong>Brian S is NOT dark</strong> &mdash; the prior &ldquo;8/8 NR, 22 days silent&rdquo; flag was a text-sync artifact; his rows are color-coded <strong>7 green + 1 yellow</strong> (he just left the Updated date blank).
+                    <strong>Cycle 3 Wk4 (Sat) &mdash; read from the REAL signal: column-D background color.</strong> Source: <strong>C3 SCORECARD</strong> tab, re-synced 2026-06-13 AM (<strong>dead flat vs 6/12</strong> &mdash; 46/23/16/8 identical, owner-for-owner; weekend hold, Pedro&rsquo;s board doesn&rsquo;t move Sat) by exporting to xlsx and reading the col-D fill (status lives in the color; a new week-column is added weekly &mdash; current week is now &ldquo;w5&rdquo; and remains col&nbsp;D). <strong style="color:var(--red);">The old text-keyword method was color-blind and undercounted Red 2 vs 16.</strong> <strong>True status: G:46 / Y:23 / R:16 / NR:8</strong> &mdash; 85/93 (91%) carry a color. <strong style="color:var(--red);">Red cluster (16):</strong> <strong>Scott / Sports Data = 5 (all his rows)</strong> &mdash; Pinnacle coverage, stats sources, live-stats pipeline, UI mapping, embeddings; a resourcing wall tied to V&rsquo;s DI crunch. <strong>Craig = 4</strong> (Bookies Aff + Affiliate items deliberately de-prioritized 6/10). <strong>Tyler H = 2</strong> (BetSyn items killed). <strong>Jeremy T = 2</strong> (OJ MCP + Content Revamp, not started). <strong style="color:var(--red);">Real reporting escalation:</strong> <strong>Brian R</strong> &mdash; 4 rows with no color at all (Bookies Aff + BetSyn), while Bookies forecast rose +12.6% in v12. <strong style="color:var(--green);">✅ Correction:</strong> <strong>Brian S is NOT dark</strong> &mdash; the prior &ldquo;8/8 NR, 22 days silent&rdquo; flag was a text-sync artifact; his rows are color-coded <strong>7 green + 1 yellow</strong> (he just left the Updated date blank).
                 </div>
 
                 <!-- RED FLAG -->
@@ -1524,11 +1524,11 @@ const DATA = {
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
         green: 46, yellow: 23, red: 16, notReported: 8, total: 93,
-        prevGreen: 47, prevYellow: 22, prevRed: 16, // 6/12 AM color re-sync — essentially flat vs 6/11 (47/22/16/8): ONE Green→Yellow (G 47→46, Y 22→23). Reds unchanged (same 16: Scott 5, Craig 4, Tyler H 2, Jeremy T 2, Samuel Hill 1, Brian S/DJ 1, Matt Kulina 1). NR unchanged (Brian R 4, Jeremy T 2, Samuel Hill 1, Matt B 1). The current-week column shifted to "w5" — col D still holds live status.
+        prevGreen: 46, prevYellow: 23, prevRed: 16, // 6/13 AM color re-sync (Saturday) — DEAD FLAT vs 6/12: 46/23/16/8 identical, owner-for-owner. Same 16 reds (Scott 5, Craig 4, Tyler H 2, Jeremy T 2, Samuel Hill 1, Brian S/DJ 1, Matt Kulina 1); same 8 NR (Brian R 4, Jeremy T 2 [Pred-Arb + 4-day course], Samuel Hill 1, Matt B 1). Reporting 85/93 (91%). Weekend hold — Pedro's board doesn't move Sat.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-12T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/12 AM color-based re-sync (xlsx export + openpyxl col-D fill); essentially flat vs 6/11 (one G→Y)
-        prevSynced: "2026-06-11T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-13T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/13 AM color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/12
+        prevSynced: "2026-06-12T05:30:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
@@ -2492,23 +2492,23 @@ const DATA = {
         // No goal→0 flip (no one at goal 6/11). RW zero = 2/8 (25%), OJ zero = 1/4 (25%) — neither >50%. No notification trigger.
         // McKechnie (named in Matt↔Tim DMs re the 22-view stream) is NOT a laggard — 8 pts, climbing → no cross-ref flag, reads as recovery.
         leaders: [
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 14, replies: 7, likes: 95, rts: 6, onTarget: false, reason: "Top output (11 pts) — cleared the points bar; product push unverifiable (classifier degraded). Edge of goal." },
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 10, tweets: 8, replies: 42, likes: 61, rts: 1, onTarget: false, reason: "Exactly 10 pts on 42 replies — best RW engagement; push not confirmed. One classified push short of goal." },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 8, tweets: 6, replies: 8, likes: 28, rts: 4, onTarget: false, reason: "8 pts, climbing 6→8 — the name from the Tim DMs (22-view stream) is trending up, not dark. Watch, don't flag." }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 10, tweets: 7, replies: 29, likes: 61, rts: 4, onTarget: false, reason: "Only one to clear 10 pts — top RW output; product push unverifiable (classifier still degraded). One classified push short of goal." }
         ],
         laggards: [
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output: 0 tweets, 0 pts on the scored day (brand account). Only true zero on the board, holding." }
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output: 0 tweets, 0 pts (brand account) — 3rd straight dark day, holding." },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 1, rts: 0, onTarget: false, reason: "Cooled 7→0 — fully dark on the scored day. The senior talent/recruiting name; watch into the week, likely a Friday/weekend pattern." },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 2, rts: 0, onTarget: false, reason: "Cooled 3→0 — fully dark. Persistent low-output RW creator." }
         ],
         midTier: [
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 9 replies · push unverified (classifier degraded)" },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 7, reason: "7 pts · 4 tweets · 9 replies · cooled from 11 the prior day" },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 7, reason: "7 pts · 4 tweets · 6 replies · 102K impressions (top reach) · best OJ output" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 6, reason: "6 pts · 3 tweets · 40 replies · 51K impressions · heavy reply volume" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 4 replies" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 4 tweets · 3 replies" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 2 replies · near-dark" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 4 replies · low output" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · near-dark" }
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 7, reason: "7 pts · 5 tweets · 2 replies · 58K impressions (top reach) · best OJ output" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 5 tweets · 3 replies" },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 5, reason: "5 pts · 3 tweets · 2 replies · cooled from 11 the prior day" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 5, reason: "5 pts · 3 tweets · 2 replies" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 5, reason: "5 pts · 4 tweets · 1 reply" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 17 replies · 32K impressions · heavy reply volume" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 6 replies · cooled 8→4 but still posting — Tim-DM name, not dark" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 1 reply" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · near-dark" }
         ]
     },
 
