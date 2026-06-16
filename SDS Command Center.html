@@ -820,7 +820,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: June 14, 2026</span>
+            <span id="lastUpdated">Updated: June 16, 2026</span>
         </div>
     </div>
 
@@ -1081,7 +1081,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--red);">
-                    <strong>Cycle 3 Wk4 (Sun) &mdash; read from the REAL signal: column-D background color.</strong> Source: <strong>C3 SCORECARD</strong> tab, re-synced 2026-06-14 AM (<strong>dead flat for the 3rd straight day</strong> &mdash; 46/23/16/8 identical to 6/13 and 6/12, owner-for-owner; weekend hold, Pedro&rsquo;s board doesn&rsquo;t move Sat/Sun) by exporting to xlsx and reading the col-D fill (status lives in the color; current week is &ldquo;w5&rdquo; and remains col&nbsp;D). <strong style="color:var(--red);">The old text-keyword method was color-blind and undercounted Red 2 vs 16.</strong> <strong>True status: G:46 / Y:23 / R:16 / NR:8</strong> &mdash; 85/93 (91%) carry a color. <strong style="color:var(--red);">Red cluster (16):</strong> <strong>Scott / Sports Data = 5 (all his rows)</strong> &mdash; Pinnacle coverage, stats sources, live-stats pipeline, UI mapping, embeddings; a resourcing wall tied to V&rsquo;s DI crunch. Then a 2-each cluster: <strong>Brian R 2, Craig C 2, Tyler H 2, Jeremy T 2</strong> (Bookies Aff / Affiliate de-prioritized, BetSyn killed, OJ MCP+Content Revamp not started) + Samuel Hill, Brian S/DJ, Matt Kulina 1 each. <strong style="color:var(--red);">Real reporting escalation:</strong> <strong>Brian R</strong> &mdash; 4 rows with no color at all (Bookies Aff + BetSyn) on top of his 2 reds = 6 dark rows, while Bookies forecast rose +12.6% in v12. <strong style="color:var(--green);">✅ Correction holds:</strong> <strong>Brian S is NOT dark</strong> &mdash; his rows are color-coded <strong>7 green + 1 yellow</strong> (he just left the Updated date blank).
+                    <strong>Cycle 3 &mdash; NEW WEEK (W6) just opened; read from the column-D fill color.</strong> Source: <strong>C3 SCORECARD</strong> tab, re-synced <strong>2026-06-16 AM</strong> (xlsx export + openpyxl col-D fill). <strong style="color:var(--red);">A fresh week column (W6) was inserted at col&nbsp;D since the 6/14 sync</strong>, pushing last week (w5 = 46/23/16/8) right to col&nbsp;E. W6 is only <strong>39/93 reported on a Tuesday</strong>, so <strong style="color:var(--red);">NR 8&rarr;54 is a week-rollover artifact, not a reporting collapse.</strong> <strong>Of the 39 reported: G:27 / Y:9 / R:3.</strong> <strong style="color:var(--red);">All 3 reds are Jeremy&nbsp;T / OJ&nbsp;PRODUCT</strong> &mdash; X Livestream Clipper, OJ MCP Server &amp; Content Revamp (both &ldquo;not started&rdquo;). Last week&rsquo;s Scott-5 / Craig-4 red cluster simply hasn&rsquo;t re-reported W6 yet. <strong style="color:var(--red);">Date-stale 9+ days (any week col):</strong> <strong>Samuel Hill</strong> (2 rows, 5/18 &mdash; 29d), <strong>Matt Kulina</strong> (5/18 &mdash; 29d), <strong>Steven</strong> port-websocket (5/20 &mdash; 27d), <strong>Karl O&rsquo;Brien</strong> Prediction Markets (5/25 &mdash; 22d). <strong>Brian R</strong> (Bookies Aff + BetSyn, 4 rows) remains chronically dark. Re-read mid-week once W6 fills in.
                 </div>
 
                 <!-- RED FLAG -->
@@ -1504,6 +1504,7 @@ const DATA = {
         abovePct: 1.71          // % over budget
     },
 
+    // ─── 2026-06-16 (TUE) — NEW WEEK W6 ROLLOVER: a fresh week column was inserted at col D since 6/14, pushing w5 (46/23/16/8) to col E. W6 is only 39/93 reported on a Tuesday → 27G/9Y/3R/54NR. The NR 8→54 spike is rollover timing, NOT a collapse. Re-read mid-week once W6 fills in. ───
     // Scorecard counts — Cycle 3 cumulative, from C3 SCORECARD tab in Pedro's sheet
     // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit).
     // ─── 2026-06-10 PM: METHODOLOGY FIX — now reading the REAL status: column-D BACKGROUND COLOR ───
@@ -1523,48 +1524,35 @@ const DATA = {
     //   Other blanks: Samuel Hill (AI Search & SEO), Jeremy T (Prediction Arb non-sports [gray], 4-day course), Matt B (SEO+Paid LP).
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
-        green: 46, yellow: 23, red: 16, notReported: 8, total: 93,
-        prevGreen: 46, prevYellow: 23, prevRed: 16, // 6/14 AM color re-sync (Sunday) — DEAD FLAT vs 6/13 AND 6/12: 46/23/16/8 identical, third consecutive day. col-D fill read confirms 46 FF00FF00 / 23 FFFFFF00 / 16 FFFF0000 / (7 no-fill + 1 FFD9D9D9 gray) = 8 NR. Owner-level reds: Scott 5 (resourcing wall), then 2-each cluster (Brian R 2, Craig C 2, Tyler H 2, Jeremy T 2) + Samuel Hill 1, Brian S/DJ 1, Matt Kulina 1. NR: Brian R 4 (truly dark — 6 dark rows total w/ his 2 reds), Jeremy T 2, Samuel Hill 1, Brian S 1. Reporting 85/93 (91%). Weekend hold — Pedro's board doesn't move Sat/Sun.
+        green: 27, yellow: 9, red: 3, notReported: 54, total: 93,
+        prevGreen: 46, prevYellow: 23, prevRed: 16, // 6/16 col-D re-sync — NEW WEEK W6 opened (col D); last week w5 (46/23/16/8) shifted to col E. W6 only 39/93 reported on a Tuesday -> 27G/9Y/3R/54NR; the NR 8->54 jump is a week-rollover artifact, not a reporting collapse. 3 reds all Jeremy T / OJ PRODUCT (X Livestream Clipper, OJ MCP Server, Content Revamp — "not started"). Last week's Scott-5 / Craig-4 red cluster has not re-reported W6 yet. Date-stale 9+d (any week col): Samuel Hill (5/18, 29d, 2 rows), Matt Kulina (5/18, 29d), Steven port-websocket (5/20, 27d), Karl O'Brien Prediction Markets (5/25, 22d). Brian R (Bookies Aff + BetSyn, 4 rows) chronically dark.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-14T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/14 AM color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/13 (3rd straight day)
-        prevSynced: "2026-06-13T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-16T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/14 AM color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/13 (3rd straight day)
+        prevSynced: "2026-06-14T05:30:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
     // Repurposed: pod-leads ranked by REAL col-D color status (Red first, then true Not-Reported). Re-synced 2026-06-12 AM by reading col-D fill color from the xlsx export — owner-level breakdown unchanged vs 6/11 (Scott 5R, Craig 4R, Brian R 4NR, Tyler H 2R, Jeremy T 2R/2NR all hold).
     // Badge shows the lead's Y + R count. Green-flag leads (fully reported / mostly green) listed at the bottom for contrast.
     yellowLeaders: [
-        { name: "Scott", pod: "SPORTS DATA (ALL 5 ROWS RED · resourcing wall)", yellows: 0, reds: 5, items: "Every Sports Data priority is red: P2/P3 Pinnacle+Bet365 coverage (problems unsolved), fixtures/stats/live-stats sources, new live-stats pipeline (not scoped), UI league/team/player mapping (stalled for resources), embeddings ontology (not scheduled). Biggest red cluster on the board — capacity/headcount, ties to V's DI crunch. #1 escalation." },
-        { name: "Craig C", pod: "BOOKIES AFF + AFFILIATE (4 RED · de-prioritized 6/10)", yellows: 2, reds: 4, items: "4 reds, all stamped 6/10 as kills/parks: Picks Modernization 'not pursuing', Geo-Specific Footer 'will be missed → next cycle', League/Player Props 'not a good use of resources', Core Web Vitals (Javi left, no update). Deliberate de-scope — confirm these are intentional drops, not silent failures." },
-        { name: "Brian R", pod: "BOOKIES AFF + BETSYNDICATE (4 TRUE NR · no status color)", yellows: 0, reds: 0, items: "🚨 THE real reporting escalation: 4 rows with no color AND no Updated date — genuinely dark. Bookies forecast +12.6% in v12 yet zero status from the owner. (The one the old text sync got right.)" },
-        { name: "Tyler Huntington", pod: "SUBSCRIPTION (2 RED)", yellows: 0, reds: 2, items: "Both reds are deliberate kills: BetSyn Prepaid-Card + User Survey, 'no longer a priority now that BetSyn is being refunded.' YouTube NFL Tutorials + Positional Rankings green. Confirm the BetSyn wind-down is the intended call." },
-        { name: "Jeremy T", pod: "OJ PRODUCT (2 RED · 5G · book of 14)", yellows: 5, reds: 2, items: "2 reds both 'not started' (OJ MCP Server, Content Revamp) — low-pri tail of a 14-item book. 5 greens incl. Stripe Migration, Prediction Arbitrage, Parlay creation. Reds are backlog, not blockers." },
-        { name: "Samuel Hill", pod: "OPTIC MARKETING (1 RED + 1 NR · stale since 5/18)", yellows: 1, reds: 1, items: "Localised direct marketing red; AI Search & SEO has no status color. Both last touched 5/18 — 3+ weeks stale. Optic contingent at a conference this week, but status is overdue." },
-        { name: "Brian S", pod: "GROWTH OPS + TALENT (✅ NOT DARK — 7G/1Y by color)", yellows: 1, items: "✅ CORRECTION: the old text sync flagged Brian S '8/8 NR, 22 days silent, worst gap' — FALSE. His Growth-Ops rows are color-coded 7 green + 1 yellow; he just never filled the Updated date column. Only red is the shared Talent 'NFL preseason media plan'. Escalation retired." },
-        { name: "Nick P", pod: "RW PRODUCT (✅ 9G/1Y · green-flag)", yellows: 1, items: "Fully reporting, almost all green — DraftBot suite shipped, AWS migration in progress. Best-reporting heavy book on the board." },
-        { name: "Steven", pod: "ODDS DATA (✅ 3G/2Y · green-flag)", yellows: 2, items: "Websocket architecture + Polymarket port complete; Prediction Markets support + Monitoring Dashboard yellow. Fully current." },
-        { name: "Jacqui Kouassi", pod: "MEDIA (✅ 3G · green-flag)", yellows: 0, items: "All green: Perplexity PR, RW Prediction Markets campaign, Summer Stakes tentpole. Zero red, zero blank." }
+        { name: "Jeremy T", pod: "OJ PRODUCT (3 RED in W6 · book of 14)", yellows: 5, reds: 3, items: "Only owner carrying reds in the new week: X Livestream Clipper + OJ MCP Server + Content Revamp (last two 'not started') — the low-pri tail of a 14-item book. 6 greens incl. Stripe Migration, Prediction Arbitrage, Parlay creation. Reds are backlog, not blockers." },
+        { name: "Samuel Hill", pod: "OPTIC MARKETING (date-stale 29d · 3 rows dark)", yellows: 0, reds: 0, items: "AI Search & SEO, Localised direct marketing, Perplexity launch — all uncolored in W6; last real touch 5/18 (29 days). Optic team at conferences this week, but status is badly overdue. Escalation candidate." },
+        { name: "Matt Kulina", pod: "RW PRODUCT (date-stale 29d)", yellows: 0, reds: 0, items: "'Logged out server side rendering stack' untouched since 5/18 — 29 days, the single oldest row on the board. Confirm it's still owned." },
+        { name: "Brian R", pod: "BOOKIES AFF + BETSYNDICATE (chronically dark · 4 rows)", yellows: 0, reds: 0, items: "🚨 The persistent reporting escalation: 4 rows with no color and no date, week after week (League/Player Props, Core Web Vitals, BetSyn Prepaid-Card, User Survey). Bookies forecast healthy yet zero status from the owner." },
+        { name: "Steven", pod: "ODDS DATA (5 rows uncolored W6 · 1 row 27d)", yellows: 0, reds: 0, items: "Websocket arch + Polymarket port were green last week but not yet re-reported in W6; Prediction Markets support + Monitoring Dashboard also blank. Port-websocket row date-stale 5/20 (27d)." },
+        { name: "Karl O'Brien", pod: "OPTIC PRODUCT (4 rows dark · off until 7/7)", yellows: 0, reds: 0, items: "Partner Support, Futures in Copilot, Sportsbook-as-sales-asset, Prediction Markets (5/25, 22d) all uncolored. Karl is out until July 7 — expected gap, but the Ahti transition + Wednesday slide ride on top of it." },
+        { name: "Brian S", pod: "GROWTH OPS (8 rows uncolored W6)", yellows: 0, reds: 0, items: "All 8 Growth-Ops rows blank for W6 (he color-coded green/yellow last week but always leaves the Updated date empty). A reporting-hygiene pattern, not a collapse — but W6 status is absent so far." },
+        { name: "Scott", pod: "SPORTS DATA (5 reds last week · not re-reported)", yellows: 0, reds: 0, items: "Carried all 5 rows red last week (Pinnacle coverage, stats/live-stats sources, UI mapping, embeddings — a resourcing wall). W6 uncolored so far; watch whether the reds persist once he re-reports." },
+        { name: "Nick P", pod: "RW PRODUCT (✅ reporting · green-flag)", yellows: 1, items: "Heaviest book on the board and consistently colored — DraftBot suite shipped, draft-plans pipeline expanding. Best-reporting heavy owner; green-flag example." },
+        { name: "Tyler Huntington", pod: "SUBSCRIPTION (✅ 3G in W6 · green-flag)", yellows: 0, items: "Already reported 3 greens for the new week (NFL tutorials, positional rankings). Reports early — green-flag contrast to the dark owners above." }
     ],
 
     // Red items — the TRUE 16, read from column-D fill color (FFFF0000) on 2026-06-10. Sorted by pod cluster.
     redItems: [
-        { name: "Complete P2/P3 league coverage to Pinnacle & Bet365", owner: "Scott", pod: "SPORTS DATA", priority: "Pinnacle problems unsolved" },
-        { name: "Add fixtures, stats & live-stats sources", owner: "Scott", pod: "SPORTS DATA", priority: "Flashscore in; ISportsdataAPI next" },
-        { name: "New live stats / scores pipeline", owner: "Scott", pod: "SPORTS DATA", priority: "Not yet scoped" },
-        { name: "Improve UI to map leagues/teams/players", owner: "Scott", pod: "SPORTS DATA", priority: "Stalled — resources" },
-        { name: "Create embeddings AI (ontology) for teams/players", owner: "Scott", pod: "SPORTS DATA", priority: "Not yet scheduled" },
-        { name: "Picks Modernization — computer models", owner: "Craig C", pod: "BOOKIES AFF", priority: "Not pursuing" },
-        { name: "Geo-Specific Footer & Nav by Country", owner: "Craig C", pod: "BOOKIES AFF", priority: "Dropped — 'will be missed'" },
-        { name: "League & Player Props + ParlayGrade Integration", owner: "Craig C", pod: "AFFILIATE", priority: "Not a good use of resources" },
-        { name: "Core Web Vitals — Fix INP (CrUX)", owner: "Craig C", pod: "AFFILIATE", priority: "Javi left, no update" },
-        { name: "BetSyndicate — Prepaid Card / Churn Reduction", owner: "Tyler H", pod: "SUBSCRIPTION", priority: "Killed — BetSyn refunded" },
-        { name: "User Survey — Retention & Cancellation Drivers", owner: "Tyler H", pod: "SUBSCRIPTION", priority: "Killed — BetSyn refunded" },
+        { name: "X Livestream Clipper", owner: "Jeremy T", pod: "OJ PRODUCT", priority: "Red in W6 — skill built to match winning bets to livestreams + autoclip; flagged red this week" },
         { name: "OJ MCP Server", owner: "Jeremy T", pod: "OJ PRODUCT", priority: "Not started" },
-        { name: "Content Revamp", owner: "Jeremy T", pod: "OJ PRODUCT", priority: "Not started" },
-        { name: "Localised direct marketing", owner: "Samuel Hill", pod: "OPTIC MARKETING", priority: "Stalled (last upd 5/18)" },
-        { name: "NFL preseason media content plan", owner: "Brian S, DJ T", pod: "TALENT", priority: "YouTube in flux (awaiting talent)" },
-        { name: "Logged-out server-side rendering stack", owner: "Matt Kulina", pod: "RW PRODUCT", priority: "Rescoping w/ Craig + Tyler" }
+        { name: "Content Revamp", owner: "Jeremy T", pod: "OJ PRODUCT", priority: "Not started" }
     ],
 
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
@@ -2479,27 +2467,30 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-06-14",
-        ingestedAt: "2026-06-14T07:10:00-06:00",
+        date: "2026-06-16",
+        ingestedAt: "2026-06-16T05:30:00-06:00",
         totals: {
-            allPoints: 1, allHit: 0, allTotal: 13,
-            ojPoints: 0, ojTotal: 4,
-            rwPoints: 1, rwTotal: 8
+            allPoints: 7, allHit: 0, allTotal: 13,
+            ojPoints: 1, ojTotal: 4,
+            rwPoints: 5, rwTotal: 8
         },
-        // Fresh AM pull 2026-06-14 13:08 UTC (via Chrome — API blocked by sandbox allowlist; UI/JSON read in browser). Scored day = 6/14 (SUNDAY, early/partial).
-        // ⚠️ EARLY-SUNDAY PARTIAL — WEEKEND TROUGH. Pull ran 13:08Z; most creators simply haven't posted yet on a Sunday. Only Jim Coventry on the board (1 pt, "could not classify" → partial). Everyone else 0 so far.
-        //   This is the expected weekend bottom, NOT a collapse — yesterday (6/13 Fri scored day) topped out at Jim 8 / Alex 4 / Billy 4, already soft. Read it as "board is quiet, not broken."
-        //   CAVEAT: push classifier STILL degraded — every card reads "Could not classify posts," so 0 product pushes shown (unverifiable).
-        // ZERO true goal-hitters (no one at goal 6/13 either) → NO goal→0 flip trigger. Zero-output is board-wide this early on a Sunday, so the >50%-pod-zero reading is a timing artifact, not a real signal — NOT treated as a notification trigger.
-        // CROSS-REF: McKechnie (named in 6/13 Nick P DM re his best-ball exposure tool, + the older Tim/Matt 22-view-stream thread) is at 0 today after climbing 6→8 earlier in the week — watch into the working week, but it's Sunday AM so hold.
+        // Fresh AM pull 2026-06-16 16:26 UTC (via Chrome — API blocked by sandbox allowlist; JSON read in browser). Scored day = 6/16 (TUESDAY, AM-only — today_pm null).
+        // ⚠️ EARLY-TUESDAY PARTIAL. Most creators haven't posted yet; points are AM-only. 0 true goal-hitters (history[0].on_target=false for everyone — and nobody hit goal 6/15 either; push classifier still not crediting product pushes).
+        //   Top today: Jeff Erickson 3, Jim Coventry 2, Dustin 1, Billy C 1. Yesterday (6/15) Jim & Dustin both scored 11 but on_target stayed false (no push credited).
+        //   9 zero-output this AM (EVBettors, Whalen, Jagger, Barutha, McKechnie, Erik Halterman, Clark, OddsJam brand, James Anderson). RW 6/8 zero, OJ 3/4 zero — both >50%, but it's an AM timing artifact on a Tuesday, not a behavioral collapse. No goal->0 flip.
+        //   CROSS-REF: McKechnie (named 6/13 Nick P DM re best-ball exposure tool + older Tim 22-view-stream thread) zero again this AM — recurring soft flag, watch EOD. Erik Halterman zero but owns the RW AWS migration now pulled to 7/7 — likely heads-down, not disengaged.
         leaders: [],
         laggards: [
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output again — the brand account stays the most persistent dark name on the board (multi-day). The one zero worth chasing regardless of the weekend." },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "0 today after climbing 6→8 mid-week. Cross-ref: Nick P DM (6/13) re his best-ball exposure tool + the older 22-view-stream thread. Sunday AM, so soft — but the name to watch Monday." },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Dark again (was 7→0 Fri). Senior talent/recruiting name; consistent weekend-off pattern — recheck on a weekday before reading anything into it." }
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero AM output; just 17 impressions on the week. Cross-ref Nick P 6/13 DM (best-ball exposure tool) + Tim 22-view-stream thread — recurring soft flag, watch EOD." },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero AM; owns the RW AWS migration just pulled forward to 7/7 — likely heads-down on the sprint, not disengaged." },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output again — brand account is the perennial dark seat." },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output, 2nd straight dark day." }
         ],
         midTier: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 1, reason: "1 pt · 6 tweets · 29 replies (cumulative) · only creator with any points this early Sunday · 'could not classify' so partial — was 8 on the 6/13 scored day" }
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 3, reason: "3 pts · 6 tweets · 3 replies · 0 product pushes · top of the board this AM" },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 2, reason: "2 pts · 8 tweets · 24 replies · scored 11 yesterday, cooled this AM" },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 1, reason: "1 pt · 18 tweets · 12 replies · 54.6K impressions — strong reach, low points AM" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 1, reason: "1 pt · 7 tweets · 1 reply · only OJ creator with points this AM" }
         ]
     },
 
