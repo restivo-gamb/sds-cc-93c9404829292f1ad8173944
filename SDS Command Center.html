@@ -1504,7 +1504,7 @@ const DATA = {
         abovePct: 1.71          // % over budget
     },
 
-    // ─── 2026-06-16 (TUE) — NEW WEEK W6 ROLLOVER: a fresh week column was inserted at col D since 6/14, pushing w5 (46/23/16/8) to col E. W6 is only 39/93 reported on a Tuesday → 27G/9Y/3R/54NR. The NR 8→54 spike is rollover timing, NOT a collapse. Re-read mid-week once W6 fills in. ───
+    // ─── 2026-06-17 (WED) — W6 MID-WEEK RE-READ: reporting STALLED. Col-D fill re-sync is dead flat vs 6/16 — 27G/9Y/3R/54NR, owner-for-owner identical. The W6 fill-in we expected by mid-week did NOT happen: still only 39/93 reported (42%), NR holding at 54 a full day later. With Cycle 3 closing 6/21 (4 days out), the un-reported half of the board is the leverage point. 3 reds all Jeremy T (only owner carrying reds). 9-day-stale cohort just crossed: Scott / Karl O'Brien / Matt B / Bryan R / Randall K / Samuel Hill / Vincenzo all last-touched 6/8 (9d); Matt Kulina 5/18 (30d, oldest row on the board); Brian R (Bookies Aff + BetSyn, 4 rows) chronically dark with no Updated date ever. ───
     // Scorecard counts — Cycle 3 cumulative, from C3 SCORECARD tab in Pedro's sheet
     // (https://docs.google.com/spreadsheets/d/1jlWSvSU1iOW16OuEKd9DVUUp41x6RG3ewSt9Jw6G5g4/edit).
     // ─── 2026-06-10 PM: METHODOLOGY FIX — now reading the REAL status: column-D BACKGROUND COLOR ───
@@ -1525,11 +1525,11 @@ const DATA = {
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
         green: 27, yellow: 9, red: 3, notReported: 54, total: 93,
-        prevGreen: 46, prevYellow: 23, prevRed: 16, // 6/16 col-D re-sync — NEW WEEK W6 opened (col D); last week w5 (46/23/16/8) shifted to col E. W6 only 39/93 reported on a Tuesday -> 27G/9Y/3R/54NR; the NR 8->54 jump is a week-rollover artifact, not a reporting collapse. 3 reds all Jeremy T / OJ PRODUCT (X Livestream Clipper, OJ MCP Server, Content Revamp — "not started"). Last week's Scott-5 / Craig-4 red cluster has not re-reported W6 yet. Date-stale 9+d (any week col): Samuel Hill (5/18, 29d, 2 rows), Matt Kulina (5/18, 29d), Steven port-websocket (5/20, 27d), Karl O'Brien Prediction Markets (5/25, 22d). Brian R (Bookies Aff + BetSyn, 4 rows) chronically dark.
+        prevGreen: 27, prevYellow: 9, prevRed: 3, // 6/17 W6 mid-week re-sync (col-D fill via xlsx export) — DEAD FLAT vs 6/16 (27G/9Y/3R/54NR), owner-for-owner identical. The expected mid-week W6 fill-in did NOT materialize: still 39/93 reported (42%), NR stuck at 54. Cycle 3 closes 6/21. 3 reds all Jeremy T / OJ PRODUCT (X Livestream Clipper, OJ MCP Server, Content Revamp — "not started"). 9-day-stale cohort crossed: Scott / Karl O'Brien / Matt B / Bryan R / Randall K / Samuel Hill / Vincenzo all 6/8 (9d); Matt Kulina 5/18 (30d, oldest row); Brian R (Bookies Aff + BetSyn, 4 rows) chronically dark, no date ever. Biggest NR concentrations: Craig C 9, Brian S 8, Steven 6 (8d).
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-16T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/14 AM color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/13 (3rd straight day)
-        prevSynced: "2026-06-14T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-17T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/17 W6 mid-week color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/16, reporting stalled at 39/93
+        prevSynced: "2026-06-16T05:30:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
