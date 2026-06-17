@@ -1363,3 +1363,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - JS validated (single <script> block parses via `new Function`). Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 702,198 chars from 513,625-char plaintext).
 - auto-push.log verification: HEALTHY — last entry 2026-06-16 12:42:05 UTC (push succeeded). New edits deploy on next agent cycle. DID NOT run git.
 - Notification: SENT (new red attention card [OpenAI key leak] + scorecard NR delta +46 [framed as W6 rollover] + Stats Perform deal stage change).
+
+## 2026-06-17
+
+- Updated header timestamp → June 17, 2026.
+- forecastMeta.ingestedAt: 2026-06-11T05:30:00-06:00 (UNCHANGED — v13 holds, no (14) file in gamb/finance/; chip aging to ~6d) · scorecard.lastSynced: 2026-06-17T05:30:00-06:00 (prevSynced 2026-06-16) · creators.ingestedAt: 2026-06-16T05:30:00-06:00 (NOT bumped — 6/17 API degraded; chip ages).
+- Slack: no new scan — newest is the Jun 15–16 files (gen 6/16 05:30Z, ~1 day old, within 48h guardrail). Monday's surfaces carry without fresh confirmation; no attention cards added (no new signal). Updated first card pod-label TUE 6/16 → carry to WED 6/17.
+- Granola: none for 6/16 (newest 6/11, already absorbed). Noted, proceeded.
+- Forecast: NO MOVE. Highest file in gamb/finance/ = (13) = absorbed v13 ($70.11M). Static Revenue Pulse HTML left as-is (correct for v13). Watch for a v14 drop (Tim flagged mid-month changes).
+- Scorecard (col-D fill via xlsx export + openpyxl): W6 mid-week re-read DEAD FLAT vs 6/16 — 27G/9Y/3R/54NR, reporting stalled at 39/93 (42%); the expected mid-week fill-in did NOT happen. NR delta 0 (no ±10 trigger). prevGreen/Yellow/Red moved 46/23/16 → 27/9/3. Rebuilt scorecard comment, yellowLeaders (Craig C 9 NR now top, 9-day-stale cohort, Matt Kulina 30d, Brian R no-date), and #snap-scorecardIntro. 9+ day silent leads surfaced.
+- Creator Scoreboard: API DEGRADED (Chrome pull 13:52 UTC; every creator 'tweets 402' for 6/17 → artificial zeros, unusable; same as 6/10–11). Updated DATA.creators to the now-COMPLETE 6/16 scored day (63 pts, 0 true hitters: Dustin 11, EVBettors 9, Jim 8, Billy C 7, Jeff 7…; only OddsJam brand + Halterman zero-output). ingestedAt NOT bumped (chip ages). No goal→0 flip; McKechnie posted 5 on 6/16 (active) → no creator notification trigger.
+- cycle.keyDates: June 16 TODAY → recap; inserted June 17 TODAY. notesSynthesis: new June 17 top entry. Pipeline Note rewritten for Wed 6/17.
+- JS parse: OK (node Function check passed).
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K): SDS Command Center.html 527,804 B → index.html 710,354 B. ✓
+- auto-push.log verification: last clean deploy 2026-06-16 12:44 (within 24h). The 2026-06-17 08:01 entry was a no-change push-only run that hit a transient DNS error (Could not resolve host) — nothing was pending, so deploys are NOT broken; today's edits should push on the next agent cycle.
+- Notification: SENT (concise) — W6 scorecard stalled mid-week + 9-day-stale cohort with Cycle 3 closing 6/21; creator API degraded + auto-push DNS blip as FYIs.
