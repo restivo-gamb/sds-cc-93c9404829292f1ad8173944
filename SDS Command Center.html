@@ -1524,12 +1524,12 @@ const DATA = {
     //   Other blanks: Samuel Hill (AI Search & SEO), Jeremy T (Prediction Arb non-sports [gray], 4-day course), Matt B (SEO+Paid LP).
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
-        green: 27, yellow: 9, red: 3, notReported: 54, total: 93,
+        green: 25, yellow: 9, red: 3, notReported: 54, total: 91,
         prevGreen: 27, prevYellow: 9, prevRed: 3, // 6/17 W6 mid-week re-sync (col-D fill via xlsx export) — DEAD FLAT vs 6/16 (27G/9Y/3R/54NR), owner-for-owner identical. The expected mid-week W6 fill-in did NOT materialize: still 39/93 reported (42%), NR stuck at 54. Cycle 3 closes 6/21. 3 reds all Jeremy T / OJ PRODUCT (X Livestream Clipper, OJ MCP Server, Content Revamp — "not started"). 9-day-stale cohort crossed: Scott / Karl O'Brien / Matt B / Bryan R / Randall K / Samuel Hill / Vincenzo all 6/8 (9d); Matt Kulina 5/18 (30d, oldest row); Brian R (Bookies Aff + BetSyn, 4 rows) chronically dark, no date ever. Biggest NR concentrations: Craig C 9, Brian S 8, Steven 6 (8d).
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-17T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/17 W6 mid-week color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/16, reporting stalled at 39/93
-        prevSynced: "2026-06-16T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-19T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/17 W6 mid-week color-based re-sync (xlsx export + openpyxl col-D fill); dead flat vs 6/16, reporting stalled at 39/93
+        prevSynced: "2026-06-17T05:30:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
