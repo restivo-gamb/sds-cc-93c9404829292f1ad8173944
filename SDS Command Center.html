@@ -2497,35 +2497,36 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-06-18",
-        ingestedAt: "2026-06-19T05:30:00-06:00",
+        date: "2026-06-19",
+        ingestedAt: "2026-06-20T05:30:00-06:00",
         totals: {
-            allPoints: 59, allHit: 0, allTotal: 13,
+            allPoints: 63, allHit: 0, allTotal: 13,
             ojPoints: 18, ojTotal: 4,
-            rwPoints: 30, rwTotal: 8
+            rwPoints: 34, rwTotal: 8
         },
-        // 📈 API RECOVERED — 6/17 was degraded ("tweets 402"); 6/18 is a clean, varied scored day. Pulled 6/19 09:36Z.
-        // 6/18 (THU) scored day: Jim Coventry 11 (RW), Dustin 11 (DGF), EVBettors 9 (OJ), Clark 5, Jagger 4, McKechnie 4, Whalen 4, Billy C 3, Jeff 3, Halterman 2, Barutha 1, Anderson 1, OddsJam 1.
-        //   0 true goal-hitters (on_target=false for all — pushes still uncredited); Jim + Dustin cleared the 10-pt bar but no product push. Leaders below are points-leaders / edge-of-goal.
-        //   🟢 ZERO zero-output creators on 6/18 (vs 2 on 6/16) — all 13 posted at least once. No goal->0 flip, no pod >50% dark. No notification trigger.
-        //   CROSS-REF: McKechnie (Tim "decision by EOW" thread) posted 4 pts but trend -17 and only ~2.9K impressions / 20 likes — active but low-reach; feeds Tim's EOW call. Not dark.
+        // 📈 API HEALTHY — clean scored day, 0 API errors. Pulled 6/20 10:15Z (days=1 → 6/19 scored day).
+        // 6/19 (FRI) scored day: Dustin 11 (DGF), McKechnie 11 (RW), Jim Coventry 9 (RW), EVBettors 7 (OJ), Clark 6, Billy C 5, Jeff 5, Jagger 4, Whalen 3, Halterman 2; Anderson / OddsJam / Barutha 0.
+        //   0 true goal-hitters (on_target=false for all — push classifier still can't credit pushes: "could not classify posts"); Dustin + McKechnie cleared the 10-pt bar. Leaders below are points-leaders / edge-of-goal.
+        //   3 zero-output (0 pts AND 0 tweets): James Anderson, OddsJam (brand), Alex Barutha — RW 2/8 (25%), OJ 1/4 (25%). Neither pod >50% dark; no goal->0 flip. No creator notification trigger.
+        //   CROSS-REF: McKechnie (Tim DM — now placed UNDER THORN to be managed to exactly what's needed) posted 11 pts / top of board 6/19 — active and strong, NOT a laggard. The accountability move and his output point the same way: he's producing; the question is reach/ROI, not effort.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 6, replies: 17, likes: 31, rts: 2, onTarget: false, reason: "RW pod top scorer 6/18 — cleared the 10-pt bar on heavy reply volume, but no product push credited." },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 10, replies: 8, likes: 312, rts: 27, onTarget: false, reason: "Tied for top at 11 pts with the day's best engagement (312 likes / 74.9K impressions) — one push short of goal." },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 14, replies: 3, likes: 374, rts: 31, onTarget: false, reason: "Edge-of-goal at 9 pts, top reach (207K impressions, 374 likes) — OJ pod leader, one push short." }
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 8, replies: 7, likes: 115, rts: 37, onTarget: false, reason: "Top scorer 6/19 at 11 pts with the day's best reach (37.9K impressions, 37 RTs), trend +17 — one product push short of goal." },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 11, tweets: 6, replies: 9, likes: 39, rts: 6, onTarget: false, reason: "Tied for top at 11 pts — RW pod leader. Cross-ref: just placed under Thorn (Tim DM) to be managed tightly; output says he's producing, so the call is about reach/ROI not effort." },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 9, tweets: 7, replies: 22, likes: 28, rts: 8, onTarget: false, reason: "Edge-of-goal at 9 pts on heavy reply volume (22) — one push and one point short of goal." }
         ],
-        laggards: [],
+        laggards: [
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 1, likes: 0, rts: 0, onTarget: false, reason: "Zero-output 6/19 — 0 tweets (1 reply only), trend -2. RW edge-of-lineup; cross-ref the 'fewer faces' YouTube shift (John/Joe/Mario stepping back this season)." },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output — brand account posted nothing 6/19 ('No posts today'). Recurring dark days for the brand handle vs the individual creators." },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero-output 6/19 ('No posts today'), trend -5 — cooled from light activity earlier in the week." }
+        ],
         midTier: [
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 5, reason: "5 pts · 3 tweets · 4 replies · 90 RTs · OJ pod" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 11 replies · 53K impressions" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 3 replies — active but trend -17, ~2.9K impressions (Tim EOW decision cross-ref)" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 4 replies" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 2 tweets · 3 replies · 327K impressions" },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 2 replies" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 0 replies" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 1 reply" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 1 reply" },
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 1, reason: "1 pt · 1 tweet — brand account posted (not dark this day)" }
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 7, reason: "7 pts · 5 tweets · 3 replies · 73.4K impressions — OJ pod leader, trend +4" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 6, reason: "6 pts · 4 tweets · 5 replies · 30.6K impressions" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 5 tweets · 4 replies · 12.8K impressions" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 5, reason: "5 pts · 4 tweets · 1 reply · trend -6" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 8 replies · 30K impressions · 142 likes" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 1 reply" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 0 replies · trend -10" }
         ]
     },
 
