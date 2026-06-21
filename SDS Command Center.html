@@ -1526,11 +1526,11 @@ const DATA = {
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
         green: 27, yellow: 9, red: 3, notReported: 54, total: 93,
-        prevGreen: 27, prevYellow: 9, prevRed: 3, // 6/20 col-D fill re-sync: DEAD FLAT, owner-for-owner identical to the stable 6/16–6/17 read. (6/19's "25/91" was a transient under-count; full col-D read = 27 greens / 93 rows.) Board frozen into C3 close.
+        prevGreen: 27, prevYellow: 9, prevRed: 3, // 6/21 col-D fill re-sync: DEAD FLAT, owner-for-owner identical to the stable 6/16–6/20 read. Board frozen into C3 close (C3 closes today, Sun 6/21). C4 SCORECARD now seeded (48 rows) but uncolored — rolls live Monday.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-20T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/20 SAT col-based re-sync (xlsx export + openpyxl col-D fill); dead flat (weekend hold), reporting 39/93, C3 closes Sun 6/21
-        prevSynced: "2026-06-19T05:30:00-06:00",   // for "X days fresher" delta
+        lastSynced: "2026-06-21T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/21 SUN col-based re-sync (xlsx export + openpyxl col-D fill); dead flat (close-day freeze), reporting 39/93, C3 closes today
+        prevSynced: "2026-06-20T05:30:00-06:00",   // for "X days fresher" delta
         source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
     },
 
