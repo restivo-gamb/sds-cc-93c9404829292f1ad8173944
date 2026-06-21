@@ -1404,3 +1404,14 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K iters): plaintext 534,785 chars → index.html 731,170 chars. ✓
 - auto-push.log verification: HEALTHY — most recent entry 2026-06-20 19:54 MT (minutes ago, well within 24h); today's edits already committed + pushed (d644d5c).
 - Notification: NONE sent. No forecast move, no new red card (new card is watch-level), scorecard NR delta 0, Slack fresh, creator API healthy, auto-push healthy, Pedro ping <48h, no new deal stage change. Silence appropriate.
+
+### 2026-06-20 — addendum: v14 forecast ingested (manual pickup)
+
+- Matt flagged that v14 was in the inbox. Found at `gamb/__inbox/2026 SDS Revenue & Forecasting (14).xlsx` — NOT in `gamb/finance/`, so the automated STEP 2c scan (which reads gamb/finance/ + legacy dir only, per design) correctly didn't see it. Parsed Executive Dashboard tab via openpyxl, ingested manually, MOVED file to canonical `gamb/finance/`.
+- forecast.json: added versions.v14 + updated latest + _meta.latest_version → v14.
+- v14 vs v13 WoW: TOTAL +$1,049,292 / +1.50% → Total SDS forecast $70.11M → **$71.16M**. Movers: OddsJam +$682K ($17.80M→$18.48M, B2C subs firming, still −11.0% vs budget), Affiliate rollup +$440K ($18.45M→$18.88M: Roto Affiliate +$358K + Partnerships +$82K). RotoWire flat (−$4K, $11.33M, +1.67% vs budget), OpticOdds −$68K ($22.47M). Bookies/Local flat.
+- Now +$4.41M / +6.61% above budget, +$2.79M / +4.08% above target, +24.72% YoY (was +22.88%). Budget ($66.75M) and Target ($68.37M) UNCHANGED — no reset.
+- Updated all four required surfaces: DATA.forecast/target/budget/yoyGrowth/rw.* + comment block; DATA.forecastMeta (v14, ingestedAt 2026-06-20T21:00 -06:00, sourceFile (14).xlsx); static Revenue Pulse HTML (snap-wowForecast, fc-total-card, all 4 fc-grid brand cards incl. OddsJam now showing 3 sub-rows, rw-floor fallback, italic caption); today's keyTheme/keyDate/pipeline-note rewritten v13→v14. Historical recaps (Jun 11–19) left referencing v13 (accurate as-of-then).
+- NOTE: Matt's floated ~$1mm RW target-raise is NOT reflected in (14) — RW target still $12.04M. Flagged on the dashboard.
+- JS validated (ok). Re-encrypted index.html (AES-256): plaintext 536,572 chars → 733,602 chars.
+- NOTIFICATION: none sent (Matt's standing preference: never send the refresh Slack DM). For the record, this WOULD have triggered one under STEP 8 — forecast version bump (v13→v14) is an always-notify event. Logged here instead.
