@@ -1415,3 +1415,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - NOTE: Matt's floated ~$1mm RW target-raise is NOT reflected in (14) — RW target still $12.04M. Flagged on the dashboard.
 - JS validated (ok). Re-encrypted index.html (AES-256): plaintext 536,572 chars → 733,602 chars.
 - NOTIFICATION: none sent (Matt's standing preference: never send the refresh Slack DM). For the record, this WOULD have triggered one under STEP 8 — forecast version bump (v13→v14) is an always-notify event. Logged here instead.
+
+## 2026-06-21
+
+- Updated header timestamp → June 21, 2026.
+- forecastMeta.ingestedAt: 2026-06-20T21:00:00-06:00 (UNCHANGED — v14 holds) · scorecard.lastSynced: 2026-06-21T05:30:00-06:00 (prevSynced → 2026-06-20) · creators.ingestedAt: 2026-06-21T05:30:00-06:00
+- Slack: NO new scan — freshest still the Jun 19–20 files (gen 6/20 05:30Z, ~1 day old, within guardrail); overnight Daily Ingest produced nothing new. Friday cost/headcount-alignment surfaces carry into the close. Not stale (Day 1).
+- Granola: none new (newest 6/11, already absorbed). Noted.
+- Forecast: NO version move. Highest xlsx = (14), already absorbed (forecast.json _meta.latest_version = v14). $71.16M holds (+6.61% vs budget, +4.08% vs target, +24.72% YoY). Revenue Pulse static HTML untouched.
+- Scorecard sync (col-D fill via xlsx export + openpyxl, C3 SCORECARD tab): DEAD FLAT — 27G / 9Y / 3R / 54NR across 93 rows (39 reported, 42%), owner-for-owner identical to 6/16–6/20. No movement (weekend + C3 close freeze). C3 closes TODAY (Sun 6/21). NEW: C4 SCORECARD tab now seeded with 48 rows, all uncolored — rolls live Monday (Pedro owner). Intro paragraph + comment block + yellowLeaders day-counts refreshed (Kulina 34d, 6/8 cohort 13d). 3 reds all Jeremy T. Escalation carried into C4: Kulina (34d), Brian R (no date), Brian S (8 dark).
+- Creator Scoreboard (API healthy, 0 errors, pulled 6/21 09:07Z, days=1 → 6/20 scored day): 36 pts total / 0 hitters / 13 creators. Leaders Jim Coventry 10 (RW), +EV Bettors 9 (OJ). 4 zero-output: Dustin (DGF), Barutha, Halterman, Whalen — RW 3/8 dark (37.5%), OJ 0/4. CROSS-REF: Dustin (DGF) topped board 6/19 at 11 → 0 ('no posts') 6/20 — not a goal-hitter flip, DGF not OJ/RW, no trigger. McKechnie (under Thorn per Tim DM) posted 3, still on board — not a 0-laggard. No creator notification trigger.
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 739,766 chars; ct 549,872B). JS parse check: ok.
+- auto-push.log verification: last entry 2026-06-20 20:38:23 (Daily refresh 2026-06-20, pushed) — within 24h. ✓ Deploys healthy.
+- Notification (STEP 8): NO material trigger (scorecard flat, creator board clean / no goal→0 flip, forecast holds, auto-push fresh, encryption ok, Pedro ping ~28h <48h). Per standing preference, Slack DM skipped regardless. Silence.
