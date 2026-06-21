@@ -1474,23 +1474,23 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v13 (Executive Dashboard tab, parsed Jun 11 via forecast.json)
-    // Total SDS: Forecast $70.11M · Budget $66.75M · Target $68.37M · 25A $57.05M (+22.88% YoY)
-    // v13 WoW vs v12: TOTAL +$10K / +0.01% (rounding-level — final May numbers locking). RotoWire +$20K (Ads strength), OddsJam -$10K. Affiliate / OpticOdds / Bookies flat.
-    // Per #sds-budget-owners 6/10: Craig "no changes this week" on Affiliate; Tim "RW all set, bigger changes next week at mid-month." So v13 is a settle, not a swing.
-    // Forecast $70.11M now +$3.36M / +5.03% above budget, +$1.74M / +2.55% above target.
-    forecast: 70.11,
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v14 (Executive Dashboard tab, parsed Jun 20 via forecast.json)
+    // Total SDS: Forecast $71.16M · Budget $66.75M · Target $68.37M · 25A $57.05M (+24.72% YoY)
+    // v14 WoW vs v13: TOTAL +$1.05M / +1.50%. OddsJam +$682K (B2C subs firming, still -11% vs budget), Affiliate rollup +$440K (Roto Affiliate +$358K + Partnerships +$82K). RotoWire flat (-$4K), OpticOdds -$68K, Bookies/Local flat.
+    // v14 was dropped in gamb/__inbox (not gamb/finance), so the automated 6/20 scan missed it; ingested manually + file moved to canonical gamb/finance. This is the "bigger changes at mid-month" Tim flagged — though the mover was OddsJam, not RW.
+    // Forecast $71.16M now +$4.41M / +6.61% above budget, +$2.79M / +4.08% above target. Budget/Target unchanged.
+    forecast: 71.16,
     target: 68.37,
     budget: 66.75,
-    yoyGrowth: 22.88,  // 70.11 / 57.05 − 1
+    yoyGrowth: 24.72,  // 71.16 / 57.05 − 1
     priorYear: 57.05,
 
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v13",
-        ingestedAt: "2026-06-11T05:30:00-06:00",   // ISO 8601 w/ TZ offset
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (13).xlsx"
+        version: "v14",
+        ingestedAt: "2026-06-20T21:00:00-06:00",   // ISO 8601 w/ TZ offset — manual v14 pickup from gamb/__inbox
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (14).xlsx"
     },
 
     // RotoWire vs Budget — NEW DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate now lives under Affiliate rollup
