@@ -815,7 +815,7 @@
         <h1>SDS Command Center</h1>
         <div class="tagline">Educate those with money on the line &mdash; Gather sports market intelligence and make it actionable</div>
         <div class="header-meta">
-            <span class="cycle-badge">Cycle 3</span>
+            <span class="cycle-badge">Cycle 4</span>
             <span>May 11 &ndash; Jun 21, 2026</span>
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
@@ -1042,7 +1042,7 @@
         <!-- Cycle Progress -->
         <div class="cycle-bar">
             <div class="cycle-top">
-                <span class="cycle-label">Cycle 3 Progress</span>
+                <span class="cycle-label">Cycle 4 Progress</span>
                 <span class="cycle-dates">May 11 &ndash; Jun 21</span>
             </div>
             <div class="cycle-progress-bg">
@@ -1525,13 +1525,13 @@ const DATA = {
     //   Other blanks: Samuel Hill (AI Search & SEO), Jeremy T (Prediction Arb non-sports [gray], 4-day course), Matt B (SEO+Paid LP).
     //   ✅ CORRECTION: Brian S is NOT dark. His 8 Growth-Ops rows the old text logic flagged "22 days silent / worst gap" are color-coded 7 Green + 1 Yellow — he set status via color, just never filled the Updated date column. False positive retired.
     scorecard: {
-        green: 27, yellow: 9, red: 3, notReported: 54, total: 93,
-        prevGreen: 27, prevYellow: 9, prevRed: 3, // 6/21 col-D fill re-sync: DEAD FLAT, owner-for-owner identical to the stable 6/16–6/20 read. Board frozen into C3 close (C3 closes today, Sun 6/21). C4 SCORECARD now seeded (48 rows) but uncolored — rolls live Monday.
+        green: 0, yellow: 0, red: 0, notReported: 56, total: 56,
+        prevGreen: 27, prevYellow: 9, prevRed: 3, // C3 final state at close (6/21): 27G/9Y/3R/54NR across 93 rows. C4 rolled LIVE Mon 6/22 — a leaner 56-row board / 13 owners, every W1 (col-D) cell still uncolored (Day-1 cold start, 0 reported). This is a cycle reset, NOT a behavioral collapse.
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
-        // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D fill color (xlsx export), NOT Notes-text keywords.
-        lastSynced: "2026-06-21T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/21 SUN col-based re-sync (xlsx export + openpyxl col-D fill); dead flat (close-day freeze), reporting 39/93, C3 closes today
-        prevSynced: "2026-06-20T05:30:00-06:00",   // for "X days fresher" delta
-        source: "C3 SCORECARD tab · col-D fill color · Pedro's Weekly Ops Sheet"
+        // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read col-D (W1 for C4) fill color (xlsx export), NOT Notes-text keywords.
+        lastSynced: "2026-06-22T05:30:00-06:00",   // ISO 8601 w/ TZ offset — 6/22 MON first C4 sync (xlsx export + openpyxl col-D/W1 fill); C4 live, 56 priorities seeded across 13 owners, 0 colored
+        prevSynced: "2026-06-21T05:30:00-06:00",   // for "X days fresher" delta
+        source: "C4 SCORECARD tab · col-D (W1) fill color · Pedro's Weekly Ops Sheet"
     },
 
     // Repurposed: pod-leads ranked by REAL col-D color status (true Not-Reported first by block size, then Red). Re-synced 2026-06-21 SUN by reading col-D fill color from the xlsx export — owner-level breakdown dead flat vs 6/16–6/20 (Brian S 8NR, Steven 6NR, Craig 6NR, Scott 5NR, Karl/Matt B/Brian R 4NR each, Jeremy T 3R all hold). Day-counts advanced to today (C3 close day); the 6/8 cohort is now 13d.
@@ -2550,9 +2550,9 @@ const DATA = {
 
     // Cycle
     cycle: {
-        number: 3,
-        start: "2026-05-11",
-        end: "2026-06-21",
+        number: 4,                 // C4 rolled live Mon 6/22 (Pedro owner); C3 closed Sun 6/21
+        start: "2026-06-22",
+        end: "2026-08-02",         // PROVISIONAL — 6-week cadence (C3 ran 5/11→6/21 ≈ 6wks); update if Pedro publishes a hard C4 end
         keyDates: [
             { date: "June 21 (Sun — CYCLE 3 CLOSES TODAY · TODAY · C4 LIVE MONDAY (Pedro · 48 rows seeded) · ✈️ MATT → LISBON TODAY · SCORECARD DEAD FLAT · CREATOR 6/20 CLEAN · v14 HOLDS)", label: "**Cycle 3 closes today.** No new Slack (Jun 19–20 carries, ~1d) or Granola (6/11) — Friday's cost/headcount-alignment surfaces carry into the close. 📊 Scorecard dead flat C3 27G/9Y/3R/54NR (39/93); **C4 SCORECARD now seeded with 48 rows, all uncolored — rolls live Monday (Pedro owner).** Leverage flips to whether C4 priorities land Monday. 3 reds all Jeremy T; escalation carried: Matt Kulina (34d), Brian R (no date), Brian S (8 dark). 📈 Creator clean 6/20 (Jim 10, EV 9, Jeff 5; 0 hitters, 4 zero-output incl. Dustin who topped 6/19 at 11→0). 💵 v14 holds $71.16M (+6.61% vs budget, +24.72% YoY). ⏰ Owed back early next week: Tim cut list by Tue 6/23, Craig+Tim role→revenue map, Vincenzo Pabis-retain case; Pedro 'these not done?' ping aging (~28h). ✈️ Matt → Lisbon today (VIP Mon, Ryan Mon–Wed)." },
             { date: "June 20 (Sat — CYCLE 3 FINAL WEEKEND · recap · CLOSES SUN 6/21 · C4 LIVE MONDAY (Pedro) · 💰 FRIDAY COST/HEADCOUNT-ALIGNMENT PASS · SCORECARD DEAD FLAT · CREATOR API HEALTHY · LISBON MON–WED)", label: "**Cycle 3 final weekend.** Fresh Slack (Jun 19–20). The window's theme = Friday's cost/headcount-alignment pass across pod leads (not about one person — hit numbers, stay in budget, 'mentality of leverage'). Owed back: Tim cut rationale this weekend + list by Tue 6/23; Craig+Tim role→revenue map next week; Pedro reply to your 'these not done?' ping. Karl offboard 3×-corroborated; Richard Campos leaning out; Vincenzo's PT-GA case to retain Matthew Pabis + vendor savings (Pinnacle/Brightdata/GCP/AI). 💵 v14 forecast absorbed $71.16M (+$1.05M WoW — OddsJam +$682K, Affiliate +$440K; RW flat); now +6.61% vs budget, +24.72% YoY. (14) had been dropped in gamb/__inbox, picked up manually. Scorecard G27/Y9/R3/NR54 (39/93), dead flat (weekend hold). Creator board clean 6/19 (Dustin 11, McKechnie 11, Jim 9; 0 hitters, 3 zero-output). Matt + Ryan → Lisbon Mon (VIP), Matt leaves Sun." },
