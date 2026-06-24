@@ -1442,3 +1442,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 754,722 chars; ct 561,088B). JS parse check: ok.
 - auto-push.log verification: last entry 2026-06-22 05:50:12 MDT (Daily refresh 2026-06-22, 8f37bce, pushed) — within 24h ✓; commit timestamp is AFTER both files' last write (05:49:46), so it captured the completed edits + freshly-encrypted index.html. Deploys healthy.
 - Notification (STEP 8): WOULD-trigger logged, NO Slack DM sent (Matt's standing preference: never send the refresh DM). Triggers that would have fired: (1) Pedro silent >48h on a Matt-pending ask (the 12:58 AM 6/20 'these not done?' ping, now >48h, Pedro 0 msgs 2 consecutive windows). (2) Creator >50%-of-a-pod-to-zero (OJ 3/4 = 75%) — but weekend/brand artifact, low-signal. Scorecard NR delta is a cycle reset (C3→C4), not a behavioral move. Forecast/budget/deal/encryption/auto-push: no triggers.
+
+## 2026-06-24
+
+- Updated header timestamp → June 24, 2026. (No 6/23 refresh ran — this was a 2-day jump from the 6/22 cold start.)
+- forecastMeta.ingestedAt: 2026-06-20T21:00:00-06:00 (unchanged — v14, no new file) · scorecard.lastSynced: 2026-06-24T05:30:00-06:00 · creators.ingestedAt: 2026-06-24T05:40:00-06:00
+- Slack: FRESH (Jun 23–24 files, gen 6/24 07:05Z, 0 API errors; 8/21 channels + 8/11 DMs active). No new Granola (none in ~24h; 6/11 newest absorbed).
+- Slack-driven changes: NEW top attention card (Ryan breaking-point → Optic reset mtg Thu; 712 non-paying OJ free subs + betsyndicate shutoff ASAP; RW talent announce Wed / Ian still dark; Polymarket whale push; Tim trust thread). Pedro >48h-silence flag from 6/22 RESOLVED (active C4/scorecard collab today). New keyThemes top entry + new 6/24 TODAY keyDate (+ 6/23 gap-day recap; 6/22 TODAY→recap). Pipeline Note rewritten.
+- Granola-driven changes: none (no new notes).
+- Xlsx/forecast: NO version move. Latest gamb/finance file still (14) = forecast.json v14. Total SDS $71.16M holds (+6.61% vs budget, +24.72% YoY). Static Revenue Pulse HTML untouched.
+- Scorecard sync (C4 SCORECARD, col-D/W1 fill via xlsx export + openpyxl): board GREW 56→68 rows; first colors landed. G 0→3, Y 0, R 0, NR 56→65 (3/68 = 4.4% reported). prev* moved to 0/0/0 (the 6/22 cold-start values); prevSynced→2026-06-22. First reporters: Randall K/Bryan R (both B2C-CS rows green = only fully-reported book) + Brian S 1/7 Growth Ops. RESOLVED 6/22 'de-scoped?' question: Jeremy T (OJ Product, 6) + Karl O'Brien (Optic Product, 3) now SEEDED (Matt B Growth Ops 3 also added); still absent = Brian R (Bookies-Aff) + Matt Kulina (RW SSR). yellowLeaders rebuilt as C4 book-size board with reporting status; scorecardIntro paragraph refreshed.
+- Creator Scoreboard (web_fetch API, days=1, 6/23 scored day, 0 errors): 🟢 REBOUND — 73 pts (vs 40) and only 2 zero-output (vs 7). Leaders Jim Coventry 12 (RW) + EV Bettors 11 (OJ), both cleared 10-pt bar (0 pushes credited → 0 true hitters). OJ pod dark 1/4 (just the brand handle, 25% — recovered from 75% Sun); RW 1/8 (Erik Halterman, AWS heads-down). No goal→0 flip, no >50% pod, no active-DM-creator dark → no creator notification. totals.allPoints 40→73, ojPoints 9→20, rwPoints 28→44.
+- Validated JS parses (node Function check: ALL SCRIPTS PARSE OK).
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K): plaintext 564,655 chars → index.html 772,214 chars. ✓
+- auto-push.log verification: latest entry 2026-06-24 06:00:05 (within 24h) — deploys healthy. ✓
+- Notification: NONE sent. No forecast move, no new red, no deal stage change requiring DM, Pedro silence resolved, Slack fresh, scorecard NR delta +9 (<10), no creator trigger, encrypt + auto-push both healthy. Silence per guardrail.
