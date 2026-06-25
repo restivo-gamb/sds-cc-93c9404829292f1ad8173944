@@ -1470,3 +1470,11 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K): ✓ 783,594 bytes (ct 582,736B). Source 582,729B.
 - auto-push.log verification: ✓ HEALTHY — recent commit+push (0ded336..c5242d9) at the tail; 06:27 run also clean today. Within 24h.
 - STEP 8 notification: NONE — nothing material. No forecast move, no budget/target reset, no new red card/priority, scorecard flat (NR delta 0), creator sync clean (no trigger), no pod-lead silent >48h (Pedro active), Slack scan ~1d (not Day 3+), encryption + deploy healthy. Silence is correct.
+
+### 2026-06-25 — CORRECTION (v15 picked up after Matt flagged the miss)
+- 🔴 MISS + FIX: v15 forecast was sitting in gamb/__inbox during the 5:30 AM run. STEP 2c only scanned gamb/finance + legacy, so the auto-scan missed it (same failure mode as v14). Matt flagged it. Picked up midday from gamb/finance (file since moved there, mtime 6/25 02:34).
+- 💵 v15 ABSORBED — Total SDS $72.18M (+$1.02M / +1.44% WoW vs v14). Driver is entirely the Affiliate rollup +$1.04M ($18.88M→$19.92M): Partnerships +$900K ($5.66M→$6.56M), Roto Affiliate +$200K ($8.21M→$8.41M), Bookies −$120K, Local +$56K. OddsJam FLAT, OpticOdds FLAT, RotoWire −$14K ($11.32M). Now +$5.43M/+8.14% vs budget, +$3.81M/+5.58% vs target, +26.52% YoY. Budget/Target unchanged.
+- Updated forecast.json (versions.v15 + latest + _meta), DATA.forecast 71.16→72.18 / yoyGrowth 24.72→26.52 / rw.* (11.33→11.32, +1.55%) + comment block, forecastMeta v14→v15, static Revenue Pulse HTML (#snap-wowForecast, fc-total-card, RotoWire + Affiliate fc-cards, rw-floor, italic note), top keyThemes entry, 6/25 keyDate, pipeline note, attention card (added P0 forecast issue). JS validated ok.
+- 🔧 DURABLE FIX: updated the sds-command-center-daily-refresh scheduled task — STEP 2c now REQUIRES a recursive gamb/__inbox sweep every run (find across finance + __inbox + legacy, take highest (N) anywhere, move __inbox winners to canonical). Added a matching guardrail. This stops the v14/v15 recurrence.
+- Re-encrypted index.html (AES-256) after v15 edits.
+- STEP 8 notification: SENT — forecast version bump (v14→v15) always notifies.
