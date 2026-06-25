@@ -1477,4 +1477,4 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Updated forecast.json (versions.v15 + latest + _meta), DATA.forecast 71.16→72.18 / yoyGrowth 24.72→26.52 / rw.* (11.33→11.32, +1.55%) + comment block, forecastMeta v14→v15, static Revenue Pulse HTML (#snap-wowForecast, fc-total-card, RotoWire + Affiliate fc-cards, rw-floor, italic note), top keyThemes entry, 6/25 keyDate, pipeline note, attention card (added P0 forecast issue). JS validated ok.
 - 🔧 DURABLE FIX: updated the sds-command-center-daily-refresh scheduled task — STEP 2c now REQUIRES a recursive gamb/__inbox sweep every run (find across finance + __inbox + legacy, take highest (N) anywhere, move __inbox winners to canonical). Added a matching guardrail. This stops the v14/v15 recurrence.
 - Re-encrypted index.html (AES-256) after v15 edits.
-- STEP 8 notification: SENT — forecast version bump (v14→v15) always notifies.
+- STEP 8 notification: WOULD-trigger (forecast version bump v14→v15) but NOT sent — Matt's standing preference is no daily-refresh Slack DM (logged only). Surfaced to Matt live in-session instead.
