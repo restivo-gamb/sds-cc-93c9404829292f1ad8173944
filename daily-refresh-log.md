@@ -1457,3 +1457,16 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K): plaintext 564,655 chars → index.html 772,214 chars. ✓
 - auto-push.log verification: latest entry 2026-06-24 06:00:05 (within 24h) — deploys healthy. ✓
 - Notification: NONE sent. No forecast move, no new red, no deal stage change requiring DM, Pedro silence resolved, Slack fresh, scorecard NR delta +9 (<10), no creator trigger, encrypt + auto-push both healthy. Silence per guardrail.
+
+## 2026-06-25
+
+- Updated header timestamp → June 25, 2026.
+- forecastMeta.ingestedAt: unchanged (v14 holds, no new gamb/finance (N) file) · scorecard.lastSynced: 2026-06-25T05:30:00-06:00 · creators.ingestedAt: 2026-06-25T05:35:00-06:00
+- Slack: NO new scan — freshest still the Jun 23–24 files (gen 6/24 07:05Z, ~1 day old, within 48h guardrail). Yesterday's surfaces carried WITHOUT fresh confirmation (not mechanically re-flagged). Added a concise Thu 6/25 attention card framing today's action: the OpticOdds reset meeting (Matt attending), confirm RW talent announce landed + Ian status, nudge big scorecard books.
+- Granola: NONE new (no 2026-06-24 file; newest 6/11, already absorbed). Noted/proceeded.
+- Forecast: v14 HOLDS $71.16M (+$4.41M/+6.61% vs budget, +$2.79M/+4.08% vs target, +24.72% YoY). Highest file in gamb/finance is still (14); no version move. forecastMeta + static Revenue Pulse HTML unchanged.
+- Scorecard (C4 SCORECARD, col-D/W1 fill via Drive xlsx export + openpyxl): SYNC SUCCEEDED, DEAD FLAT vs 6/24 — 3G / 0Y / 0R / 65NR across 68 rows (3/68 = 4.4%), owner-for-owner identical (same 3 green: Randall K/Bryan R both B2C-CS + Brian S 1/7 Growth Ops). Moved prev* → 3/0/0; bumped lastSynced 6/24→6/25, prevSynced 6/22→6/24. Refreshed snap-scorecardIntro + comment block. Big books (Nick P 13, Brian S/DJ 6, Jeremy T 6, Steven 4) still uncolored on Day 4.
+- Creator Scoreboard (API via Claude-in-Chrome; sandbox curl blocked HTTP 000): SUCCEEDED. 6/24 scored day = 68 pts (vs 73 on 6/23), 0 true hitters, 2 zero-output (OddsJam brand + Erik Halterman, AWS heads-down — same as 6/23). Dustin 13 (DGF) retook top, Jim 12 (RW) #2 (both cleared 10, 0 pushes credited); +EV 9 (OJ leader); McKechnie 6 trend +18 (climbing under Thorn). OJ dark 1/4 (25%), RW 1/8 (12.5%) — no >50% pod, no goal→0 flip, no active-DM creator dark. ingestedAt bumped (points usable). No creator notification.
+- Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K): ✓ 783,594 bytes (ct 582,736B). Source 582,729B.
+- auto-push.log verification: ✓ HEALTHY — recent commit+push (0ded336..c5242d9) at the tail; 06:27 run also clean today. Within 24h.
+- STEP 8 notification: NONE — nothing material. No forecast move, no budget/target reset, no new red card/priority, scorecard flat (NR delta 0), creator sync clean (no trigger), no pod-lead silent >48h (Pedro active), Slack scan ~1d (not Day 3+), encryption + deploy healthy. Silence is correct.
