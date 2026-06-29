@@ -1492,3 +1492,19 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K): SDS Command Center.html 591,172 chars → index.html 808,650 chars. ✓
 - auto-push.log verification: FRESH — latest entries 2026-06-26 05:43 + 05:44 (committed + pushed), within 24h. Deploys healthy.
 - STEP 8 notification: SUPPRESSED per standing preference (Matt never wants the daily-refresh Slack DM). WOULD-HAVE-TRIGGERED items logged: (1) 🔴 new red surface — Pedro DGF nosedived + May DGF not booked (MBR/forecast corruption); (2) 💰 deal movement — Stats Perform $65K owed + 2.5-yr term, Polymarket Ari amended-IO ~$450K Q2. No DM sent.
+
+## 2026-06-29
+
+- Updated header timestamp → June 29, 2026.
+- forecastMeta.ingestedAt: 2026-06-25T16:15:00-06:00 (UNCHANGED — v15 holds) · scorecard.lastSynced: 2026-06-29T05:30:00-06:00 · creators.ingestedAt: 2026-06-29T05:35:00-06:00
+- Forecast scan: swept gamb/finance + gamb/__inbox (recursive, incl. _archive) + legacy. Highest (N) found anywhere = (15), in gamb/finance. Matches forecast.json _meta.latest_version v15 ($72.18M). No new version, no move. (Today's Daily Ingest agreed: no higher-N file.)
+- Slack: FRESH (Group + Individual Context "Jun 25 – Jun 29", gen 6/29 ~07:2x, 11 ch / 9 DMs / 0 API errors). New top attention card (6/29) + keyThemes + keyDates TODAY built from it. 6/26 TODAY rolled → recap.
+- Granola: none new since 2026-06-26 (no 6/27/6/28 files; today's ingest = 0 Granola, 0 Gemini). Noted, proceeded.
+- Forecast version moves: NONE (v15 steady). Static Revenue Pulse HTML untouched. forecastMeta chip will age to 4d (yellow) — accurate.
+- Scorecard sync (C4 SCORECARD): ⚠️ SHEET STRUCTURE CHANGED — a new week column W2 was inserted at col D (current week, 0 colored — Matt pings sds-leads at 8:30a today); W1 shifted to col E. Read W1/col-E fill (xlsx export + openpyxl). Movement vs 6/26: G 3→13 (+10), Y 0→0, R 0→1 (+1), NR 73→62 (−11) across 76 rows. Nick P (RW Product) colored his entire book (9G + 1R 'NFL DFS Sim TBD'); Randall/Bryan, Karl, Craig also green. Biggest dark W1 books: Brian S (9), Steven (7), Kevin O/Tim S (7), Jeremy T (6). Intro paragraph + comment block + yellowLeaders rebuilt.
+- Creator Scoreboard (days=1 → 6/28 SAT, pulled via Claude-in-Chrome; sandbox HTTP 000): 🔴 weekend collapse — 25 pts (vs 60 on 6/25), 7 zero-output, 0 hitters. Jim Coventry 10 (RW, no push, only double-digit). OJ pod 3-of-4 dark (Billy C, OddsJam, Clark). Cross-ref: Matt's Brian+DJ+Tim DM 'a lotta zeros this weekend.' DATA.creators fully rewritten.
+- Deals: StatsPerform (47-vs-30 leagues, ~$200K scrape-save, $420k/yr 2.5yr term, Roto renews Nov) + Polymarket (P0, 5 VIP/day) details/stageLabels updated on movement.
+- JS validated (new Function parse): OK (17/17 edits applied).
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K): SDS Command Center.html 602,916B → index.html 810,514B. ✓
+- auto-push.log verification: most recent entry 2026-06-29 05:45:48 (committed df5ecee, pushed) — fresh (<1h). Deploys healthy.
+- STEP 8 notification: SUPPRESSED per standing pref (no daily-refresh Slack DM). WOULD-HAVE-TRIGGERED: (a) new red scorecard priority (Nick P 'NFL DFS Sim TBD'); (b) scorecard NR delta −11 (≥ ±10); (c) creator OJ pod >50% to zero (3/4). Logged, not sent.
