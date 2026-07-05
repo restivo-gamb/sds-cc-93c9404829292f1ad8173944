@@ -298,6 +298,20 @@
         .freshness-chip.fresh { color: var(--green); border-color: var(--green-dim); background: var(--green-dim); }
         .freshness-chip.stale { color: var(--yellow); border-color: var(--yellow-dim); background: var(--yellow-dim); }
         .freshness-chip.very-stale { color: var(--red); border-color: var(--red-dim); background: var(--red-dim); }
+        /* ── Talent Scoreboard trailing-window filter (1D / 7D / 30D) ── */
+        .ts-filter {
+            display: inline-flex; gap: 0; cursor: default;
+            background: var(--bg-input); border: 1px solid var(--border);
+            border-radius: 7px; overflow: hidden; padding: 1px;
+        }
+        .ts-filter button {
+            font-family: inherit; font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em;
+            color: var(--text-muted); background: transparent; border: none;
+            padding: 3px 9px; border-radius: 6px; cursor: pointer; transition: all 0.15s;
+        }
+        .ts-filter button:hover { color: var(--text-secondary); }
+        .ts-filter button.active { color: #fff; background: var(--purple); }
+        .ts-filter.loading button { opacity: 0.5; pointer-events: none; }
         .fc-card .fc-head { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 8px; margin-bottom: 4px; }
         .fc-card .fc-name { font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.4px; }
         .fc-card .fc-amount { font-size: 18px; font-weight: 700; color: var(--text-primary); }
