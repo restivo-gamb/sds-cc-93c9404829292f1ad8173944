@@ -1318,6 +1318,11 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
             <div class="section-header" onclick="toggleSection('sec-talent')">
                 <h2>Talent Scoreboard</h2>
                 <span class="freshness-chip" id="talentFreshness" title="Creator scoreboard ingestion timestamp">talent: &mdash;</span>
+                <div class="ts-filter" id="talentFilter" onclick="event.stopPropagation()" title="Trailing window — 1D is today's curated view; 7D/30D pull live trailing aggregates from the scoreboard worker">
+                    <button data-win="1" class="active" onclick="setTalentWindow(1)">1D</button>
+                    <button data-win="7" onclick="setTalentWindow(7)">7D</button>
+                    <button data-win="30" onclick="setTalentWindow(30)">30D</button>
+                </div>
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body">
@@ -3301,7 +3306,7 @@ function renderFreshness() {
 }
 
 function renderTalentScoreboard() {
-    const c = DATA.creators;
+    const c = (window.__talentView || DATA.creators);
     const totalsEl = document.getElementById('talentTotals');
     const splitEl = document.getElementById('talentSplit');
     const rosterEl = document.getElementById('talentFullRoster');
@@ -3313,14 +3318,20 @@ function renderTalentScoreboard() {
         if (rosterEl) rosterEl.innerHTML = '';
         return;
     }
+    // Optional trailing-window caption (set for 7D/30D views; absent for the 1D baked view)
+    const capEl = document.getElementById('talentWindowNote');
+    if (capEl) capEl.innerHTML = c.windowNote
+        ? `<span style="color:var(--purple); font-weight:600;">${c.windowNote}</span>`
+        : '';
     if (totalsEl && c.totals) {
         const t = c.totals;
         const hitColor = t.allHit > 0 ? 'var(--green)' : 'var(--text-muted)';
+        const hitLine = t.hitLabel || `${t.allHit}/${t.allTotal} hit goal today`;
         totalsEl.innerHTML = `
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px;">
                 <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">All Talent</div>
                 <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${t.allPoints} pts</div>
-                <div style="font-size:11px; color:${hitColor}; margin-top:2px;">${t.allHit}/${t.allTotal} hit goal today</div>
+                <div style="font-size:11px; color:${hitColor}; margin-top:2px;">${hitLine}</div>
             </div>
             <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px; border-left:3px solid var(--brand-oddsjam);">
                 <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">OJ Pod</div>
