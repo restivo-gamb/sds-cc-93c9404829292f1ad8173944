@@ -1329,6 +1329,7 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
                 <div id="snap-talentIntro" style="font-size:11px; color:var(--text-muted); margin-bottom:10px; padding:6px 10px; background:var(--bg-input); border-radius:8px; border-left:3px solid var(--purple);">
                     <strong>Daily creator content-points tracker</strong> &mdash; Source: <a href="https://creator-scoreboard-ui.pages.dev/" target="_blank" style="color:var(--purple); text-decoration:none; border-bottom:1px dashed var(--purple);">creator-scoreboard-ui.pages.dev</a> &middot; Brian S's worker, audited 9am &amp; 3pm ET. Goal = <strong>10 pts + at least 1 product push</strong>; caps force creators to mix formats. Watch for repeat zeros (cross-reference with Tim DMs / weekly LEADS asks).
                 </div>
+                <div id="talentWindowNote" style="font-size:10.5px; margin-bottom:8px;"><!-- set by renderTalentScoreboard for 7D/30D views --></div>
                 <div id="talentTotals" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:12px;">
                     <!-- Populated by JS -->
                 </div>
@@ -3350,7 +3351,9 @@ function renderTalentScoreboard() {
             const podDim = cr.pod === 'OJ' ? 'var(--brand-oddsjam-dim)' : cr.pod === 'RW' ? 'var(--brand-rotowire-dim)' : 'var(--bg-input)';
             const podColor = cr.pod === 'OJ' ? 'var(--brand-oddsjam)' : cr.pod === 'RW' ? 'var(--brand-rotowire)' : 'var(--text-muted)';
             const ptsColor = kind === 'over' ? 'var(--green)' : 'var(--red)';
-            const targetTag = cr.onTarget ? `<span style="color:var(--green); font-weight:700; margin-left:6px;">✓ HIT GOAL</span>` : '';
+            const targetTag = cr.tag
+                ? `<span style="color:${kind === 'over' ? 'var(--green)' : 'var(--text-muted)'}; font-weight:700; margin-left:6px;">${cr.tag}</span>`
+                : (cr.onTarget ? `<span style="color:var(--green); font-weight:700; margin-left:6px;">✓ HIT GOAL</span>` : '');
             return `
             <div style="display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:start; padding:8px 10px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:6px;">
                 <div style="font-size:18px; font-weight:800; color:${ptsColor}; min-width:36px; text-align:center;">${cr.pts}</div>
@@ -3388,6 +3391,105 @@ function renderTalentScoreboard() {
                 <div><strong style="color:var(--text-primary);">${m.name}</strong> <span style="color:${podColor}; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">${m.pod}</span> <span style="color:var(--text-muted); font-size:10.5px;">@${m.handle}</span><br><span style="color:var(--text-muted); font-size:10.5px;">${m.reason}</span></div>
             </div>`;
         }).join('');
+    }
+}
+
+// ── Talent Scoreboard trailing-window filter ──────────────────────────────
+// 1D = the curated baked snapshot (DATA.creators, refreshed each morning; works offline).
+// 7D / 30D = live trailing aggregates fetched from Brian S's scoreboard worker (CORS-open),
+// classified client-side. Graceful fallback to the 1D baked view if the fetch fails.
+const TALENT_API = 'https://creator-scoreboard.brianstephens.workers.dev/api/scoreboard?days=';
+
+function buildCreatorsView(json, win) {
+    const list = (json.creators || []).map(cr => ({
+        handle: cr.handle,
+        name: cr.display_name || cr.handle,
+        pod: cr.pod || '—',
+        pts: cr.total_points || 0,
+        tweets: cr.tweets_total || 0,
+        replies: cr.replies_total || 0,
+        likes: cr.likes_total || 0,
+        rts: cr.retweets_total || 0,
+        onDays: cr.on_days || 0,
+        totalDays: cr.total_days || win,
+        rate: cr.rate || 0
+    }));
+    list.sort((a, b) => b.pts - a.pts);
+
+    const sum = (arr, k) => arr.reduce((s, x) => s + (x[k] || 0), 0);
+    const oj = list.filter(x => x.pod === 'OJ');
+    const rw = list.filter(x => x.pod === 'RW');
+    const hitAtLeastOnce = list.filter(x => x.onDays > 0).length;
+    const avgRate = list.length ? Math.round(sum(list, 'rate') / list.length) : 0;
+
+    // Over-performing: hit goal on ≥50% of tracked days (fallback to top-3 by points if none clear the bar)
+    let leaders = list.filter(x => x.rate >= 50);
+    if (!leaders.length) leaders = list.slice(0, 3);
+    leaders = leaders.slice(0, 5);
+    // Under-performing: effectively dark over the window (0 pts, or a single point with no original tweets)
+    const laggards = list
+        .filter(x => x.pts === 0 || (x.tweets === 0 && x.pts <= 1))
+        .sort((a, b) => a.pts - b.pts)
+        .slice(0, 6);
+    const leaderH = new Set(leaders.map(x => x.handle));
+    const laggardH = new Set(laggards.map(x => x.handle));
+    const midTier = list.filter(x => !leaderH.has(x.handle) && !laggardH.has(x.handle));
+
+    const mkReason = x => `${x.pts} pts over ${win}d · on-target ${x.onDays}/${x.totalDays} days (${x.rate}%) · ${x.tweets} tw · ${x.replies} rep`;
+    return {
+        date: `trailing ${win}d${json.today ? ' → ' + json.today : ''}`,
+        windowNote: `Trailing ${win} days · cumulative points, ranked by total; hit-rate = on-target days ÷ tracked days`,
+        totals: {
+            allPoints: sum(list, 'pts'), allTotal: list.length,
+            allHit: hitAtLeastOnce,
+            hitLabel: `${hitAtLeastOnce}/${list.length} hit goal ≥1 day · ${avgRate}% avg hit-rate`,
+            ojPoints: sum(oj, 'pts'), ojTotal: oj.length,
+            rwPoints: sum(rw, 'pts'), rwTotal: rw.length
+        },
+        leaders: leaders.map(x => ({ ...x, onTarget: false, tag: `✓ ${x.onDays}/${x.totalDays} days`, reason: mkReason(x) })),
+        laggards: laggards.map(x => ({ ...x, onTarget: false, tag: x.pts === 0 ? 'DARK' : '', reason: mkReason(x) })),
+        midTier: midTier.map(x => ({ handle: x.handle, name: x.name, pod: x.pod, pts: x.pts,
+            reason: `${x.pts} pts · ${x.rate}% hit-rate · ${x.tweets} tw · ${x.replies} rep over ${win}d` }))
+    };
+}
+
+async function setTalentWindow(win) {
+    win = Number(win) || 1;
+    const filterEl = document.getElementById('talentFilter');
+    if (filterEl) filterEl.querySelectorAll('button').forEach(b =>
+        b.classList.toggle('active', Number(b.dataset.win) === win));
+    try { localStorage.setItem('talentWindow', String(win)); } catch (e) {}
+    const chip = document.getElementById('talentFreshness');
+
+    if (win === 1) {
+        window.__talentView = null;   // fall back to the baked DATA.creators (curated daily view)
+        renderTalentScoreboard();
+        renderFreshness();            // recompute the talent chip from DATA.creators.ingestedAt
+        return;
+    }
+
+    if (filterEl) filterEl.classList.add('loading');
+    if (chip) { chip.className = 'freshness-chip'; chip.textContent = `talent: loading ${win}d…`; }
+    try {
+        const r = await fetch(TALENT_API + win, { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const json = await r.json();
+        window.__talentView = buildCreatorsView(json, win);
+        renderTalentScoreboard();
+        if (chip) {
+            chip.className = 'freshness-chip fresh';
+            chip.textContent = `talent: live ${win}d · ${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+            chip.title = `Trailing ${win}-day aggregate pulled live from the creator-scoreboard worker at ${new Date().toLocaleString()}`;
+        }
+    } catch (e) {
+        // Live fetch failed (offline / worker down) — revert to the baked 1D view and flag it
+        window.__talentView = null;
+        renderTalentScoreboard();
+        if (filterEl) filterEl.querySelectorAll('button').forEach(b =>
+            b.classList.toggle('active', Number(b.dataset.win) === 1));
+        if (chip) { chip.className = 'freshness-chip stale'; chip.textContent = `talent: ${win}d fetch failed — showing 1d`; }
+    } finally {
+        if (filterEl) filterEl.classList.remove('loading');
     }
 }
 
@@ -3731,6 +3833,12 @@ renderOffsites('business');
 renderRWAboveBudget();
 renderFreshness();
 renderTalentScoreboard();
+// Restore the user's last-selected trailing window (7D/30D re-fetch live; defaults to the curated 1D view)
+(function restoreTalentWindow() {
+    let saved = 1;
+    try { saved = Number(localStorage.getItem('talentWindow')) || 1; } catch (e) {}
+    if (saved === 7 || saved === 30) setTalentWindow(saved);
+})();
 
 // Update scorecard — uses real C2 SCORECARD W2 data
 const sc = DATA.scorecard;
