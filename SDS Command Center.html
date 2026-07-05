@@ -3926,6 +3926,32 @@ async function populateWeekPicker() {
 
 populateWeekPicker();
 
+/* ── Strategic Context Questions: check to cross off (persisted per-device) ── */
+(function () {
+    var LS_KEY = 'sdsStratDone-v1';
+    function loadStore() { try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); } catch (e) { return {}; } }
+    function saveStore(o) { try { localStorage.setItem(LS_KEY, JSON.stringify(o)); } catch (e) {} }
+    function keyFor(cb) {
+        var li = cb.closest('li');
+        var txt = li && li.querySelector('.strat-text');
+        return txt ? txt.textContent.trim().slice(0, 160) : '';
+    }
+    window.stratToggle = function (cb) {
+        var store = loadStore(), k = keyFor(cb), li = cb.closest('li');
+        if (cb.checked) { store[k] = 1; if (li) li.classList.add('strat-done'); }
+        else { delete store[k]; if (li) li.classList.remove('strat-done'); }
+        saveStore(store);
+    };
+    function restoreStrat() {
+        var store = loadStore();
+        document.querySelectorAll('#strategicQuestions .strat-check').forEach(function (cb) {
+            if (store[keyFor(cb)]) { cb.checked = true; var li = cb.closest('li'); if (li) li.classList.add('strat-done'); }
+        });
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', restoreStrat); }
+    else { restoreStrat(); }
+})();
+
 </script>
 </body>
 </html>
