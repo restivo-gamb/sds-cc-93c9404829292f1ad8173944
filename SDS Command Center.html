@@ -3426,11 +3426,10 @@ function buildCreatorsView(json, win) {
     let leaders = list.filter(x => x.rate >= 50);
     if (!leaders.length) leaders = list.slice(0, 3);
     leaders = leaders.slice(0, 5);
-    // Under-performing: effectively dark over the window (0 pts, or a single point with no original tweets)
-    const laggards = list
-        .filter(x => x.pts === 0 || (x.tweets === 0 && x.pts <= 1))
-        .sort((a, b) => a.pts - b.pts)
-        .slice(0, 6);
+    // Under-performing over a window = never cleared goal in the window (0 on-target days), weakest first
+    let laggards = list.filter(x => x.onDays === 0).sort((a, b) => a.pts - b.pts);
+    if (!laggards.length) laggards = list.slice().sort((a, b) => a.pts - b.pts).slice(0, 3);
+    laggards = laggards.slice(0, 5);
     const leaderH = new Set(leaders.map(x => x.handle));
     const laggardH = new Set(laggards.map(x => x.handle));
     const midTier = list.filter(x => !leaderH.has(x.handle) && !laggardH.has(x.handle));
