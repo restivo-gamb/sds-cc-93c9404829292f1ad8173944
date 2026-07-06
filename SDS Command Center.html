@@ -1348,6 +1348,38 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
                 <style>
                     details[open] > summary .ts-chevron { transform: rotate(90deg); }
                 </style>
+
+                <!-- ── RotoWire Promo Codes (redemptions) — ingested live from the published sheet ── -->
+                <div id="promoBlock" style="margin-top:18px; padding-top:14px; border-top:1px solid var(--border);">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+                        <h3 style="font-size:13px; font-weight:700; color:var(--brand-rotowire); margin:0;">RotoWire Promo Codes</h3>
+                        <span class="freshness-chip" id="promoFreshness" title="Promo-code redemptions ingestion timestamp">promo: &mdash;</span>
+                        <div class="ts-filter" id="promoFilter" title="Trailing redemption window (current vs prior equal window)">
+                            <button data-win="1" class="active" onclick="setPromoWindow(1)">1D</button>
+                            <button data-win="7" onclick="setPromoWindow(7)">7D</button>
+                            <button data-win="30" onclick="setPromoWindow(30)">30D</button>
+                        </div>
+                    </div>
+                    <div id="snap-promoIntro" style="font-size:11px; color:var(--text-muted); margin-bottom:10px; padding:6px 10px; background:var(--bg-input); border-radius:8px; border-left:3px solid var(--brand-rotowire);">
+                        <strong>Promo-code redemptions</strong> &mdash; Source: <a href="https://salmannaq-lab.github.io/Rotowire-Promo-Code-Dashboard/?v=2" target="_blank" style="color:var(--brand-rotowire); text-decoration:none; border-bottom:1px dashed var(--brand-rotowire);">RotoWire Promo Code Dashboard</a> (published sheet, live). Redemptions per code; each window compares against the prior equal window. Creator/channel codes (e.g. THEO20, IAN20, YOUTUBE15) surface who&apos;s converting.
+                    </div>
+                    <div id="promoWindowNote" style="font-size:10.5px; margin-bottom:8px;"></div>
+                    <div id="promoTotals" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:12px;">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div id="promoSplit" style="display:grid; grid-template-columns:1fr; gap:12px; margin-bottom:10px;">
+                        <!-- Populated by JS — top redeemers + cooling-off codes -->
+                    </div>
+                    <details style="margin-top:6px;">
+                        <summary style="cursor:pointer; font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600; list-style:none; display:flex; align-items:center; gap:6px;">
+                            <span class="ts-chevron" style="display:inline-block; transition:transform 0.2s; font-size:10px;">&#9654;</span>
+                            Full code detail (<span id="promoCount">&mdash;</span>)
+                        </summary>
+                        <div id="promoDetail" style="margin-top:8px; font-size:11.5px;">
+                            <!-- Populated by JS -->
+                        </div>
+                    </details>
+                </div>
             </div>
         </div>
 
