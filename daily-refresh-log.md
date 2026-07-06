@@ -1595,3 +1595,17 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K iters · 887,946 chars / 887,954 bytes; plaintext 648,857 chars). Byte counts match.
 - auto-push.log verification: FRESH — latest push 2026-07-05 05:44:41 MDT (commit 93f540a), well within 24h. Deploy pipeline healthy.
 - Notification (STEP 8): SKIPPED per standing pref (Matt never wants the daily-refresh Slack DM). Would-have-triggered this run: (a) >50% of RW creator-pod went to zero; (b) active-Matt-DM creator (John McKechnie) as a 0-pt laggard. Both holiday-driven. Logged only, no DM sent.
+
+## 2026-07-06
+
+- Updated header timestamp → July 6, 2026.
+- forecastMeta.ingestedAt: unchanged (v16, 2026-07-02T05:30 — no move) · scorecard.lastSynced: 2026-07-06T05:40:00-06:00 (prevSynced → 2026-07-05T05:40) · creators.ingestedAt: 2026-07-06T05:40:00-06:00.
+- Forecast scan — swept gamb/finance + gamb/__inbox (recursive, incl _archive) + legacy Dashboard folder in one find. Highest file anywhere = (16), already canonical in gamb/finance. No new version; forecast HOLDS at v16 ($71.94M, +7.77% budget / +5.22% target / +26.09% YoY). No static Revenue Pulse HTML change needed. __inbox clean (only an archived (11)).
+- Slack-driven changes — Slack FRESH (Jul 5–6, gen 7/6 07:07Z, 2/27 ch active, 6/11 DMs active, 0 errors). New attention group + keyThemes + keyDates TODAY built from DMs: Ryan re-launching Optic + folding Roto in as the $400K-gap recovery lever (make-up $200K; Kraken/Bet365/ProphetX/Huddle near line); Vincenzo on-call decision open (V pushed back in detail); Brian S Alberta CPA ~$300K push vs $1M goal; Nick P week's-list + 'face of product' launch queued next week; Craig shared Mr Gamble NA build-out intel; Pedro silent (MBR-prep watch).
+- Granola-driven changes — none; no meeting note for yesterday (2026-07-05), latest is 2026-06-26. Noted in keyThemes.
+- Xlsx/forecast version moves — none (v16 holds).
+- Scorecard sync — SUCCEEDED via Agent-tool subagent (xlsx export + openpyxl on host-side tool-results file). WEEK ROLLOVER: a new blank W3 column opened at col D (0 reported); live status read from col E (W2, last completed week). Counts DEAD FLAT vs 7/4-7/5: G35/Y15/R3/NR23 across 76 rows (70%). Same 3 reds (Nick P ×2 both noted 'scheduled for later in offseason'; Brian S CPA DRIP's, no note). Intro paragraph + comment header refreshed for C4 W3-D1. yellowLeaders unchanged (identical data), comment date bumped. No escalation-candidate owner-group 9+ days stale (only two Updated dates present: 6/29 and one 6/22 row).
+- Creator Scoreboard — API HEALTHY (Chrome pull, days=1 → 7/5 SUN scored day). 43 pts (rebound from 31 on 7/4). 1 true hitter: Jim Coventry (14, RW, 3 pushes). Laggards (zero-output): James Anderson (RW, 2nd straight 0), Dustin (DGF, 0). midTier 10 creators. OJ 12 pts/4 · RW 31 pts/8. NO notification triggers fired (no goal→0 flip; RW pod only 1/8 dark; McKechnie named in Tim DM but scored 4/3-tweets, not a 0-pt laggard).
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · 943,678 bytes; plaintext 702,795 bytes). Byte counts confirmed.
+- auto-push.log verification: OK — most recent entry "Daily refresh 2026-07-06" pushed (f52f6d4..abca7b3), within 24h; deploys live.
+- Notification: NONE — no material trigger (forecast flat, scorecard flat/NR delta 0, no new reds, creators no trigger, encryption + auto-push healthy). Silence per pref.
