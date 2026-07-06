@@ -3524,6 +3524,171 @@ async function setTalentWindow(win) {
     }
 }
 
+// ── RotoWire Promo Codes — live ingest of the published redemption sheet ────
+// The RotoWire Promo Code Dashboard publishes a Google Sheet as CSV (date,promo_code,uses),
+// CORS-open and public. One fetch returns full history, so all three windows are computed
+// client-side. 1D/7D/30D each compare the current window against the prior equal window.
+const PROMO_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRhCnIekyoW-ojS5_0F_LEGCeHshqME1deZ7XUJTIICGqWsxlg72KhlmMiu-BKxaPT-FUfrVsHpvRkT/pub?gid=260256112&single=true&output=csv';
+let PROMO_ROWS = null;      // [{date, code, uses}] cached after first fetch
+let PROMO_MAXDATE = null;
+
+async function loadPromoCsv() {
+    if (PROMO_ROWS) return PROMO_ROWS;
+    const txt = await (await fetch(PROMO_CSV, { cache: 'no-store' })).text();
+    const lines = txt.trim().split('\n').slice(1);   // drop header
+    const rows = [];
+    let maxD = '';
+    for (const ln of lines) {
+        const p = ln.replace(/\r/g, '').split(',');
+        if (p.length < 3) continue;
+        const date = p[0].trim(), code = p[1].trim(), uses = parseInt(p[2], 10) || 0;
+        if (!date || !code) continue;
+        rows.push({ date, code, uses });
+        if (date > maxD) maxD = date;
+    }
+    PROMO_ROWS = rows; PROMO_MAXDATE = maxD;
+    return rows;
+}
+
+const promoIsTest = code => /test/i.test(code);
+
+function buildPromoView(rows, win, maxDate) {
+    const md = new Date(maxDate + 'T00:00:00');
+    const dayDiff = d => Math.round((md - new Date(d + 'T00:00:00')) / 86400000);
+    const agg = {};   // code -> {cur, prev, all}
+    for (const { date, code, uses } of rows) {
+        const diff = dayDiff(date);
+        const a = agg[code] || (agg[code] = { code, cur: 0, prev: 0, all: 0 });
+        a.all += uses;
+        if (diff >= 0 && diff < win) a.cur += uses;
+        else if (diff >= win && diff < win * 2) a.prev += uses;
+    }
+    const list = Object.values(agg).map(a => ({ ...a, delta: a.cur - a.prev }));
+    const winTotal = list.reduce((s, x) => s + x.cur, 0);
+    const prevTotal = list.reduce((s, x) => s + x.prev, 0);
+    const activeCodes = list.filter(x => x.cur > 0).length;
+
+    const byCur = list.slice().sort((a, b) => b.cur - a.cur || b.all - a.all);
+    const topCode = byCur[0] || { code: '—', cur: 0 };
+
+    // Top redeemers: established, non-test codes ranked by window redemptions
+    const leaders = byCur.filter(x => !promoIsTest(x.code) && x.all >= 3 && x.cur > 0).slice(0, 5);
+    // Cooling off: established codes declining vs the prior window (or gone cold this window)
+    const laggards = list
+        .filter(x => !promoIsTest(x.code) && x.all >= 10 && (x.delta < 0 || x.cur === 0) && x.prev > 0)
+        .sort((a, b) => a.delta - b.delta)
+        .slice(0, 5);
+    // Full detail: everything active this window (plus established codes), ranked
+    const full = byCur.filter(x => x.cur > 0 || x.all >= 5);
+    return {
+        win, winTotal, prevTotal, totalDelta: winTotal - prevTotal,
+        activeCodes, totalCodes: list.length, topCode, leaders, laggards, full,
+        windowNote: `Trailing ${win} ${win === 1 ? 'day' : 'days'} · ${winTotal} redemptions vs ${prevTotal} in the prior ${win === 1 ? 'day' : win + ' days'} · codes ranked by redemptions`
+    };
+}
+
+function promoTrend(delta) {
+    if (delta > 0) return `<span style="color:var(--green); font-weight:700;">▲ +${delta}</span>`;
+    if (delta < 0) return `<span style="color:var(--red); font-weight:700;">▼ ${delta}</span>`;
+    return `<span style="color:var(--text-muted);">– 0</span>`;
+}
+
+function renderPromoCodes(v) {
+    const noteEl = document.getElementById('promoWindowNote');
+    const totalsEl = document.getElementById('promoTotals');
+    const splitEl = document.getElementById('promoSplit');
+    const detailEl = document.getElementById('promoDetail');
+    const countEl = document.getElementById('promoCount');
+    if (!v) return;
+    if (noteEl) noteEl.innerHTML = `<span style="color:var(--brand-rotowire); font-weight:600;">${v.windowNote}</span>`;
+    if (totalsEl) {
+        const dc = v.totalDelta > 0 ? 'var(--green)' : v.totalDelta < 0 ? 'var(--red)' : 'var(--text-muted)';
+        const ds = v.totalDelta > 0 ? `+${v.totalDelta}` : `${v.totalDelta}`;
+        totalsEl.innerHTML = `
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px; border-left:3px solid var(--brand-rotowire);">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">Redemptions</div>
+                <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${v.winTotal}</div>
+                <div style="font-size:11px; color:${dc}; margin-top:2px;">${ds} vs prior ${v.win === 1 ? 'day' : v.win + 'd'}</div>
+            </div>
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">Active Codes</div>
+                <div style="font-size:20px; font-weight:800; color:var(--text-primary); margin-top:2px;">${v.activeCodes}</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">of ${v.totalCodes} all-time</div>
+            </div>
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;">Top Code</div>
+                <div style="font-size:18px; font-weight:800; color:var(--text-primary); margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${v.topCode.code}</div>
+                <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">${v.topCode.cur} redemptions</div>
+            </div>`;
+    }
+    if (splitEl) {
+        const item = (x, kind) => {
+            const ptsColor = kind === 'over' ? 'var(--green)' : 'var(--red)';
+            const share = v.winTotal ? Math.round((x.cur / v.winTotal) * 100) : 0;
+            return `
+            <div style="display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; padding:8px 10px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:6px;">
+                <div style="font-size:18px; font-weight:800; color:${ptsColor}; min-width:36px; text-align:center;">${x.cur}</div>
+                <div>
+                    <div style="font-size:13px; font-weight:700; color:var(--text-primary); font-family:ui-monospace,Menlo,monospace;">${x.code}</div>
+                    <div style="font-size:11px; color:var(--text-secondary); margin-top:2px;">${promoTrend(x.delta)} vs prior ${v.win === 1 ? 'day' : v.win + 'd'} · ${share}% of window · ${x.all} all-time</div>
+                </div>
+                <div style="font-size:10.5px; color:var(--text-muted); text-align:right; white-space:nowrap;">prior<br>${x.prev}</div>
+            </div>`;
+        };
+        const overHTML = (v.leaders || []).map(x => item(x, 'over')).join('') || '<div style="font-size:11.5px; color:var(--text-muted); padding:8px 10px;">No redemptions in this window.</div>';
+        const underHTML = (v.laggards || []).map(x => item(x, 'under')).join('') || '<div style="font-size:11.5px; color:var(--text-muted); padding:8px 10px;">No established codes cooling off this window.</div>';
+        splitEl.innerHTML = `
+            <div>
+                <div style="font-size:11px; color:var(--green); text-transform:uppercase; letter-spacing:0.5px; font-weight:700; margin-bottom:6px;">▲ Top redeemers</div>
+                ${overHTML}
+            </div>
+            <div>
+                <div style="font-size:11px; color:var(--red); text-transform:uppercase; letter-spacing:0.5px; font-weight:700; margin-bottom:6px;">▼ Cooling off (established codes declining)</div>
+                ${underHTML}
+            </div>`;
+    }
+    if (detailEl) {
+        const header = `<div style="display:grid; grid-template-columns:1fr 52px 52px 60px; gap:8px; padding:4px 0; border-bottom:1px solid var(--border); font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); font-weight:600;">
+            <span>Code</span><span style="text-align:right;">Window</span><span style="text-align:right;">Prior</span><span style="text-align:right;">All-time</span></div>`;
+        const rows = (v.full || []).map(x => `
+            <div style="display:grid; grid-template-columns:1fr 52px 52px 60px; gap:8px; padding:4px 0; border-bottom:1px dashed var(--border); align-items:center;">
+                <span style="font-family:ui-monospace,Menlo,monospace; color:var(--text-primary);">${x.code}${promoIsTest(x.code) ? ' <span style="color:var(--text-muted); font-family:inherit;">(test)</span>' : ''}</span>
+                <span style="text-align:right; font-weight:700; color:var(--text-secondary);">${x.cur}</span>
+                <span style="text-align:right; color:var(--text-muted);">${x.prev} ${promoTrend(x.delta)}</span>
+                <span style="text-align:right; color:var(--text-muted);">${x.all}</span>
+            </div>`).join('');
+        detailEl.innerHTML = header + rows;
+    }
+    if (countEl) countEl.textContent = `${v.activeCodes} active · ${v.totalCodes} all-time`;
+}
+
+async function setPromoWindow(win) {
+    win = Number(win) || 1;
+    const filterEl = document.getElementById('promoFilter');
+    if (filterEl) filterEl.querySelectorAll('button').forEach(b =>
+        b.classList.toggle('active', Number(b.dataset.win) === win));
+    try { localStorage.setItem('promoWindow', String(win)); } catch (e) {}
+    const chip = document.getElementById('promoFreshness');
+    if (filterEl) filterEl.classList.add('loading');
+    if (chip) { chip.className = 'freshness-chip'; chip.textContent = `promo: loading…`; }
+    try {
+        const rows = await loadPromoCsv();
+        const v = buildPromoView(rows, win, PROMO_MAXDATE);
+        renderPromoCodes(v);
+        if (chip) {
+            chip.className = 'freshness-chip fresh';
+            chip.textContent = `promo: live · ${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+            chip.title = `RotoWire promo-code sheet ingested live at ${new Date().toLocaleString()} · data through ${PROMO_MAXDATE}`;
+        }
+    } catch (e) {
+        if (chip) { chip.className = 'freshness-chip very-stale'; chip.textContent = 'promo: fetch failed'; }
+        const splitEl = document.getElementById('promoSplit');
+        if (splitEl) splitEl.innerHTML = '<div style="font-size:11.5px; color:var(--text-muted); padding:10px; background:var(--bg-input); border-radius:8px; text-align:center; font-style:italic;">Could not reach the RotoWire promo-code sheet. It loads live from the published Google Sheet — try Reload.</div>';
+    } finally {
+        if (filterEl) filterEl.classList.remove('loading');
+    }
+}
+
 function renderRWAboveBudget() {
     const rw = DATA.rw;
     if (!rw) return;
@@ -3869,6 +4034,12 @@ renderTalentScoreboard();
     let saved = 1;
     try { saved = Number(localStorage.getItem('talentWindow')) || 1; } catch (e) {}
     if (saved === 7 || saved === 30) setTalentWindow(saved);
+})();
+// Ingest the RotoWire promo-code sheet (live) and render at the user's last-selected window (default 1D)
+(function initPromoCodes() {
+    let saved = 1;
+    try { saved = Number(localStorage.getItem('promoWindow')) || 1; } catch (e) {}
+    setPromoWindow([1, 7, 30].includes(saved) ? saved : 1);
 })();
 
 // Update scorecard — uses real C2 SCORECARD W2 data
