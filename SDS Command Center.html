@@ -2773,36 +2773,36 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-07-06",
-        ingestedAt: "2026-07-07T05:40:00-06:00",
+        date: "2026-07-08",
+        ingestedAt: "2026-07-09T05:40:00-06:00",
         totals: {
-            allPoints: 99, allHit: 4, allTotal: 13,
-            ojPoints: 34, ojTotal: 4,
-            rwPoints: 54, rwTotal: 8
+            allPoints: 79, allHit: 3, allTotal: 13,
+            ojPoints: 23, ojTotal: 4,
+            rwPoints: 43, rwTotal: 8
         },
-        // 📈 API HEALTHY — pulled 2026-07-07 05:40 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked); days=1 → 7/6 (MON) scored day.
-        // 99 total pts — the STRONGEST day in weeks and a full rebound off the holiday trough (43 on 7/5, 31 on 7/4). FOUR true goal-hitters (push classifier crediting cleanly): +EV Bettors (17, OJ, 10 pushes), Jim Coventry (13, RW, 5 pushes), Billy C (13, OJ, 5 pushes, trend +12), Jeff Erickson (12, RW, 1 push). Best hitter-count this cycle.
-        // 7/6 (MON): +EV Bettors 17 (OJ, HIT) · Jim Coventry 13 (RW, HIT) · Billy C 13 (OJ, HIT) · Jeff Erickson 12 (RW, HIT) · Dustin 11 (DGF, PrizePicks/non-qualifying) · Jagger May 8 (RW) · Alex Barutha 8 (RW) · Nick Whalen 7 (RW) · John McKechnie 5 (RW) · Clark Gary 4 (OJ) · Erik Halterman 1 (RW) · OddsJam brand 0 (OJ) · James Anderson 0 (RW).
-        // ✅ NO notification triggers fired: no goal→0 flip (7/5's hitter Jim Coventry still hitting at 13); RW pod NOT >50% dark (only James Anderson zero-output of 8 = 12.5%); OJ pod not >50% dark (only OddsJam brand of 4); no active-DM creator as a 0-pt laggard (McKechnie named in Tim DMs but scored 5 with 3 tweets + a push).
-        // ⚠️ Cross-ref watch: John McKechnie is in today's Tim DM ("audition this week; Theo to approve content quality") — rebounded to 4 pts / 3 tweets from a 7/4 zero, but still under target and no product push. Only true zero-output today: James Anderson (RW, 2nd straight 0) + Dustin (DGF, collapsed from Thursday's 19-pt best day).
+        // 📈 API HEALTHY — pulled 2026-07-09 05:40 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked); days=1 → 7/8 (WED) scored day (7/8 dashboard refresh did not run, so this jumps from the 7/6 scored day).
+        // 79 total pts, THREE true goal-hitters (push classifier crediting cleanly): Jeff Erickson (16, RW, 2 pushes — top of board), Dustin (13, DGF, 2 pushes), Jim Coventry (10, RW, 5 pushes). Off the 99-pt 7/6 peak but a healthy, well-distributed day.
+        // 7/8 (WED): Jeff Erickson 16 (RW, HIT) · Dustin 13 (DGF, HIT) · Jim Coventry 10 (RW, HIT) · +EV Bettors 9 (OJ, 8 pushes, edge of goal) · Billy C 8 (OJ) · Jagger May 6 (RW) · James Anderson 5 (RW, rebounded off 3 straight 0s) · Clark Gary 4 (OJ) · John McKechnie 3 (RW) · Nick Whalen 2 (RW) · OddsJam brand 2 (OJ) · Erik Halterman 1 (RW) · Alex Barutha 0 (RW, zero-output).
+        // ✅ NO notification triggers fired: no goal→0 flip (7/6's hitters Jeff & Jim still hitting; +EV/Billy C only dropped to 9/8, not 0); neither pod >50% dark (RW 1 of 8 zero = Barutha = 12.5%; OJ 0 of 4); no active-DM creator as a 0-pt laggard (McKechnie scored 3, James Anderson 5).
+        // ⚠️ Cross-ref: Jim Coventry HIT goal (10 pts, 5 RW pushes — the RW scoreboard anchor) even as Matt questioned "Jim's content isn't working" in the Brian/DJ/Tim group DM this window (Tim: works for a niche segment too small to matter). Hold both signals together. James Anderson finally broke his 3-day dark streak (0→5, 1 push). Only true zero-output: Alex Barutha (RW, off 8 pts on 7/6).
         leaders: [
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 17, tweets: 19, replies: 13, likes: 409, rts: 32, onTarget: true, reason: "Top of the board — 17 pts with 10 credited OddsJam pushes (Sharp Money + Positive EV tools across the day). 19 tweets + 13 replies, 409 likes." },
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 8, replies: 25, likes: 88, rts: 7, onTarget: true, reason: "13 pts with 5 RotoWire pushes (product links, discount codes, join CTAs) alongside fantasy analysis. 3rd straight day over goal — the RW anchor." },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 13, tweets: 10, replies: 8, likes: 43, rts: 3, onTarget: true, reason: "13 pts with 5 OddsJam product pushes — trend +12, a big jump back over goal. Strong OJ day alongside +EV." },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 12, tweets: 7, replies: 6, likes: 36, rts: 2, onTarget: true, reason: "12 pts — cleared goal on a strong RotoWire promo-code push as the primary CTA. Rebounded from the holiday dip." }
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 16, tweets: 8, replies: 14, likes: 23, rts: 4, onTarget: true, reason: "Top of the board — 16 pts with 2 RotoWire product pushes via dedicated threads + promo codes. Big jump (trend +13) off the holiday dip." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 13, tweets: 7, replies: 11, likes: 86, rts: 5, onTarget: true, reason: "13 pts with 2 pushes (PrizePicks + OddsJam Prediction Traders), dedicated content + links. Strong reach (86 likes)." },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 10, tweets: 8, replies: 30, likes: 71, rts: 6, onTarget: true, reason: "Cleared goal — 10 pts with 5 RotoWire subscription pushes (discount codes) across analysis posts + videos. The RW anchor, even as his content fit is being debated in your DMs." }
         ],
         laggards: [
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output 3rd straight day (0 on 7/4, 7/5, 7/6). The one RW creator still fully dark while everyone else rebounded — worth a direct nudge now that the pattern is set." },
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "No posts today (brand handle) — 0 output. Not a person; flagged for completeness. OJ human creators (+EV, Billy C) carried the pod." }
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — no posts today (was 8 pts on 7/6, trend −7). The only fully-dark creator on the board; a single quiet day, not a pattern yet — worth a nudge if it repeats." }
         ],
         midTier: [
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, reason: "11 pts · 10 tweets · 6 replies · 5 pushes but PrizePicks (non-qualifying) — 9/10 on qualifying, edge of goal; strong reach (138 likes)" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 8, reason: "8 pts · 3 tweets · 15 replies · 2 RotoWire pushes (under 10) — analysis + rankings links" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 8, reason: "8 pts · 4 tweets · 4 replies · 0 pushes (trend +10) — analytical basketball content, no product" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 7, reason: "7 pts · 7 tweets · 1 reply · 0 pushes — active but no product call-outs" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 3 replies · 1 RotoWire ADP-tracker push (under 10) — trend −16. ⚠️ Cross-ref: the low-view-stream name from Matt's Tim DMs; posting + pushing but still under target" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 4, reason: "4 pts · 2 tweets · 4 replies · 1 OddsJam arbitrage push (under 10)" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 pushes — near-dark, back off a holiday 0" }
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, reason: "9 pts · 11 tweets · 5 replies · 8 OddsJam pushes (Sharp Money + Fantasy Optimizer) — just under goal, the OJ pod's engine" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 8, reason: "8 pts · 4 tweets · 3 OddsJam product pushes (trend +9) — climbing back toward goal" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 6, reason: "6 pts · 3 tweets · 18 replies · 0 pushes — RotoWire mentions were conversational, not product pushes (209 likes, high engagement)" },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 1 RotoWire Prospect Podcast push — broke a 3-day zero-output streak" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 4, reason: "4 pts · 2 tweets · 3 replies · 0 qualifying pushes" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 0 pushes (rankings shared w/ RW link, not a push) · trend −13. ⚠️ Cross-ref: the low-view-stream name from Matt's Tim DMs; posting but under target and not pushing" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 0 pushes — active but no product call-outs" },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 pushes — brand handle, betting analysis without a product push" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 pushes — near-dark" }
         ]
     },
 
