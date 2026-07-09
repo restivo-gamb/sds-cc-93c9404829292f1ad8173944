@@ -1559,33 +1559,33 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v16 (Executive Dashboard tab, parsed Jul 2 via forecast.json)
-    // Total SDS: Forecast $71.94M · Budget $66.75M · Target $68.37M · 25A $57.05M (+26.09% YoY)
-    // v16 WoW vs v15: TOTAL -$244.8K / -0.34% — first down week since the affiliate-rollup run started. OpticOdds -$132.5K (Fixed stream softened, -1.15% vs budget now vs -0.6%), Roto Affiliate -$100K (within Affiliate rollup), OddsJam -$20.2K (B2C Subs softened). RotoWire +$8K (essentially flat). Bookies/Local/Partnerships unchanged.
-    // v16 was found in gamb/finance/ already (Daily Ingest moved it there from gamb/__inbox at 07:10 today, file mtime 2026-07-01T18:52 / 12:52 MDT — not parsed by ingest per instructions). Parsed here at 5:30 AM refresh. Budget/Target unchanged.
-    // Forecast $71.94M now +$5.19M / +7.77% above budget, +$3.57M / +5.22% above target — still comfortably ahead on both counts despite the small pullback.
-    forecast: 71.94,
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v17 (Executive Dashboard tab, parsed Jul 9 on Matt's request via forecast.json)
+    // Total SDS: Forecast $72.86M · Budget $66.75M · Target $68.37M · 25A $57.05M (+27.71% YoY)
+    // v17 WoW vs v16: TOTAL +$926.6K / +1.29% — REBOUND from v16's first down week. OddsJam +$417K (B2C Subs firming, -9.1% vs budget now vs -11.1%), Roto Affiliate +$500K (within Affiliate rollup), OpticOdds +$272K (Fixed stream recovering, now +0.06% vs budget vs -1.15%), Partnerships +$100K. RotoWire -$62K (B2B Content softened; +1.06% vs budget vs +1.62%), Bookies -$300K. Local unchanged.
+    // v17 was dropped in gamb/__inbox ~05:15 MDT today (after the 5:30 AM refresh had already run), parsed here on Matt's interactive request, then MOVED to canonical gamb/finance. Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
+    // Forecast $72.86M now +$6.11M / +9.16% above budget, +$4.49M / +6.57% above target — the strongest position of the run.
+    forecast: 72.86,
     target: 68.37,
     budget: 66.75,
-    yoyGrowth: 26.09,  // 71.94 / 57.05 − 1
+    yoyGrowth: 27.71,  // 72.86 / 57.05 − 1
     priorYear: 57.05,
 
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v16",
-        ingestedAt: "2026-07-02T05:30:00-06:00",   // ISO 8601 w/ TZ offset — v16 picked up from gamb/finance (Daily Ingest had already moved it there from __inbox at 07:10 same day)
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (16).xlsx"
+        version: "v17",
+        ingestedAt: "2026-07-09T05:50:00-06:00",   // ISO 8601 w/ TZ offset — v17 parsed on Matt's request; file dropped in gamb/__inbox ~05:15 MDT, moved to canonical gamb/finance after parsing
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (17).xlsx"
     },
 
-    // RotoWire vs Budget — NEW DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate now lives under Affiliate rollup
-    // NEW RW: Forecast $11.32M · Budget $11.14M → +$0.18M (+1.62%) — On Track at the line level, up slightly from v15's +1.55%
-    // Note: combined RW+RotoAffiliate is $19.63M (forecast) vs $13.00M (budget) — but the new dashboard tracks them separately per the 5/21 taxonomy change.
+    // RotoWire vs Budget — DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate lives under the Affiliate rollup
+    // RW: Forecast $11.26M · Budget $11.14M → +$0.12M (+1.06%) — On Track at the line level, down slightly from v16's +1.62% (B2B Content softened)
+    // Note: combined RW+RotoAffiliate is $20.07M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
     rw: {
-        budget: 11.14,          // $11,143,335 — NEW 2026 RW Budget (subs+ads+content; v11 baseline)
-        forecast: 11.32,        // Current forecast (v16, parsed Jul 2 from gamb/finance/2026 SDS Revenue & Forecasting (16).xlsx — $11,323,823, +$8K vs v15)
-        aboveBudget: 0.18,      // forecast − budget ($11,323,823 − $11,143,335)
-        abovePct: 1.62          // % over budget
+        budget: 11.14,          // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline)
+        forecast: 11.26,        // Current forecast (v17, parsed Jul 9 from gamb/finance/2026 SDS Revenue & Forecasting (17).xlsx — $11,261,823, -$62K vs v16)
+        aboveBudget: 0.12,      // forecast − budget ($11,261,823 − $11,143,335)
+        abovePct: 1.06          // % over budget
     },
 
     // ─── 2026-06-30 (TUE — C4 W2 DAY 2 · MBR REVIEW DAY) — W2 (col D, current week) FILLED IN overnight after Matt's 6/29 sds-leads ping + the "Monday-morning scorecard habit" nudge. col-D/W2 fill (xlsx export + openpyxl): G35 / Y15 / R3 / NR23 across 76 rows = 53/76 reported (69.7%) — strong early-week start. vs the 6/29 W1-read (13G/0Y/1R/62NR): the move is mostly the new week's column populating (apples-to-oranges across weeks), NOT regression. NEW REDS (2): Jeremy T / OJ PRODUCT "EV Algo" + "Close 4 more Direct Bet Deals (incl Poly + Kalshi)" — Jeremy's whole OJ book is 0G/4Y/2R (reported but at-risk). Nick P "NFL DFS Sim (TBD)" red holds. Darkest W2 books = ESCALATION/NUDGE candidates: Steven 7 NR (ODDS DATA, all dark), Brian S 6 NR of 7 (GROWTH OPS), Scott 3 NR (SPORTS DATA). Green flags fully reported: Kevin O/Tim S RW NEWS 7/7, Ryan W B2B 4/4, Nick P RW PRODUCT 7G (of 12), Samuel Hill Optic-Mktg 3/3. NR −39 + 2 new reds = would-notify; Slack suppressed per standing pref, logged.
