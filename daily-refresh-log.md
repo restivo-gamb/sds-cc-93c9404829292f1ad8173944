@@ -1638,3 +1638,15 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K iters) — source 722,367 chars → index.html 987,766 chars (987,774 bytes on disk). ✓
 - auto-push.log verification: HEALTHY — tail shows a fresh successful commit+push (adb038d..3518345, "pushed") within the hour; deploys working.
 - Notification (STEP 8): SKIPPED per Matt's standing pref (no daily-refresh Slack DM). Would-have-triggered scan: nothing hard fired — no forecast move, no new reds, scorecard NR flat, no creator flip/pod-collapse, no active-DM creator at 0. Positive-but-non-triggering: Polymarket 39-day stipulation milestone + Underdog $350K deal forming (deal-movement, MBR-relevant).
+
+### 2026-07-09 — v17 forecast update (interactive, on Matt's request)
+
+- A new `2026 SDS Revenue & Forecasting (17).xlsx` was dropped in gamb/__inbox ~05:15 MDT, AFTER the 5:30 AM daily refresh had already run and confirmed v16. Matt asked me to grab + update; parsed the canonical "Executive Dashboard" tab (openpyxl, data_only) — NOT the "v0 Executive Dashboard" scratch tab.
+- **v17 → Total SDS $72.86M, +$926.6K WoW / +1.29% — REBOUND from v16's lone down week.** Now +$6.11M/+9.16% vs budget, +$4.49M/+6.57% vs target, +27.71% YoY. Budget ($66.75M) + Target ($68.37M) UNCHANGED. Taxonomy UNCHANGED (v11 4-parent).
+- Movers: OddsJam +$417K (B2C Subs firming, −11.1%→−9.1% vs budget), Roto Affiliate +$500K, OpticOdds +$272K (Fixed stream recovering, −1.15%→+0.06% vs budget), Partnerships +$100K; RotoWire −$62K (B2B Content softened; +1.62%→+1.06% vs budget), Bookies −$300K. Local flat. The two verticals that drove the v16 dip (OddsJam, OpticOdds) both reversed.
+- forecast.json: added versions.v17 + latest + _meta (latest_version v17), wow_delta vs v16. JSON validated.
+- DATA constants: forecast 71.94→72.86, yoyGrowth 26.09→27.71, rw.forecast 11.32→11.26 / aboveBudget 0.18→0.12 / abovePct 1.62→1.06; comment block rewritten; forecastMeta → v17, ingestedAt 2026-07-09T05:50:00-06:00, sourceFile gamb/finance/...(17).xlsx.
+- Static Revenue Pulse HTML updated: WoW block (recolored green), total card, all 4 vertical cards (OpticOdds/OddsJam/RotoWire/Affiliate incl. sub-streams), footnote, rw-floor. Top keyThemes v17 hero entry prepended. 7/9 attention card + keyDate + Pipeline Note v16→v17 references updated.
+- Moved (17).xlsx from gamb/__inbox → canonical gamb/finance (only _archive/(11) remains in __inbox).
+- Encrypted index.html (AES-256, 724,370 chars → 990,474 chars). ✓ auto-push.log: fresh push confirmed (bf05cc8..6d448f0, "pushed").
+- Notification (STEP 8): forecast version move = would normally notify; SKIPPED the Slack DM per Matt's standing pref (he requested this interactively and is present). Note: Budget/Target did NOT reset (the v0 scratch tab showed reset figures — ignored; canonical tab holds the real 66.75M/68.37M).
