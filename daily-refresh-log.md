@@ -1650,3 +1650,18 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Moved (17).xlsx from gamb/__inbox → canonical gamb/finance (only _archive/(11) remains in __inbox).
 - Encrypted index.html (AES-256, 724,370 chars → 990,474 chars). ✓ auto-push.log: fresh push confirmed (bf05cc8..6d448f0, "pushed").
 - Notification (STEP 8): forecast version move = would normally notify; SKIPPED the Slack DM per Matt's standing pref (he requested this interactively and is present). Note: Budget/Target did NOT reset (the v0 scratch tab showed reset figures — ignored; canonical tab holds the real 66.75M/68.37M).
+
+## 2026-07-10
+
+- Updated header timestamp → "Updated: July 10, 2026".
+- forecastMeta.ingestedAt: unchanged (v17, 2026-07-09T05:35:00-06:00) · scorecard.lastSynced: 2026-07-10T05:40:00-06:00 · creators.ingestedAt: 2026-07-10T05:40:00-06:00
+- Forecast scan — swept gamb/finance + gamb/__inbox (recursive incl. _archive) + legacy folder. Highest (N) found anywhere = (17), already canonical in gamb/finance. No move (forecast.json _meta.latest_version = v17). No __inbox drop this run.
+- Slack-driven changes — NONE new. No fresh scan overnight; freshest still "Jul 7–9" (gen 7/9 via Slack MCP connector), ~1 day old, within the 48h guardrail. Carried 7/9 context (attention cards, deal threads) without fresh confirmation; did not fabricate new signals.
+- Granola-driven changes — NONE. No new files; latest is 2026-07-06. Yesterday (7/9) had no Granola notes.
+- Xlsx/forecast version moves — none (v17 holds; no static Revenue Pulse HTML changes).
+- Scorecard sync — clean via xlsx export + openpyxl. DEAD FLAT vs 7/9: completed W2 (col E) G35/Y15/R3/NR23 (76 rows, 70% reported), same 3 reds (Nick P ×2 + Brian S CPA DRIP's). W3 (col D) also unchanged at 27G/13Y/2R/34NR (42/76) — no overnight owner updates. Bumped lastSynced→7/10, prevSynced→7/9; counts held (moved into prev*). Intro paragraph refreshed to Fri 7/10; Craig 'Expand Casino Exposure' now 18d stale, 6/29 cluster now 11d. yellowLeaders unchanged (flat). No NR delta → no notification.
+- Creator Scoreboard — PARTIALLY DEGRADED pull (10 of 13 creators returned upstream "tweets 402" errors; push classifier couldn't verify → on_target FALSE board-wide). 7/10 scored day: 61 pts, 0 on_target hitters (partly a scoring artifact), OJ 18/RW 34/DGF 9. leaders = Dustin 9 (DGF) + +EV Bettors 9 (OJ) at edge of goal; laggards = [] (no zero-output creators); midTier = 11. ingestedAt WAS bumped (points usable, differentiated — unlike the 6/10 near-zero collapse). No notification triggers fired (no goal→0 flip; nobody at 0; McKechnie 5 not a 0-pt laggard). Cross-ref: John McKechnie (Tim-DM name) posting at 5, still under target; Jeff Erickson fell 16→3.
+- Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · plaintext 745,874B → index.html 1,001,130B). Byte counts match script report.
+- auto-push.log verification: OK — most recent entry 2026-07-09 16:16 MDT (within last 24h). Deploys healthy.
+- JS validation: node new Function() parse → ok (1 script block).
+- Notification: NONE sent — no material triggers (forecast held, scorecard flat, no new reds, creators soft but degraded/no true-zero, deploys healthy, encryption OK). Silence per guardrail.
