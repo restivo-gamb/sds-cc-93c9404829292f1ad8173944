@@ -914,6 +914,17 @@
     <!-- ═══════════════════ TAB: OVERVIEW ═══════════════════ -->
     <div class="tab-content active" id="tab-overview">
 
+        <!-- Sunday combine callout (X-able; refreshed weekly by sunday-team-briefing; dismissal keyed to data-week so a new Sunday re-shows it) -->
+        <div id="sec-combine" data-week="2026-07-12" style="position:relative; border:1px solid var(--purple); background:var(--purple-dim, rgba(124,58,237,0.12)); border-radius:10px; padding:14px 42px 14px 16px; margin-bottom:16px; font-size:13px; color:var(--text-secondary); line-height:1.5;">
+            <button onclick="dismissCombine()" title="Dismiss for this week" aria-label="Dismiss" style="position:absolute; top:7px; right:10px; background:none; border:none; color:var(--text-muted); font-size:22px; line-height:1; cursor:pointer; padding:2px 6px;">&times;</button>
+            <strong style="color:var(--text-primary);">⚠️ Sunday combine step (~2 min).</strong> Copy this week&rsquo;s checklist tab into your master <strong>To-Dos by Lead</strong> tab, then delete the weekly file.
+            <span style="display:block; margin-top:6px;">
+                <a href="https://docs.google.com/spreadsheets/d/1mg-hmYJXGgM31OLELRydDHV4dmihHiIDBAx06wrCK_I/edit" target="_blank" style="color:var(--purple); font-weight:600; text-decoration:none;">This week&rsquo;s sheet &#8599;</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://docs.google.com/spreadsheets/d/1blu7IIPSvhPE9djlYOvxok5Jtxy-N9nsatDqNhKshLg/edit?gid=2098452595#gid=2098452595" target="_blank" style="color:var(--purple); font-weight:600; text-decoration:none;">Master &middot; To-Dos by Lead &#8599;</a>
+            </span>
+        </div>
+
         <!-- Strategic Context Questions (added 2026-07-05; refreshed weekly by sunday-team-briefing) -->
         <div class="section" id="sec-strategic">
             <div class="section-header" onclick="toggleSection('sec-strategic')">
