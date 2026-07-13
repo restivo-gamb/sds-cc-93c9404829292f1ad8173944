@@ -2845,17 +2845,17 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-07-11",
-        ingestedAt: "2026-07-12T05:40:00-06:00",
+        date: "2026-07-12",
+        ingestedAt: "2026-07-13T05:40:00-06:00",
         totals: {
-            allPoints: 44, allHit: 1, allTotal: 13,
-            ojPoints: 21, ojTotal: 4,
-            rwPoints: 22, rwTotal: 8
+            allPoints: 33, allHit: 0, allTotal: 13,
+            ojPoints: 11, ojTotal: 4,
+            rwPoints: 21, rwTotal: 8
         },
-        // ✅ BOARD ADVANCED to a new complete scored day — re-pulled 2026-07-12 05:40 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked). days=1 now returns history[0].date = 2026-07-11 (SAT), so this is a genuinely new day (7/10 → 7/11). Push classifier still partly degraded — most creators show "Could not classify posts" (upstream fetch issue), so most on_target reads are activity-based; one creator (Jim Coventry) reads on_target=true.
-        // 44 total pts (down from 61 on 7/10), 1 true hitter — Jim Coventry (11, RW) — the first on_target creator since the classifier degraded. Softer, lower-volume Saturday. 7/11: Jim Coventry 11 (RW, HIT) · +EV Bettors 9 (OJ) · Billy C 7 (OJ) · Jeff Erickson 5 (RW) · Alex Barutha 3 (RW) · OddsJam brand 3 (OJ) · John McKechnie 3 (RW) · Clark Gary 2 (OJ) · Dustin 1 (DGF) · Jagger May 0 (RW) · James Anderson 0 (RW) · Erik Halterman 0 (RW) · Nick Whalen 0 (RW).
-        // ✅ NO notification triggers fired: nobody who hit goal yesterday flipped to 0 (7/10 had zero on_target hitters, so no goal→0 flip); RW pod is 4 of 8 dark = exactly 50% (threshold is >50%, so JUST below — worth watching Sun→Mon); no active-DM creator is a 0-pt laggard (McKechnie scored 3, not zero; the four zeros — Jagger, James Anderson, Erik, Nick Whalen — are not named in the fresh 7/11–12 Slack).
-        // ⚠️ Cross-ref: John McKechnie (the low-view-stream name from Matt's Tim DMs, tied to the KOB/accountability thread) posting at 3 pts, under target again but not dark. Four RW creators went fully dark this day (Jagger May, James Anderson, Erik Halterman, Nick Whalen) — half the RW pod, one notch under the notify line; if it holds into Monday it becomes a real pod-engagement flag.
+        // ✅ BOARD ADVANCED to a new complete scored day — re-pulled 2026-07-13 05:40 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked). days=1 returns history[0].date = 2026-07-12 (SUN), a genuinely new day (7/11 → 7/12). ⚠️ Push classifier FULLY degraded today — EVERY creator shows "Could not classify posts" (upstream fetch issue), so NO creator reads on_target=true; the "0 true hitters" is largely a scoring artifact, not necessarily a real push drought. Points are present and differentiated (activity-based) so directionally usable — ingestedAt bumped.
+        // 33 total pts (down from 44 on 7/11), 0 on_target hitters (classifier artifact). Quiet Sunday. Top by points: Jim Coventry 12 (RW, cleared 10 on points, push uncredited) · +EV Bettors 8 (OJ) · Jeff Erickson 4 (RW) · Clark Gary 2 (OJ) · James Anderson 2 (RW) · John McKechnie 1 (RW) · Dustin 1 (DGF) · Alex Barutha 1 (RW) · Billy C 1 (OJ) · Nick Whalen 1 (RW) · Jagger May 0 (RW) · Erik Halterman 0 (RW) · OddsJam brand 0 (OJ).
+        // ✅ NO notification triggers fired: no goal→0 flip (7/11's lone hitter Jim Coventry scored 12 today, not 0); RW pod zero-output improved to 2 of 8 = 25% (Jagger + Erik; James Anderson & Nick Whalen recovered to ≥1 tweet) — well under the >50% line; no active-DM creator is a 0-pt laggard (McKechnie scored 1, not zero; the three zeros — Jagger, Erik, OddsJam brand — are not named in the fresh 7/12–13 Slack).
+        // ⚠️ Cross-ref: John McKechnie (the low-view-stream name from Matt's Tim DMs, tied to the KOB/accountability thread) posting at just 1 pt, well under target but not dark. RW pod engagement IMPROVED vs 7/11 (4 dark → 2 dark); the 7/11 half-dark-pod watch did not carry into the weekend's end.
         leaders: [
             { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 6, replies: 27, likes: 56, rts: 5, onTarget: true, reason: "The board's lone true hitter (11 pts) — 6 tweets, 27 replies, the RW anchor carrying the pod. First on_target read since the classifier degraded." },
             { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 12, replies: 6, likes: 215, rts: 34, onTarget: false, reason: "Edge of goal at 9 pts — 12 tweets, best reach on the board (215 likes, 34 RTs). The OJ pod's engine; push credit unverifiable so no on_target credit (trend +5)." }
