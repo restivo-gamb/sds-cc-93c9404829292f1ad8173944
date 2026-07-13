@@ -4394,6 +4394,21 @@ populateWeekPicker();
     }
     if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', restoreStrat); }
     else { restoreStrat(); }
+
+    // Sunday combine callout — X to dismiss for the week; a new week's data-week re-shows it.
+    window.dismissCombine = function () {
+        var el = document.getElementById('sec-combine');
+        if (!el) return;
+        try { localStorage.setItem('combineDismissed:' + el.dataset.week, '1'); } catch (e) {}
+        el.style.display = 'none';
+    };
+    function restoreCombine() {
+        var el = document.getElementById('sec-combine');
+        if (!el) return;
+        try { if (localStorage.getItem('combineDismissed:' + el.dataset.week) === '1') el.style.display = 'none'; } catch (e) {}
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', restoreCombine); }
+    else { restoreCombine(); }
 })();
 
 </script>
