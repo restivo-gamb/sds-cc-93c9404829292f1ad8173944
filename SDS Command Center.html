@@ -1585,19 +1585,19 @@ const DATA = {
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v17",
-        ingestedAt: "2026-07-09T05:50:00-06:00",   // ISO 8601 w/ TZ offset — v17 parsed on Matt's request; file dropped in gamb/__inbox ~05:15 MDT, moved to canonical gamb/finance after parsing
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (17).xlsx"
+        version: "v18",
+        ingestedAt: "2026-07-17T11:15:00-06:00",   // ISO 8601 w/ TZ offset — v18 parsed Jul 17; file already canonical in gamb/finance (mtime 7/15 17:51, weekly-Wed cadence), no __inbox move needed
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (18).xlsx"
     },
 
     // RotoWire vs Budget — DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate lives under the Affiliate rollup
-    // RW: Forecast $11.26M · Budget $11.14M → +$0.12M (+1.06%) — On Track at the line level, down slightly from v16's +1.62% (B2B Content softened)
-    // Note: combined RW+RotoAffiliate is $20.07M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
+    // RW: Forecast $11.31M · Budget $11.14M → +$0.17M (+1.5%) — On Track at the line level, up from v17's +1.06% (Ads + B2C Subs firming; B2B Content still soft)
+    // Note: combined RW+RotoAffiliate is $20.55M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
     rw: {
         budget: 11.14,          // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline)
-        forecast: 11.26,        // Current forecast (v17, parsed Jul 9 from gamb/finance/2026 SDS Revenue & Forecasting (17).xlsx — $11,261,823, -$62K vs v16)
-        aboveBudget: 0.12,      // forecast − budget ($11,261,823 − $11,143,335)
-        abovePct: 1.06          // % over budget
+        forecast: 11.31,        // Current forecast (v18, parsed Jul 17 from gamb/finance/2026 SDS Revenue & Forecasting (18).xlsx — $11,309,306, +$47K vs v17)
+        aboveBudget: 0.17,      // forecast − budget ($11,309,306 − $11,143,335)
+        abovePct: 1.49          // % over budget
     },
 
     // ─── 2026-06-30 (TUE — C4 W2 DAY 2 · MBR REVIEW DAY) — W2 (col D, current week) FILLED IN overnight after Matt's 6/29 sds-leads ping + the "Monday-morning scorecard habit" nudge. col-D/W2 fill (xlsx export + openpyxl): G35 / Y15 / R3 / NR23 across 76 rows = 53/76 reported (69.7%) — strong early-week start. vs the 6/29 W1-read (13G/0Y/1R/62NR): the move is mostly the new week's column populating (apples-to-oranges across weeks), NOT regression. NEW REDS (2): Jeremy T / OJ PRODUCT "EV Algo" + "Close 4 more Direct Bet Deals (incl Poly + Kalshi)" — Jeremy's whole OJ book is 0G/4Y/2R (reported but at-risk). Nick P "NFL DFS Sim (TBD)" red holds. Darkest W2 books = ESCALATION/NUDGE candidates: Steven 7 NR (ODDS DATA, all dark), Brian S 6 NR of 7 (GROWTH OPS), Scott 3 NR (SPORTS DATA). Green flags fully reported: Kevin O/Tim S RW NEWS 7/7, Ryan W B2B 4/4, Nick P RW PRODUCT 7G (of 12), Samuel Hill Optic-Mktg 3/3. NR −39 + 2 new reds = would-notify; Slack suppressed per standing pref, logged.
