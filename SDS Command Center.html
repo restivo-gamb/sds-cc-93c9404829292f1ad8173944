@@ -2888,34 +2888,35 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-07-14",
-        ingestedAt: "2026-07-15T05:40:00-06:00",
+        date: "2026-07-16",
+        ingestedAt: "2026-07-17T11:15:00-06:00",
         totals: {
-            allPoints: 77, allHit: 0, allTotal: 13,
-            ojPoints: 22, ojTotal: 4,
-            rwPoints: 45, rwTotal: 8
+            allPoints: 55, allHit: 0, allTotal: 13,
+            ojPoints: 9, ojTotal: 4,
+            rwPoints: 38, rwTotal: 8
         },
-        // ✅ BOARD ADVANCED to a new complete scored day — re-pulled 2026-07-15 05:40 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked). days=1 returns history[0].date = 2026-07-14 (MON), a genuinely new day (7/13 → 7/14). ⚠️ Push classifier STILL FULLY degraded — EVERY creator shows "Could not classify posts" (upstream fetch issue, now ~1 week running), so NO creator reads on_target=true; the "0 true hitters" is a scoring artifact, not a real push drought. Points are present and differentiated (activity-based) so directionally usable — ingestedAt bumped.
-        // 77 total pts (UP from 54 on 7/13 — strongest weekday of the month), 0 on_target hitters (classifier artifact). Top by points: Jim Coventry 11 (RW, cleared 10 on points, push uncredited) · Dustin 10 (DGF, cleared 10) · Jagger May 8 (RW) · Clark Gary 7 (OJ) · +EV Bettors 7 (OJ) · John McKechnie 6 (RW) · Nick Whalen 6 (RW) · Erik Halterman 5 (RW) · Billy C 5 (OJ) · Alex Barutha 4 (RW) · Jeff Erickson 4 (RW) · OddsJam brand 3 (OJ) · James Anderson 1 (RW).
-        // ✅ NO notification triggers fired: no goal→0 flip (7/13's leaders Jim Coventry 13→11 + +EV Bettors 9→7 both stayed well positive); ZERO zero-output creators on the board today — the two prior dark names both recovered (Erik Halterman 0 → 5, James Anderson 0 → 1), so RW zero-output = 0 of 8; no active-DM creator is a 0-pt laggard.
-        // ⚠️ Cross-ref: John McKechnie (the low-view-stream name from Matt's Tim DMs / KOB accountability thread) flat at 6 pts — steady, well over the pack floor. No dark names to flag this day. Total output rose again (54 → 77 pts); no laggards.
+        // ✅ BOARD re-pulled 2026-07-17 11:15 MDT via Claude-in-Chrome to the worker API (sandbox curl blocked). NOTE: this run executed late-morning, so the API's history[0] is the STILL-IN-PROGRESS 7/17 (partial, mid-day) — the most recent COMPLETE scored day is 7/16, which is what this block reflects (history[1]). Using 7/17's partial data would falsely read as a collapse. The 7/16 refresh did NOT run (2-day gap 7/15 → 7/17), so this is the first pickup of the 7/16 day. ⚠️ Push classifier STILL FULLY degraded — EVERY creator shows "Could not classify posts" (upstream fetch issue, ~10 days running), so NO creator reads on_target=true; the "0 true hitters" is a scoring artifact, not a real push drought. Points present + differentiated so directionally usable — ingestedAt bumped.
+        // 55 total pts on 7/16 (down from the 7/14 pull of 77 — but 7/14 was the strongest weekday of the month; 55 is a normal mid-week read), 0 on_target hitters (classifier artifact). By points: Jim Coventry 11 (RW, cleared 10) · Dustin 8 (DGF) · Jeff Erickson 7 (RW) · Alex Barutha 7 (RW) · Jagger May 5 (RW) · +EV Bettors 5 (OJ) · John McKechnie 3 (RW) · Erik Halterman 3 (RW) · Clark Gary 2 (OJ) · Nick Whalen 2 (RW) · OddsJam brand 1 (OJ) · Billy C 1 (OJ) · James Anderson 0 (RW, dark).
+        // ✅ NO notification triggers fired: no goal→0 flip (7/14's leaders Jim 11, Dustin 10, Jagger 8 → 7/16: Jim 11, Dustin 8, Jagger 5 — all stayed positive); only ONE zero-output creator (James Anderson, RW) = 1 of 8 RW dark (12.5%, under the >50% pod threshold); no active-DM creator is a 0-pt laggard.
+        // ⚠️ Cross-ref: John McKechnie (the low-view-stream name from Matt's Tim DMs / KOB accountability thread) at 3 pts — soft but not dark; steady low producer.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 8, replies: 26, likes: 63, rts: 13, onTarget: false, reason: "Top of the board at 11 pts — 8 tweets, 26 replies — cleared the 10-pt bar but push credit unverifiable (classifier degraded) so no on_target credit. The RW anchor again." },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 10, tweets: 6, replies: 7, likes: 108, rts: 8, onTarget: false, reason: "Hit the 10-pt line exactly — 6 tweets, strong reach (108 likes). DGF's steady producer; push credit unverifiable." },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 8, tweets: 6, replies: 27, likes: 208, rts: 3, onTarget: false, reason: "Edge of goal at 8 pts — 6 tweets, 27 replies, best reach on the board (208 likes). One or two more posts clears the bar." }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 8, replies: 26, likes: 63, rts: 13, onTarget: false, reason: "Top of the board at 11 pts — cleared the 10-pt bar (push credit unverifiable, classifier degraded, so no on_target credit). The RW anchor again." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 8, tweets: 6, replies: 7, likes: 71, rts: 7, onTarget: false, reason: "Edge of goal at 8 pts — DGF's steady producer, strong reach; one or two more posts clears the bar." },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 7, tweets: 6, replies: 7, likes: 36, rts: 9, onTarget: false, reason: "7 pts — tied for the top of the RW pack behind Jim; within reach of goal." }
         ],
-        laggards: [],
+        laggards: [
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output on 7/16 — 0 posts, 0 pts. The only fully-dark creator on the board; RW pod dark = 1 of 8 (12.5%), under the notify threshold." }
+        ],
         midTier: [
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 7, reason: "7 pts · 6 tweets · 1 reply · best reach on the board (229 likes / 58 RTs). The OJ pod's engine" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 7, reason: "7 pts · 4 tweets · 5 replies (trend +1) — steady OJ mid" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 6, reason: "6 pts · 4 tweets · 4 replies (trend +3). ⚠️ Cross-ref: the low-view-stream name from Matt's Tim DMs — flat at 6, well over the pack floor" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 6, reason: "6 pts · 3 tweets · 3 replies — up off yesterday's 6-flat" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 5, reason: "5 pts · 4 tweets · 2 replies (trend +1) — RECOVERED from 3 dark days" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 3 tweets · 1 reply — big bounce off yesterday's 1 (trend −31 off a high base)" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 6 replies (trend −15)" },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 5 replies (trend −19)" },
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 3, reason: "3 pts · 3 tweets — brand handle, intermittent by design (61 likes / 39 RTs)" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet — back on the board after a dark day (40 likes on the one post)" }
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 7, reason: "7 pts · strong reply volume · best reach on the RW pod (130 likes over the window)" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 5, reason: "5 pts · steady RW mid — off his 7/14 leader spot but positive" },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 5, reason: "5 pts · the OJ pod's engine — top OJ scorer on the day" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 3, reason: "3 pts · ⚠️ Cross-ref: the low-view-stream name from Matt's Tim DMs — soft but not dark" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 3, reason: "3 pts · low but on the board (huge reach when he posts — 462 likes over the window)" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 2, reason: "2 pts · quiet OJ day" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 2, reason: "2 pts · quiet, but big reach on the one post (113K impressions over the window)" },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 1, reason: "1 pt · brand handle, intermittent by design" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 1, reason: "1 pt · soft OJ day (trend −32 off a high base)" }
         ]
     },
 
