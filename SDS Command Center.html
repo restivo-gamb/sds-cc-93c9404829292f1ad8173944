@@ -1041,15 +1041,15 @@
                     <div class="fc-card brand-rotowire">
                         <div class="fc-head">
                             <span class="fc-name">RotoWire</span>
-                            <span class="fc-amount">$11.31M</span>
+                            <span class="fc-amount">$11.26M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$0.17M (+1.5%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$0.73M (&minus;6.1%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$0.12M (+1.0%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$0.78M (&minus;6.5%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$6.60M</span><span class="fc-rd pos" style="text-align:right;">+0.6%</span><span class="fc-rd neg" style="text-align:right;">&minus;6.9%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$6.55M</span><span class="fc-rd neg" style="text-align:right;">&minus;0.2%</span><span class="fc-rd neg" style="text-align:right;">&minus;7.6%</span></div>
                             <div class="fc-row"><span class="fc-rname">Ads</span><span class="fc-ramt" style="text-align:right;">$1.35M</span><span class="fc-rd pos" style="text-align:right;">+21.9%</span><span class="fc-rd pos" style="text-align:right;">+12.8%</span></div>
                             <div class="fc-row"><span class="fc-rname">B2B Content</span><span class="fc-ramt" style="text-align:right;">$3.36M</span><span class="fc-rd neg" style="text-align:right;">&minus;3.3%</span><span class="fc-rd neg" style="text-align:right;">&minus;10.5%</span></div>
                         </div>
@@ -1077,16 +1077,16 @@
                 </div>
 
                 <div style="font-size:10.5px; color:var(--text-muted); margin-bottom:12px; font-style:italic;">
-                    v18 ingestion (2026-07-17) read the Executive Dashboard tab in `2026 SDS Revenue & Forecasting (18).xlsx` (already canonical in gamb/finance, mtime 7/15 17:51 — no move needed; new file per the weekly-Wednesday cadence). Taxonomy is Affiliate-rollup-aware per Craig+Pedro 5/21 commit (unchanged). WoW move +$1.13M (+1.55%) — 4th straight up week and a new high for the run: Affiliate +$661K (Roto Affiliate +$430K, Partnerships +$222K, Local +$57K, partly offset by Bookies &minus;$48K), OpticOdds +$560K (Fixed strengthening), RotoWire +$47K, partially offset by OddsJam &minus;$140K (the lone down mover). Sub-stream numbers above are pulled directly from the workbook&apos;s vertical breakdown rows.
+                    v19 ingestion (2026-07-23) read the Executive Dashboard tab in `2026 SDS Revenue & Forecasting (19).xlsx`. The file was dropped in gamb/__inbox — parsed there, then MOVED to canonical gamb/finance (mtime 7/22 17:09). Taxonomy is Affiliate-rollup-aware per Craig+Pedro 5/21 commit (unchanged). WoW move &minus;$10K (&minus;0.01%) — essentially flat; the 4-up-week streak pauses. Only movers: OddsJam +$40K (Mktg Fixed Fee firmed, B2C Subs eased) and RotoWire &minus;$50K (B2C Subs softened); OpticOdds ($23.17M) and the full Affiliate rollup ($20.78M) unchanged. Sub-stream numbers above are pulled directly from the workbook&apos;s vertical breakdown rows.
                 </div>
                 </div><!-- /snap-revGrid -->
 
                 <div class="rw-floor" id="rwAboveBudget">
                     <div>
                         <div class="rw-floor-label">RotoWire (new defn: subs + ads + content) &mdash; Above Budget</div>
-                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$11.31M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--green); font-weight:600;">+1.5%</span></div>
+                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$11.26M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--green); font-weight:600;">+1.0%</span></div>
                     </div>
-                    <div class="rw-floor-value" id="rwAboveValue">+$0.17M</div>
+                    <div class="rw-floor-value" id="rwAboveValue">+$0.12M</div>
                 </div>
 
                 <!-- RW B2B Quick Links (added 2026-05-20: rate card + RotoWire Services view) -->
@@ -1148,7 +1148,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong style="color:var(--green);">Cycle 4 — Week 4, Day 7 (Sun 7/19)</strong> &mdash; ✅ <strong>Synced clean</strong> (xlsx export + openpyxl, decoded through the .claude tool-results mount). <strong>Dead flat for the 3rd straight read</strong> — W4 (col D) holds <strong>96.1% reported (47G / 23Y / 3R / 3NR across 76)</strong>, owner-for-owner identical to Fri & Sat (no weekend edits) and the cleanest compliance of C4. Pedro is authorized to skip next week. Reds unchanged — <strong style="color:var(--red);">Ryan W ×2 (Optic, revenue-facing, 'Temp paused')</strong> is the week's concentration risk, plus DJ T ('5K subs not on track'). Only dark cells: Steven ×2 (Odds Data) + Craig C ×1 ('Expand Casino Exposure', ~27d stale, oldest on the sheet).
+                    <strong style="color:var(--text-primary);">Cycle 4 — new week rolled (Wed 7/23)</strong> &mdash; ✅ Synced (xlsx export + openpyxl via the .claude tool-results mount) after a 4-day refresh gap (7/20–7/22 runs did not fire). A <strong>blank W5 column opened at col D</strong> — 0/76 reported, the current live week is intentionally unreported (<strong>Pedro authorized to skip this week</strong>). Live status therefore reads <strong>W4 (col E), the last reported week: 96.1% reported (50G / 19Y / 4R / 3NR across 76)</strong> — up from the 7/19 read (47/23/3/3): G +3, Y &minus;4, NR flat, and <strong style="color:var(--red);">one new red</strong>. 🆕 New W4 red: <strong style="color:var(--red);">Jeremy T / OJ PRODUCT 'Prediction Arbitrage'</strong> (was a green-flag book on 7/19). Holding reds: <strong style="color:var(--red);">Ryan W ×2 (Optic Product, revenue-facing)</strong> — still the concentration risk — plus '5K Subs Talent Launch' (TALENT-RW, owner cell now blank amid the RW restructure — ownership ambiguous, flag to Pedro/Tim). Dark cells: Steven ×2 (Odds Data) + Craig C ×1 ('Automate Low-Priority Markets').
                 </div>
 
                 <!-- RED FLAG -->
