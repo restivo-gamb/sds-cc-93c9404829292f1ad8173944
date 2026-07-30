@@ -1836,3 +1836,6 @@ Today's render: "Current Week (May 25 – May 31)" — correct.
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 · 250K iters): SDS Command Center.html 865,950 chars → index.html 1,185,142 chars (ct 883,904 B). ✓ "✓ Encrypted" confirmed. JS parse validated OK pre-encrypt (1 script).
 - auto-push.log verification: ✅ FRESH — launchd agent committed + pushed "Daily refresh 2026-07-27" (4cbb723..e6e4f92) just now, well within 24h; deploys healthy. (My post-edit re-encrypt of index.html will be picked up on the agent's next cycle.)
 - STEP 8 notification: NONE sent. Two soft would-notify triggers (Slack stale Day 3, RW 62.5% dark) both suppressed per standing pref; neither is a hard business escalation. Silence.
+
+## Pedro forecast grab — 2026-07-29
+v19 already present/absorbed — nothing to do. Latest Pedro forecast file: "v19 2026 SDS Revenue & Forecasting.xlsx" (File ID F0BK5CNKT6E, created 2026-07-22, 284.6 KB). forecast.json _meta.latest_version=v19; finance/2026 SDS Revenue & Forecasting (19).xlsx present. No newer version in DM or file search. Idempotent skip.
