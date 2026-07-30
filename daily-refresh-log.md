@@ -1853,3 +1853,12 @@ v19 already present/absorbed — nothing to do. Latest Pedro forecast file: "v19
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · plaintext 872,235 chars → 1,193,802 chars). ✓ byte match.
 - auto-push.log verification: FRESH — launchd agent committed + pushed "Daily refresh 2026-07-30" (ee7173b, 1 file, +56/−42) within the run. OK.
 - Notifications (STEP 8): SUPPRESSED per standing pref (feedback_no_slack_notifications). Would-have-triggered (logged, not sent): scorecard NR delta ≥±10 (week-roll artifact, apples-to-oranges); Slack back-to-fresh; no forecast move. No hard creator trigger (only 2 zero-output, neither pod >50% dark, no goal-hitter→0 flip, McKechnie recovered).
+
+## Pedro forecast grab — 2026-07-30 (manual rerun)
+Grabbed v20. Pedro sent "v20 2026 SDS Revenue & Forecasting.xlsx" today 10:51 EDT (prior run at Thu-night saw only v19).
+- Slack File ID: F0BLG84LTJT
+- Source title: v20 2026 SDS Revenue & Forecasting.xlsx
+- Dest: gamb/__inbox/2026 SDS Revenue & Forecasting (20).xlsx
+- Byte size: 292077 (blob.size matched dest)
+- openpyxl validation: OK — sheets include "Executive Dashboard"
+Ready for overnight ingest + 5:30 AM dashboard refresh.
