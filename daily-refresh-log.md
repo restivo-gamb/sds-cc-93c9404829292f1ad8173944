@@ -1917,3 +1917,6 @@ Ready for overnight ingest + 5:30 AM dashboard refresh.
 - Scorecard: weekend freeze, Cycle 5 opens Mon 8/3 (no C5 tab yet) — no change expected/found; morning sync (18G/2Y/0R/58NR of 78) stands.
 - Creators: Sunday-night — most-recent COMPLETE scored day still 8/1 (already on dashboard); 8/2 not yet scored. No fresher data.
 - auto-push.log: HEALTHY ("Daily refresh 2026-08-02 … pushed" within 24h). No re-encrypt / no new commit — nothing changed. No Slack DM (no new trigger; standing suppression pref).
+
+## Pedro forecast grab — 2026-08-02
+No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 2026 SDS Revenue & Forecasting.xlsx", posted 2026-07-30). v20 already present in gamb/finance/ and forecast.json (_meta.latest_version=v20). Idempotent skip — nothing downloaded.
