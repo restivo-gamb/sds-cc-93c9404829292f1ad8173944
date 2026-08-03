@@ -1920,3 +1920,18 @@ Ready for overnight ingest + 5:30 AM dashboard refresh.
 
 ## Pedro forecast grab — 2026-08-02
 No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 2026 SDS Revenue & Forecasting.xlsx", posted 2026-07-30). v20 already present in gamb/finance/ and forecast.json (_meta.latest_version=v20). Idempotent skip — nothing downloaded.
+
+## 2026-08-03
+
+- Updated header timestamp → August 3, 2026. Cycle bar rolled to "Cycle 5 Progress / Aug 3 – Sep 11".
+- forecastMeta.ingestedAt: unchanged (v20, no move) · scorecard.lastSynced: 2026-08-03T05:35:00-06:00 · creators.ingestedAt: 2026-08-03T05:35:00-06:00
+- Forecast scan — swept all THREE locations (gamb/finance + gamb/__inbox recursive incl _archive + legacy /SDS Dashboard). Highest file everywhere = (20) in canonical gamb/finance (mtime 7/30 11:28); __inbox held only v11 in _archive. No new version → v20 $73.53M holds (already absorbed 7/31). No move, no notify, no Revenue Pulse edit.
+- Slack-driven changes — Slack FRESH (Aug 2–Aug 3, gen 8/3, MCP connector, 27/27 channels + 11/11 DMs, 0 failures). Built new TODAY attention card + keyThemes + keyDates entry from: 🔴 Underdog deal LOCKED (Tim congratulated Matt) + Betr ~$300K RW presenting sponsor closed; 🔴 Vincenzo "Optic AI is not a good product" (flicker + sharpness, book-split under-validated); 🔪 Mario exit decided + PPRTyler starts today (McKechnie friction) + Shannon B2B behind (Matt routing around him); 🟡 OJ MRR $1.028M −1.16% (3rd soft day); Ankit rev-share reduction Matt↔Kevin; Optic ~$500/day one-consumer abuse; Pedro Mon-AM new-priorities readout still pending.
+- Granola-driven changes — none. No Granola file for yesterday (Aug 2, Sunday empty); latest still 2026-07-30 Swish. Noted in cards.
+- Xlsx/forecast version moves — none (v20 holds; static Revenue Pulse HTML untouched).
+- Scorecard sync — CYCLE 5 ROLLED. New C5 SCORECARD tab live (Pedro created it Mon 8/3). Parsed C5 col-D fill colors via xlsx export + openpyxl (.claude tool-results mount). Cold start Day 1: 3G / 0Y / 0R / 68NR of 71 books / 17 owners = 4.2% colored. Sole reporter Craig C (AFFILIATE, 3/5 green). Moved prior C4 W6 counts into prev* (18G/2Y/0R/58NR). Rebuilt yellowLeaders for cold-start (biggest dark books: Nick P 12, Jeremy T 6 incl Kalshi Direct Trade, Kevin O/Tim S 6, Jason T/Tim S 5, Brian S 10, Ryan W 5, Steven 4, Samuel Hill 3, Talent-RW 3 owner-blank; Craig C green flag). Rewrote scorecard comment block + #snap-scorecardIntro for C5 W1-D1. TALENT-RW owner cell still blank → flagged to Pedro/Tim.
+- Creator Scoreboard — pulled via Claude-in-Chrome (days=1 → 8/2 SUN complete day). 41 total pts (up from 34 on 8/1), 0 true hitters (classifier still degraded; Jim Coventry topped 13 but 0 pushes credited; +EV edged 8). 13/13 connected. Pod splits OJ 10/4, RW 29/8, DGF 2. Zero-output holds at 3: Clark Gary + OddsJam brand + Nick Whalen. 🔴 Cross-ref flag: Clark Gary 0-output 2nd straight day = the "dial in Clark" name from Matt's active Brian DM → named-in-DM 0-laggard notify trigger (would-notify, SUPPRESSED per feedback_no_slack_notifications, logged here). Pod-dark under threshold (OJ 2/4 = 50%, not >50%).
+- JS validated (new Function parse ok).
+- Encrypted index.html (AES-256-CBC, PBKDF2-SHA256 250K): 1,243,282 bytes (from SDS Command Center.html 927,500 bytes).
+- auto-push.log verification: FRESH — most recent entry 2026-08-03 (main -> 002c127, pushed). Within 24h, deploys healthy.
+- Notifications: none sent. Slack DM suppressed per standing pref (feedback_no_slack_notifications). Would-have-triggered: Clark Gary named-in-DM 0-laggard (recurring). No forecast move / no red card / no budget-target reset / encryption+auto-push both healthy.
