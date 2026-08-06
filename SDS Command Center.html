@@ -1581,17 +1581,17 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v20 (Executive Dashboard tab, parsed Jul 31 via forecast.json)
-    // Total SDS: Forecast $73.53M · Budget $66.75M · Target $68.37M · 25A $57.05M (+28.88% YoY)
-    // v19 (parsed 2026-07-23): essentially flat vs v18 (−$10.4K); 4-up-week streak paused.
-    // v20 (parsed 2026-07-31 from canonical gamb/finance, mtime 7/30 11:28). Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
-    // DOWN WEEK vs v19: −$452,844 WoW (−0.61%) — first material down move of the run. Affiliate −$625K (Roto Affiliate −$500K, Bookies −$125K), RotoWire −$50K (B2C Subs), OddsJam +$222K (recovery); OpticOdds flat.
-    // Forecast $73.53M still +$6.78M / +10.16% above budget, +$5.16M / +7.55% above target — holds a strong position despite the down week.
-    // NOTE: v20 file landed 7/30 11:28 AM, ~6h AFTER that morning's 5:30 refresh had already locked v19 — absorbed on the next scheduled run (7/31). Not a pipeline failure; a timing lag.
-    forecast: 73.53,
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v21 (Executive Dashboard tab, parsed Aug 6 via forecast.json)
+    // Total SDS: Forecast $73.56M · Budget $66.75M · Target $68.37M · 25A $57.05M (+28.93% YoY)
+    // v20 (parsed 2026-07-31): first material down week −$452,844 WoW vs v19.
+    // v21 (parsed 2026-08-06 from gamb/__inbox, mtime 8/6 12:08 — landed ~6.5h after the 8/6 5:30 refresh; found + ingested on Matt's ask, then MOVED to canonical gamb/finance). Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
+    // ESSENTIALLY FLAT vs v20: +$26,715 WoW (+0.036%) — a slight bounce off the down week. OpticOdds +$375K (Fixed +$25K PLBw studios + $14K ProphetX), OddsJam −$325K (Mktg Fixed Fee corrected — was double-counting the Betr deal — + B2C subs eased), RotoWire −$23K (B2C Subs), Affiliate flat.
+    // ⚠️ OddsJam flips 🟡 Watch → 🔴 At Risk this week (−10.1% vs budget, crossing the 10% line).
+    // Forecast $73.56M now +$6.81M / +10.20% above budget, +$5.19M / +7.59% above target — holds a strong position.
+    forecast: 73.56,
     target: 68.37,
     budget: 66.75,
-    yoyGrowth: 28.88,  // 73.53 / 57.05 − 1
+    yoyGrowth: 28.93,  // 73.56 / 57.05 − 1
     priorYear: 57.05,
 
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
