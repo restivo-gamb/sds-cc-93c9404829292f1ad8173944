@@ -1972,3 +1972,16 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K iters): 955,339 chars plaintext → 1,280,402 chars index.html. Script exit 0, ✓ confirmed.
 - auto-push.log verification: last SUCCESSFUL push 2026-08-05 16:27:24 ("Everything up-to-date / pushed") — within 24h ✓. NOTE: the 2026-08-06 06:00:59 push-only run failed with "Could not resolve host: github.com" (same transient DNS as the Drive/Chrome failures this morning); the post-refresh launchd run should push clean once DNS recovers — watch tomorrow's log.
 - STEP 8 notification: SUPPRESSED per standing pref (memory: no Slack notifications from refresh). Would-notify items this run: Copilot/OpticOdds reliability + ESPN-Penn escalation (new critical attention card), scorecard-sync FAILED, creator-Scoreboard FAILED.
+
+### 2026-08-06 — ADDENDUM (v21 forecast ingested mid-day, on Matt's ask)
+
+- After the 5:30 refresh reported "v20 holds," Matt asked to check for v21. Found: `2026 SDS Revenue & Forecasting (21).xlsx` in gamb/__inbox (+ a copy in Downloads), mtime 8/6 12:08 — ~6.5h after the 5:30 run, which is why the scheduled sweep didn't see it.
+- Parsed Executive Dashboard tab (openpyxl, data_only). Total SDS $73,555,905.54 → dashboard $73.56M. FORECAST MOVED v20 → v21: +$26,715 WoW (+0.036%) — essentially flat, a slight bounce off v20's down week.
+- Movers (apples-to-apples vs v20): OpticOdds +$374,715 ($23.17M→$23.54M, Fixed +$25K PLBw Studios + $14K ProphetX, now +4.2% vs budget); OddsJam −$325,000 ($19.00M→$18.67M, Mktg Fixed Fee corrected down — was double-counting the Betr deal — + B2C subs eased) → ⚠️ OddsJam flips 🟡 Watch → 🔴 At Risk at −10.1% vs budget; RotoWire −$23,000 ($11.21M→$11.19M, B2C Subs, still +0.4% vs budget); Affiliate flat ($20.16M, all 4 sub-streams held per workbook comments).
+- Total SDS now +$6.81M/+10.20% vs budget, +$5.19M/+7.59% vs target, +28.93% YoY. Budget ($66.75M)/Target ($68.37M)/taxonomy (v11 4-parent) all unchanged.
+- NEW: a '2027 Forecast' tab is now present in the workbook — Pedro's '27 build landing (ties to his MBR/forecast DM thread).
+- Updated: DATA.forecast (73.56) / yoyGrowth (28.93) / rw.* ($11.19M, +0.4%) / forecastMeta (v21, ingestedAt 2026-08-06T14:30 -06:00, sourceFile gamb/finance/(21)). Static Revenue Pulse HTML: #snap-wowForecast (rewritten v21 vs v20), .fc-total-card ($73.56M + caption + delta strip), all 4 fc-cards (OpticOdds $23.54M, OddsJam $18.67M + At-Risk badge, RotoWire $11.19M, Affiliate held), italic ingestion note, .rw-floor ($11.19M/+0.4%/+$0.04M). Also refreshed the 8/6 attention card (new P1 forecast issue + pod line), keyThemes top entry, cycle keyDate, pipeline note.
+- forecast.json: added versions.v21 + latest + _meta (latest_version v21). Subtotal-sum check passed ($73,555,905.54).
+- FILE MOVE: mv'd (21).xlsx from gamb/__inbox → canonical gamb/finance (Downloads copy left in place). __inbox root now clear of forecast xlsx.
+- JS validation ✓ (new Function parse ok). Re-encrypted index.html (AES-256, 937,759 chars plaintext → 1,284,266 chars). Script exit 0.
+- Forecast-version bump = always-notify; Slack suppressed per standing pref, logged here. auto-push unchanged (launchd will pick up the new edits on its next successful DNS window).
