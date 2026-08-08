@@ -1999,3 +1999,18 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 250K · plaintext 974,521 B → index.html 1,306,154 B). "✓ Encrypted" confirmed.
 - auto-push.log verification: last successful push ✓ 2026-08-06 22:23:06 (within 24h — healthy). The 8/7 06:00:59 push-only run hit the recurring transient DNS ("Could not resolve host: github.com"); the post-refresh launchd run pushes clean.
 - STEP 8 notification: NO Slack DM (standing pref — feedback_no_slack_notifications). No hard trigger this run anyway (no forecast move, scorecard NR −3 + no new red, creators quiet, both pulls recovered, deploys healthy). Enforcement/personnel items (Bendett departure, Paulton + OddsFlex C&Ds, Sleeper pull decision) logged as informational only.
+
+## 2026-08-08
+
+- Updated header timestamp → August 8, 2026. Quiet Saturday hold (C5 W1-D6).
+- forecastMeta.ingestedAt: unchanged (v21, 2026-08-06T14:30:00-06:00 — no new file) · scorecard.lastSynced: 2026-08-08T06:30:00-06:00 · creators.ingestedAt: 2026-08-08T06:30:00-06:00
+- Forecast scan — all three locations checked (gamb/finance + gamb/__inbox recursive + legacy SDS Dashboard folder): highest found = (21) in gamb/finance (mtime 8/6 12:08), matches forecast.json latest_version v21 → NO version move; no move-to-canonical needed. Static Revenue Pulse HTML untouched (correctly holds v21).
+- Slack-driven changes: NO new overnight scan (1AM ingest produced no Aug 7–8 files; no 2026-08-08 Daily Ingest file either). Newest = Aug 6–7 files (gen 8/7 01:30, ~29h — within 48h guardrail); their content was already processed in the 8/7 refresh. New attention card marks Friday-daytime as unconfirmed; carry-forward items (Sleeper, Bendett gap, Paulton/OddsFlex C&Ds, Rollcard) marked as carry, not mechanically re-asserted.
+- Granola-driven changes: none — no 2026-08-07 files in _granola (latest 8/5 Matter note). Noted on card + keyThemes.
+- Xlsx/forecast version moves: none (v21 holds $73.56M).
+- Scorecard sync: SUCCEEDED (xlsx export + openpyxl via tool-results mount). C5 W1-D6: 29G/4Y/1R/37NR of 71 = 47.9% — DEAD FLAT vs 8/7 (weekend freeze), owner-for-owner identical; same red (Jeremy T 'Game Page in app') + same 4 yellows. prev* rolled to 8/7 values; intro paragraph rewritten (W1 closes Monday, 52% dark — nudge window). yellowLeaders unchanged (composition identical).
+- Creator Scoreboard: SUCCEEDED (Chrome pull, 8/7 complete scored day). 42 pts (from 62), 0 true hitters (classifier still 0 pushes), 13/13 connected. Leaders: Jim Coventry 13 (back-to-back top) + +EV Bettors 9 (edge-of-goal, 175.9K impressions). Zero-output ×5: Dustin 11→0, James Anderson 3rd straight dark, Whalen 2→0, Jeff Erickson (replies only), OJ brand. RW dark 3/8 (37.5%) / OJ 1/4 — under collapse trigger; McKechnie (2) + Clark (2) both off zero → cross-ref benign. No creator notify triggers.
+- keyDates: 8/7 TODAY → recap; new 8/8 TODAY entry. keyThemes: new top entry. New SAT 8/8 attention card (level: watch). Pipeline Note rewritten.
+- JS validated (node parse: ok). Encrypted index.html (AES-256-CBC · PBKDF2 250K): 962,009 chars → 1,317,814 chars ✓.
+- auto-push.log verification: last successful push 2026-08-07 20:19:41 (within 24h) ✓, BUT the 2026-08-08 06:04 push-only run FAILED on DNS ("Could not resolve host: github.com") — nothing was pending at the time; today's refresh needs the next launchd run to succeed. WATCH ITEM.
+- Notification (STEP 8): no hard trigger fired (no forecast move, scorecard NR Δ0 / no new red, no creator trigger, encryption OK, auto-push <24h). Slack DM suppressed per standing preference regardless; would-NOT-have-notified anyway.
