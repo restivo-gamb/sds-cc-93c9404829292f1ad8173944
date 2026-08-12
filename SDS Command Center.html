@@ -3138,34 +3138,34 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-08-10",
-        ingestedAt: "2026-08-11T05:45:00-06:00",
+        date: "2026-08-11",
+        ingestedAt: "2026-08-12T05:45:00-06:00",
         totals: {
-            allPoints: 68, allHit: 0, allTotal: 13,
-            ojPoints: 15, ojTotal: 4,
-            rwPoints: 40, rwTotal: 8
+            allPoints: 59, allHit: 0, allTotal: 13,
+            ojPoints: 16, ojTotal: 4,
+            rwPoints: 36, rwTotal: 8
         },
-        // ✅ BOARD re-pulled 2026-08-11 via Claude-in-Chrome to the worker API (sandbox curl blocked). days=1 returned 8/10 (Mon) as the complete scored day (generated 8/11 11:38Z). SOLID MONDAY: 68 total pts (up from 42 on 8/7 — last scored read; no 8/8–8/10 pulls ran), 0 credited hitters (classifier degraded board-wide — 'Could not classify posts', 0 product pushes credited to anyone). 13/13 connected. Pod splits: OJ 15/4, RW 40/8, DGF (Dustin) 13.
-        // 🟢 POINTS-CLEARERS: Dustin 13 (DGF — full rebound from Friday's zero, 202K impressions), Jim Coventry 11 (RW, 45 replies) + JEFF ERICKSON 11 (RW, trend +7 — sharp rebound off 2 dark reads). +EV Bettors 9 edge-of-goal on 204K impressions. Jagger 7 with the board's best reach (444K impr, 2.9K likes).
-        // ⚠️ ZERO-OUTPUT = only 2 on 8/10: Clark Gary (OJ — BACK ON ZERO; the 'dial in Clark' named-in-DM name, though not named in the current Aug 10–11 window) + James Anderson (RW — dark on every scored read since 8/5: 8/5, 8/6, 8/7, now 8/10). Pod-dark: OJ 1/4 (25%) + RW 1/8 (12.5%) — both far under the >50% collapse trigger. No goal→0 flip (nobody was credited on-target 8/7). NO notify triggers fired.
+        // ✅ BOARD re-pulled 2026-08-12 — Claude-in-Chrome was NOT connected this morning, so the worker API was pulled directly via web_fetch instead (sandbox curl is still blocked for this host; web_fetch works and is the cheaper path — worth keeping as the primary method). days=1 returned generated_at 8/12 14:53Z with history [8/12 (partial, in-progress), 8/11 (complete)]; the complete scored day is 8/11, so date is set to history[1], NOT history[0].
+        // 🟡 SOFT TUESDAY: 59 total pts, down from 68 on 8/10 (−9) with the whole board trending negative — 11 of 13 creators carry a negative trend_delta. 0 credited hitters again; the push classifier is still partly degraded ('Could not classify posts' on the cards that did score), so the zero-hitter read remains a scoring artifact more than a verified push drought. Points are differentiated and usable, so ingestedAt was bumped.
+        // ⚠️ ZERO-OUTPUT = 2 on 8/11, both OddsJam pod: Clark Gary (2nd zero in 3 scored reads — and he owns the ManyChat Facebook test out of yesterday's New Growth meeting, so he is actively engaged on the work while his own handle is dark) + the OddsJam brand handle (0 for 3 straight days). That puts OJ at 2 of 4 dark = exactly 50%, sitting right on the >50% notification line without crossing it. RW pod fully lit: 8 of 8 posted.
         leaders: [
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 13, tweets: 9, replies: 7, likes: 1665, rts: 69, onTarget: false, reason: "Board-topping 13 pts on real reach — 202.1K impressions / 1,665 likes — a full rebound from Friday's zero. Cleared the 10-pt bar; classifier credited 0 pushes, so not a true hit." },
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 9, replies: 45, likes: 57, rts: 4, onTarget: false, reason: "11 pts on heavy engagement volume (9 tweets / 45 replies) — cleared 10 on points for the 3rd straight scored read; reach thin (10.5K impressions). RW pod's most consistent producer." },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 11, tweets: 7, replies: 25, likes: 48, rts: 4, onTarget: false, reason: "11 pts (trend +7) — the board's rebound story, back over the bar after two effectively-dark reads. Senior talent-recruiting weight showing up as football ramps." },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 12, replies: 7, likes: 165, rts: 9, onTarget: false, reason: "9 pts — edge-of-goal (1 short) on 204K impressions / 165 likes, the OJ pod's engine again. Best reach-per-point on the board with Jagger." }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 8, replies: 34, likes: 89, rts: 2, onTarget: false, reason: "Board-topping 11 pts on volume again (8 tweets / 34 replies) — the only creator to clear 10 for the 4th straight scored read. Reach stays thin at 8.8K impressions; classifier credited 0 pushes so it is not a true hit." },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 12, replies: 5, likes: 100, rts: 8, onTarget: false, reason: "9 pts — edge-of-goal one point short, on the board's second-best reach (165.6K impressions). The OJ pod's engine, and with Clark and the brand handle both dark it is carrying the pod almost alone." },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 8, tweets: 5, replies: 9, likes: 898, rts: 31, onTarget: false, reason: "8 pts on the board's best engagement quality — 898 likes / 31 RTs across 81.1K impressions. Points modest, distribution elite; the football-IG producer profile Brian is scaling behind." }
         ],
         laggards: [
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output (no posts) — BACK on zero after holding 1–2 pts the prior week. This is the 'dial in Clark' name from Matt's earlier Tim DM; not named in the current Aug 10–11 window, so no hard notify trigger — but the pattern is re-forming." },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — dark on EVERY scored read since 8/5 (8/5, 8/6, 8/7, 8/10). The board's chronic streak-laggard; football content ramps this week — this is the nudge to make." }
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output, second zero in three scored reads. Cross-reference worth making: Clark presented the automated RotoWire graphics results at yesterday's New Growth meeting (posts pulling hundreds of likes, full automation targeted by end of week) and owns the ManyChat Facebook test — so he is producing brand output while his own handle stays dark. Also the historical 'dial in Clark' name from Matt's Tim DM. Worth clarifying whether his lane is personal-handle output at all." },
+            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Brand handle at zero three days running (8/10 3 pts, then 0 / 0 / 0). Poor timing: the OJ homepage is being refocused arbitrage-first and the 7-day Stripe free trial is in flight — the brand account is the natural distribution surface for both and it is silent." }
         ],
         midTier: [
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 7, reason: "7 pts · 4 tweets / 15 replies — the board's best reach: 444.3K impressions, 2.9K likes, 79 RTs. Points modest, distribution elite; Brian's football-IG producer." },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 5, reason: "5 pts · 3 tweets / 3 replies · 8.8K impressions — off Friday's zero, steady-low." },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 2 tweets / 14 replies · 41.1K impressions — reply-heavy day, senior fantasy weight." },
-            { handle: "OddsJam", name: "OddsJam (brand)", pod: "OJ", pts: 3, reason: "3 pts · 2 tweets / 4 replies · 34.5K impressions — brand handle off its 2-day zero streak." },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 3 tweets / 2 replies (trend −17 off his big Friday) · OJ pod individual output." },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 380 impressions — minimal but off zero, 4th straight low-single read." },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 428 impressions — holding off zero (the low-view-stream accountability name from Matt's Tim/KOB DMs); output minimal, reach still thin." }
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 7, reason: "7 pts · 6 tweets / 5 replies · 23.9K impressions — solid rebound off his 3-pt Monday, back from Bet Bash in Vegas." },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 7, reason: "7 pts · 5 tweets / 4 replies · 9.1K impressions — eased off Monday's 11 but still the only creator with a positive trend (+16); holding the rebound." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 7, reason: "7 pts · 4 tweets / 4 replies · 8.1K impressions — sharp fall from Monday's board-topping 13 (trend −20), and reach collapsed from 202K to 8.1K. The single biggest one-day drop on the board." },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 2 tweets / 5 replies · 15.3K impressions — steady-low, senior fantasy weight." },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 2.4K impressions — still off zero but minimal, and the only creator besides Jim to post again on 8/12. The low-view-stream accountability name from Matt's Tim/KOB DMs; reach remains the problem, not presence." },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 579 impressions — thinnest reach on the board among creators who actually posted." },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 3.4K impressions — off the zero streak (8/5, 8/6, 8/7, 8/10 all dark) for the first time in a week. Small, but the streak is broken." },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 435 impressions — 5th straight low-single read." }
         ]
     },
 
