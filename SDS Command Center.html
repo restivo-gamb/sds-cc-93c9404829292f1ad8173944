@@ -997,11 +997,11 @@
                     <div>
                         <div class="fc-total-label">Total SDS &mdash; 2026 Forecast</div>
                         <div class="fc-total-amount">$73.51M</div>
-                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M &middot; Target $68.37M &middot; 25A $57.05M (+28.93% YoY)</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M &middot; Target $68.37M &middot; 25A $57.05M (+28.84% YoY)</div>
                     </div>
                     <div class="fc-total-deltas">
-                        <span class="fc-d-bud" style="color:var(--green);">+$6.81M vs Budget &nbsp;(+10.20%)</span>
-                        <span class="fc-d-tgt" style="color:var(--green);">+$5.19M vs Target &nbsp;(+7.59%)</span>
+                        <span class="fc-d-bud" style="color:var(--green);">+$6.76M vs Budget &nbsp;(+10.12%)</span>
+                        <span class="fc-d-tgt" style="color:var(--green);">+$5.14M vs Target &nbsp;(+7.51%)</span>
                     </div>
                 </div>
 
@@ -1046,18 +1046,18 @@
                     <!-- RotoWire (NEW: subs + ads + B2B content — Roto Affiliate moved to Affiliate rollup) -->
                     <div class="fc-card brand-rotowire">
                         <div class="fc-head">
-                            <span class="fc-name">RotoWire</span>
-                            <span class="fc-amount">$11.19M</span>
+                            <span class="fc-name">RotoWire <span style="font-size:9.5px; font-weight:600; color:var(--yellow);">&#9679; Watch</span></span>
+                            <span class="fc-amount">$11.14M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$0.04M (+0.4%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$0.85M (&minus;7.1%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">&minus;$0.01M (&minus;0.06%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$0.90M (&minus;7.50%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$6.49M</span><span class="fc-rd neg" style="text-align:right;">&minus;1.1%</span><span class="fc-rd neg" style="text-align:right;">&minus;8.5%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$6.44M</span><span class="fc-rd neg" style="text-align:right;">&minus;1.1%</span><span class="fc-rd neg" style="text-align:right;">&minus;8.5%</span></div>
                             <div class="fc-row"><span class="fc-rname">Ads</span><span class="fc-ramt" style="text-align:right;">$1.35M</span><span class="fc-rd pos" style="text-align:right;">+21.5%</span><span class="fc-rd pos" style="text-align:right;">+12.5%</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2B Content</span><span class="fc-ramt" style="text-align:right;">$3.34M</span><span class="fc-rd neg" style="text-align:right;">&minus;3.6%</span><span class="fc-rd neg" style="text-align:right;">&minus;10.8%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2B Content</span><span class="fc-ramt" style="text-align:right;">$3.34M</span><span class="fc-rd neg" style="text-align:right;">&minus;5.0%</span><span class="fc-rd neg" style="text-align:right;">&minus;10.8%</span></div>
                         </div>
                     </div>
 
@@ -1083,16 +1083,16 @@
                 </div>
 
                 <div style="font-size:10.5px; color:var(--text-muted); margin-bottom:12px; font-style:italic;">
-                    v21 ingestion (2026-08-06, on Matt&apos;s ask) read the Executive Dashboard tab in `2026 SDS Revenue & Forecasting (21).xlsx` (mtime 8/6 12:08 — found in gamb/__inbox ~6.5h after the 8/6 5:30 refresh; parsed then MOVED to canonical gamb/finance). Taxonomy is Affiliate-rollup-aware per Craig+Pedro 5/21 commit (unchanged). WoW move +$26,715 (+0.036%) — essentially flat, a slight bounce off v20&apos;s down week. Movers: OpticOdds +$375K (Fixed +$25K PLBw Studios + $14K ProphetX), OddsJam &minus;$325K (Mktg Fixed Fee corrected — Betr double-count — + B2C Subs eased; flips At Risk at &minus;10.1%), RotoWire &minus;$23K (B2C Subs); Affiliate ($20.16M) held. Sub-stream numbers above are pulled directly from the workbook&apos;s vertical breakdown rows.
+                    v22 ingestion (2026-08-13) found the workbook already filed in canonical gamb/finance &mdash; `2026 SDS Revenue & Forecasting (22).xlsx` (mtime 8/12 23:34, filed overnight by the Daily Ingest; no __inbox move needed this run). Taxonomy is Affiliate-rollup-aware per Craig+Pedro 5/21 commit (unchanged). WoW move &minus;$50,000 (&minus;0.068%) &mdash; the quietest week yet, 2nd flat week running. The entire move is a single line inside RotoWire&apos;s B2B Content sub-stream (&minus;$50K); Affiliate, OddsJam, and OpticOdds all held to the dollar. RotoWire flips &#9679; Watch vs Budget (&minus;0.06%, barely crossing the line) and is also &#9679; Watch vs Target; OddsJam holds &#9679; At Risk (&minus;10.09%, unchanged). Sub-stream numbers above are pulled directly from the workbook&apos;s vertical breakdown rows.
                 </div>
                 </div><!-- /snap-revGrid -->
 
                 <div class="rw-floor" id="rwAboveBudget">
                     <div>
-                        <div class="rw-floor-label">RotoWire (new defn: subs + ads + content) &mdash; Above Budget</div>
-                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$11.19M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--green); font-weight:600;">+0.4%</span></div>
+                        <div class="rw-floor-label" style="color:var(--yellow);">RotoWire (new defn: subs + ads + content) &mdash; Below Budget</div>
+                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$11.14M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--red); font-weight:600;">&minus;0.06%</span></div>
                     </div>
-                    <div class="rw-floor-value" id="rwAboveValue">+$0.04M</div>
+                    <div class="rw-floor-value" id="rwAboveValue" style="color:var(--red);">&minus;$0.01M</div>
                 </div>
 
                 <!-- RW B2B Quick Links (added 2026-05-20: rate card + RotoWire Services view) -->
