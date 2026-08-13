@@ -1,3 +1,12 @@
+## Pedro forecast grab — 2026-08-12
+
+- **Grabbed v22** (new — highest present was v21 in gamb/finance + forecast.json `_meta.latest_version: v21`).
+- Slack File ID: `F0BPDLCUTFZ` · source title: "v22 2026 SDS Revenue & Forecasting.xlsx" · dropped by Pedro Olinger (U086XD03R54) in 1:1 DM at 2026-08-12 14:40 MDT.
+- Downloaded via Chrome blob method (fetch → blob → Downloads), status 200, blob.size 292,879 B.
+- Dest: `gamb/__inbox/2026 SDS Revenue & Forecasting (22).xlsx` — cp'd from Downloads, byte size verified 292,879 = blob.size. ✓
+- openpyxl validation: loads clean; "Executive Dashboard" present. Executive Dashboard TOTAL SDS: current-year forecast ≈ $73.51M vs budget $66.75M (+$6.76M / +10.1%, 🟢 On Track).
+- Ready for the 1 AM sds-slack-daily-scan ingest + 5:30 AM dashboard refresh to pick up. No Slack messages sent (read-only).
+
 ## Pedro forecast grab — 2026-08-06
 
 - **Grabbed v21** (new — highest present was v20 in gamb/finance + forecast.json `_meta.latest_version: v20`).
