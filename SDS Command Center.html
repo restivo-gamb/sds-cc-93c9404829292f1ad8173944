@@ -315,7 +315,7 @@
         .fc-card .fc-head { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 8px; margin-bottom: 4px; }
         .fc-card .fc-name { font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.4px; }
         .fc-card .fc-amount { font-size: 18px; font-weight: 700; color: var(--text-primary); }
-        .fc-card .fc-deltas { display: flex; gap: 14px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+        .fc-card .fc-deltas { display: flex; flex-wrap: wrap; gap: 14px; font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
         .fc-card .fc-d-label { color: var(--text-muted); margin-right: 4px; }
         .fc-card .fc-d-val { font-weight: 600; }
         .fc-card .fc-d-val.pos { color: var(--green); }
@@ -1002,6 +1002,7 @@
                     <div class="fc-total-deltas">
                         <span class="fc-d-bud" style="color:var(--green);">+$6.76M vs Budget &nbsp;(+10.12%)</span>
                         <span class="fc-d-tgt" style="color:var(--green);">+$5.14M vs Target &nbsp;(+7.51%)</span>
+                        <span class="fc-d-yoy" style="color:var(--green);">+$16.45M vs 25A &nbsp;(+28.84% YoY)</span>
                     </div>
                 </div>
 
@@ -1017,6 +1018,7 @@
                         <div class="fc-deltas">
                             <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$0.95M (+4.2%)</span></span>
                             <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$0.95M (+4.2%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$9.22M (+64.4%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
@@ -1034,6 +1036,7 @@
                         <div class="fc-deltas">
                             <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">&minus;$2.09M (&minus;10.1%)</span></span>
                             <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$2.09M (&minus;10.1%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">&minus;$3.54M (&minus;15.9%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
@@ -1052,6 +1055,7 @@
                         <div class="fc-deltas">
                             <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">&minus;$0.01M (&minus;0.06%)</span></span>
                             <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">&minus;$0.90M (&minus;7.50%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">&minus;$0.17M (&minus;1.5%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
@@ -1070,6 +1074,7 @@
                         <div class="fc-deltas">
                             <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$7.91M (+64.6%)</span></span>
                             <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$7.19M (+55.4%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$10.94M (+118.6%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
