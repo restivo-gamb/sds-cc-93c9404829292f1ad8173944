@@ -1612,8 +1612,8 @@ const DATA = {
     // RW: Forecast $11.14M · Budget $11.14M → −$0.01M (−0.06%) — flips On Track → Watch this week; the −$50K WoW move (B2C Subs $6,437,247.73 + Ads $1,354,505.41 + B2B Content $3,344,553.24 = $11,136,306.38) is isolated to B2B Content and is now enough to cross below budget.
     // Note: combined RW+RotoAffiliate is $19.88M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
     rw: {
-        budget: 11.14,          // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline)
-        forecast: 11.14,        // Current forecast (v22, parsed Aug 13 from gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx — $11,136,306, −$50K vs v21)
+        budget: 11.143,         // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline) — kept to 3dp so the live Below-Budget flip computes with the correct sign at these close values
+        forecast: 11.136,       // Current forecast (v22, parsed Aug 13 from gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx — $11,136,306, −$50K vs v21)
         aboveBudget: -0.01,     // forecast − budget ($11,136,306 − $11,143,335) — NOW NEGATIVE
         abovePct: -0.06         // % vs budget — NOW NEGATIVE
     },
