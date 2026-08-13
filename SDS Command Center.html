@@ -1585,35 +1585,37 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v21 (Executive Dashboard tab, parsed Aug 6 via forecast.json)
-    // Total SDS: Forecast $73.56M · Budget $66.75M · Target $68.37M · 25A $57.05M (+28.93% YoY)
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v22 (Executive Dashboard tab, parsed Aug 13 via forecast.json)
+    // Total SDS: Forecast $73.51M · Budget $66.75M · Target $68.37M · 25A $57.05M (+28.84% YoY)
     // v20 (parsed 2026-07-31): first material down week −$452,844 WoW vs v19.
-    // v21 (parsed 2026-08-06 from gamb/__inbox, mtime 8/6 12:08 — landed ~6.5h after the 8/6 5:30 refresh; found + ingested on Matt's ask, then MOVED to canonical gamb/finance). Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
-    // ESSENTIALLY FLAT vs v20: +$26,715 WoW (+0.036%) — a slight bounce off the down week. OpticOdds +$375K (Fixed +$25K PLBw studios + $14K ProphetX), OddsJam −$325K (Mktg Fixed Fee corrected — was double-counting the Betr deal — + B2C subs eased), RotoWire −$23K (B2C Subs), Affiliate flat.
-    // ⚠️ OddsJam flips 🟡 Watch → 🔴 At Risk this week (−10.1% vs budget, crossing the 10% line).
-    // Forecast $73.56M now +$6.81M / +10.20% above budget, +$5.19M / +7.59% above target — holds a strong position.
-    forecast: 73.56,
+    // v21 (parsed 2026-08-06 from gamb/__inbox, mtime 8/6 12:08): +$26,715 WoW (+0.036%) bounce off the down week; OddsJam flipped 🟡 Watch → 🔴 At Risk vs budget.
+    // v22 (parsed 2026-08-13 — file already sitting in canonical gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx, filed there overnight by the Daily Ingest; mtime 8/12 23:34, no __inbox move needed this run). Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
+    // QUIETEST WEEK YET vs v21: −$50,000 WoW (−0.068%) — 2nd flat week in a row. Affiliate/OddsJam/OpticOdds unchanged to the dollar; the entire move is a single −$50K line inside RotoWire's B2B Content sub-line.
+    // ⚠️ RotoWire flips 🟢 On Track → 🟡 Watch vs Budget this week (−0.06% vs budget — barely crossing the line; immaterial in dollars, status-color-material). RotoWire also 🟡 Watch vs Target (−7.50%); its B2B Content sub-line is 🔴 At Risk vs Target (−10.79%).
+    // OddsJam holds 🔴 At Risk vs Budget/Target (−10.09%, unchanged from v21).
+    // Forecast $73.51M still +$6.76M / +10.12% above budget, +$5.14M / +7.51% above target — holds a strong position.
+    forecast: 73.51,
     target: 68.37,
     budget: 66.75,
-    yoyGrowth: 28.93,  // 73.56 / 57.05 − 1
+    yoyGrowth: 28.84,  // 73.51 / 57.05 − 1
     priorYear: 57.05,
 
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v21",
-        ingestedAt: "2026-08-06T14:30:00-06:00",   // ISO 8601 w/ TZ offset — v21 parsed Aug 6 (mid-day, on Matt's ask) from gamb/__inbox (mtime 8/6 12:08); landed ~6.5h after the 8/6 5:30 refresh; moved to canonical gamb/finance on ingest
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (21).xlsx"
+        version: "v22",
+        ingestedAt: "2026-08-13T05:50:00-06:00",   // ISO 8601 w/ TZ offset — v22 found already-filed in canonical gamb/finance (overnight Daily Ingest); parsed during the 8/13 5:30 refresh
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx"
     },
 
     // RotoWire vs Budget — DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate lives under the Affiliate rollup
-    // RW: Forecast $11.19M · Budget $11.14M → +$0.04M (+0.4%) — still On Track at the line level; eased another $23K from v20's +0.6% (B2C Subs softened again)
-    // Note: combined RW+RotoAffiliate is $19.93M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
+    // RW: Forecast $11.14M · Budget $11.14M → −$0.01M (−0.06%) — flips On Track → Watch this week; the −$50K WoW move (B2C Subs $6,437,247.73 + Ads $1,354,505.41 + B2B Content $3,344,553.24 = $11,136,306.38) is isolated to B2B Content and is now enough to cross below budget.
+    // Note: combined RW+RotoAffiliate is $19.88M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
     rw: {
         budget: 11.14,          // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline)
-        forecast: 11.19,        // Current forecast (v21, parsed Aug 6 from gamb/finance/2026 SDS Revenue & Forecasting (21).xlsx — $11,186,306, −$23K vs v20)
-        aboveBudget: 0.04,      // forecast − budget ($11,186,306 − $11,143,335)
-        abovePct: 0.39          // % over budget
+        forecast: 11.14,        // Current forecast (v22, parsed Aug 13 from gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx — $11,136,306, −$50K vs v21)
+        aboveBudget: -0.01,     // forecast − budget ($11,136,306 − $11,143,335) — NOW NEGATIVE
+        abovePct: -0.06         // % vs budget — NOW NEGATIVE
     },
 
     // ─── 2026-06-30 (TUE — C4 W2 DAY 2 · MBR REVIEW DAY) — W2 (col D, current week) FILLED IN overnight after Matt's 6/29 sds-leads ping + the "Monday-morning scorecard habit" nudge. col-D/W2 fill (xlsx export + openpyxl): G35 / Y15 / R3 / NR23 across 76 rows = 53/76 reported (69.7%) — strong early-week start. vs the 6/29 W1-read (13G/0Y/1R/62NR): the move is mostly the new week's column populating (apples-to-oranges across weeks), NOT regression. NEW REDS (2): Jeremy T / OJ PRODUCT "EV Algo" + "Close 4 more Direct Bet Deals (incl Poly + Kalshi)" — Jeremy's whole OJ book is 0G/4Y/2R (reported but at-risk). Nick P "NFL DFS Sim (TBD)" red holds. Darkest W2 books = ESCALATION/NUDGE candidates: Steven 7 NR (ODDS DATA, all dark), Brian S 6 NR of 7 (GROWTH OPS), Scott 3 NR (SPORTS DATA). Green flags fully reported: Kevin O/Tim S RW NEWS 7/7, Ryan W B2B 4/4, Nick P RW PRODUCT 7G (of 12), Samuel Hill Optic-Mktg 3/3. NR −39 + 2 new reds = would-notify; Slack suppressed per standing pref, logged.
