@@ -3199,34 +3199,34 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-08-14",
-        ingestedAt: "2026-08-15T06:00:00-06:00",
+        date: "2026-08-17",
+        ingestedAt: "2026-08-18T05:50:00-06:00",
         totals: {
-            allPoints: 47, allHit: 0, allTotal: 13,
-            ojPoints: 16, ojTotal: 4,
-            rwPoints: 27, rwTotal: 8
+            allPoints: 59, allHit: 0, allTotal: 13,
+            ojPoints: 20, ojTotal: 4,
+            rwPoints: 26, rwTotal: 8
         },
-        // ⚠️ DATA NOTE (2026-08-15): worker API's own reason field returned "check failed: Error: tweets 402 for @handle" for all 13 creators this pull (rate-limit/quota error on the underlying tweet-fetch, not a scoring failure) — points/tweets/replies/likes/RTs are all real and differentiated, so reason strings below are built from the raw stat fields rather than quoting the broken `last_reason` text.
-        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/14 — per the "zero true hitters" fallback rule, only the 8–9pt edge-of-goal performer(s) qualify as leaders; nobody cleared 10.
-        // 🔴 ZERO-OUTPUT = 3 on 8/14, ALL THREE RotoWire pod: Jeff Erickson, James Anderson (chronic — dark on every scored read since 8/5) and Nick Whalen (new to zero this read). That puts RW at 3 of 8 dark (37.5%) — under the >50% notify threshold. OJ and DGF both fully lit. No creator-notify trigger: nobody who hit goal yesterday flipped to zero (Jim Coventry 11→7, Jagger 8→7 — both down but not dark), and none of the three laggard handles appear in this window's Slack scan.
+        // Pulled via mcp__workspace__web_fetch (network not blocked for this host per 8/12 confirmation) — days=1, history[0] = 2026-08-17 (most recent complete scored day).
+        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/17 — per the "zero true hitters" fallback rule, leaders are the points-clearers: Dustin (13) and +EV Bettors (11) cleared 10 on volume, Jim Coventry (9) is the edge-of-goal performer.
+        // 🔴 ZERO-OUTPUT = 1 on 8/17: James Anderson (RW) — no posts either AM or PM window. That's 1 of 8 RW dark (12.5%), well under the >50% notify threshold; OJ and DGF both fully lit. No creator-notify trigger: nobody who hit goal 8/16 flipped to zero today (none hit goal 8/16 either), and James Anderson doesn't appear in this window's Slack scan.
         leaders: [
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 10, replies: 8, likes: 155, rts: 20, onTarget: false, reason: "9 pts, one shy of goal — 10 tweets, 8 replies, 347K impressions, no product push credited." }
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 13, tweets: 19, replies: 17, likes: 144, rts: 13, onTarget: false, reason: "Cleared 13 pts on volume alone — classifier didn't credit a product push, needs 1 to register on-target." },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 11, tweets: 21, replies: 10, likes: 431, rts: 38, onTarget: false, reason: "Cleared 11 pts on volume — needs 1 product push to count as on-target." },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 9, tweets: 19, replies: 54, likes: 50, rts: 7, onTarget: false, reason: "9 pts, one shy of goal — needs 1 more point and a product push to hit target." }
         ],
         laggards: [
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — no posts this window." },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — chronic dark streak, no scored posts since 8/5." },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — new to zero this read." }
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output — no posts today, AM or PM window." }
         ],
         midTier: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 7, reason: "7 pts · 6 tweets · 28 replies · 0 product pushes" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 7, reason: "7 pts · 4 tweets · 14 replies · 103K impr · 0 product pushes" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 7, reason: "7 pts · 4 tweets · 4 replies · 0 product pushes" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 12 replies · 0 product pushes" },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 4, reason: "4 pts · 3 tweets · 3 replies · 0 product pushes" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 7 tweets · 0 replies · 0 product pushes" },
-            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 3 replies · 0 product pushes" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 1 reply · 0 product pushes" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes" }
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 5, reason: "5 pts · 9 tweets · 28 replies · 0 product pushes" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 4 tweets · 21 replies · 0 product pushes" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 4, reason: "4 pts · 2 tweets · 6 replies · 0 product pushes" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 3, reason: "3 pts · 9 tweets · 12 replies · 0 product pushes" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 3, reason: "3 pts · 3 tweets · 0 replies · 0 product pushes" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 1 reply · 0 product pushes — same low-output name flagged in the 5/28 Tim S DM" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 1 reply · 0 product pushes" },
+            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 2 tweets · 0 replies · 0 product pushes" }
         ]
     },
 
