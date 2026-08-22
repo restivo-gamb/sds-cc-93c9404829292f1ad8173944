@@ -2129,3 +2129,8 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 - Encrypted index.html (AES-256-CBC, 1,075,054 chars → 1,472,310 chars, ✓ confirmed). 
 - auto-push.log verification: FRESH — 2026-08-21 05:43:51 run committed + pushed today's edits (91c6071..fb59899). Deploys healthy.
 - Would-notify items (Slack DM SUPPRESSED per standing preference, logged only): Pedro past-due commitment (first-thing chase), Kevin $750K veto (budget-direction guardrail), ArbFather deal close (deal-stage change). No hard numeric triggers fired (no forecast move, NR delta 0, no new red, no creator flip).
+
+### 2026-08-21 (follow-up, per Matt)
+- Added "Growth Tracker" quick link (green accent) → Brian S's weekly growth-team tracker Google Doc.
+- New section `sec-keyleads` ("Key Leads — Growth Deliverables") inserted between Talent Scoreboard and Needs Your Attention: static 8-card grid (Steve, Tyler, Clark, Curtis, Bobby, Salman, Nigel, Tim) ingested from the doc, with inline cross-refs to live threads (Nigel's creator landing pages BLOCKED ON NICK P, Tim's Draft Kit scaling inside the post-veto spend number, Salman's ASA run-rate vs Kevin guardrail, Tyler's EVBettors 20+/day vs scoreboard leadership). "tracker: Aug 21" chip is static text — refresh task should re-ingest + restamp when the doc rolls weekly.
+- JS parse ✓, HTML balance ✓, re-encrypted index.html (1,084,028 chars → 1,484,302). launchd agent will push on next cycle (verified healthy this morning).
