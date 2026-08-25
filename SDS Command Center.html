@@ -1165,7 +1165,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong style="color:var(--text-primary);">Cycle 5 — Week 3, Day 6 (Fri 8/21 — W3 closes Sunday)</strong> &mdash; re-synced from the <strong>C5 SCORECARD</strong> tab (xlsx export + openpyxl, col-fill-color method, header row reconfirmed fresh &mdash; D=W3 (current/live) / E=W2 (closed) / F=W1 (closed weeks ago)). <strong>DEAD FLAT for a 3RD STRAIGHT READ</strong>: <strong>36G / 6Y / 2R / 27NR = 44/71 (62.0%)</strong> &mdash; cell-for-cell identical to 8/18 and 8/20; nobody has colored a single cell since Monday, and <strong>27 dark rows are one nudge from closing dark when W3 closes Sunday</strong>. Same 2 reds, both Jeremy T/OJ Product (&lsquo;Kalshi Direct Trade&rsquo;, &lsquo;Research: EV + SM Improvements&rsquo;, both upd 8/17) &mdash; his book is otherwise fully reported (2G/2Y). Same 6 yellows, incl. Randall/Bryan &lsquo;OJ MRR +20%&rsquo; with the underlying metric moving the wrong way (<strong>$970,504 on 8/20, under $975K, &minus;0.49% DoD, 3rd straight decline</strong>). <strong style="color:var(--red);">Still fully dark the entire cycle</strong>: Nick P/RW Product (12 &mdash; hero shipped live 8/20 and Sprint 8 planning still absent, so this is hygiene, not inactivity), Steven/Odds Data (4), Scott/Sports Data (3). <strong style="color:var(--red);">Samuel Hill/Optic Marketing crossed the escalation line</strong> &mdash; last sheet touch 8/10 = <strong>11 days silent</strong> (9+ day ESCALATION CANDIDATE), after regressing from a 3/3 green book. Craig C holds 3G/2NR (out sick 8/20, back today). W2 (col E) stays closed final at 29G/4Y/2R/36NR (46.5%); W1 (col F) unchanged at 47.9%.
+                    <strong style="color:var(--text-primary);">Cycle 5 — Week 4 opened (Mon 8/24)</strong> &mdash; re-synced from the <strong>C5 SCORECARD</strong> tab (Chrome-authenticated Sheets export &rarr; openpyxl, col-fill-color method; the sheet gained a 4th week column since the 8/21 read &mdash; header reconfirmed fresh: D=W4 (current/live) / E=W3 (closed final) / F=W2 (closed) / G=W1 (closed)). <strong>REAL IMPROVEMENT</strong>: <strong>40G / 5Y / 1R / 25NR = 46/71 (64.8%)</strong>, up from W3's final 62.0%. Only <strong>1 red remains</strong> (down from 2) &mdash; Jeremy T/OJ Product's &lsquo;Kalshi Direct Trade&rsquo; cleared to green; the sole holdout, &lsquo;Research: EV + SM Improvements,&rsquo; is a deliberate pause for an automated-trading pivot, not a stall (EV ROI already +2.4%&rarr;+3.9% per his note). <strong style="color:var(--green);">Samuel Hill/Optic Marketing RECOVERED</strong> &mdash; back to fully green (3/3), closing the 11-day-silent escalation flagged 8/21. <strong style="color:var(--green);">Brian S's turnaround is COMPLETE</strong> &mdash; both Growth Ops books (OJ + RW) now fully reported, 7G/2Y/0NR combined. <strong style="color:var(--red);">Still fully dark ALL FOUR WEEKS, unbroken since Cycle 5 opened 8/3</strong>: Nick P/RW Product (12 &mdash; still the single highest-leverage scorecard action on the board), Steven/Odds Data (4), Scott/Sports Data (3). Craig C holds steady at 3G/2NR. W3 (col E) froze exactly where it closed at 36G/6Y/2R/27NR (62.0%); W2 (col F) closed 46.5%; W1 (col G) closed 47.9%.
                 </div>
 
                 <!-- RED FLAG -->
@@ -3298,35 +3298,35 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-08-20",
-        ingestedAt: "2026-08-21T05:50:00-06:00",
+        date: "2026-08-24",
+        ingestedAt: "2026-08-24T20:50:00-06:00",
         totals: {
-            allPoints: 65, allHit: 0, allTotal: 13,
-            ojPoints: 18, ojTotal: 4,
-            rwPoints: 36, rwTotal: 8
+            allPoints: 78, allHit: 0, allTotal: 13,
+            ojPoints: 25, ojTotal: 4,
+            rwPoints: 42, rwTotal: 8
         },
-        // Pulled via mcp__workspace__web_fetch (primary method) — days=1, history[0] = 2026-08-20 (most recent complete scored day). Board totals 65 pts, down from 77 on 8/18 but still the 2nd-best read of the month.
-        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/20 — classifier still degraded board-wide ("Could not classify posts"), so per the fallback rule leaders are points-clearers: Jim Coventry (12), +EV Bettors (11) and Dustin (11) all cleared 10 on volume; Jagger May (8) is the edge-of-goal add.
-        // 🔴 ZERO-OUTPUT = 1 on 8/20: Jeff Erickson (RW) — 0 pts, 0 tweets (1 reply), −8 trend. James Anderson broke his 2-day zero streak with 1 pt. 1 of 8 RW dark (12.5%), under the >50% threshold; OJ and DGF fully lit. No creator-notify trigger: Jeff wasn't a goal-hitter on 8/19, and he isn't named in this window's Slack scan.
-        // ⚠️ Metric heads-up from #sds-growth: YouTube now counts a view at play-start (TechCrunch, shared by Matt) — video-view KPIs will inflate; baseline accordingly.
+        // Pulled via mcp__workspace__web_fetch (primary method) — days=1, history[0] = 2026-08-24 (today's date; both AM and PM windows already scored by the time of this evening pull). Board totals 78 pts, the best read since early August (up from 65 on 8/20).
+        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/24 — classifier still degraded board-wide ("Could not classify posts"), so per the fallback rule leaders are points-clearers: Jim Coventry (13), +EV Bettors (13) and Dustin (11) all cleared 10 on volume. No edge-of-goal (8-9 pt) creator this read — next-closest is Jagger May/Jeff Erickson at 7.
+        // 🔴 ZERO-OUTPUT = 1 on 8/24: James Anderson (RW) — 0 pts, 0 tweets, 0 replies, "No posts today" both windows, −1 trend. 1 of 8 RW dark (12.5%), well under the >50% threshold; OJ and DGF fully lit. No creator-notify trigger: James wasn't a goal-hitter previously, and no fresher Slack scan is available this window to check for an active-DM cross-ref (carried Aug 21–23 scan doesn't name him).
+        // ⚠️ John McKechnie (RW, 5 pts, −9 trend) — not a laggard (has output), but the steep single-day drop plus his history in Matt's Tim Schuler DMs re: livestream engagement makes him worth a casual check, not an escalation.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 12, tweets: 10, replies: 29, likes: 77, rts: 9, onTarget: false, reason: "Board-leading 12 pts on 39-post volume + 21.5K impressions — classifier didn't credit a product push, needs 1 to register on-target." },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 11, tweets: 27, replies: 25, likes: 1085, rts: 77, onTarget: false, reason: "11 pts with monster engagement — 990K impressions and 1,085 likes, the follower-surge momentum from 8/19 carrying through." },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 8, replies: 8, likes: 92, rts: 8, onTarget: false, reason: "11 pts, third straight day over 10 on volume (+3 trend) — needs 1 credited product push to register on-target." },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 8, tweets: 5, replies: 10, likes: 68, rts: 4, onTarget: false, reason: "8 pts, edge-of-goal — 13.7K impressions on a light posting day." }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 10, replies: 26, likes: 73, rts: 8, onTarget: false, reason: "Board-leading 13 pts on 36-post volume + 15.3K impressions — classifier didn't credit a product push, needs 1 to register on-target." },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 13, tweets: 20, replies: 15, likes: 886, rts: 45, onTarget: false, reason: "Tied for the board lead at 13 pts on huge reach — 623K impressions and 886 likes, still riding the August follower-surge momentum." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 12, replies: 9, likes: 303, rts: 15, onTarget: false, reason: "11 pts on strong volume (21 posts) — needs 1 credited product push to register on-target." }
         ],
         laggards: [
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 1, likes: 0, rts: 0, onTarget: false, reason: "Zero output (0 tweets, 1 reply) — fell from 5 on 8/18 (−8 trend); a repeat dark name (also the lone zero on 7/2)." }
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output both AM and PM windows — 0 tweets, 0 replies, −1 trend. Not named in the carried (Aug 21–23) Slack scan." }
         ],
         midTier: [
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 9 replies · 0 product pushes" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 4 replies · 0 product pushes — ticking up (+1)" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 2 replies · 0 product pushes — holding after the 8/18 jump" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 2 tweets · 6 replies · 0 product pushes — off the 8/18 edge-of-goal 9, but 44.7K impressions (+4 trend)" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 3, reason: "3 pts · 3 tweets · 0 replies · 0 product pushes — 52.3K impressions on 3 posts (+8 trend)" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 1 reply · 0 product pushes" },
-            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 1, reason: "1 pt · 1 tweet · 7 replies · 0 product pushes — brand handle still barely lit (131K impressions though) while the arb-first push needs distribution" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies — broke the 2-day zero streak, barely" }
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 26 replies · 0 product pushes — heavy reply volume, +6 trend" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 7 replies · 0 product pushes — off a −7 trend, recovering from a recent low" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 11 replies · 0 product pushes" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 6 tweets · 1 reply · 0 product pushes — +6 trend" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 5, reason: "5 pts · 4 tweets · 2 replies · 0 product pushes — −3 trend" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 3 replies · 0 product pushes — −9 trend, steepest single-day drop on the board today" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 4 replies · 0 product pushes" },
+            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes — brand handle still barely lit" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — −6 trend" }
         ]
     },
 
