@@ -3310,35 +3310,35 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-08-24",
-        ingestedAt: "2026-08-24T20:50:00-06:00",
+        date: "2026-08-25",
+        ingestedAt: "2026-08-26T06:00:00-06:00",
         totals: {
-            allPoints: 78, allHit: 0, allTotal: 13,
+            allPoints: 75, allHit: 0, allTotal: 13,
             ojPoints: 25, ojTotal: 4,
-            rwPoints: 42, rwTotal: 8
+            rwPoints: 39, rwTotal: 8
         },
-        // Pulled via mcp__workspace__web_fetch (primary method) — days=1, history[0] = 2026-08-24 (today's date; both AM and PM windows already scored by the time of this evening pull). Board totals 78 pts, the best read since early August (up from 65 on 8/20).
-        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/24 — classifier still degraded board-wide ("Could not classify posts"), so per the fallback rule leaders are points-clearers: Jim Coventry (13), +EV Bettors (13) and Dustin (11) all cleared 10 on volume. No edge-of-goal (8-9 pt) creator this read — next-closest is Jagger May/Jeff Erickson at 7.
-        // 🔴 ZERO-OUTPUT = 1 on 8/24: James Anderson (RW) — 0 pts, 0 tweets, 0 replies, "No posts today" both windows, −1 trend. 1 of 8 RW dark (12.5%), well under the >50% threshold; OJ and DGF fully lit. No creator-notify trigger: James wasn't a goal-hitter previously, and no fresher Slack scan is available this window to check for an active-DM cross-ref (carried Aug 21–23 scan doesn't name him).
-        // ⚠️ John McKechnie (RW, 5 pts, −9 trend) — not a laggard (has output), but the steep single-day drop plus his history in Matt's Tim Schuler DMs re: livestream engagement makes him worth a casual check, not an escalation.
+        // Pulled via Claude-in-Chrome (workspace network blocked for the worker API this session) — days=1, history[0] = 2026-08-25 (yesterday's fully-scored day, NOT the in-progress 8/26 window). Board totals 75 pts, a normal-range day off 8/24's 78.
+        // 🟡 Zero true on-target hitters (10pts + a credited product push) on 8/25 — classifier still degraded board-wide ("Could not classify posts"), so per the fallback rule leaders are points-clearers over 10 (+EV Bettors 13, Jim Coventry 11, Dustin 11) plus the next-closest edge-of-goal creator (Jeff Erickson, 9).
+        // 🟢 ZERO-OUTPUT = 0 on 8/25 — first fully-lit board in recent memory. James Anderson (RW), the recurring zero-output name flagged 8/24 and prior days, posted for 2 pts and broke his dark streak. No laggards to report today.
+        // ⚠️ John McKechnie (RW, 4 pts, −16 trend) — flagged 8/24 for a −9 single-day drop; today's −16 is a 2nd straight steep decline (now well off his recent highs). Not a laggard (has output), but the pattern is now 2-for-2 and worth a casual check rather than another silent carry. Jeff Erickson also posted the board's other outlier trend move (−17), though from a higher point total (9 pts, edge-of-goal).
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 10, replies: 26, likes: 73, rts: 8, onTarget: false, reason: "Board-leading 13 pts on 36-post volume + 15.3K impressions — classifier didn't credit a product push, needs 1 to register on-target." },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 13, tweets: 20, replies: 15, likes: 886, rts: 45, onTarget: false, reason: "Tied for the board lead at 13 pts on huge reach — 623K impressions and 886 likes, still riding the August follower-surge momentum." },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 12, replies: 9, likes: 303, rts: 15, onTarget: false, reason: "11 pts on strong volume (21 posts) — needs 1 credited product push to register on-target." }
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 13, tweets: 20, replies: 5, likes: 572, rts: 89, onTarget: false, reason: "Board-leading 13 pts on huge reach — 675K impressions, 572 likes, +8 trend — still riding the August follower-surge momentum." },
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 7, replies: 22, likes: 66, rts: 8, onTarget: false, reason: "11 pts on heavy reply volume (22 replies vs 7 tweets) — classifier didn't credit a product push, needs 1 to register on-target." },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 11, tweets: 9, replies: 5, likes: 47, rts: 2, onTarget: false, reason: "11 pts on balanced volume — needs 1 credited product push to register on-target." },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 9, tweets: 6, replies: 8, likes: 55, rts: 4, onTarget: false, reason: "Edge-of-goal at 9 pts, but a −17 trend swing is the board's steepest drop today — worth a look alongside McKechnie's continued slide." }
         ],
-        laggards: [
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output both AM and PM windows — 0 tweets, 0 replies, −1 trend. Not named in the carried (Aug 21–23) Slack scan." }
-        ],
+        laggards: [],
+        // No zero-output creators on 8/25 — lowest scorers were Alex Barutha and Erik Halterman at 1 pt each (both had output, so neither qualifies as a laggard under the 0-pts-AND-0-tweets rule).
         midTier: [
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 26 replies · 0 product pushes — heavy reply volume, +6 trend" },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 7 replies · 0 product pushes — off a −7 trend, recovering from a recent low" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 11 replies · 0 product pushes" },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 6 tweets · 1 reply · 0 product pushes — +6 trend" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 5, reason: "5 pts · 4 tweets · 2 replies · 0 product pushes — −3 trend" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 3 replies · 0 product pushes — −9 trend, steepest single-day drop on the board today" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 4 replies · 0 product pushes" },
-            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes — brand handle still barely lit" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — −6 trend" }
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 7, reason: "7 pts · 5 tweets · 20 replies · 0 product pushes — heavy reply volume, +3 trend" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 5 tweets · 2 replies · 0 product pushes — −4 trend" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 5, reason: "5 pts · 3 tweets · 1 reply · 0 product pushes — −4 trend" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 1 reply · 0 product pushes — −16 trend, 2nd straight steep single-day drop (was −9 on 8/24)" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 1 reply · 0 product pushes — +1 trend" },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 2 replies · 0 product pushes — broke the zero-output streak flagged 8/24 and prior days" },
+            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes — brand handle still barely lit, but 479K impressions on just 2 posts" },
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — −7 trend" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — −6 trend" }
         ]
     },
 
