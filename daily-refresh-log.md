@@ -1,3 +1,9 @@
+## Pedro forecast grab — 2026-08-26
+
+- Slack search (`from:<@U086XD03R54>`, content_types=files, sort=timestamp) found **v22 2026 SDS Revenue & Forecasting.xlsx** (File ID F0BPDLCUTFZ, 286.0 KB, uploaded 2026-08-12 14:40:53 MDT) as the newest matching file in Pedro's DM. Also read the last 30 messages in the Pedro DM (D08CM7W8E75) directly — today's thread (8/26) is about a different sheet (Gavin Smith's Divisional/SDS Board tab, forwarded via SharePoint link) plus a Loom/screenshare video, not a new "2026 SDS Revenue & Forecasting" xlsx upload.
+- Dedupe check: `gamb/finance/` already holds versions (6) through **(23)**; `gamb/__inbox/_archive/` only has the old (11); `forecast.json._meta.latest_version` = **v23** (ingested 2026-08-23, per this morning's refresh log above).
+- v22 (N=22) is not greater than the highest version already present/ingested (23) → **STOP, nothing to do.** No download attempted, no Slack write actions taken.
+
 ## 2026-08-26
 
 - Updated header timestamp → August 26, 2026.
