@@ -2216,3 +2216,9 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 
 ### 2026-08-29 (follow-up, per Matt)
 - Added "Optic Commission" quick link → Google Sheet "Optic Commission (Source of Truth)" (owner matt.restivo@oddsjam.com, created 8/28), placed next to Optic Roadmap. Re-encrypted index.html. NOTE: deploy still gated on the stale git maintenance.lock — link goes live once that clears.
+
+### 2026-08-29 (afternoon — deploy repair, per Matt: "this isn't updating")
+- ROOT CAUSE FOUND (deeper than the 8/28 diagnosis): not just the stale maintenance.lock — 555 of 2,268 loose git objects, plus .git/index, ORIG_HEAD and refs/heads/main, all return EDEADLK ("Resource deadlock avoided") on READ, natively too. The tip commit object (cd7b832) itself was unreadable, so no commit could ever succeed on the old object DB.
+- FIX: renamed wedged .git → .git-wedged-2026-08-29 (kept for forensics); fresh-cloned origin (tip verified = cd7b832, matches last successful push) and swapped its .git in; rebuilt index via git read-tree HEAD; verified only the 3 refresh-touched files show modified. Committed b9c926e "Daily refresh 2026-08-29" (allowlist add, matching sds-auto-push.sh). Push not possible from sandbox (no keychain) — goes out on the next native run.
+- Sandbox-left transient locks (HEAD.lock, index.lock, maintenance.lock, tmp_objs) moved into .git-wedged-2026-08-29/leftovers/ (mount blocks unlink; script's native rm also covers these).
+- NOTE for Matt: the EDEADLK pattern on the old files (mixed ages, reads failing natively) looks like macOS file-lock/File-Provider weirdness on this folder — if it recurs, suspect iCloud/Documents sync eviction; the old .git-wedged-2026-08-29 dir can be deleted once a native push succeeds.
