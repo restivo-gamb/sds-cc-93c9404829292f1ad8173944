@@ -1171,7 +1171,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--green);">
-                    <strong style="color:var(--text-primary);">Cycle 5 — Week 4, Day 6 (Sat 8/29) &middot; W4 CLOSES TOMORROW</strong> &mdash; re-synced from the <strong>C5 SCORECARD</strong> tab (Drive MCP export decoded via the tool-results mount this session, no Chrome fallback needed; openpyxl col-fill-color method; header reconfirmed fresh: D=W4 (current/live) / E=W3 / F=W2 / G=W1, with Group/Pod/Owners/Updated shifted one column right). <strong>DEAD FLAT vs Wednesday</strong>: <strong>43G / 5Y / 1R / 22NR = 49/71 (69.0%)</strong>, cell-for-cell identical &mdash; nobody colored anything Thursday or Friday. Only <strong>1 red</strong> &mdash; Jeremy T/OJ Product's &lsquo;Research: EV + SM Improvements&rsquo; (upd 8/24), still the deliberate automated-trading pivot, not a stall. Kevin O/Tim S (6/6 green) and Craig C (4G/1NR) hold Wednesday's recoveries; Brian S's two Growth Ops books stay fully reported (7G/2Y combined). <strong style="color:var(--red);">Still fully dark the ENTIRE cycle</strong>: Nick P/RW Product (12 &mdash; the single highest-leverage scorecard action on the board), Steven/Odds Data (4), Scott/Sports Data (3). <strong>W4 closes tomorrow (Sun 8/30)</strong> &mdash; the 22 dark rows are one Sunday-night/Monday-morning nudge from closing dark a fifth straight week, and the 8/26 Kevin O + Craig C flips prove the nudge works. W3 (col E) closed 62.0%; W2 (col F) 46.5%; W1 (col G) 47.9%.
+                    <strong style="color:var(--text-primary);">Cycle 5 — Week 4, Day 7 (Sun 8/30) &middot; W4 CLOSES TONIGHT</strong> &mdash; re-synced from the <strong>C5 SCORECARD</strong> tab (Drive MCP export decoded via the tool-results mount, no Chrome fallback needed; openpyxl col-fill-color method; header reconfirmed fresh: D=W4 (current/live) / E=W3 / F=W2 / G=W1). <strong>DEAD FLAT for a 4th straight read</strong>: <strong>43G / 5Y / 1R / 22NR = 49/71 (69.0%)</strong>, cell-for-cell identical to 8/26 and 8/29 &mdash; nobody colored anything Thursday, Friday, or Saturday. Only <strong>1 red</strong> &mdash; Jeremy T/OJ Product's &lsquo;Research: EV + SM Improvements&rsquo; (upd 8/24), still the deliberate automated-trading pivot, not a stall. Kevin O/Tim S (6/6 green) and Craig C (4G/1NR) hold their recoveries; Brian S's two Growth Ops books stay fully reported (7G/2Y combined). <strong style="color:var(--red);">Still fully dark the ENTIRE cycle</strong>: Nick P/RW Product (12 &mdash; the single highest-leverage scorecard action on the board, and his Sunday Loom is due today anyway &mdash; one conversation covers both), Steven/Odds Data (4), Scott/Sports Data (3). <strong>The 22 dark rows close dark a 4th straight week unless the nudge lands TODAY</strong> &mdash; the 8/26 Kevin O + Craig C flips prove it works. W3 (col E) closed 62.0%; W2 (col F) 46.5%; W1 (col G) 47.9%.
                 </div>
 
                 <!-- RED FLAG -->
@@ -3352,35 +3352,36 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-08-27",
-        ingestedAt: "2026-08-29T05:50:00-06:00",
+        date: "2026-08-29",
+        ingestedAt: "2026-08-30T05:45:00-06:00",
         totals: {
-            allPoints: 70, allHit: 0, allTotal: 13,
-            ojPoints: 28, ojTotal: 4,
-            rwPoints: 33, rwTotal: 8
+            allPoints: 32, allHit: 0, allTotal: 13,
+            ojPoints: 15, ojTotal: 4,
+            rwPoints: 15, rwTotal: 8
         },
-        // Pulled clean via web_fetch (worker API reachable from the workspace again). NOTE: the worker's cache had not rolled at pull time (generated_at 8/28 11:38Z, today=8/28) — history[0] = 2026-08-27, so this is the newest COMPLETE scored day available; the 8/28 day hadn't been scored yet. Advances the board 2 days from the prior 8/25 read. 70 pts, normal range off 8/25's 75.
-        // 🟡 Zero true on-target hitters on 8/27 — classifier still degraded board-wide ("Could not classify posts"), so leaders are points-clearers over 10 (Jim Coventry 13, +EV Bettors 11) plus the 9-pt edge-of-goal pair (Dustin, Billy C).
-        // 🔴 ONE ZERO-OUTPUT: Jeff Erickson (0 pts, 0 tweets, 1 reply, −9 trend) — the fully-lit-board streak from 8/25 didn't hold. He was 9 pts/edge-of-goal on 8/25, so this is a sharp two-day fall, but he wasn't a goal-hitter, so no notify trigger; not named in this window's Slack scan.
-        // 🟢 John McKechnie stabilized at 4 pts (−1 trend) after the back-to-back steep drops flagged 8/24 (−9) and 8/25 (−16) — slide arrested, still well off his highs. James Anderson held on the board (1 pt) after breaking his zero streak 8/25.
+        // Pulled clean via web_fetch (worker API reachable from the workspace). history[0] = 2026-08-29 (Saturday) — the newest COMPLETE scored day; advances the board 2 days from the prior 8/27 read (the 8/28 day was skipped by the worker's cache roll between our pulls).
+        // 🔻 QUIET SATURDAY: 32 pts board-wide, less than half of 8/27's 70 — a weekend trough, not a collapse, but the zero column is the story.
+        // 🟡 Zero true on-target hitters on 8/29 — classifier still degraded board-wide ("Could not classify posts"), so leaders are the lone 10-clearer (Jim Coventry 11) plus the 9-pt edge-of-goal (+EV Bettors).
+        // 🔴 FIVE ZERO-OUTPUT CREATORS — ALL RW: Alex Barutha (was 9 pts on 8/28, −9 trend — the sharpest flip), Jeff Erickson (2ND STRAIGHT zero-output read after the 8/27 flag), James Anderson (back to zero after breaking his streak 8/25), Erik Halterman (−6), Nick Whalen (−4). That's 5 of 8 RW creators (62.5%) at zero — crosses the '>50% of one pod at zero' notify line; suppressed per standing pref, logged as would-notify. None are named in this window's Slack scan (quiet Saturday), but it lands the same weekend Tim's paid-spend push and the RW sub-pace concern are live.
+        // 🟢 McKechnie held on the board at 2 pts (−1 trend, slide still arrested). Dustin dropped to 2 (−10) — second straight big step-down from his 8/25 highs.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 14, replies: 31, likes: 65, rts: 9, onTarget: false, reason: "Board-leading 13 pts on huge engagement volume (14 tweets + 31 replies), +7 trend — classifier didn't credit a product push, needs 1 to register on-target." },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 11, tweets: 11, replies: 5, likes: 379, rts: 60, onTarget: false, reason: "11 pts with the board's biggest reach — 538K impressions, 379 likes, +4 trend." },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 9, tweets: 6, replies: 5, likes: 93, rts: 9, onTarget: false, reason: "Edge-of-goal at 9 pts but a −20 trend off his recent highs — the board's steepest single-day drop; his longshot-parlay posts went semi-viral (+2,573 followers) per #sds-growth, so the output dip may be a posting-mix shift, not disengagement." },
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 9, tweets: 7, replies: 3, likes: 108, rts: 9, onTarget: false, reason: "Edge-of-goal at 9 pts — also just name-tagged by Matt in #sds-growth for the %→American-odds extension idea ('something you got in your back pocket')." }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 11, tweets: 8, replies: 16, likes: 66, rts: 2, onTarget: false, reason: "Board-leading 11 pts on engagement volume again (8 tweets + 16 replies) — the only creator to clear 10; classifier didn't credit a product push, needs 1 to register on-target." },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 7, replies: 1, likes: 58, rts: 4, onTarget: false, reason: "Edge-of-goal at 9 pts with the board's biggest reach — 110K impressions on 7 tweets; −17 trend off his 8/27–28 highs." }
         ],
         laggards: [
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 1, likes: 0, rts: 0, onTarget: false, reason: "Zero output on 8/27 (0 tweets, 1 reply) after sitting edge-of-goal at 9 pts on 8/25 — a sharp two-day fall, −9 trend; his second zero-output day this month (also 8/20)." }
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output on 8/29 after 9 pts on 8/28 (−9 trend) — the board's sharpest overnight flip to zero." },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "2ND STRAIGHT zero-output read (flagged 8/27 after the fall from 9 pts on 8/25) — now a pattern, not a blip; third zero day this month." },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Back to zero after briefly breaking his chronic-zero streak 8/25 — the streak-break didn't hold." },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output, −6 trend — was 3 pts on 8/27." },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero output, −4 trend — was 1 pt on 8/27; NBA-offseason quiet continues." }
         ],
         midTier: [
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 8, reason: "8 pts · 5 tweets · 19 replies · 0 product pushes — heavy reply volume again, −3 trend" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 6, reason: "6 pts · 4 tweets · 2 replies · 0 product pushes — +1 trend, steady" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 3 tweets · 3 replies · 0 product pushes — −1 trend; slide from 8/24–25 (−9, −16) has stabilized, still well off his highs" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 4 replies · 0 product pushes — −12 trend" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 4 replies · 0 product pushes — −8 trend" },
-            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 0 replies · 0 product pushes — brand handle barely lit but 263K impressions on 2 posts, +6 trend" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — holding on the board after breaking his zero streak 8/25 (83 likes on the one post)" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — −5 trend" }
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 3, reason: "3 pts · 5 tweets · 0 replies · 0 product pushes — −6 trend; still carrying Matt's %→American-odds extension tag from #sds-growth" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 3 replies · 0 product pushes — −12 trend, big step down from his reply-volume days" },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 2, reason: "2 pts · 2 tweets · 1 reply · 0 product pushes — −10 trend, second straight big step-down from the 8/25 highs" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 2, reason: "2 pts · 1 tweet · 0 replies · 0 product pushes — +6 trend, modest but moving up" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 0 replies · 0 product pushes — −1 trend; slide stays arrested, still well off his highs" },
+            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 1, reason: "1 pt · 1 tweet · 0 replies · 0 product pushes — brand handle barely lit, +2 trend" }
         ]
     },
 
