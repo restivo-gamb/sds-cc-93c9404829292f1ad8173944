@@ -2266,3 +2266,12 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 - Encrypted index.html (AES-256-CBC · PBKDF2 250K): 1,169,584 chars plaintext → 1,601,718 chars, ✓ byte counts match.
 - auto-push.log verification: HEALTHY — 2026-09-02 03:45:05 run committed + pushed clean (e825126→19d045e); today's post-refresh edits will ride the next scheduled push.
 - Notification check: no STEP 8 triggers met (no forecast move, NR delta +1, same red, no goal-hitter→0 flip, RW zeros 2/8, no named-laggard cross-ref, encryption + deploys healthy). Per Matt's standing instruction, Slack DMs are suppressed regardless; nothing would have been sent today anyway.
+
+### 2026-09-02 (evening — second scheduled run, ~17:40 MDT)
+- Morning 5:30 run had already completed in full; this pass was treated as an evening delta check, not a rebuild. Header/attention/keyThemes/keyDates/pipeline note left as the morning set them (no new Slack scan or Granola since).
+- Forecast scan: all three locations re-swept (gamb/finance + gamb/__inbox recursive incl. _archive + legacy). Highest anywhere still (24), canonical. **No v25 drop yet** despite today's all-leads forecast review + Pedro's 9/1 formula fixes — tomorrow's 5:30 run is the likely pickup window.
+- Scorecard re-sync: SUCCEEDED (Drive MCP export → tool-results mount → openpyxl col-D fill). W5 DEAD FLAT vs the 03:50 read — 41G/6Y/1R/23NR = 48/71 (67.6%), cell-for-cell identical; nobody colored during the forecast-review day. lastSynced → 17:40, prevSynced → 03:50; counts/prev* unchanged; comment block appended.
+- Creator Scoreboard: clean web_fetch re-pull; worker cache still on the 9/1 scored day (generated 09:37Z), data identical to the morning ingest (66 pts, 0 hitters, Whalen/Anderson/OddsJam zeros). ingestedAt bumped to 17:40; no array changes.
+- Encrypted index.html (AES-256-CBC · PBKDF2 250K): 1,170,224 chars → 1,602,594 chars, ct 1,196,864B ✓.
+- auto-push.log verification: HEALTHY — 09-02 04:00 run pushed clean; this evening's edits ride the next auto-push cycle.
+- Notification check: nothing material (no forecast move, scorecard NR delta 0, no new red, no creator flips). Slack DM suppressed per standing preference regardless.
