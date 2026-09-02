@@ -1734,8 +1734,8 @@ const DATA = {
         prevGreen: 43, prevYellow: 5, prevRed: 1, // prior sync (8/31 MON — W4 closed final at 69.0%, no W5 column yet). This sync (9/2 WED): W5 rolled at col D and opened at 67.6% — the best week-open of Cycle 5. All 23 dark rows sit in 4 books: Nick P (12), Steven (4), Scott (3), Craig C (4).
         // Scorecard sync metadata — surfaces as the "scorecard:" freshness chip in the Scorecard Health section header.
         // Updated by the daily refresh task whenever Pedro's sheet is re-pulled. NOTE: read the current week col fill color (xlsx export). STRUCTURAL CHANGE 9/2: the C5 SCORECARD tab now has 5 week columns — D=W5 (current/live) / E=W4 (closed final) / F=W3 / G=W2 / H=W1.
-        lastSynced: "2026-09-02T03:50:00-06:00",   // 9/2 WED sync (C5 W5 Day 3). Drive MCP download_file_content decoded via the .claude tool-results mount (no Chrome fallback needed). W5 (col D, current) 41G/6Y/1R/23NR = 48/71 (67.6%).
-        prevSynced: "2026-08-31T06:25:00-06:00",   // prior sync was 8/31 MON (W4 closed-final read; sheet had not yet rolled W5).
+        lastSynced: "2026-09-02T17:40:00-06:00",   // 9/2 WED EVENING re-sync (C5 W5 Day 3, 2nd read of the day). DEAD FLAT vs the 03:50 read: W5 (col D) 41G/6Y/1R/23NR = 48/71 (67.6%) — nobody colored a cell during the forecast-review Wednesday. Drive MCP export decoded via the .claude tool-results mount.
+        prevSynced: "2026-09-02T03:50:00-06:00",   // prior sync was the 9/2 5:30 AM run (same counts — W5 roll read).
         source: "C5 SCORECARD tab (Cycle 5, Aug 3–Sep 11) · W5 (col D, current) opened 48/71 (67.6%) — best week-open of the cycle, on Matt's 8/31 chase + Pedro follow-ups · W4 (col E) closed final 69.0% · W3 62.0% · W2 46.5% · W1 47.9% · 1 red (Jeremy T's deliberate automated-trading pause) · all dark rows in 4 books: Nick P 12 + Steven 4 + Scott 3 + Craig C 4"
     },
 
