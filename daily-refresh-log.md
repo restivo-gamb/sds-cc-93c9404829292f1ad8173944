@@ -2278,3 +2278,17 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 
 ## Pedro forecast grab — 2026-09-02
 No new version. Latest xlsx from Pedro in Slack: v22 (F0BPDLCUTFZ, 2026-08-12). Vault already holds (22)/(23)/(24) in gamb/finance; forecast.json _meta.latest_version = v24. No download performed.
+
+## 2026-09-03
+
+- Updated header timestamp → September 3, 2026 (Thu · Cycle 5 W5-D4).
+- forecastMeta.ingestedAt: unchanged (v24 · 2026-08-28T14:05:00-06:00) · scorecard.lastSynced: 2026-09-03T05:35:00-06:00 · creators.ingestedAt: 2026-09-03T05:35:00-06:00
+- Forecast scan: swept gamb/finance + gamb/__inbox (recursive incl. _archive) + legacy folder. Highest (N) anywhere = (24), already canonical in gamb/finance; __inbox empty (only _index.md + _archive with the already-processed v24 stray). No vN-format strays. v24 HOLDS $73.35M — no re-parse, no Revenue Pulse changes. v25 expected imminently (Wed all-leads review + 9/1 formula fixes); note: (24) file mtime 13:50 vs forecast.json 13:21 is the known rename/move artifact per the 9/3 ingest — ignored.
+- Slack-driven changes: FRESH overnight scan (Sep 2–3, MCP connector, 40/40, 0 failures, quiet window). New top attention card THU 9/3: Gouker show today (Ryan owes MCP deck + customer asks — P0), v25/Pedro-silent watch (P0), Vincenzo ×2 in court + silent (Tailscale overdue, Richard/Ahti — P1), Zeke locked + Tuck/Viera contracting (P1, closes the 9/1 Zeke yes/no), Tim's 'Mister Carty' question in Matt's court (P2), carry/watch on Ben/Kalshi + RW $400K + Mascarello + OJ MRR (P3). keyDates: 9/2 → recap, 9/3 TODAY inserted. keyThemes: new top entry. Pipeline Note rewritten for 9/3.
+- Granola-driven changes: none — 0 files for 9/2 (confirmed by ingest; backlog-only gap check clean).
+- Xlsx/forecast version moves: none (v24 → v24).
+- Scorecard sync: SUCCEEDED (Drive MCP export → tool-results mount → openpyxl col-D fill). DEAD FLAT 3rd straight read: W5 41G/6Y/1R/23NR = 48/71 (67.6%), cell-for-cell identical to both 9/2 reads. Same lone red (Jeremy T) + same 6 yellows. Dark books unchanged: Nick P 12 / Steven 4 / Scott 3 / Craig C 4. prev* → 41/6/1, prevSynced → 9/2 17:40. Intro paragraph refreshed. NR delta 0, no new red.
+- Creator Scoreboard: SUCCEEDED via direct web_fetch (no Chrome needed). 9/2 scored day: 70 pts (66→70), 0 true hitters (classifier still degraded board-wide), 3 cleared 10 on points (Jim Coventry 13, Jeff Erickson 10, Dustin 10; +EV Bettors 9 edge). FIRST ZERO-OUTPUT-FREE BOARD since early August — laggards empty (renderer fallback text); Whalen + Anderson broke 3-read zero streaks, OddsJam brand handle back. No cross-reference flags (no zero-point creators to cross-ref). No creator triggers.
+- JS validated (node new Function → ok). Encrypted index.html (AES-256-CBC, ct 1,207,024 B from 1,207,022-byte source — ✓ matching byte count).
+- auto-push.log verification: FRESH — the post-refresh run committed and pushed b6655f2..774aa52 to main; deploys healthy.
+- Notifications: NO Slack DM sent (standing preference — but nothing would-notify today anyway: no forecast move, NR delta 0, no new red, no creator triggers, infra clean).
