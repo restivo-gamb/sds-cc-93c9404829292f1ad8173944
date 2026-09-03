@@ -2275,3 +2275,6 @@ No new forecast file. Latest from Pedro is v20 (Slack File ID F0BLG84LTJT, "v20 
 - Encrypted index.html (AES-256-CBC · PBKDF2 250K): 1,170,224 chars → 1,602,594 chars, ct 1,196,864B ✓.
 - auto-push.log verification: HEALTHY — 09-02 04:00 run pushed clean; this evening's edits ride the next auto-push cycle.
 - Notification check: nothing material (no forecast move, scorecard NR delta 0, no new red, no creator flips). Slack DM suppressed per standing preference regardless.
+
+## Pedro forecast grab — 2026-09-02
+No new version. Latest xlsx from Pedro in Slack: v22 (F0BPDLCUTFZ, 2026-08-12). Vault already holds (22)/(23)/(24) in gamb/finance; forecast.json _meta.latest_version = v24. No download performed.
