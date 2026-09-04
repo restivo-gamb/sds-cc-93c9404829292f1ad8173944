@@ -3425,32 +3425,33 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-09-02",
-        ingestedAt: "2026-09-03T05:35:00-06:00", // 5:30 AM refresh pull via web_fetch (worker API direct, no Chrome needed); days=1 returned the 9/2 completed scored day (generated 11:36Z)
+        date: "2026-09-03",
+        ingestedAt: "2026-09-04T05:35:00-06:00", // 5:30 AM refresh pull via web_fetch (worker API direct, no Chrome needed); days=1 returned the 9/3 completed scored day (generated 11:36Z)
         totals: {
-            allPoints: 70, allHit: 0, allTotal: 13,
-            ojPoints: 19, ojTotal: 4,
-            rwPoints: 41, rwTotal: 8
+            allPoints: 55, allHit: 0, allTotal: 13,
+            ojPoints: 18, ojTotal: 4,
+            rwPoints: 29, rwTotal: 8
         },
-        // 9/2 scored day: 70 pts (66 -> 70), zero true on_target hitters -- the push classifier is STILL degraded board-wide ("Could not classify posts" on all 13), so leaders = points-clearers per convention.
-        // FIRST ZERO-OUTPUT-FREE BOARD since early August: all 13 creators posted. Whalen + Anderson broke 3-read zero streaks; the OddsJam brand handle is back on the board. laggards intentionally empty -- the renderer falls back to "No zero-output creators today."
+        // 9/3 scored day: 55 pts (70 -> 55, broad soft day), zero true on_target hitters -- the push classifier is STILL degraded board-wide ("Could not classify posts" on all 11 posters), so leaders = points-clearers per convention.
+        // The zero-free streak lasted one day: OddsJam brand handle + Whalen both slipped 1 -> 0 (neither hit goal yesterday, so no flip-from-goal trigger; RW pod 1/8 at zero -- under the >50% line). Jim Coventry is the lone 10-clearer; +EV Bettors 9 and Dustin 8 are edge-of-goal.
         leaders: [
-            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 9, replies: 28, likes: 54, rts: 3, onTarget: false, reason: "Board lead at 13 pts on a 28-reply engagement day — 9→13, cleared 10 on points (push not credited, classifier degraded)" },
-            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 10, tweets: 6, replies: 10, likes: 60, rts: 1, onTarget: false, reason: "10 pts — recovery fully compounding (2→6→7→10 across four reads)" },
-            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 10, tweets: 6, replies: 7, likes: 74, rts: 6, onTarget: false, reason: "Second straight 10+ day (11→10) — the 8/30 step-down pattern is fully dead; 32K impressions" },
-            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 7, replies: 9, likes: 136, rts: 18, onTarget: false, reason: "9 pts, edge-of-goal — still the board's reach leader at 151K impressions (11→9)" }
+            { handle: "JimCoventryNFL", name: "Jim Coventry", pod: "RW", pts: 13, tweets: 8, replies: 26, likes: 50, rts: 2, onTarget: false, reason: "Board lead at 13 pts for a 2nd straight day, again on a 26-reply engagement day (push not credited, classifier degraded)" },
+            { handle: "EVBettors", name: "+EV Bettors", pod: "OJ", pts: 9, tweets: 11, replies: 6, likes: 289, rts: 12, onTarget: false, reason: "9 pts, edge-of-goal — 2nd straight 9; reach leader again at 269K impressions" },
+            { handle: "SportsByDustin", name: "Dustin", pod: "DGF", pts: 8, tweets: 6, replies: 15, likes: 109, rts: 3, onTarget: false, reason: "8 pts, edge-of-goal — third straight 8+ day (11→10→8); 43K impressions" }
         ],
-        laggards: [],
+        laggards: [
+            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero posts — the brand handle's return lasted exactly one day (1→0); not named in yesterday's DMs" },
+            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 0, tweets: 0, replies: 0, likes: 0, rts: 0, onTarget: false, reason: "Zero posts — back to the NBA-offseason floor after a 1-pt day (1→0); not named in yesterday's DMs" }
+        ],
         midTier: [
-            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 7, reason: "7 pts · 5 tweets · 1 reply · 0 product pushes — Sunday-zero reversal holds (0→7→7)" },
-            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 6, reason: "6 pts · 3 tweets · 9 replies · 0 product pushes — 536 likes / 92K impressions, engagement outrunning points" },
-            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 4, reason: "4 pts · 2 tweets · 1 reply · 0 product pushes — 5→4, slide stays arrested but soft" },
-            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 3, reason: "3 pts · 3 tweets · 0 replies · 0 product pushes — 4th straight soft read" },
-            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 2, reason: "2 pts · 1 tweet · 4 replies · 0 product pushes — holding post-recovery" },
-            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 2, reason: "2 pts · 2 tweets · 1 reply · 0 product pushes — 5→2 step-down" },
-            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 2, reason: "2 pts · 2 tweets · 0 replies — broke the 3-read zero streak" },
-            { handle: "OddsJam", name: "OddsJam", pod: "OJ", pts: 1, reason: "1 pt · 1 tweet · 1 reply — brand handle back on the board (the 'tweets 402' check-fail cleared)" },
-            { handle: "wha1en", name: "Nick Whalen", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 1 reply — broke a 3-read zero streak (NBA-offseason floor)" }
+            { handle: "BaruthaAlex", name: "Alex Barutha", pod: "RW", pts: 5, reason: "5 pts · 3 tweets · 7 replies · 0 product pushes — best read of his recovery (2→5)" },
+            { handle: "C0llins_Billy", name: "Billy C", pod: "OJ", pts: 5, reason: "5 pts · 6 tweets · 2 replies · 0 product pushes — 7→5, steady; slated to lean on the parlay tool for NFL Wk1 per the 9/3 Growth meeting" },
+            { handle: "Jeff_Erickson", name: "Jeff Erickson", pod: "RW", pts: 5, reason: "5 pts · 4 tweets · 0 replies · 0 product pushes — 10→5 step-down off yesterday's clear" },
+            { handle: "clarkknowsball", name: "Clark Gary", pod: "OJ", pts: 4, reason: "4 pts · 3 tweets · 1 reply — points soft but the quote-tweet tactic delivered 1,300+ followers / 254K combined impressions in a day (147K on-handle); repeatable Wk1 playbook per #sds-growth" },
+            { handle: "JagSays", name: "Jagger May", pod: "RW", pts: 3, reason: "3 pts · 2 tweets · 6 replies · 0 product pushes — 6→3, engagement still outrunning points (38K impressions)" },
+            { handle: "erik_halterman", name: "Erik Halterman", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 4 replies · 0 product pushes — 5th straight soft read" },
+            { handle: "johns_tailgate", name: "John McKechnie", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 1 reply · 0 product pushes — 4→1, drifting back toward the floor" },
+            { handle: "RealJRAnderson", name: "James Anderson", pod: "RW", pts: 1, reason: "1 pt · 1 tweet · 0 replies — holding just above zero for a 2nd day" }
         ]
     },
 
