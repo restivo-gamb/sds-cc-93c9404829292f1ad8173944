@@ -1662,8 +1662,8 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
 // ═══════════════════════════════════════════════════
 
 const DATA = {
-    // Revenue — sourced from 2026 SDS Revenue & Forecasting v24 (Executive Dashboard tab, parsed via forecast.json)
-    // Total SDS: Forecast $73.35M · Budget $66.75M · Target $68.37M · 25A $57.05M (+28.57% YoY)
+    // Revenue — sourced from 2026 SDS Revenue & Forecasting v25 (Executive Dashboard tab, parsed via forecast.json)
+    // Total SDS: Forecast $74.14M · Budget $66.75M · Target $68.37M · 25A $57.05M (+29.95% YoY)
     // v20 (parsed 2026-07-31): first material down week −$452,844 WoW vs v19.
     // v21 (parsed 2026-08-06 from gamb/__inbox, mtime 8/6 12:08): +$26,715 WoW (+0.036%) bounce off the down week; OddsJam flipped 🟡 Watch → 🔴 At Risk vs budget.
     // v22 (parsed 2026-08-13 — file already sitting in canonical gamb/finance/2026 SDS Revenue & Forecasting (22).xlsx, filed there overnight by the Daily Ingest; mtime 8/12 23:34). QUIETEST WEEK YET vs v21: −$50,000 WoW (−0.068%). RotoWire flipped 🟢 On Track → 🟡 Watch vs Budget.
@@ -1673,26 +1673,32 @@ const DATA = {
     // QUIETEST WEEK ON RECORD vs v23: −$40,000 WoW (−0.0545%) at the TOTAL level, and the ENTIRE move sits inside RotoWire — B2C Subs −$30,000 (−0.47%) + Ads −$10,000 (−0.75%); B2B Content unchanged. OpticOdds, OddsJam, and the Affiliate rollup are all byte-for-byte identical to v23.
     // One status flip: RotoWire B2C Subs' TARGET-vs-forecast status stepped 🟡 Watch → 🔴 At Risk (target side only — budget-vs-forecast status for that line, and for RotoWire overall, both hold 🟡 Watch). Lines up with the open Strategic Context Question on RW subs pacing rather than signaling anything new.
     // Forecast $73.35M now +$6.60M / +9.89% above budget, +$4.98M / +7.29% above target. Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
-    forecast: 73.35,
+    // v25 (ingested 2026-09-08 on Matt's live upload, outside the 5:30 AM cycle — the file arrived MISNAMED as "2026 SDS Revenue & Forecasting (9).xlsx" while a genuine (9) from May 20 already sat in gamb/finance. Byte-compare against both the on-disk (9) and (24) plus a content parse confirmed a NEW workbook (docProps modified 2026-09-08T16:25:39Z); renamed to (25) and filed to canonical gamb/finance.
+    // COVERS AN 11-DAY GAP, NOT A WEEK — no version was produced the week of Sep 1 (Matt: "sorry we missed it last week"), so this is a two-week move and the largest up-week since v17: +$789,320 (+1.076%) to $74,142,962.54.
+    // TWO VERTICALS MOVED IN OPPOSITE DIRECTIONS, AND EACH MOVE IS A SINGLE SUB-LINE. OpticOdds +$1,454,330 (+6.14%) → $25,155,726.43, ENTIRELY in Fixed ($19.65M → $21.10M); Rev Share flat. Now +11.34% vs budget, up from +4.90% — the strongest position any vertical has held this year.
+    // OddsJam −$665,010 (−3.58%) → $17,921,004.67, ENTIRELY in B2C Subs ($16.12M → $15.45M); Mktg Fixed Fee and OJ Affiliate both flat. STATUS FLIP: OJ B2C Subs steps 🟡 Watch → 🔴 At Risk on BOTH budget and target (−12.59%, was −8.83%) — the whole OddsJam card is now red on every line.
+    // RotoWire dead flat at the total ($11,026,620.38) with a $7,000 internal reclass — Ads +$7,000 → $1,325,529.41, B2B Content −$7,000 → $3,346,586.24, B2C Subs unchanged. Affiliate rollup and all four sub-lines byte-for-byte identical to v24.
+    // Forecast $74.14M now +$7.39M / +11.08% above budget, +$5.77M / +8.44% above target, +29.95% YoY. Budget/Target unchanged; taxonomy unchanged (v11 4-parent).
+    forecast: 74.14,
     target: 68.37,
     budget: 66.75,
-    yoyGrowth: 28.57,  // 73.35 / 57.05 − 1
+    yoyGrowth: 29.95,  // 74.14 / 57.05 − 1
     priorYear: 57.05,
 
     // Forecast ingestion metadata — surfaces as the "forecast:" freshness chip in the Revenue Pulse section header.
     // Updated by the daily refresh task whenever forecast.json's _meta.latest_version moves OR a new gamb/finance/ xlsx is detected.
     forecastMeta: {
-        version: "v24",
-        ingestedAt: "2026-08-28T14:05:00-06:00",   // ISO 8601 w/ TZ offset — v24 picked up from gamb/__inbox (v-prefix file, no parens), renamed + filed to canonical gamb/finance during this ingestion
-        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (24).xlsx"
+        version: "v25",
+        ingestedAt: "2026-09-08T10:40:00-06:00",   // ISO 8601 w/ TZ offset — v25 ingested from a direct upload misnamed "(9)"; verified as new by byte-compare + content parse, renamed to (25) and filed to canonical gamb/finance during this ingestion
+        sourceFile: "gamb/finance/2026 SDS Revenue & Forecasting (25).xlsx"
     },
 
     // RotoWire vs Budget — DEFINITION (v11): subs + ads + B2B content ONLY; Roto Affiliate lives under the Affiliate rollup
-    // RW: Forecast $11.03M · Budget $11.14M → −$0.12M (−1.05%) — holds 🟡 Watch vs Budget (same status as v23); TARGET status flipped to 🔴 At Risk on the B2C Subs sub-line only. The −$40,000 WoW move (B2C Subs $6,354,504.73 + Ads $1,318,529.41 + B2B Content $3,353,586.24 = $11,026,620.38) is B2C Subs −$30K + Ads −$10K, B2B Content unchanged.
+    // RW: Forecast $11.03M · Budget $11.14M → −$0.12M (−1.05%) — holds 🟡 Watch vs Budget. UNCHANGED IN v25 at the total level: $11,026,620.38, identical to v24. The only movement is a $7,000 internal reclass — Ads +$7,000 ($1,318,529.41 → $1,325,529.41) offset by B2B Content −$7,000 ($3,353,586.24 → $3,346,586.24); B2C Subs flat at $6,354,504.73. No RW status changed (B2C Subs target stays 🔴 At Risk from the v24 flip).
     // Note: combined RW+RotoAffiliate is $19.87M (forecast) — but the dashboard tracks them separately per the 5/21 taxonomy change.
     rw: {
         budget: 11.143,         // $11,143,335 — 2026 RW Budget (subs+ads+content; v11 baseline) — kept to 3dp so the live Below-Budget flip computes with the correct sign at these close values
-        forecast: 11.027,       // Current forecast (v24, parsed 2026-08-28 from gamb/finance/2026 SDS Revenue & Forecasting (24).xlsx — $11,026,620, −$40,000 vs v23)
+        forecast: 11.027,       // Current forecast (v25, parsed 2026-09-08 from gamb/finance/2026 SDS Revenue & Forecasting (25).xlsx — $11,026,620.38, unchanged vs v24)
         aboveBudget: -0.12,     // forecast − budget ($11,026,620 − $11,143,335)
         abovePct: -1.05         // % vs budget
     },
