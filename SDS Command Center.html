@@ -283,9 +283,9 @@
         .fc-card.caution::before { background: var(--yellow); }
         /* Brand-colored cards — top bar + vertical name */
         .fc-card.brand-optic::before { background: var(--brand-optic); height: 3px; }
-        .fc-card.brand-optic .fc-name { color: var(--brand-optic); }
+        .fc-card.brand-optic .fc-name { color: var(--brand-optic-ink); }  /* ink variant — the deck's Optic blue is too light for text */
         .fc-card.brand-oddsjam::before { background: var(--brand-oddsjam); height: 3px; }
-        .fc-card.brand-oddsjam .fc-name { color: #0369a1; }  /* darker readable text on light-blue bar */
+        .fc-card.brand-oddsjam .fc-name { color: var(--brand-oddsjam); }  /* deck royal blue is readable as-is; the old #0369a1 override is retired */
         .fc-card.brand-rotowire::before { background: var(--brand-rotowire); height: 3px; }
         .fc-card.brand-rotowire .fc-name { color: var(--brand-rotowire); }
         .fc-card.brand-affiliate::before { background: var(--brand-affiliate); height: 3px; }
@@ -722,11 +722,12 @@
         /* ── Quick Links ── */
         /* Reorganized 2026-09-09 (Matt): flat list → 5 colour-coded context groups.
            SDS Finance = dark green · SDS Org = black · OO = blue · OJ = light blue · RW = red.
-           OO/OJ deliberately reuse the --brand-optic / --brand-oddsjam forecast-card hues so the
-           Quick Links bar and the Revenue Pulse cards read as the same palette. RW is the one
-           intentional divergence — red here, purple on the forecast card — per Matt, to match the
-           5-Year Plan deck. Each group sets three custom props (--ql-c / --ql-c-dim / --ql-c-bg)
-           that the shared .ql-group + .ql-link rules below consume, so adding a group is one class. */
+           All five palettes come from the SDS 2027+ Planning deck (SDS_2027_Plan_v3.pdf, p3), and the
+           --brand-* forecast-card vars were re-pointed to the same hexes in the same pass, so Quick
+           Links, Revenue Pulse and the CEO-facing deck now agree. Watch the two blues: the deck makes
+           OpticOdds the LIGHTER blue (#2d9cdb) and OddsJam the deeper royal (#2e6be6) — the reverse of
+           the pre-9/9 dashboard. Each group sets four custom props (--ql-c / --ql-ink / --ql-c-dim /
+           --ql-c-bg) that the shared .ql-group + .ql-link rules consume, so adding a group is one class. */
         .quick-links {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -751,7 +752,7 @@
         }
         .ql-group-label {
             font-size: 9.5px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.7px; color: var(--ql-c);
+            letter-spacing: 0.7px; color: var(--ql-ink);
             white-space: nowrap; margin-right: 1px;
         }
         .ql-link {
@@ -764,22 +765,25 @@
         }
         .ql-link:hover { background: var(--bg-card-hover); border-color: var(--border-hover); color: var(--text-primary); }
         .ql-link svg { width: 12px; height: 12px; flex-shrink: 0; }
-        /* Grouped links inherit their group's colour */
+        /* Grouped links inherit their group's colour. --ql-c is the accent hue (left bar, hover fill);
+           --ql-ink is the readable text tone — identical to --ql-c except where the deck hue is too
+           light to pass contrast on white (OpticOdds #2d9cdb is 3.05:1, so it gets a darkened ink). */
         .ql-group .ql-link {
             background: var(--bg-card);
             border-color: var(--ql-c-dim);
-            color: var(--ql-c);
+            color: var(--ql-ink);
             font-weight: 600;
         }
         .ql-group .ql-link:hover {
             background: var(--ql-c); border-color: var(--ql-c); color: #fff;
         }
-        /* Group palettes */
-        .ql-g-finance { --ql-c: #15803d; --ql-c-dim: rgba(21,128,61,0.30);  --ql-c-bg: rgba(21,128,61,0.055); }
-        .ql-g-org     { --ql-c: #0f172a; --ql-c-dim: rgba(15,23,42,0.22);   --ql-c-bg: rgba(15,23,42,0.035); }
-        .ql-g-oo      { --ql-c: #1e3a8a; --ql-c-dim: rgba(30,58,138,0.30);  --ql-c-bg: rgba(30,58,138,0.055); }
-        .ql-g-oj      { --ql-c: #0284c7; --ql-c-dim: rgba(2,132,199,0.32);  --ql-c-bg: rgba(56,189,248,0.10); }
-        .ql-g-rw      { --ql-c: #dc2626; --ql-c-dim: rgba(220,38,38,0.28);  --ql-c-bg: rgba(220,38,38,0.05); }
+        /* Group palettes — sourced from the SDS 2027+ Planning deck (SDS_2027_Plan_v3.pdf, p3).
+           Finance green has no deck equivalent, so it keeps a dark green that reads as "money". */
+        .ql-g-finance { --ql-c: #15803d; --ql-ink: #15803d; --ql-c-dim: rgba(21,128,61,0.30);  --ql-c-bg: rgba(21,128,61,0.055); }
+        .ql-g-org     { --ql-c: #101c2e; --ql-ink: #101c2e; --ql-c-dim: rgba(16,28,46,0.22);   --ql-c-bg: rgba(16,28,46,0.035); }
+        .ql-g-oo      { --ql-c: #2d9cdb; --ql-ink: #17739b; --ql-c-dim: rgba(45,156,219,0.38); --ql-c-bg: rgba(45,156,219,0.085); }
+        .ql-g-oj      { --ql-c: #2e6be6; --ql-ink: #2e6be6; --ql-c-dim: rgba(46,107,230,0.32); --ql-c-bg: rgba(46,107,230,0.065); }
+        .ql-g-rw      { --ql-c: #c8102e; --ql-ink: #c8102e; --ql-c-dim: rgba(200,16,46,0.28);  --ql-c-bg: rgba(200,16,46,0.05); }
         .ql-open-all {
             display: inline-flex; align-items: center; gap: 4px;
             padding: 5px 12px; border-radius: 7px;
@@ -1682,7 +1686,7 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
         <!-- KPI Section: OJ Paid Media -->
         <div class="section" id="sec-kpi-paid">
             <div class="section-header" onclick="toggleSection('sec-kpi-paid')">
-                <h2>OJ Paid Media <a href="https://kaxmedia.github.io/oddsjam-ads-dashboard/paid-social/" target="_blank" style="font-size:11px; color:var(--orange); font-weight:400; text-decoration:none; margin-left:8px;">&#8599; Full Dashboard</a></h2>
+                <h2>OJ Paid Media <a href="https://rotowire-daily.pages.dev/73a9062e2fb0c6e5d8384ec0/#oj/season" target="_blank" style="font-size:11px; color:var(--orange); font-weight:400; text-decoration:none; margin-left:8px;">&#8599; Full Dashboard</a></h2>
                 <span class="section-chevron">&#9660;</span>
             </div>
             <div class="section-body" id="kpiPaidBody">
