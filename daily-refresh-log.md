@@ -2417,3 +2417,13 @@ No new version. Latest xlsx from Pedro in Slack: v22 (F0BPDLCUTFZ, 2026-08-12). 
 - 🔗 **Third dead-link instance fixed outside Quick Links:** the "OJ Paid Media" KPI section header (`#sec-kpi-paid`) also pointed its "↗ Full Dashboard" anchor at the dead kaxmedia URL — re-pointed to `rotowire-daily.pages.dev/…#oj/season` per Matt. Zero `kaxmedia` references remain in the file.
 - **Verification:** JS `new Function(...)` parse OK · CSS braces balanced (274/274) · CSS comment delimiters balanced (40/40, after fixing one unterminated `/*` I introduced) · 20 `.ql-link` across 5 `.ql-group` · all deck hexes present · zero occurrences of the retired `#1e3a8a` / `#38bdf8` / `#0369a1` (the surviving `#7c3aed` is the generic `--purple` utility var, still used by the Sunday-combine callout — correctly left alone). Headless render attempted for a visual check but Chromium can't launch in the sandbox (missing `libXdamage1`, no root, apt blocked) and Chrome-in-the-loop refuses `file://` URLs — verified structurally instead, plus an inline reproduction of the bar rendered for Matt.
 - Re-encrypted index.html (AES-256-CBC · PBKDF2-SHA256 · 250K iters): 1,293,200 chars plaintext → 1,770,146 chars ciphertext. ✓ auto-push confirmed pushing today (latest: 8c82e52..c759d61).
+
+## Pedro forecast grab — 2026-09-10
+
+- **Result:** NOTHING GRABBED — no new version from Pedro in Slack.
+- **Newest Pedro upload in DM (D08CM7W8E75):** `v23 2026 SDS Revenue & Forecasting.xlsx` · File ID `F0BUP8BLGLW` · 287.1 KB · uploaded 2026-09-03.
+- **Highest already on disk:** `gamb/finance/2026 SDS Revenue & Forecasting (25).xlsx` (293,986 bytes, mtime 2026-09-08 09:29).
+- **Dashboard state:** `SDS Dashboard/data/forecast.json` `_meta.latest_version` = v25, ingested 2026-09-08 (that one arrived as a direct upload from Matt misnamed "(9)", renamed to (25)).
+- **Conclusion:** 23 < 25 → idempotent skip. Steps 3–4 (Chrome blob download, inbox copy) not executed. No Downloads mount needed, no Slack writes.
+- **Flag for Matt:** Pedro has not posted a forecast xlsx to the DM since 2026-09-03 (8 days). Matt asked "forecast updated?" in the DM at 2026-09-09 23:58 MDT — still unanswered as of this run. The v24/v25 workbooks came in outside the Slack-DM channel, so this task's DM-only source is drifting out of sync with how forecasts are actually arriving.
+
