@@ -2444,3 +2444,47 @@ No new version. Latest xlsx from Pedro in Slack: v22 (F0BPDLCUTFZ, 2026-08-12). 
 - Encrypted index.html (AES-256-CBC · PBKDF2-SHA256 · 250K iters): **1,319,123 chars plaintext → 1,805,326 chars ciphertext** (salt 16B · iv 16B · ct 1,348,912B). ✓ byte count confirmed by script output.
 - auto-push.log verification: **CURRENT but with a warning.** Most recent entry is 2026-09-10 03:20:12 (within 24h) — **that run FAILED on DNS** ("Could not resolve host: github.com"), though it was a push-only run with nothing pending. The last *successful* push was 2026-09-10 00:04:01 (`e24d0c6..6d053c5`, "Daily refresh 2026-09-10"), also within 24h, so deploys are not stale. Today's encrypt rides the next launchd run. ⚠️ This is the second DNS failure logged in five days (prior: 9/6 04:04) — if tomorrow's tail shows another, treat as a pattern rather than transient.
 - **Notification (STEP 8): none sent** — per standing preference the Slack DM is always suppressed. Would-have-triggered audit: **one hard mechanical trigger fired** — *"any creator named in an active Matt-DM shows up as a 0-point laggard"*: **James Anderson (3→0)**, named in Tim's 9/9 baseball-talent DM. Everything else was below the line (forecast version unmoved; scorecard NR delta 0, no new red; no creator who was *credited* at goal flipped to 0 — nobody has been credited since the classifier degraded; RW pod zeros 12.5%, well under 50%; encryption clean; auto-push last-success within 24h). Judgement items logged but not mechanically triggered, and the reason today's card is red: **(1) Leo's $100K+ MRR OpticOdds loss directly contradicting the v25 +$1.45M Optic raise**, with no single owner across three channels; **(2) queue depth 141,489 three days before the first full NFL Sunday with one engineer on it**; **(3) two unanswered revenue-leakage items in one evening**; **(4) an uncharacterized legal/regulatory letter to Polymarket already changing a lead's behavior**; **(5) no live meeting-note source at all** (Granola 36 days, Gemini 7). Genuinely good news that needed no ping: RotoWire draft season +80% YoY with 1,900 new Draft Pass subs, and the best creator board of the cycle.
+
+## Pedro forecast grab + forecast-only refresh — 2026-09-10 (07:07–07:20 MDT, on Matt's direct request)
+
+Second run of the day. The scheduled 5:30 AM refresh had already completed (and the 23:xx Thursday-night `pull-pedro-forecast` run correctly found nothing). Matt then said the forecast was updated and asked for a pull + Command Center update. This entry supersedes the "nothing grabbed" conclusion logged earlier today.
+
+**GRABBED — v26 (Pedro's "v24")**
+
+- Slack File ID `F0C0G0KBC4X` · title `v24 2026 SDS Revenue & Forecasting.xlsx` · posted by Pedro Olinger 2026-09-10 06:43 MDT in DM `D08CM7W8E75`.
+- Downloaded via the Chrome blob method (`credentials:'include'`, no custom headers): status 200, 294,247 bytes, correct xlsx mimetype. md5 `6408a7dba0f7d1adcd1d49516a0f3f80`.
+- ⚠️ Chrome suppressed a **second** automatic download in the same batch — Pedro's v23 (`F0BUP8BLGLW`) never landed despite reporting status 200 / 294,003 bytes. Retried standalone and it was suppressed again. Diagnostic only; v23 is superseded (see below). **Lesson: only ever grab one file per javascript_tool call.**
+- Staged to `gamb/__inbox/2026 SDS Revenue & Forecasting (26).xlsx`, then moved to canonical `gamb/finance/`. Inbox staging copy deleted (needed `allow_cowork_file_delete` — `rm` on the vault mount fails with "Operation not permitted" until that's granted).
+- openpyxl validation: opens clean, `Executive Dashboard` present (15 sheets). **Integrity checks tie to the cent** — 4 rollups sum to TOTAL SDS exactly; 4 Affiliate children sum to the Affiliate rollup exactly.
+
+**🚩 VERSION-NUMBER COLLISION — root-caused, and it's a live bug in the dedupe rule**
+
+- Pedro's `vN` and the canonical local `(N)` have **drifted by one**. Verified by fingerprinting every local workbook's `docProps/core.xml` `dcterms:modified` against Pedro's Slack upload dates: local (18)–(22) match Pedro v18–v22 exactly, but local (23)=8/24, (24)=8/28, (25)=9/08 do **not** match Pedro's v23 (9/03). Those three came from direct uploads that never went through the DM.
+- Therefore **Pedro v24 == canonical (26)**. Confirmed independently by content lineage: every vertical moves coherently from local (25) (no discontinuities, budget/target identical, same 15-sheet structure).
+- **Consequence: Pedro's real v23 (posted 9/03) was never ingested.** Last night's scheduled run compared his "23" against local "25" and skipped it — correct by its own rule, wrong in effect. No data lost (cumulative snapshots; v26 contains everything), but **the rule compares two counters that no longer mean the same thing and will silently skip again.** It needs to key on content hash / `docProps` modified date, not the version integer.
+- Mitigation shipped: `forecast.json.versions.v26` now carries a `slack_source` block recording the Pedro-vN ↔ canonical-(N) mapping, the Slack file ID, and the v23 note, so the next run doesn't re-derive it.
+
+**FORECAST MOVE — first decline since v18, largest single-version drop of 2026**
+
+- **Total SDS $74,142,962.54 → $72,901,151.54 = −$1,241,811 (−1.67%).** Gap is only 2 days (v25 was an off-cycle 9/08 upload), but this is Pedro's first DM-delivered version since v22 on 8/12.
+- Unusually **broad — all four rollups fell**, where every prior version was a single-vertical swing:
+  - **Affiliate −$900,000 (−4.49%) → $19,139,611.06** — 72% of the decline. Roto Affiliate −$600,000 → $8,245,073.25 (largest single line move of the week, ~48% of the total drop); Bookies −$200,000 → $2,496,206.47; Partnerships −$100,000 → $7,061,161.54; Local flat at $1,337,169.80. **First Affiliate movement in three versions** (byte-identical across v24/v25), so this reads as a deliberate re-forecast, not drift.
+  - **OddsJam −$188,605 (−1.05%) → $17,732,399.67** — entirely B2C Subs ($15.45M → $15.26M); Mktg Fixed Fee and OJ Affiliate flat.
+  - **OpticOdds −$109,206 (−0.43%) → $25,046,520.43** — entirely Fixed ($21.10M → $20.99M); Rev Share flat.
+  - **RotoWire −$44,000 (−0.40%) → $10,982,620.38** — B2C Subs −$36,000, B2B Content −$8,000, Ads flat.
+- **ZERO status flips** on either the budget or target side, at rollup *and* sub-line level. The three lines trimmed are the ones carrying the most cushion (Roto Affiliate +344% vs budget, Partnerships +356%), so $900K comes out without crossing a threshold — the dollar move deserves more attention than the colors do.
+- Position still clears both guardrails: **+$6.15M/+9.22% vs budget, +$4.53M/+6.63% vs target, +27.78% YoY** — but both cushions narrowed from +11.08%/+8.44%/+29.95%, and the $74.14M year high lasted two days.
+- **Open question flagged to keyThemes:** yesterday's card said the v25 OpticOdds +$1.45M raise had to be reconciled with Leo's "over $100k MRR lost in the past 2-3 weeks" *before v26 was built on it*. v26 took Optic down only **$109,206 — 7.5% of that raise**. Annualized against Leo's run-rate the gap is ~$1.2M. Still unreconciled, now two versions old.
+
+**FILES UPDATED**
+
+- `data/forecast.json` — `versions.v26` added (incl. new `slack_source` block), `latest` repointed, `_meta` rewritten. Atomic write (temp + `os.replace`) per the mount-deadlock guardrail.
+- `SDS Command Center.html` — `DATA.forecast` 74.14→72.90, `yoyGrowth` 29.95→27.78, `DATA.forecastMeta` → v26 (chip green), `DATA.rw.*` (forecast 11.027→10.983, aboveBudget −0.12→−0.16, abovePct −1.05→−1.44), the DATA header comment, the RW definition comment, the full static Revenue Pulse block (`#snap-wowForecast`, `.fc-total-card`, **all four** `.fc-grid` cards incl. every sub-row, the italic footnote, `.rw-floor`), a new top-position `notesSynthesis.keyThemes` entry, and today's `pod:` freshness line. Per-vertical "vs 25A (YoY)" figures recomputed from a 2025-actuals baseline back-solved from the prior card's published percentages and normalised to tie to the true $57,053,616.75 total.
+- JS validated: 1/1 script blocks parse via `new Function`.
+
+**ENCRYPT + DEPLOY**
+
+- `python3 scripts/encrypt_index.py` → ✓ `SDS Command Center.html` (1,326,938 chars) → `index.html` (1,815,990 chars), AES-256-CBC · PBKDF2-SHA256 · 250,000 iters. Plaintext-leak grep on `index.html`: 0 matches.
+- **auto-push VERIFIED** (not assumed): launchd agent fired and pushed at 07:18:31 — `[main 6919c4a] Daily refresh 2026-09-10`, 2 files changed, `debf9ad..6919c4a main -> main`, "pushed". Note the WatchPaths agent fired ~8 times minute-apart during the edit window (06:59–07:18), each committing partial state; the 07:18:31 run captured the final encrypt. Also standing: the 03:20 run today failed on DNS ("Could not resolve host: github.com") — **that is the second DNS failure in five days (prior 9/6 04:04); a third makes it a pattern worth chasing.**
+
+**NOTIFICATION** — suppressed per standing preference. Would-have-triggered audit: forecast version bump (always-notify) + a −1.67% total move. Logged here only, no Slack DM sent. This task is read-only on Slack; nothing was posted, reacted to, or replied to.
