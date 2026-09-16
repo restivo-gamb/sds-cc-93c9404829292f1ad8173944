@@ -6,7 +6,7 @@ The snapshot infrastructure is built and ready. One remaining step: register a S
 
 Open a normal Cowork session (not inside a scheduled-task run) and paste:
 
-> Create a scheduled task called **sds-command-center-weekly-snapshot** that runs every Saturday at 11:59 PM local time (cron `59 23 * * 6`) with the prompt in `/Users/Matt/Documents/Claude/Projects/SDS Dashboard/snapshots/WEEKLY-SNAPSHOT-PROMPT.md`.
+> Create a scheduled task called **sds-command-center-weekly-snapshot** that runs every Saturday at 11:59 PM local time (cron `59 23 * * 6`) with the prompt in `/Users/Matt/Developer/SDS Dashboard/snapshots/WEEKLY-SNAPSHOT-PROMPT.md`.
 
 Claude will invoke `create_scheduled_task` and the job will start running next Saturday night.
 
@@ -20,7 +20,7 @@ Claude will invoke `create_scheduled_task` and the job will start running next S
 **Manual runs** (backfill, force-refresh, etc.):
 
 ```bash
-cd "/Users/Matt/Documents/Claude/Projects/SDS Dashboard"
+cd "/Users/Matt/Developer/SDS Dashboard"
 node snapshots/capture.js                        # capture current ISO week
 node snapshots/capture.js --week=2026-W18        # capture a specific week key
 node snapshots/capture.js --html=alt.html --week=2026-W15   # capture from alternate HTML

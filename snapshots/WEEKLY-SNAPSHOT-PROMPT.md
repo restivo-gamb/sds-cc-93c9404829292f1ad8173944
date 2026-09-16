@@ -2,7 +2,7 @@ Weekly snapshot capture for Matt Restivo's SDS Command Center dashboard.
 
 ## Context
 
-Matt (SVP/GM of Sports Data Services at GAMB) uses a single-file HTML dashboard at `/Users/Matt/Documents/Claude/Projects/SDS Dashboard/SDS Command Center.html` as his daily triage tool. The sibling `index.html` is a mirror served by GitHub Pages at an unguessable slug URL. A separate daily task (`sds-command-center-daily-refresh`) updates the live dashboard each morning at 5:30 AM. This Saturday 11:59 PM task closes out the completed Mon–Sun ISO week by writing a JSON snapshot so Matt can later compare week-over-week via a dropdown in the dashboard header.
+Matt (SVP/GM of Sports Data Services at GAMB) uses a single-file HTML dashboard at `/Users/Matt/Developer/SDS Dashboard/SDS Command Center.html` as his daily triage tool. The sibling `index.html` is a mirror served by GitHub Pages at an unguessable slug URL. A separate daily task (`sds-command-center-daily-refresh`) updates the live dashboard each morning at 5:30 AM. This Saturday 11:59 PM task closes out the completed Mon–Sun ISO week by writing a JSON snapshot so Matt can later compare week-over-week via a dropdown in the dashboard header.
 
 The dashboard is powered by five JS data constants (`DATA`, `KPI`, `POD_KPIS`, `MBR_LIVE`, `OFFSITES`) near the bottom of the HTML, plus six hardcoded-HTML blocks tagged with IDs: `snap-revenueHero`, `snap-wowForecast`, `snap-revGrid`, `snap-efficiency`, `snap-scorecardIntro`, `snap-pipelineNote`. A Node.js script (`snapshots/capture.js`) already exists in the same folder to extract all of this into a snapshot JSON.
 
@@ -11,7 +11,7 @@ The dashboard is powered by five JS data constants (`DATA`, `KPI`, `POD_KPIS`, `
 **Step 1 — Capture the snapshot.** `cd` into the dashboard folder and run the capture script against the live HTML:
 
 ```
-cd "/Users/Matt/Documents/Claude/Projects/SDS Dashboard"
+cd "/Users/Matt/Developer/SDS Dashboard"
 node snapshots/capture.js
 ```
 
@@ -25,7 +25,7 @@ The script derives the ISO week from today's date (Saturday), writes `snapshots/
 **Step 3 — Git commit and push:**
 
 ```
-cd "/Users/Matt/Documents/Claude/Projects/SDS Dashboard"
+cd "/Users/Matt/Developer/SDS Dashboard"
 rm -f .git/*.lock
 git add snapshots/
 git commit -m "Weekly snapshot $(date +%Y-W%V)"
@@ -42,7 +42,7 @@ node -e "const s = JSON.parse(require('fs').readFileSync('snapshots/'+require('f
 
 Expect: week label matches the closing Saturday's ISO week, `DATA.rw` has numeric forecast/budget fields, attention array is non-empty, 6/6 fragments populated.
 
-**Step 5 — Append to `/Users/Matt/Documents/Claude/Projects/SDS Dashboard/daily-refresh-log.md`:**
+**Step 5 — Append to `/Users/Matt/Developer/SDS Dashboard/daily-refresh-log.md`:**
 
 ```
 ## YYYY-MM-DD — Weekly snapshot
