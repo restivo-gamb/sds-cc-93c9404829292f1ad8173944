@@ -2629,3 +2629,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Would-have-notified (not sent):** new red attention card (Kalshi attribution / OJ MRR contamination) · 9+ day silent leads surfaced (Nick P, Brian S, Jeremy T) · Slack fresh, forecast unmoved, NR delta −8 (under ±10), creators fresh, no creator triggers evaluable.
 - auto-push.log: ✅ two WatchPaths pushes. 05:41:57 → `b1c777b` (SDS Command Center.html). 05:42:58 → `269b7ab` (index.html + this log). `git log @{u}..HEAD` is empty, so Pages is serving the Oct 6 build. The 10/05 `.git/index.lock` was cleared host-side as expected.
 - 2026-10-06 (Matt request): added RW quick link "News Speed" → kevob100.github.io/Post-Speed-Tracker/#nba. Re-encrypted.
+- 2026-10-06 (Matt request): added Org quick link "Auto MBR" → claude.ai artifact EV5N5AtfJucHPZ2XF7hLn1. Re-encrypted.
