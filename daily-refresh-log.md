@@ -2647,3 +2647,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Would-have-notified (not sent):** new red attention card (Paulton refusal / call today; direct-bet unmonetised) · 9+ day silent leads (Nick P, Brian S, Jeremy T, 24d) · Creator Scoreboard returned stale (frozen; triggers not evaluable). Not fired: forecast unmoved, NR delta −2, Slack fresh, encryption OK.
 - auto-push.log: ✅ WatchPaths pushes at 05:39:30 (`60be79d`), 05:40:31 (`6f9248e`) and 05:41:32 (`dacf9ca`, which included the html, index.html and this log). `git log @{u}..HEAD` is empty and no tracked files are modified, so Pages is serving the Oct 7 build.
 - 2026-10-07 (Matt request): added RW quick link "New Talent" → Google Doc 1ixXtZ59…. Re-encrypted.
+- 2026-10-08 (Matt request): added OO quick link "MTS" → claude.ai artifact 9RZNopnbfsTsS9mCMD5Lt3. Re-encrypted.
