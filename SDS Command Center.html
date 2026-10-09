@@ -3939,7 +3939,17 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-10-05",
+        date: "2026-10-08",
+        // ✅ 2026-10-08 (refresh ran late, 21:55 MDT): WORKER FRESH. generated_at "2026-10-09T03:54:05.749Z" vs the frozen
+        // "2026-10-06T11:37:59.682Z". history[0] = 2026-10-08 (Thu, TODAY) — PM pass scored, but the day may still move
+        // before midnight. Tue 10/06 and Wed 10/07 were NEVER scored (days=1 now returns Thursday) — two lost days.
+        // 🔴 CLASSIFIER STILL BROKEN, 11th+ day: all 11 posting creators "Could not classify posts.", 0 pushes.
+        // Coventry cleared 10 on POINTS (13) but reads on_target:false purely on the push gate. 0-for-13 = UNMEASURED.
+        // Movement vs the PRIOR RUN's recorded values (10/05), not trend_delta: total 59 → 54. Coventry 11→13,
+        // Dustin 6→9, McKechnie 1→4, Billy 1→4, Halterman 0→3; EVBettors 7→7, Anderson 1→1; Clark 9→5, Barutha 5→4,
+        // Whalen 2→1; Jagger 11→3, Erickson 5→0.
+        // Triggers: goal-hitter→0 not evaluable (gate unmeasurable); no pod >50% zero (OJ 1/4, RW 1/8; DGF n=1 excluded);
+        // no 0-pt laggard named in a current Matt DM (Slack scan 45h old — Oct 8 1 AM scan did not run).
         // 🔻 2026-10-07: WORKER FROZEN. generated_at "2026-10-06T11:37:59.682Z" is byte-identical to yesterday's pull and
         // history[0] is still 2026-10-05. Block carried forward UNCHANGED, and ingestedAt deliberately NOT advanced so the chip
         // ages honestly. Tue 10/06 went unscored. Both creator triggers are NOT EVALUABLE today. Classifier still reports
