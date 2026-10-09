@@ -2663,3 +2663,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html: `✓ 1,489,850 chars → 2,037,046 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 8/8 ABSENT (`const DATA`, Coventry, Paulton, 71,810, Pipeline Note, Nick P, Kalshi, scorecard).
 - auto-push.log verification: see next line.
 - **Would-have-notified (not sent):** 9+ day silent leads (Nick P, Brian S, Jeremy T, 25 days). Did not fire: no new red card (today's is `risk`), forecast unmoved, Slack under 48h (but the 10/08 scan is missing: watch for Day 3 tomorrow), NR delta 0, creators fresh, no creator triggers evaluable, encryption OK.
+- auto-push.log: ✅ WatchPaths pushes at 21:55 (`a7ba419`) and 21:56:34 (`c240a15`: html + index.html + this log). A final push for this line is expected ~60s after the write.
