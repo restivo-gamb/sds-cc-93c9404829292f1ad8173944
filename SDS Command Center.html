@@ -1358,7 +1358,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--red);">
-                    <strong style="color:var(--text-primary);">⏹ C6 · SCORECARD BOARD WEEK 2 (calendar wk 4, day 26) · 40.0% REPORTING · 🔴 THE SHEET HASN&rsquo;T MOVED IN ~68 HOURS</strong> — <strong>33 of 75</strong> objectives have a W2 status (30G / 3Y / 0R / 42NR), identical for a third straight read. That is not a stale read: the sheet&rsquo;s last edit is still <strong>Tue 10/6 09:36 MDT</strong>, so nobody has coloured a cell in almost three days. Every one of the 42 dark rows is silent by definition. W2 closes Sun 10/11, two days from now, and W3 has not been opened. Craig and Randall/Bryan are W1-green with W2 blank for a 4th day, and the &lsquo;OpticOdds MTS&rsquo; row still has no owner. <strong style="color:var(--red);">Escalation candidates: Nick P (11), Brian S (11) and Jeremy T (9) are at 26 days with no C6 cell</strong> (31 of the 42 dark rows). All three were active in Slack this week, so the status exists; it just isn&rsquo;t on the board. No reds. At 40% reporting, that is missing data, not an absence of problems.
+                    <strong style="color:var(--text-primary);">⏹ C6 · SCORECARD BOARD WEEK 2 (calendar wk 4, day 27) · 40.0% REPORTING · 🔴 THE SHEET HASN&rsquo;T MOVED IN ~92 HOURS</strong> — <strong>33 of 75</strong> objectives have a W2 status (30G / 3Y / 0R / 42NR), identical for a fourth straight read. The sheet&rsquo;s last edit is still <strong>Tue 10/6 09:36 MDT</strong>, so nobody has coloured a cell all week, and every one of the 42 dark rows is silent by definition. <strong>W2 closes tomorrow (Sun 10/11)</strong> and W3 has not been opened; the board will start next week two calendar weeks behind its own cycle, with C6 ending 10/23. Craig and Randall/Bryan are W1-green with W2 blank for a 5th day, and the &lsquo;OpticOdds MTS&rsquo; row still has no owner. <strong style="color:var(--red);">Escalation candidates: Nick P (11), Brian S (11) and Jeremy T (9) are at 27 days with no C6 cell</strong> (31 of the 42 dark rows). Nick and Jeremy both gave Matt substantive status in DMs on Friday (pricing tests, paper-trading ship dates), so the status exists; it isn&rsquo;t on the board. No reds. At 40% reporting, that is missing data, not an absence of problems.
                 </div>
 
                 <!-- RED FLAG -->
@@ -2006,6 +2006,12 @@ const DATA = {
     // 🔴 SHEET COLD ~68 HOURS (~2.8 days). Every NR row is silent. W2 closes Sun 10/11 (2 days); W3 not opened.
     // 🔴 ESCALATION CANDIDATES, 26 days with no C6 cell: Nick P 11 · Brian S 11 · Jeremy T 9. Craig C + Randall/Bryan
     // W2-blank 4th day. 'OpticOdds MTS' row still unowned. The chip's green = our sync, NOT the sheet's age.
+    // ─── 2026-10-10 (SAT — C6 BOARD WEEK 2 · calendar wk 4 · cycle day 27) — synced 05:35 MDT by Drive METADATA.
+    // Source modifiedTime STILL 2026-10-06T15:36:16.829Z, so fills are unchanged by construction; re-export skipped.
+    // G 30 / Y 3 / R 0 / NR 42 / 75 = 40.0%. Zero movement, 4th straight read. NR delta 0.
+    // 🔴 SHEET COLD ~92 HOURS (~3.8 days). W2 closes TOMORROW (Sun 10/11); W3 not opened. C6 ends 10/23.
+    // 🔴 ESCALATION CANDIDATES, 27 days with no C6 cell: Nick P 11 · Brian S 11 · Jeremy T 9. Craig C + Randall/Bryan
+    // W2-blank 5th day. 'OpticOdds MTS' row still unowned. The chip's green = our sync, NOT the sheet's age.
     scorecard: {
         green: 30, yellow: 3, red: 0, notReported: 42, total: 75,
         prevGreen: 30, prevYellow: 3, prevRed: 0, prevNotReported: 42, prevTotal: 75,
@@ -2035,8 +2041,8 @@ const DATA = {
         // ESCALATION: Nick P — largest dark block, 6 windows Slack-silent, successor board 19d overdue,
         // retention answer 16d, AND the Underdog dashboard he owns was due EOD 10/05.
         // No Reds raised all cycle at 28.8% reporting = absence of DATA, not absence of problems.
-        lastSynced: "2026-10-09T05:45:00-06:00",
-        prevSynced: "2026-10-08T21:55:00-06:00"
+        lastSynced: "2026-10-10T05:35:00-06:00",
+        prevSynced: "2026-10-09T05:45:00-06:00"
     },
 
     // C4 BOOK-SIZE leaderboard (re-synced 2026-06-24 WED via col-D/W1 fill from the xlsx export). Largest books first; reporting status now starting to fill.
@@ -2045,10 +2051,10 @@ const DATA = {
     // C6 · BOARD WEEK 2 leaderboard — re-synced 2026-10-06 05:38 MDT via col-D (W2) fill. Rebuilt from scratch: the previous
     // array was the 9/15 version ("no C6 tab") and had not been refreshed through the freeze. Sorted NR desc, then Y, then size.
     yellowLeaders: [
-        { name: "🔴 Nick P", pod: "RW PRODUCT (11 · 0 reported in C6 — 26 days, both columns blank)", yellows: 0, reds: 0, items: "ESCALATION, fourth straight sync unchanged. Largest dark book on the board. He shipped the $22 price increase 10/08, so the status exists. Still owes the retention answer (~20d), the Underdog tracker clone (4 days late) and the tracker fix (posted DoD −48 vs a −160 level move). His DM with Matt was social-only this week." },
-        { name: "🔴 Brian S", pod: "GROWTH OPS OJ + RW + TALENT-OJ (11 · 0 reported in C6 — 26 days)", yellows: 0, reds: 0, items: "ESCALATION. Fully reported through C5, fully dark in C6. On 10/08 Matt gave him pointed feedback on a late creator payment ('not getting a response is a massive pet peeve'); Brian owned it and paid within 16 min. Same responsiveness pattern as the blank board." },
-        { name: "🔴 Jeremy T", pod: "OJ PRODUCT (9 · 0 reported in C6 — 26 days) + 1 UNOWNED row", yellows: 0, reds: 0, items: "ESCALATION. He has fresh status he could paste in: Polymarket direct-trade slips to Q1 (OAuth), Kalshi attribution fix in progress, the Mixpanel downgrade saved ~$14.3k/yr. A NEW 'OpticOdds MTS' row appeared under OJ PRODUCT on 10/06 with no owner. Assign it." },
-        { name: "🟡 Craig C · Randall K/Bryan R", pod: "W1-GREEN, W2 STILL BLANK (4 rows, 3rd day)", yellows: 0, reds: 0, items: "Reported Week 1 cleanly. W2 is still blank a day later. Tyler H, who was in this group yesterday, filled all 3 W2 rows green. Worth a one-line nudge now." },
+        { name: "🔴 Nick P", pod: "RW PRODUCT (11 · 0 reported in C6 — 27 days, both columns blank)", yellows: 0, reds: 0, items: "ESCALATION, fifth straight sync unchanged. Largest dark book on the board. He gave Matt real status in DM on 10/09 (pricing tests across the board, news work with Kulina, NFFC/FFPC submit-to-site not started), so it exists. Still owes the retention answer (~21d), the Underdog feed (~5 days late) and the tracker fix (5th miss: posted DoD −25 vs a −163 level move)." },
+        { name: "🔴 Brian S", pod: "GROWTH OPS OJ + RW + TALENT-OJ (11 · 0 reported in C6 — 27 days)", yellows: 0, reds: 0, items: "ESCALATION. Fully reported through C5, fully dark in C6. Quiet in Slack Friday (one #sds-paid question). On 10/08 Matt flagged a late creator payment ('not getting a response is a massive pet peeve'); same responsiveness pattern as the blank board." },
+        { name: "🔴 Jeremy T", pod: "OJ PRODUCT (9 · 0 reported in C6 — 27 days) + 1 UNOWNED row", yellows: 0, reds: 0, items: "ESCALATION. He has fresh status he could paste in: paper-trading internal release 3rd week of Oct and public last week of Oct ('single biggest trial lever'), paywall tests, the SharpR win with an OO sweetener. The 'OpticOdds MTS' row under OJ PRODUCT still has no owner. Assign it." },
+        { name: "🟡 Craig C · Randall K/Bryan R", pod: "W1-GREEN, W2 STILL BLANK (4 rows, 5th day)", yellows: 0, reds: 0, items: "Reported Week 1 cleanly. W2 closes tomorrow and is still blank. Tyler H filled all 3 W2 rows green on 10/06. A one-line nudge today saves the week." },
         { name: "🟡 Steven", pod: "ODDS DATA (4 · 1G/3NR)", yellows: 0, reds: 0, items: "FIRST CELL IN TWO CYCLES — zero cells across all of C5. 'Start of Season' on track. Movement worth acknowledging; three rows still dark." },
         { name: "🟡 Scott", pod: "SPORTS DATA (4 · 1G/3NR)", yellows: 0, reds: 0, items: "First cell in two cycles ('Live Scores' — soccer in screen this week). Three dark. The go/no-go context from 9/8 is still live." },
         { name: "🟡 Ahti", pod: "OPTIC PRODUCT (8 · 5G/3Y — fully reported overnight)", yellows: 3, reds: 0, items: "From 100% dark to 100% reported in one morning. Yellows: SGP v2 (54%, target 15 Oct), Multi-market view (specified, no engineering started), Alternate lines (no note). Also now owns the MTS build — watch his load." },
@@ -3985,7 +3991,16 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
-        date: "2026-10-08",
+        date: "2026-10-09",
+        // ✅ 2026-10-10 05:35 MDT: WORKER FRESH. generated_at "2026-10-10T11:32:43.084Z" vs "2026-10-09T03:54:05.749Z".
+        // history[0] = 2026-10-09 (Fri, complete day). ingestedAt advanced. No day lost (10/08 already absorbed).
+        // 🔴 CLASSIFIER STILL BROKEN, 13th+ day: all 10 posting creators "Could not classify posts.", 0 pushes.
+        // Dustin and Coventry cleared 10 on POINTS (11 each) but read on_target:false purely on the push gate = UNMEASURED.
+        // Movement vs the PRIOR RUN's recorded values (10/08), not trend_delta: total 54 → 52. Dustin 9→11, Barutha 4→7,
+        // Erickson 0→1; Coventry 13→11, EVBettors 7→5, Anderson 1→0, Halterman 3→0; flat: Clark 5, Billy 4, McKechnie 4,
+        // Jagger 3, Whalen 1, OddsJam 0.
+        // Triggers: goal-hitter→0 not evaluable (gate unmeasurable); no pod >50% zero (OJ 1/4, RW 2/8; DGF n=1 excluded);
+        // no 0-pt laggard named in a current Matt DM (Coventry is in an active Matt DM and scored 11).
         // ⏸ 2026-10-09 05:45 MDT: STALE 200. generated_at "2026-10-09T03:54:05.749Z" is byte-identical to the 10/08 run,
         // so DATA.creators is carried forward UNCHANGED and ingestedAt is NOT bumped. history[0] is still Thu 10/08 (already
         // absorbed). Fri 10/09 is in progress and unscored. Classifier still 0 pushes for all (12th+ day) = unmeasured.
@@ -4013,31 +4028,32 @@ const DATA = {
         // Dustin 0→6, EVBettors 3→7, Barutha 2→5, Whalen 0→2, McKechnie 0→1, Anderson 0→1; Billy 3→1; Halterman 5→0.
         // Triggers: goal-hitter→0 not evaluable (nobody can hit the gate); no pod >50% zero (OJ 1/4, RW 1/8; DGF n=1 excluded);
         // Clark Gary (Matt catch-up TODAY) is 9 pts, not a laggard.
-        ingestedAt: "2026-10-08T21:55:00-06:00",
-        totals: { allPoints: 54, allHit: 0, allTotal: 13,
-                  ojPoints: 16, ojTotal: 4, rwPoints: 29, rwTotal: 8 },
+        ingestedAt: "2026-10-10T05:35:00-06:00",
+        totals: { allPoints: 52, allHit: 0, allTotal: 13,
+                  ojPoints: 14, ojTotal: 4, rwPoints: 27, rwTotal: 8 },
         leaders: [
-            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:13, tweets:10, replies:20, likes:27, rts:3, onTarget:false,
-              reason:"Only creator over 10 on points (11 → 13, third straight scored day ≥10). 0 product pushes credited, so the gate reads unmet (classifier)." },
-            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:9, tweets:13, replies:10, likes:255, rts:14, onTarget:false,
-              reason:"Edge-of-goal: 6 → 9, 81K impressions. NOT Dustin McComas (RW candidate)." }
+            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:11, tweets:15, replies:7, likes:409, rts:23, onTarget:false,
+              reason:"Over 10 on points (9 → 11), 81K impressions. 0 product pushes credited, so the gate reads unmet (classifier). NOT Dustin McComas (RW candidate)." },
+            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:11, tweets:9, replies:13, likes:35, rts:3, onTarget:false,
+              reason:"Fourth straight scored day ≥10 (13 → 11). Matt DM'd him Friday: bet one book via Pikkit and post picks in units; his Thursday show with Theo is landing." }
         ],
         laggards: [
-            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"No posts. Fell 5 → 0. No Slack mention in the latest scan (10/6–10/7)." },
+            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"No posts. Fell 3 → 0. No Slack mention in the 10/9 scan." },
+            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"No posts. 1 → 0. No Slack mention in the 10/9 scan." },
             { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"Zero again. The owned brand handle still has no owner." }
+              reason:"Zero again. The owned brand handle still has no owner — and Nigel wants to port the ~$6/trial Meta messaging to organic X." }
         ],
         midTier: [
-            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:7, reason:"7 pts · 6 tweets · 115K impressions — highest reach on the board, flat vs 10/05" },
-            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:5, reason:"5 pts · 4 tweets · 15K impressions — down from 9 after Matt's 10/06 catch-up" },
-            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:4, reason:"4 pts · 2 tweets · 12 replies — booking #nba-talent-guests" },
-            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:4, reason:"4 pts · 3 tweets — up from 1, but 1.1K impressions" },
-            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:4, reason:"4 pts · 2 tweets — up from 1" },
-            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:3, reason:"3 pts · 2 tweets — down from 11" },
-            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:3, reason:"3 pts · 3 tweets — back from 0" },
-            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:1, reason:"1 pt · 1 tweet" },
-            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:1, reason:"1 pt · 1 tweet · 7.2K impressions" }
+            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:7, reason:"7 pts · 5 tweets · 209K impressions — up from 4; highest reach on the board, NBAFantasyBible collab >10K views" },
+            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:5, reason:"5 pts · 6 tweets · 155K impressions — down from 7" },
+            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:5, reason:"5 pts · 5 tweets · 81K impressions — flat" },
+            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:4, reason:"4 pts · 3 tweets — flat" },
+            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:4, reason:"4 pts · 3 tweets — flat, 2.1K impressions" },
+            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:3, reason:"3 pts · 3 tweets — flat; AI access restored 10/8" },
+            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:1, reason:"1 pt · 1 tweet — busy booking NBA guests (Titus, Bydlon)" },
+            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:1, reason:"1 pt · 1 tweet — back from 0" }
         ]
     },
     // Cycle
