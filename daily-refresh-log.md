@@ -2765,4 +2765,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Validation (mktemp -d script): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`, DATA evaluates (110 attention cards, 38 deals).
 - Encrypted index.html: `✓ 1,547,110 chars → 2,115,318 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 10/10 ABSENT (`const DATA`, Coventry, Gannett, 71,810, Pipeline Note, Nick P, Chona, Kalshi, scorecard, Novig).
 - **Would-have-notified (not sent):** new red attention card (10/14 critical: $400k Sept miss, 5Y due today, Novig claim vs data); deal stage change (Bet365 signed, LaLiga terms agreed); 9+ day silent leads (Nick P, Brian S, Jeremy T at 31 days); creator scoreboard returned stale. Did not fire: forecast unmoved, Slack fresh, NR delta 0, encryption OK.
-- auto-push.log: see verification line below.
+- auto-push.log: ✅ WatchPaths pushes at 04:08:05 MDT (`89ec761`), 04:10:48 (`72b5d4f`) and 04:12:29 (`6d0b2fa`: this log), all `pushed`. Deploy confirmed.
