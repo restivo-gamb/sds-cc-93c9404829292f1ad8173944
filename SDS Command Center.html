@@ -1731,7 +1731,7 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
         </div>
         <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
-                <strong style="color: var(--text-primary);">Pipeline Note:</strong> <strong style="color:var(--purple);">Thu 10/15 · Late run (09:30 MDT). No overnight Slack scan; scorecard and creators fresh.</strong> <strong>Slack</strong>: <span style="color:var(--orange, #c2410c);">no 10/15 scan</span>. The 1 AM ingest did not run (no Daily Ingest file for 10/15), so the newest window is Oct 13–14 (~32h old, absorbed yesterday). Not yet stale (&lt;48h), but Wednesday is unread. <strong>Scorecard</strong>: full re-export via the Drive connector; modifiedTime 10/14 20:40Z; W3 16G/2Y/0R/57NR (Ryan +4G). <strong>Creators</strong>: fresh (generated_at 10/15 15:20Z); Wed 10/14 scored at 59 pts; Tue 10/13 was never scored. <strong>Forecast</strong>: still v27 ($71.81M); no new file in finance/ or __inbox, but Pedro is editing a live weekly sheet (per his 10/15 DM). Meeting notes: Gemini 7 days old (10/8), Granola 71 days. Still broken: the NFL timeline fetch (needs one URL paste).
+                <strong style="color: var(--text-primary);">Pipeline Note:</strong> <strong style="color:var(--purple);">Thu 10/15 · Late run (09:22 MDT). No overnight Slack scan; scorecard and creators fresh.</strong> <strong>Slack</strong>: <span style="color:var(--orange, #c2410c);">no 10/15 scan</span>. The 1 AM ingest did not run (no Daily Ingest file for 10/15), so the newest window is Oct 13–14 (~32h old, absorbed yesterday). Not yet stale (&lt;48h), but Wednesday is unread. <strong>Scorecard</strong>: full re-export via the Drive connector; modifiedTime 10/14 20:40Z; W3 16G/2Y/0R/57NR (Ryan +4G). <strong>Creators</strong>: fresh (generated_at 10/15 15:20Z); Wed 10/14 scored at 59 pts; Tue 10/13 was never scored. <strong>Forecast</strong>: still v27 ($71.81M); no new file in finance/ or __inbox, but Pedro is editing a live weekly sheet (per his 10/15 DM). Meeting notes: Gemini 7 days old (10/8), Granola 71 days. Still broken: the NFL timeline fetch (needs one URL paste).
             </div>
         </div>
     </div>
@@ -2045,7 +2045,7 @@ const DATA = {
     // NR delta 0. The 12:39 edit touched no status cell. Sheet now ~21h without an edit; only Ahti + Jason/Tim (+ MTS, '???' talent) in W3.
     // 🔴 ESCALATION CANDIDATES, 31 days with no C6 cell: Nick P 11 · Brian S 10 (+1 Talent-OJ) · Jeremy T 9.
     // Chip green = our sync, NOT sheet age (sheet ~21h cold).
-    // ─── 2026-10-15 (THU — C6 BOARD WEEK 3, DAY 3 · calendar wk 5 · cycle day 32) — synced ~09:30 MDT (late run), full re-export
+    // ─── 2026-10-15 (THU — C6 BOARD WEEK 3, DAY 3 · calendar wk 5 · cycle day 32) — synced ~09:22 MDT (late run), full re-export
     // (Drive MCP → tool-results mount → openpyxl col-D fill). Source modifiedTime 2026-10-14T20:40:15Z (~19h before this read).
     // W3 G 16 / Y 2 / R 0 / NR 57 / 75 = 24.0% (was 12/2/0/61 = 18.7%). NR −4. The whole move is RYAN W: B2B SALES/OPS 4/4 green.
     // W2 (col E) 32/3/0/40 and W1 (col F) 21/0/0/54 unchanged. Still no reds. Still no W3 cell from Kevin O/Tim, Tyler, Samuel,
@@ -2080,7 +2080,7 @@ const DATA = {
         // ESCALATION: Nick P — largest dark block, 6 windows Slack-silent, successor board 19d overdue,
         // retention answer 16d, AND the Underdog dashboard he owns was due EOD 10/05.
         // No Reds raised all cycle at 28.8% reporting = absence of DATA, not absence of problems.
-        lastSynced: "2026-10-15T09:30:00-06:00",
+        lastSynced: "2026-10-15T09:22:00-06:00",
         prevSynced: "2026-10-14T03:50:00-06:00"
     },
 
@@ -4131,7 +4131,7 @@ const DATA = {
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
         date: "2026-10-14",
-        // ✅ 2026-10-15 09:30 MDT (late run): WORKER FRESH. generated_at "2026-10-15T15:20:56.394Z" vs "2026-10-13T12:35:41.505Z".
+        // ✅ 2026-10-15 09:22 MDT (late run): WORKER FRESH. generated_at "2026-10-15T15:20:56.394Z" vs "2026-10-13T12:35:41.505Z".
         // days=1 returned TWO entries: history[0] = Thu 10/15 (IN PROGRESS, AM pass only) and history[1] = Wed 10/14 (complete).
         // date set to 2026-10-14, the complete day, NOT history[0] — scoring a 3-hour-old Thursday would read as a collapse.
         // ⚠️ TUE 10/13 WAS NEVER SCORED by this dashboard (two stale 200s, now rolled out of the window). One lost day.
@@ -4204,7 +4204,7 @@ const DATA = {
         // Dustin 0→6, EVBettors 3→7, Barutha 2→5, Whalen 0→2, McKechnie 0→1, Anderson 0→1; Billy 3→1; Halterman 5→0.
         // Triggers: goal-hitter→0 not evaluable (nobody can hit the gate); no pod >50% zero (OJ 1/4, RW 1/8; DGF n=1 excluded);
         // Clark Gary (Matt catch-up TODAY) is 9 pts, not a laggard.
-        ingestedAt: "2026-10-15T09:30:00-06:00",
+        ingestedAt: "2026-10-15T09:22:00-06:00",
         totals: { allPoints: 59, allHit: 0, allTotal: 13,
                   ojPoints: 11, ojTotal: 4, rwPoints: 35, rwTotal: 8 },
         leaders: [
@@ -4243,7 +4243,7 @@ const DATA = {
         start: "2026-09-14",
         end: "2026-10-23",         // C6 runs Sep 14 – Oct 23 (6-week cadence, per Pedro's 9/3 tracker link)
         keyDates: [
-            { date: "October 15 (Thu — TODAY · ⏹ C6 SCORECARD BOARD WEEK 3, DAY 3 / CALENDAR WEEK 5, DAY 32 · W3 18.7% → 24.0%, RYAN FILLED B2B) · 📭 NO OVERNIGHT SLACK SCAN — WEDNESDAY'S 5Y RECONFIRM / GAVIN CALL OUTCOMES UNREAD · 💵 PEDRO EDITING THE LIVE WEEKLY (B2B DEC 1.4 → 1.2) — NO v28 FILE · 📊 GENIUS QUOTE + SP MIGRATION SPIKE DUE TODAY · 🎙️ CREATORS FRESH: WED 59 PTS, DUSTIN 13 / COVENTRY 10", label: "Late run (09:30 MDT). The 1 AM ingest did not run, so the newest Slack is the Oct 13–14 window (already absorbed yesterday). Pedro's 10/15 DM (read by the forecast-grab task) confirms he is changing the forecast in a shared live sheet; the dashboard cannot see it until a file is posted. Scorecard moved for the first time since 10/13 (Ryan W 4/4 green). Creators back to fresh after two stale days; Tue 10/13 never scored." },
+            { date: "October 15 (Thu — TODAY · ⏹ C6 SCORECARD BOARD WEEK 3, DAY 3 / CALENDAR WEEK 5, DAY 32 · W3 18.7% → 24.0%, RYAN FILLED B2B) · 📭 NO OVERNIGHT SLACK SCAN — WEDNESDAY'S 5Y RECONFIRM / GAVIN CALL OUTCOMES UNREAD · 💵 PEDRO EDITING THE LIVE WEEKLY (B2B DEC 1.4 → 1.2) — NO v28 FILE · 📊 GENIUS QUOTE + SP MIGRATION SPIKE DUE TODAY · 🎙️ CREATORS FRESH: WED 59 PTS, DUSTIN 13 / COVENTRY 10", label: "Late run (09:22 MDT). The 1 AM ingest did not run, so the newest Slack is the Oct 13–14 window (already absorbed yesterday). Pedro's 10/15 DM (read by the forecast-grab task) confirms he is changing the forecast in a shared live sheet; the dashboard cannot see it until a file is posted. Scorecard moved for the first time since 10/13 (Ryan W 4/4 green). Creators back to fresh after two stale days; Tue 10/13 never scored." },
             { date: "October 14 (Wed — recap · ⏹ C6 SCORECARD BOARD WEEK 3, DAY 2 / CALENDAR WEEK 5, DAY 31 · W3 18.7%, NO MOVEMENT) · 💵 SEPT ~$400K UNDER FORECAST — 5-YEAR PLAN RECONFIRM DUE EOD (GAVIN CALL ~9AM ET) · 🔴 NOVIG CLAIM vs ~$2K BOOKED · ⚖️ GANNETT SPM AMENDMENT REPLY + AIO BLOCK · 📊 GENIUS QUOTE + SP MIGRATION SPIKE DUE THU", label: "Monday and Tuesday both read today. Yesterday's 'no Monday scan' was a timing miss: the Oct 12–13 scan landed at the same minute as the 10/13 refresh. Monday: Bet365 × OO SIGNED; OJ trial-to-paid back under 10%; Clarity proxy cutoff being handled by Vincenzo. Tuesday: Kevin flagged a ~$400k September miss; three pods cut forecasts; 2027 plan pages handed out (Tim's slips to Fri). LaLiga terms agreed, waiting on Kevin. Creators feed stale (Tue unscored)." },
             { date: "October 13 (Tue — recap ·⏹ C6 SCORECARD BOARD WEEK 3, OPENED THIS MORNING / CALENDAR WEEK 5, DAY 30 · W2 CLOSED AT 46.7%) · 📭 NO MONDAY SLACK SCAN — HOST OFFLINE OVERNIGHT, GANNETT LIST-DAY OUTCOME UNREAD · 🩺 DR. CHONA ANNOUNCED TODAY · 📊 MBR STILL PENDING (CUBE MAPPING) · ⏹ W3 PROVISIONAL 12G/2Y/61NR, NICK P / BRIAN S / JEREMY T 0 CELLS AT 30 DAYS · 🎙️ CREATORS 50 PTS (COVENTRY 13) · 💵 v27 HOLDS ($71.81M)" },
             { date: "October 12 (Mon — recap · ⏹ C6 SCORECARD BOARD WEEK 2, W3 NOT OPENED / CALENDAR WEEK 5, DAY 29 · W2 CLOSED AT 40%) · 📰 WEEKEND SCAN ABSORBED (IT LANDED LATE, AFTER LAST NIGHT'S REFRESH) · ⚖️ GANNETT SPM LIST FINALIZES TODAY — 13 OPERATORS, LATER ADDITIONS NEED GANNETT CONSENT, MATT SILENT IN THREAD · ⚖️ 'CONSENSUS LINE' UNDEFINED IN MATT'S FBM QUESTION (OJ EV FORMULA vs OO OPTICAI) · 💰 BET-VOL: NO DASHBOARD, KALSHI COMMERCIALS UNKNOWN, SEPT $ INVOICING OPEN · 🔴 RW TRACKER 6TH MISS (−132 vs +34) · 🩺 DR. CHONA ANNOUNCED TUE — JAGGER CREDIT + RYAN INJURY EMAIL NEED SEQUENCING · 📊 MBR DECKS ~5 DAYS LATE · ⏹ SCORECARD ~140H COLD · 🎙️ CREATORS CARRIED (STALE 200) · 💵 v27 HOLDS ($71.81M)" },
