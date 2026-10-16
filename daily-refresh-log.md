@@ -2782,3 +2782,30 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html: `✓ 1,553,115 chars → 2,123,618 chars` (AES-256-CBC, PBKDF2 250k). Encrypted twice (second after correcting timestamps 09:30 → 09:22 so the chips weren't future-dated). Leak probe 10/10 ABSENT (`const DATA`, Coventry, Gannett, 71,810, Pipeline Note, Nick P, Pedro, Genius, scorecard, Novig).
 - auto-push.log: ✅ WatchPaths push at 09:24:23 MDT (`9b646ee..00699fe`, `pushed`); an earlier push at ~09:23 carried the first encrypt. Deploy confirmed.
 - **Would-have-notified (not sent):** 9+ day silent leads (Nick P, Brian S, Jeremy T at 32 days). Did not fire: no new red card, forecast unmoved, no deal change, Slack <48h (but 1 AM ingest missed), NR delta −4, creators fresh, encryption OK, auto-push fired.
+
+## 2026-10-16
+
+- On-time run (~05:38–05:45 MDT). Header `Updated: Oct 16, 2026`. Cycle chip `Cycle 6 · Sep 14 – Oct 23` still correct.
+- forecastMeta.ingestedAt: unchanged `2026-10-05T14:05-06:00` (no new forecast) · scorecard.lastSynced: `2026-10-16T05:45-06:00` (prev 10/15 09:22) · creators.ingestedAt: **NOT bumped**, still `2026-10-15T09:22-06:00` (frozen worker)
+- **Forecast scan:** `find gamb -iname "2026 SDS Revenue*Forecasting*.xlsx" -newer (27)` → none. `__inbox` root has only `_index.md` + `.DS_Store`; `_archive/` unchanged. Legacy repo folder: none. Pedro grab log 10/15 23:30: v26 is still his newest file, md5 `20ae6735…` = (27). Highest is **(27)**; no move, no EDEADLK. Revenue Pulse static HTML untouched. ⚠️ The real forecast moved off-file: Matt's 10/15 changelog says **$71.8M → $69.0M (−$2.8M vs Oct 1)** (OO −$1.3M, OJ subs −$770k, RW subs −$290k, Local −$246k, Partnerships −$200k, RW B2B −$94k). No xlsx exists, so the dashboard still shows v27 $71.81M. This is called out in the card, Pipeline Note and keyThemes, not written into DATA.forecast.
+- **Slack:** fresh. Oct 15 15:30Z → Oct 16 07:06Z, 0 failures. New top card **FRI 10/16 (`critical`)**:
+  - Kevin's 2027-by-quarter review on conflicting numbers: OJ Sept $887k / $954k / ~$1.0M; found Optic $215k / $150k / $0.2M / $50k; Optic fixed fee $1.879M vs $1.985M+; credit-refi conservatism vs "adjusting up".
+  - Pedro's last FTE day: MBR-script migration unanswered; Ramp approval missing from the JD.
+  - PX pulled paid deep-links after ISV; Ryan now owns it.
+  - Swish evidence to counsel before the Mon 10/19 deposition.
+  - Affiliate Sept: Bookies + Local pacing ~−$6.7M; Gannett record but Oct PM $50k.
+  - Stats Perform 11/47 leagues; Meta 28-day window.
+- **Deals:** new **PX** entry (hot). Stats Perform detail + stageLabel updated (renewal leverage, Genius + SP answers Fri). Gannett detail prefixed with Sept $790k / Oct $50k forecast. keyDates 10/15 → recap, 10/16 TODAY added (Sep 16 – Oct 4 gap marker untouched). keyThemes top entry added. Pipeline Note rewritten.
+- **RW-NEWS PROGRESS:** no channel activity; all from the Nick DM. Bottleneck is monitor → editor-open (~1:16). KOB's Twitter-first workflow: Matt said "change TODAY", no confirmation. "Trusted templates" contradicts 10/14's "launched". vs-Underdog feed ~11 days late. Sales is dropping speed claims. All carried into the card.
+- **Meeting notes:** Gemini newest **8 days old** (2026-10-08 New Growth Meeting). Granola newest **72 days old** (2026-08-05). Dead.
+- **Scorecard:** C6 (2nd tab `C6 SCORECARD`), **board week 3, day 4** (calendar week 5, day 33). Drive modifiedTime `2026-10-15T23:12:39Z` (moved since the last read) → full re-export (Drive MCP → tool-results mount → openpyxl col-D fill, 75 col-C-named rows). **W3 16G/2Y/0R/57NR /75 = 24.0%, unchanged (NR Δ 0).** W2 32/3/0/40 and W1 21/0/0/54 also unchanged, so the 23:12Z edit wasn't a status cell. 0 reds. Escalation (33 days, zero C6 cells): Nick P 11, Brian S 11, Jeremy T 9.
+- **Creators: FROZEN.** generated_at `2026-10-15T15:20:56.394Z` is byte-identical to the 10/15 pull. DATA.creators carried forward (date 2026-10-14) and ingestedAt not bumped. **Thu 10/15 is unscored** (payload only had a partial AM: Dustin 2, Coventry 2, everyone else 0 with analysis:false). Classifier is still "Could not classify posts.", so goal triggers are not evaluable.
+- Validation (mktemp -d script): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`. DATA evaluates (112 attention cards, 39 deals). Caught and fixed one bad Edit (stray `",` + newline in two deal-detail prefixes) before encrypting.
+- Encrypted index.html: `✓ 1,563,236 chars → 2,137,398 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 10/10 ABSENT (`const DATA`, Coventry, Gannett, 71,810, Pipeline Note, Nick P, Pedro, `PX (OJ`, scorecard, Swish).
+- auto-push.log: ✅ WatchPaths pushes 05:39–05:41 (html edits) and **05:42:28 `8807441..4eb0938` index.html, `pushed`**. Deploy confirmed. This log append will trigger one more push.
+- **Would-have-notified (not sent):**
+  - New red attention card (FRI 10/16 critical)
+  - Deal stage change (PX deep-link pulled)
+  - 9+ day silent leads (Nick P, Brian S, Jeremy T at 33 days)
+  - Creator Scoreboard returned stale
+  - Did not fire: forecast file unmoved (but off-file −$2.8M), Slack fresh, NR Δ 0, encryption OK, auto-push fired.
