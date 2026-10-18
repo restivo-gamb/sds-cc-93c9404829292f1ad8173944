@@ -2828,3 +2828,23 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - New red attention card (SAT 10/17 critical)
   - 9+ day silent leads (Nick P, Brian S, Jeremy T at 34 days)
   - Did not fire: forecast file unmoved (live number moved off-file), no deal stage change, Slack fresh, NR Δ −4, creators fresh (no pod >50% zero; no zero-laggard named in Matt DMs; goal-hitter→0 not evaluable), encryption OK, auto-push fired.
+
+## 2026-10-18
+
+- On-time run (~05:44–06:25 MDT). Header `Updated: Oct 18, 2026`. Cycle chip `Cycle 6 · Sep 14 – Oct 23` still correct.
+- forecastMeta.ingestedAt: unchanged `2026-10-05T14:05-06:00` (no new forecast) · scorecard.lastSynced: `2026-10-18T05:50-06:00` (prev 10/17 05:40) · creators.ingestedAt: `2026-10-18T05:50-06:00` (fresh)
+- **Forecast scan:** `find gamb -iname "2026 SDS Revenue*Forecasting*.xlsx" -newer (27)` → none. `__inbox` root: `_index.md`, `_archive/`, `.DS_Store` only. Legacy repo folder: none. Pedro grab log 10/17: v26 still his newest, md5 = (27). Highest **(27)**; no move, no EDEADLK. Revenue Pulse static HTML untouched. Stray `Downloads/…(10).xlsx` still unconfirmed, not ingested.
+- **Slack:** fresh. Oct 17 07:10Z → Oct 18 07:40Z, 0 failures (Ryan DM timeout recovered); 4 active channels (weekend floor). New top card **SUN 10/18 (`critical`)**: RW Bot Slack account deactivated Sat (soccer integrity alerts silent over NFL Sunday; with IT; check offboarding sweep), RW sub tracker non-reconciling (−7 / +11 / +13), deposition Mon (Matt in SF), RW-news "ONE number 8%" undefined + X API keys from Vincenzo, baseball hire (Theo's "is Monday OK?" waiting on Matt), Optic rights still unanswered, Genius slipped (contact in Spain).
+- **Deals:** Stats Perform (Ryan "messy contractually"; Genius slip) and PX (3 days quiet) detail prefixed. No stage changes. keyDates 10/17 → recap, 10/18 TODAY added (Sep 16 – Oct 4 gap marker untouched). keyThemes top entry added. Pipeline Note rewritten.
+- **RW-NEWS PROGRESS:** nothing shipped Sat. In flight: more X API keys (Nick → Vincenzo, not yet asked); 8% north-star (metric unnamed in writing); Nick's metrics update Mon 10/19. Stale: KOB Twitter-first; vs-Underdog feed ~13 days. "2 days in" question now answered. Carried into the card.
+- **Meeting notes:** Gemini newest **10 days old** (2026-10-08 New Growth Meeting). Granola newest **74 days old** (2026-08-05). Dead.
+- **Scorecard:** C6 (2nd tab `C6 SCORECARD`), **board week 3, day 6** (calendar week 5, day 35 — closes tonight). Drive metadata: modifiedTime `2026-10-16T13:07:02Z`, identical to the file fully re-exported 10/17 (~47h since last edit) → counts carried exactly, lastSynced bumped (verified-unchanged, not a failed sync). **W3 18G/4Y/0R/53NR /75 = 29.3%, NR Δ 0.** Escalation (35 days, zero C6 cells): Nick P 11, Brian S 11, Jeremy T 9. yellowLeaders unchanged.
+- **Creators: FRESH.** generated_at `2026-10-18T11:44:31.722Z` (was `2026-10-17T11:37:15.588Z`). history[0] = Sat 10/17 (complete). No day lost. Total 59 → 45. Coventry 11 the only one over 10 on points; nobody at 8–9. 0/13 = unmeasured (classifier still "Could not classify posts.", 0 pushes). Up: Erickson 0→5. Down: Dustin 11→7, Clark 8→4, Billy 7→2, Barutha 6→2. Laggards: Anderson (2nd zero day), Whalen, OddsJam.
+- Validation (mktemp -d copy): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`. DATA evaluates (114 attention cards, 39 deals).
+- Encrypted index.html: `✓ 1,583,678 chars → 2,165,326 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 9/9 ABSENT (`const DATA`, Coventry, RW Bot, 71,810, Pipeline Note, Nick P, Pedro, Zdroik, Swish).
+- auto-push.log: ✅ WatchPaths push at 06:17:16 MDT (`15613f7..a781136`, 2 files, `pushed`). Deploy confirmed. This log append triggers one more push.
+- **Would-have-notified (not sent):**
+  - New red attention card (SUN 10/18 critical — RW Bot down, sub tracker non-reconciling)
+  - 9+ day silent leads (Nick P, Brian S, Jeremy T at 35 days)
+  - Creator named in an active Matt DM showing as a 0-pt laggard: James Anderson (RealJRAnderson, probable mapping; Matt→Theo Sat night)
+  - Did not fire: forecast unmoved, no deal stage change, Slack fresh, NR Δ 0, creators fresh (no pod >50% zero; goal-hitter→0 not evaluable), encryption OK, auto-push fired.
