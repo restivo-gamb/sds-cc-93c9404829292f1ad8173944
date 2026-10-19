@@ -2867,3 +2867,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Scorecard NR Δ −12 (W3 like-for-like; ≥±10)
   - Creator named in an active Matt DM showing as a 0-pt laggard: James Anderson (probable mapping; DM from Sat, not re-confirmed)
   - Did not fire: forecast unmoved, no new red card (today's is warning), no deal stage change, Slack ~30h (not Day 3), creators fresh, RW zero share 4/8 = 50% (not >50%), goal-hitter→0 not evaluable, encryption OK.
+- auto-push.log verification: ✅ WatchPaths pushes at 06:42 and 06:43:09 PDT (`…1229eef..6af8e97`, 3 files, `pushed`). Network is back, so the 05:32 DNS failure was transient (nothing was pending). This line triggers one more push.
