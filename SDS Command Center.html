@@ -4297,32 +4297,48 @@ const DATA = {
         // Dustin 0→6, EVBettors 3→7, Barutha 2→5, Whalen 0→2, McKechnie 0→1, Anderson 0→1; Billy 3→1; Halterman 5→0.
         // Triggers: goal-hitter→0 not evaluable (nobody can hit the gate); no pod >50% zero (OJ 1/4, RW 1/8; DGF n=1 excluded);
         // Clark Gary (Matt catch-up TODAY) is 9 pts, not a laggard.
-        date: "2026-10-17",
-        ingestedAt: "2026-10-18T05:50:00-06:00",
-        totals: { allPoints: 45, allHit: 0, allTotal: 13,
-                  ojPoints: 8, ojTotal: 4, rwPoints: 30, rwTotal: 8 },
+        // ✅ 2026-10-19 ~06:40 PDT: WORKER FRESH. generated_at "2026-10-19T13:39:41.618Z" vs "2026-10-18T11:44:31.722Z".
+        // days=1 returned history[0] = Mon 10/19 (IN PROGRESS, all analysis:false) and history[1] = Sun 10/18 (complete).
+        // date set to 2026-10-18, the complete day, NOT history[0] (same rule as 10/15). No day lost.
+        // 🔴 CLASSIFIER STILL BROKEN, ~22nd day: 0 pushes credited to anyone. 0/13 = UNMEASURED, not unmet.
+        // Erickson 11 and Jagger 11 cleared 10 on POINTS; Coventry 9 is edge-of-goal. All on_target:false on the push gate only.
+        // Movement vs the PRIOR RUN's recorded values (Sat 10/17), not trend_delta: total 45 → 53 (NFL Sunday).
+        // Up: Erickson 5→11, Jagger 5→11, Clark 4→7, EVBettors 2→3, Barutha 2→3. Flat: Dustin 7, Billy 2, Anderson 0, OddsJam 0, Whalen 0.
+        // Down: Coventry 11→9, Halterman 4→0, McKechnie 3→0.
+        // tweets/replies below are the API's 2-day window totals (Sun + Mon so far); per-day counts are not in the payload.
+        // Triggers: goal-hitter→0 not evaluable (nobody on_target 10/17); pod >50% zero: RW 4/8 = exactly 50%, NOT >50%;
+        // OJ 1/4; DGF n=1 excluded. 0-pt laggard named in a Matt DM: Anderson (probable mapping) was named Sat night; no newer
+        // Slack scan exists (1 AM 10/19 ingest did not run), so this carries from 10/18, not re-confirmed.
+        date: "2026-10-18",
+        ingestedAt: "2026-10-19T06:40:00-07:00",
+        totals: { allPoints: 53, allHit: 0, allTotal: 13,
+                  ojPoints: 12, ojTotal: 4, rwPoints: 34, rwTotal: 8 },
         leaders: [
-            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:11, tweets:9, replies:23, likes:15, rts:3, onTarget:false,
-              reason:"Only creator to clear 10 on points Saturday (13 → 11), again with the most replies; off-target only because the push classifier credits nobody." }
+            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:11, tweets:19, replies:7, likes:109, rts:2, onTarget:false,
+              reason:"Cleared 10 on points Sunday (5 → 11), the most tweets on the board; off-target only because the push classifier credits nobody." },
+            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:11, tweets:7, replies:8, likes:1435, rts:29, onTarget:false,
+              reason:"Cleared 10 on points Sunday (5 → 11) with by far the most engagement (69K impressions); push gate unmeasured." },
+            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:9, tweets:7, replies:8, likes:9, rts:0, onTarget:false,
+              reason:"Edge of goal: 9 pts (down from 11), one product push short on paper." }
         ],
         laggards: [
-            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"Zero for a second straight day. Probably the James Anderson you named to Theo Saturday night when talking about replacing someone on baseball." },
+            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:1, likes:0, rts:0, onTarget:false,
+              reason:"Zero for a third straight day. Probably the James Anderson you named to Theo Saturday night about replacing someone on baseball." },
+            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:0, tweets:0, replies:1, likes:2, rts:0, onTarget:false,
+              reason:"Down from 4 to zero; no scored posts Sunday. No Slack read covers Sunday." },
+            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:0, tweets:0, replies:1, likes:1, rts:0, onTarget:false,
+              reason:"Down from 3 to zero on an NFL Sunday, his core slate. Tim Schuler owns his accountability." },
             { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"Down from 1 to zero; no posts Saturday. Not named in Saturday's Slack or DMs." },
+              reason:"Zero for a second straight day; no posts in the window." },
             { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
               reason:"No posts again; the owned brand handle has been at zero every scored day. Still no owner." }
         ],
         midTier: [
-            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:7, reason:"7 pts · 6 tweets · 2 replies · 16K impressions — down from 11. NOT Dustin McComas (RW candidate)" },
-            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:5, reason:"5 pts · 5 tweets · 2 replies — up from 0" },
-            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:5, reason:"5 pts · 3 tweets · 1 reply · 8K impressions — up from 4" },
-            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:4, reason:"4 pts · 3 tweets · 1 reply — up from 3" },
-            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:4, reason:"4 pts · 3 tweets · 6K impressions — down from 8" },
-            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:3, reason:"3 pts · 4 tweets · 1.9K impressions — flat" },
-            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:2, reason:"2 pts · 1 tweet · 6 replies · 24K impressions — down from 6" },
-            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:2, reason:"2 pts · 2 tweets · 3K impressions — down from 7" },
-            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:2, reason:"2 pts · 2 tweets · 16K impressions — down from 3" }
+            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:7, reason:"7 pts · 8 tweets · 27K impressions — up from 4" },
+            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:7, reason:"7 pts · 6 tweets · 2 replies · 11K impressions — flat. NOT Dustin McComas (RW candidate)" },
+            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:3, reason:"3 pts · 4 tweets · 35K impressions — up from 2" },
+            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:3, reason:"3 pts · 3 tweets · 21K impressions — up from 2" },
+            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:2, reason:"2 pts · 2 tweets · 6K impressions — flat" }
         ]
     },
     cycle: {
