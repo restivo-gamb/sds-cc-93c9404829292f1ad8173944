@@ -929,7 +929,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Oct 18, 2026</span>
+            <span id="lastUpdated">Updated: Oct 19, 2026</span>
         </div>
     </div>
 
@@ -1366,7 +1366,7 @@
                     </div>
                 </div>
                 <div id="snap-scorecardIntro" style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; padding: 6px 10px; background: var(--bg-input); border-radius: 8px; border-left: 3px solid var(--red);">
-                    <strong style="color:var(--text-primary);">⏹ C6 · SCORECARD BOARD WEEK 3, DAY 6 (calendar wk 5, day 35) · W3 29.3%, NO MOVEMENT · SHEET UNEDITED ~47H</strong> — Drive metadata this morning: modifiedTime is still Fri 10/16 13:07Z, the same file read in full yesterday, so counts carry exactly: <strong>18G / 4Y / 0R / 53NR /75</strong> (NR 0). It&rsquo;s the weekend, but every NR row is silent by definition. W3 reporters: Ryan W (4/4), Jason/Tim (5/5), Ahti (5G/2Y), Steven (2G/2Y). Kevin O/Tim, Tyler, Samuel, Jacqui, Craig, Randall/Bryan and Scott are still blank on day 6. <strong style="color:var(--red);">Escalation candidates: Nick P (11), Brian S (11) and Jeremy T (9) are at 35 days with no cell in any C6 week.</strong> No reds. Calendar week 5 closes tonight; the board runs two weeks behind, and C6 ends Fri 10/23.
+                    <strong style="color:var(--text-primary);">⏹ C6 · SCORECARD BOARD WEEK 4, DAY 1 (calendar wk 6, day 36) · W4 OPENED THIS MORNING · W3 CLOSED 45.3% (FROM 29.3%)</strong> — The sheet was being edited at pull time (modifiedTime 13:39Z today), so treat this as provisional. W4 was inserted at column D and is empty (0/75); that&rsquo;s the week roll, not a regression. Five owners backfilled W3 this morning, all green: <strong>Tyler H 3, Samuel Hill 3, Jacqui K 2, Randall K/Bryan R 2, Craig C 2</strong> (Craig&rsquo;s first cell since W1). W3 final: <strong>30G / 4Y / 0R / 41NR /75</strong> (NR −12). Still blank in W3: Kevin O/Tim S (RW News, 5), Scott (4), Ahti&rsquo;s Alternate lines (1). <strong style="color:var(--red);">Escalation candidates: Nick P (11), Brian S (11) and Jeremy T (9) are at 36 days with no cell in any C6 week.</strong> No reds. W4 is C6&rsquo;s last week, so it ends Fri 10/23. The board is still two weeks behind the calendar.
                 </div>
 
                 <!-- RED FLAG -->
@@ -2074,9 +2074,20 @@ const DATA = {
     // so counts carry exactly: W3 G 18 / Y 4 / R 0 / NR 53 / 75 = 29.3%. NR delta 0. Weekend: every NR row is silent by definition.
     // 🔴 ESCALATION CANDIDATES, 35 days with no C6 cell: Nick P 11 · Brian S 11 · Jeremy T 9. C6 ends Fri 10/23.
     // Chip green = our sync, NOT sheet age (sheet ~47h since last edit). Recommended fix still open: key the chip off modifiedTime.
+    // ─── 2026-10-19 (MON — C6 BOARD WEEK 4, W4 OPENED THIS MORNING · calendar wk 6, day 36) — synced ~06:40 PDT, full re-export
+    // (Drive MCP → tool-results mount → openpyxl, data_only, fill.fgColor). Source modifiedTime 2026-10-19T13:39:16Z — the sheet
+    // was being edited AT pull time, so this read is PROVISIONAL. Tab 2 still 'C6 SCORECARD'. Columns now D=W4 · E=W3 · F=W2 · G=W1;
+    // Group/Pod/Owners/Updated/Notes shifted to H/I/J/K/M. 75 col-C-named rows.
+    // W4 (col D): 0G/0Y/0R/75NR — a fresh empty column inserted this morning. The week roll, NOT a regression; do not escalate it.
+    // DATA.scorecard below carries W3 FINAL (col E) so the delta is like-for-like against the W3 values read 10/17–10/18:
+    // W3 G 30 / Y 4 / R 0 / NR 41 / 75 = 45.3% (was 18/4/0/53 = 29.3%). NR −12, all green, 12 rows Updated 2026-10-19:
+    // Tyler H 3 · Samuel Hill 3 · Jacqui K 2 · Randall K/Bryan R 2 · Craig C 2 (Craig's first cell since W1). W2 32/3/0/40, W1 21/0/0/54 unchanged.
+    // Still dark in W3: Nick P 11 · Brian S 11 · Jeremy T 9 · Kevin O/Tim S (RW NEWS) 5 · Scott 4 · Ahti 1 (Alternate lines).
+    // 🔴 ESCALATION CANDIDATES, 36 days with no C6 cell: Nick P 11 · Brian S 11 · Jeremy T 9. C6 ends Fri 10/23 (W4 is the last week).
+    // Kevin O/Tim S: W2 green, W3 closed blank. Scott: 1 cell all cycle (W2).
     scorecard: {
-        green: 18, yellow: 4, red: 0, notReported: 53, total: 75,   // W3 col D, confirmed 10/18 (sheet unedited since 10/16 13:07Z)
-        prevGreen: 18, prevYellow: 4, prevRed: 0, prevNotReported: 53, prevTotal: 75,   // W3 as read 10/17
+        green: 30, yellow: 4, red: 0, notReported: 41, total: 75,   // W3 FINAL (col E), read 10/19; W4 (col D) opened today, 0/75
+        prevGreen: 18, prevYellow: 4, prevRed: 0, prevNotReported: 53, prevTotal: 75,   // W3 as read 10/18
         // ⚠️ CYCLE JUMP: the previous values on this dashboard (44G/6Y/1R/20NR/71) were C5 FINAL, frozen
         // 2026-09-15. The live tab has since rolled to C6. prev* are set equal to current rather than to
         // the C5 numbers — a C5→C6 delta is a cycle boundary, not movement, and showing +23 NR would be a
@@ -2103,8 +2114,8 @@ const DATA = {
         // ESCALATION: Nick P — largest dark block, 6 windows Slack-silent, successor board 19d overdue,
         // retention answer 16d, AND the Underdog dashboard he owns was due EOD 10/05.
         // No Reds raised all cycle at 28.8% reporting = absence of DATA, not absence of problems.
-        lastSynced: "2026-10-18T05:50:00-06:00",
-        prevSynced: "2026-10-17T05:40:00-06:00"
+        lastSynced: "2026-10-19T06:40:00-07:00",
+        prevSynced: "2026-10-18T05:50:00-06:00"
     },
 
     // C4 BOOK-SIZE leaderboard (re-synced 2026-06-24 WED via col-D/W1 fill from the xlsx export). Largest books first; reporting status now starting to fill.
@@ -2117,17 +2128,18 @@ const DATA = {
     // 2026-10-15: Ryan W filled W3 (4/4 green) and is split out as a positive flag. Day counts → 32.
     // 2026-10-16: re-read, no fill moved (sheet edited 10/15 23:12Z, not a status cell). Day counts → 33.
     // 2026-10-17: Steven filled ODDS DATA W3 (2G/2Y), split out from Scott. Day counts → 34.
+    // 2026-10-19: W4 opened (col D, empty). Five owners backfilled W3 green (12 rows) and are grouped as a positive flag;
+    // Kevin O/Tim S split out as the one W2-green block still blank. Ryan W merged with Jason/Tim. Day counts → 36.
     yellowLeaders: [
-        { name: "🔴 Nick P", pod: "RW PRODUCT (11 · 0 cells in W1, W2 or W3 — 34 days)", yellows: 0, reds: 0, items: "ESCALATION. Largest dark book; W3 has been open five days and his block is still blank across all three weeks. Also owes Matt the news-speed plan ('what is the lever?' unanswered 10/13). Status exists in the RW news group DM (auto-drafts, KOB). Still owes the retention answer (~24d), the Underdog feed and the RW tracker fix (6 misses)." },
-        { name: "🔴 Brian S", pod: "GROWTH OPS OJ + RW + TALENT-OJ (11 · 0 cells in C6 — 34 days)", yellows: 0, reds: 0, items: "ESCALATION. Fully reported through C5, fully dark in C6. Active in Slack (bet-vol dashboard ask, L7 Meta CPA, RollCard), so the gap is the board, not engagement." },
-        { name: "🔴 Jeremy T", pod: "OJ PRODUCT (9 · 0 cells in C6 — 34 days)", yellows: 0, reds: 0, items: "ESCALATION. Has fresh status to paste (paper-trading internal release 3rd week of Oct, paywall tests, SharpR). The unowned 'OpticOdds MTS' row under OJ PRODUCT went GREEN in W3 — someone is filling it; assign it a name." },
-        { name: "🟡 Craig C", pod: "AFFILIATE (2 · W1 green, W2 closed blank, W3 blank)", yellows: 0, reds: 0, items: "Randall/Bryan backfilled W2; Craig did not. With the Poly-driven Bookies cut pending, his rows are the ones Matt most needs coloured." },
-        { name: "🟡 Scott", pod: "SPORTS DATA (4 · W2 1G/3NR, W3 dark)", yellows: 0, reds: 0, items: "One cell in W2, the first in two cycles; W3 still blank on day 5. Steven, who was paired with him here, filled his whole W3 block on 10/16." },
-        { name: "🟢 Steven", pod: "ODDS DATA (4/4 in W3 · 2G/2Y)", yellows: 2, reds: 0, items: "POSITIVE FLAG: filled all of W3 (Updated 10/15), his first full week in two cycles. Yellows: Start of Season (NBA/NCAAF/NFL) and a sharp-book alternative. Greens: BWIN/DK/Fanatics latency, high-% arb monitoring dashboard." },
-        { name: "🟡 Ahti", pod: "OPTIC PRODUCT (8 · W3 already 5G/2Y/1NR)", yellows: 2, reds: 0, items: "First owner into W3. Yellows carried: SGP v2 and Multi-market view for odds screen. 'Alternate lines' is the one W3 gap." },
-        { name: "🟢 Jason T · Tim S", pod: "RW FEATURES (5/5 green in W1, W2 and W3)", yellows: 0, reds: 0, items: "POSITIVE FLAG: filled W3 within minutes of it opening; green every week of C6." },
-        { name: "🟢 Ryan W", pod: "B2B SALES/OPS (OO/RW) (4/4 green in W1, W2 and W3)", yellows: 0, reds: 0, items: "POSITIVE FLAG: filled W3 on 10/14 (all 4 green), the only owner to move the board this week. Every C6 week fully reported." },
-        { name: "🟡 Kevin O/Tim S · Tyler H · Samuel Hill · Jacqui K · Randall K/Bryan R", pod: "RW NEWS 5 + SUBS 3 + OPTIC MKTG 3 + MEDIA 2 + B2C CS 2 (W2 fully green, W3 blank)", yellows: 0, reds: 0, items: "Closed W2 fully reported (Randall/Bryan via the backfill that was asked for); W3 still blank on day 5. Ryan and Steven have filled theirs, so the column is live. One nudge closes 15 rows before C6 ends 10/23." },
+        { name: "🔴 Nick P", pod: "RW PRODUCT (11 · 0 cells in W1, W2 or W3 — 36 days)", yellows: 0, reds: 0, items: "ESCALATION. Largest dark book; W3 closed blank and W4 (the last C6 week) opened today. Also owes Matt the news-speed plan and the Monday RW-news metrics update leading with the 8% number. Still owes the retention answer, the Underdog feed and the RW tracker fix." },
+        { name: "🔴 Brian S", pod: "GROWTH OPS OJ + RW + TALENT-OJ (11 · 0 cells in C6 — 36 days)", yellows: 0, reds: 0, items: "ESCALATION. Fully reported through C5, fully dark in C6. Active in Slack, so the gap is the board, not engagement." },
+        { name: "🔴 Jeremy T", pod: "OJ PRODUCT (9 · 0 cells in C6 — 36 days)", yellows: 0, reds: 0, items: "ESCALATION. Has fresh status to paste (paper-trading internal release this week, paywall tests, SharpR). The unowned 'OpticOdds MTS' row under OJ PRODUCT is green every week; assign it a name." },
+        { name: "🟡 Kevin O · Tim S", pod: "RW NEWS (5 · W2 green, W3 closed blank)", yellows: 0, reds: 0, items: "The only W2-green block that did not catch up when five others backfilled W3 this morning. RW news is Matt's daily review item, so this is the block he most needs coloured." },
+        { name: "🟡 Scott", pod: "SPORTS DATA (4 · 1 cell all cycle, W3 blank)", yellows: 0, reds: 0, items: "One cell in W2, nothing in W1 or W3. Steven, who was paired with him, filled his whole W3 block." },
+        { name: "🟢 Steven", pod: "ODDS DATA (4/4 in W3 · 2G/2Y)", yellows: 2, reds: 0, items: "POSITIVE FLAG: filled all of W3, his first full week in two cycles. Yellows: Start of Season (NBA/NCAAF/NFL) and a sharp-book alternative." },
+        { name: "🟡 Ahti", pod: "OPTIC PRODUCT (8 · W3 5G/2Y/1NR)", yellows: 2, reds: 0, items: "Yellows: SGP v2 and Multi-market view for odds screen. 'Alternate lines' closed W3 blank." },
+        { name: "🟢 Tyler H · Samuel Hill · Jacqui K · Randall K/Bryan R · Craig C", pod: "SUBS 3 + OPTIC MKTG 3 + MEDIA 2 + B2C CS 2 + AFFILIATE 2 (W3 12/12 green, filled Mon 10/19)", yellows: 0, reds: 0, items: "POSITIVE FLAG: all five backfilled W3 this morning, moving the board 29.3% → 45.3%. Craig's first cell since W1." },
+        { name: "🟢 Jason T · Tim S · Ryan W", pod: "RW FEATURES 5 + B2B SALES/OPS 4 (green in W1, W2 and W3)", yellows: 0, reds: 0, items: "POSITIVE FLAG: every C6 week fully reported." },
         { name: "⚪ TALENT - RW (owner '???')", pod: "1 row · green W2 and W3", yellows: 0, reds: 0, items: "Reporting, but the Owners cell still reads '???'. Name an owner." },
     ],
 
