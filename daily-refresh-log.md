@@ -2908,3 +2908,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - 9+ day silent leads: Nick P, Jeremy T (37 days)
   - Creator Scoreboard returned stale (same generated_at since 10/19 13:39Z)
   - Did not fire: forecast unmoved; no deal stage change (Polymarket escalation risk only); Slack fresh; scorecard NR Δ 0 overnight; creator triggers not evaluable on an unscored day; encryption OK.
+- auto-push.log verification: ✅ WatchPaths pushes at 06:3x–06:40 MDT (`60c2eea..d053ec9` with the dashboard + index.html, then `d053ec9..48add48` with this log), both `pushed`. This line triggers one more push.
