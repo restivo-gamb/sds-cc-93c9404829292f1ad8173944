@@ -2868,3 +2868,24 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Creator named in an active Matt DM showing as a 0-pt laggard: James Anderson (probable mapping; DM from Sat, not re-confirmed)
   - Did not fire: forecast unmoved, no new red card (today's is warning), no deal stage change, Slack ~30h (not Day 3), creators fresh, RW zero share 4/8 = 50% (not >50%), goal-hitter→0 not evaluable, encryption OK.
 - auto-push.log verification: ✅ WatchPaths pushes at 06:42 and 06:43:09 PDT (`…1229eef..6af8e97`, 3 files, `pushed`). Network is back, so the 05:32 DNS failure was transient (nothing was pending). This line triggers one more push.
+
+## 2026-10-19 (evening re-run, ~22:30 PDT)
+
+- Scheduled task re-fired late Monday evening, after the 06:40 run had already published. Treated it as an incremental delta, not a second full run. Header stays `Updated: Oct 19, 2026`; cycle chip `Cycle 6 · Sep 14 – Oct 23` still correct.
+- forecastMeta.ingestedAt: unchanged `2026-10-05T14:05-06:00` · scorecard.lastSynced: `2026-10-19T22:30:00-07:00` (prev 06:40 PDT) · creators.ingestedAt: NOT advanced (frozen worker)
+- **Why the re-run mattered — late-scan race, again.** The 1 AM Slack scan fired ~09:39 ET and wrote its files at 06:42–06:43 PDT, the same minute the morning run declared "no scan". This run absorbed the Oct 18–19 window (40 channels + C0C87PH7HGW + 11 DMs, 0 failures).
+- **Forecast scan:** `find gamb -iname "2026 SDS Revenue*Forecasting*.xlsx" -newer (27)` → none; `__inbox` + `_archive` hold no new forecast; legacy folder none. Highest **(27)**. No EDEADLK. Revenue Pulse static HTML untouched.
+- **Slack-driven changes:** new top attention card 🔴 `critical` (MON 10/19 EVENING); AM card renamed "superseded". Items: RW revenue contradiction (tracker MRR +11% YoY vs Tim's B2C −9.4% Aug / −5.5% Sep), tracker non-reconciliation day 3, Pedro backfill on three tracks (McKinzey listing / Tim's Gregoline / Kevin McC's unnamed "he"), MBR lapsed per Tim, Kalshi $350,125 Aug CPA gated on fraud report + $25→$55 offer mismatch, Google Ads cut-vs-fix (Tim Doctor's Google policy meeting Tue 10/20), RW Bot restored Sun 14:04 (cause unknown), baseball → Dustin / Theo DMing Clegg. New top keyTheme; 10/19 keyDates TODAY entry updated (Sep 16 – Oct 4 gap marker untouched). Pipeline Note rewritten. No deal stage changes.
+- **RW-NEWS PROGRESS:** NFL "nearly all kinks worked"; NBA 6 min behind, Kulina ships NBA templates Mon/Tue; Nick's Monday metrics update not posted by 06:40; X API keys ask to Vincenzo day 2 with no ping; 8% still undefined in writing; vs-Underdog feed ~14 days stale. Nothing blocked on Matt.
+- **Meeting notes:** Gemini newest 11 days old (2026-10-08). Granola newest 75 days old (2026-08-05). Unchanged.
+- **Scorecard:** C6 (2nd tab `C6 SCORECARD`), **board week 4, day 1** (calendar week 6). Full re-export; source modifiedTime `2026-10-19T22:55:28Z` (after Matt's EOD deadline). W4 **36G/5Y/0R/34NR /75 = 54.7%**; DATA now carries W4 with prev = W3 final 30/4/0/41 (NR −7). Brian S 11/11 (8G/3Y) after 36 days dark; Kevin O/Tim S 5/5; Ahti 8/8 (6G/2Y). Dark in W4: Nick P 11, Jeremy T 9 (36 days, no C6 cell), Steven 4, Scott 4, Tyler 3, Jacqui 2, Jason/Tim 1. yellowLeaders rebuilt; intro + comment block updated.
+- **Creators: FROZEN.** generated_at `2026-10-19T13:39:41.618Z` byte-identical to the AM run. DATA.creators carried forward (Sun 10/18); ingestedAt not advanced. Monday is unscored, not a zero day.
+- Validation (mktemp -d copy): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`; DATA evaluates (116 attention cards, scorecard.green 36, 10 leaders).
+- Encrypted index.html: `✓ 1,595,844 chars → 2,182,006 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 8/8 ABSENT (`const DATA`, Gregoline, 350,125, Pipeline Note, Kalshi, Pedro, 71,810, Nick P).
+- auto-push.log: see the verification line below.
+- **Would-have-notified (not sent):**
+  - New red attention card (RW revenue contradiction / Pedro's jobs unowned)
+  - 9+ day silent leads: Nick P, Jeremy T (36 days)
+  - Creator Scoreboard returned stale (same generated_at as AM)
+  - Did not fire: forecast unmoved; no deal stage change; Slack fresh; W4 vs W3 NR Δ −7 (<10); no creator trigger evaluable on an unscored day.
+- auto-push.log verification: ✅ WatchPaths pushes at 22:2x PDT (`ad5ad74..d84e40d`, then `d84e40d..7d43103` with the log), both `pushed`. This line triggers one more push.
