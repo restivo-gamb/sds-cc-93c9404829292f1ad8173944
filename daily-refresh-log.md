@@ -2927,3 +2927,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Deal stage change: Stats Perform RW data deal done; Source Digital × LG new
   - 9+ day silent leads: Nick P, Jeremy T (38 days)
   - Did not fire: forecast unmoved; Slack fresh; scorecard NR Δ 0; creators fresh (no hitter→0, no pod >50% zero, no 0-pt laggard named in a Matt DM); encryption OK.
+- auto-push.log verification: ✅ WatchPaths pushes at 05:46 (`f39eebd..d30d46f`, dashboard) and 05:48 MDT (`d30d46f..12ad42a`, index.html + this log), both `pushed`. This line triggers one more push.
