@@ -1194,25 +1194,25 @@
 
                 <!-- WoW Forecast Changes -->
                 <div id="snap-wowForecast" style="background:var(--bg-input); border:1px solid var(--border); border-radius:10px; padding:12px 14px; margin-bottom:12px; font-size:12px; color:var(--text-secondary); line-height:1.7;">
-                    <strong style="color:var(--text-primary);">WoW Forecast Changes (v27 vs v26) — applied 2026-10-05, the first forecast write since 9/15.</strong> <span style="color:var(--yellow);">The file itself was grabbed 2026-10-01 from Pedro's 1:1 DM (Slack title “v26”, File ID F0C5ZQ77F50) and sat unabsorbed for four days because the dashboard repo was missing.</span><br>
-                    <strong style="color:var(--red);">−$1.09M ($72.90M → $71.81M) — the largest down move since tracking began, and the first time the forecast has fallen on two consecutive versions.</strong><br>
-                    <strong style="color:var(--text-primary);">⚠️ But the timing is not what it looks like.</strong> Backfilling Pedro's <strong>v25</strong> (posted 2026-09-25, never ingested — the old Wednesday-only grab task had no run between 9/23 and 10/01) gives a three-point series: <strong>$72.90M</strong> (v26 · Sep 10) → <strong>$71.846M</strong> (v25 · Sep 25) → <strong>$71.811M</strong> (v27 · Oct 1). <strong style="color:var(--red);">≈$1.05M of the $1.09M came off between Sep 10 and Sep 25; the final step is only −$35,912.</strong> The cut landed in mid-September, <em>before</em> the September close — not at it.<br>
-                    <strong style="color:var(--text-primary);">v25 → v27 movers are narrow and hand-edited, not a re-model:</strong> OddsJam B2C Subs <span style="color:var(--red);">−$112,912</span>, Partnerships <span style="color:var(--green);">+$100,000</span>, Marketing Fixed Fee −$15,000, B2B Content −$11,000, Rotowire −$8,000. OpticOdds, Bookies, Roto Affiliate, Local and Ads are <strong>flat to the dollar</strong>.<br>
-                    <strong style="color:var(--green);">Both gates still clear:</strong> +$5.06M / +7.58% vs budget, +$3.44M / +5.03% vs target. Budget and Target are <strong>unchanged across all three versions — no reset</strong>. Integrity verified to the cent (4 rollups = TOTAL SDS; 4 Affiliate children = Affiliate rollup).
+                    <strong style="color:var(--text-primary);">WoW Forecast Changes (v28 vs v27) — ingested 2026-10-22 from Matt&rsquo;s direct upload.</strong> <span style="color:var(--yellow);">First file in 21 days (v27 was Oct 1); Pedro is now a contractor and did not post it. The upload arrived named &ldquo;(11)&rdquo;, a download suffix; content and timestamps confirm a new workbook, filed as (28).</span><br>
+                    <strong style="color:var(--red);">−$3.22M (−4.49%): $71.81M → $68.59M, the largest single-version decline of 2026. All four rollups fell.</strong><br>
+                    <strong style="color:var(--text-primary);">Movers:</strong> OpticOdds <span style="color:var(--red);">−$1,453,959</span> (Rev Share −$1,327,111, Fixed −$126,848) · OddsJam <span style="color:var(--red);">−$852,898</span> (B2C Subs −$772,898, Affiliate −$80,000) · RotoWire <span style="color:var(--red);">−$467,948</span> (B2C Subs −$322,374, B2B Content −$102,783, Ads −$42,791) · Affiliate <span style="color:var(--red);">−$446,300</span> (Local −$246,300, Roto Affiliate −$100,000, Partnerships −$100,000, Bookies flat).<br>
+                    <strong style="color:var(--red);">Two status flips to 🔴 At Risk:</strong> OpticOdds Rev Share (budget and target, now −33.7%) and RotoWire B2C Subs (budget side, now −10.3%).<br>
+                    <strong style="color:var(--yellow);">Both gates still clear, but the target cushion is nearly gone:</strong> +$1.84M / +2.76% vs budget, <strong>+$220,269 / +0.32% vs target</strong> (was +$3.44M). Budget and Target unchanged. Integrity verified to the cent (4 rollups = TOTAL SDS; 4 Affiliate children = Affiliate rollup).
                 </div>
 
                 <div id="snap-revGrid">
                 <!-- Total SDS headline (v20 forecast) -->
                 <div class="fc-total-card">
                     <div>
-                        <div class="fc-total-label">Total SDS — 2026 Forecast <span style="color:var(--red); font-weight:700;">v27 ▼</span></div>
-                        <div class="fc-total-amount">$71.81M</div>
-                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M · Target $68.37M · 25A $57.05M (+25.9% YoY) · <span style="color:var(--red);">−$1.09M vs the v26 state this board was frozen at</span></div>
+                        <div class="fc-total-label">Total SDS — 2026 Forecast <span style="color:var(--red); font-weight:700;">v28 ▼</span></div>
+                        <div class="fc-total-amount">$68.59M</div>
+                        <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Budget $66.75M · Target $68.37M · 25A $57.05M (+20.2% YoY) · <span style="color:var(--red);">−$3.22M vs v27</span></div>
                     </div>
                     <div class="fc-total-deltas">
-                        <span class="fc-d-bud" style="color:var(--green);">+$5.06M vs Budget &nbsp;(+7.6%)</span>
-                        <span class="fc-d-tgt" style="color:var(--green);">+$3.44M vs Target &nbsp;(+5.0%)</span>
-                        <span class="fc-d-yoy" style="color:var(--green);">+$14.76M vs 25A &nbsp;(+25.9% YoY)</span>
+                        <span class="fc-d-bud" style="color:var(--green);">+$1.84M vs Budget &nbsp;(+2.8%)</span>
+                        <span class="fc-d-tgt" style="color:var(--yellow);">+$0.22M vs Target &nbsp;(+0.3%)</span>
+                        <span class="fc-d-yoy" style="color:var(--green);">+$11.54M vs 25A &nbsp;(+20.2% YoY)</span>
                     </div>
                 </div>
 
@@ -1223,88 +1223,88 @@
                     <div class="fc-card brand-optic">
                         <div class="fc-head">
                             <span class="fc-name">OpticOdds</span>
-                            <span class="fc-amount">$24.71M</span>
+                            <span class="fc-amount">$23.26M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$2.12M (+9.4%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$2.12M (+9.4%)</span></span>
-                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$10.39M (+72.6%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$0.67M (+2.9%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$0.67M (+2.9%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$8.94M (+62.4%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">Fixed</span><span class="fc-ramt" style="text-align:right;">$20.76M</span><span class="fc-rd pos" style="text-align:right;">+11.4%</span><span class="fc-rd pos" style="text-align:right;">+11.4%</span></div>
-                            <div class="fc-row"><span class="fc-rname">Rev-Share</span><span class="fc-ramt" style="text-align:right;">$3.95M</span><span class="fc-rd neg" style="text-align:right;">−0.2%</span><span class="fc-rd neg" style="text-align:right;">−0.2%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Fixed</span><span class="fc-ramt" style="text-align:right;">$20.63M</span><span class="fc-rd pos" style="text-align:right;">+10.7%</span><span class="fc-rd pos" style="text-align:right;">+10.7%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Rev-Share</span><span class="fc-ramt" style="text-align:right;">$2.63M</span><span class="fc-rd neg" style="text-align:right;">−33.7%</span><span class="fc-rd neg" style="text-align:right;">−33.7%</span></div>
                         </div>
                     </div>
 
                     <div class="fc-card brand-oddsjam">
                         <div class="fc-head">
                             <span class="fc-name">OddsJam</span>
-                            <span class="fc-amount">$17.37M</span>
+                            <span class="fc-amount">$16.52M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">−$3.40M (−16.4%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">−$3.40M (−16.4%)</span></span>
-                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">−$4.84M (−21.8%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">−$4.25M (−20.5%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">−$4.25M (−20.5%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">−$5.69M (−25.6%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$15.03M</span><span class="fc-rd neg" style="text-align:right;">−15.0%</span><span class="fc-rd neg" style="text-align:right;">−15.0%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$14.26M</span><span class="fc-rd neg" style="text-align:right;">−19.4%</span><span class="fc-rd neg" style="text-align:right;">−19.4%</span></div>
                             <div class="fc-row"><span class="fc-rname">Mktg Fixed Fee</span><span class="fc-ramt" style="text-align:right;">$1.45M</span><span class="fc-rd neg" style="text-align:right;">−27.4%</span><span class="fc-rd neg" style="text-align:right;">−27.4%</span></div>
-                            <div class="fc-row"><span class="fc-rname">Affiliate</span><span class="fc-ramt" style="text-align:right;">$0.89M</span><span class="fc-rd neg" style="text-align:right;">−18.4%</span><span class="fc-rd neg" style="text-align:right;">−18.4%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Affiliate</span><span class="fc-ramt" style="text-align:right;">$0.81M</span><span class="fc-rd neg" style="text-align:right;">−25.8%</span><span class="fc-rd neg" style="text-align:right;">−25.8%</span></div>
                         </div>
                     </div>
 
                     <div class="fc-card brand-rotowire">
                         <div class="fc-head">
                             <span class="fc-name">RotoWire</span>
-                            <span class="fc-amount">$10.83M</span>
+                            <span class="fc-amount">$10.36M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">−$0.31M (−2.8%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">−$1.21M (−10.0%)</span></span>
-                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">−$0.47M (−4.1%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val neg">−$0.78M (−7.0%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val neg">−$1.67M (−13.9%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val neg">−$0.94M (−8.3%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$6.21M</span><span class="fc-rd neg" style="text-align:right;">−5.4%</span><span class="fc-rd neg" style="text-align:right;">−12.4%</span></div>
-                            <div class="fc-row"><span class="fc-rname">Ads</span><span class="fc-ramt" style="text-align:right;">$1.34M</span><span class="fc-rd pos" style="text-align:right;">+20.8%</span><span class="fc-rd pos" style="text-align:right;">+11.8%</span></div>
-                            <div class="fc-row"><span class="fc-rname">B2B Content</span><span class="fc-ramt" style="text-align:right;">$3.28M</span><span class="fc-rd neg" style="text-align:right;">−5.4%</span><span class="fc-rd neg" style="text-align:right;">−12.4%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2C Subs</span><span class="fc-ramt" style="text-align:right;">$5.89M</span><span class="fc-rd neg" style="text-align:right;">−10.3%</span><span class="fc-rd neg" style="text-align:right;">−17.0%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Ads</span><span class="fc-ramt" style="text-align:right;">$1.30M</span><span class="fc-rd pos" style="text-align:right;">+16.9%</span><span class="fc-rd pos" style="text-align:right;">+8.2%</span></div>
+                            <div class="fc-row"><span class="fc-rname">B2B Content</span><span class="fc-ramt" style="text-align:right;">$3.18M</span><span class="fc-rd neg" style="text-align:right;">−8.3%</span><span class="fc-rd neg" style="text-align:right;">−15.2%</span></div>
                         </div>
                     </div>
 
                     <div class="fc-card brand-affiliate">
                         <div class="fc-head">
                             <span class="fc-name">Affiliate</span>
-                            <span class="fc-amount">$18.89M</span>
+                            <span class="fc-amount">$18.45M</span>
                         </div>
                         <div class="fc-deltas">
-                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$6.65M (+54.3%)</span></span>
-                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$5.92M (+45.7%)</span></span>
-                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$9.67M (+104.9%)</span></span>
+                            <span><span class="fc-d-label">vs Budget:</span><span class="fc-d-val pos">+$6.20M (+50.6%)</span></span>
+                            <span><span class="fc-d-label">vs Target:</span><span class="fc-d-val pos">+$5.48M (+42.2%)</span></span>
+                            <span><span class="fc-d-label">vs 25A (YoY):</span><span class="fc-d-val pos">+$9.23M (+100.1%)</span></span>
                         </div>
                         <div class="fc-rows">
                             <div class="fc-row fc-row-header"><span>Stream</span><span style="text-align:right;">Forecast</span><span style="text-align:right;">vs Budget</span><span style="text-align:right;">vs Target</span></div>
-                            <div class="fc-row"><span class="fc-rname">Roto Affiliate</span><span class="fc-ramt" style="text-align:right;">$8.08M</span><span class="fc-rd pos" style="text-align:right;">+335.1%</span><span class="fc-rd pos" style="text-align:right;">+302.7%</span></div>
-                            <div class="fc-row"><span class="fc-rname">Partnerships</span><span class="fc-ramt" style="text-align:right;">$7.10M</span><span class="fc-rd pos" style="text-align:right;">+358.0%</span><span class="fc-rd pos" style="text-align:right;">+610.0%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Roto Affiliate</span><span class="fc-ramt" style="text-align:right;">$7.98M</span><span class="fc-rd pos" style="text-align:right;">+329.7%</span><span class="fc-rd pos" style="text-align:right;">+297.7%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Partnerships</span><span class="fc-ramt" style="text-align:right;">$7.00M</span><span class="fc-rd pos" style="text-align:right;">+351.6%</span><span class="fc-rd pos" style="text-align:right;">+600.0%</span></div>
                             <div class="fc-row"><span class="fc-rname">Bookies</span><span class="fc-ramt" style="text-align:right;">$2.39M</span><span class="fc-rd neg" style="text-align:right;">−56.6%</span><span class="fc-rd neg" style="text-align:right;">−61.7%</span></div>
-                            <div class="fc-row"><span class="fc-rname">Local</span><span class="fc-ramt" style="text-align:right;">$1.33M</span><span class="fc-rd neg" style="text-align:right;">−60.1%</span><span class="fc-rd neg" style="text-align:right;">−64.4%</span></div>
+                            <div class="fc-row"><span class="fc-rname">Local</span><span class="fc-ramt" style="text-align:right;">$1.08M</span><span class="fc-rd neg" style="text-align:right;">−67.5%</span><span class="fc-rd neg" style="text-align:right;">−71.0%</span></div>
                         </div>
                     </div>
 
                 </div>
 
                 <div style="font-size:10.5px; color:var(--text-muted); margin-bottom:12px; font-style:italic;">
-                    v26 ingestion (2026-09-10, on Matt&apos;s direct request outside the scheduled run). Pulled from Pedro&apos;s 1:1 Slack DM via the Chrome blob-download path &mdash; Slack File ID `F0C0G0KBC4X`, posted 2026-09-10 06:43 MDT, 294,247 bytes, docProps modified 2026-09-10T13:41:32Z, validated with openpyxl (Executive Dashboard present; 4 rollups sum to TOTAL and the 4 Affiliate children sum to the Affiliate rollup, both to the cent). <strong>Numbering caveat:</strong> Pedro titles the file `v24 2026 SDS Revenue &amp; Forecasting.xlsx`, but the canonical local counter runs one AHEAD of his &mdash; local (23)/(24)/(25) were filed from direct uploads that never came through the DM, and their docProps timestamps (8/24, 8/28, 9/08) do not match Pedro&apos;s v23 (9/03). Pedro v24 == canonical (26). Verified by content lineage: every vertical moves coherently from local (25). <strong>Pedro&apos;s own v23 (F0BUP8BLGLW, 9/03) was never ingested</strong> &mdash; the old dedupe rule compared his version number against the local counter and skipped it; it is superseded by this cumulative snapshot, so no data is lost, but the rule needs fixing. Taxonomy is Affiliate-rollup-aware per Craig+Pedro 5/21 commit (unchanged). WoW &minus;$1,241,811 (&minus;1.67%), the first decline since v18 and the largest of the year: Affiliate &minus;$900K (Roto Affiliate &minus;$600K, Bookies &minus;$200K, Partnerships &minus;$100K, Local flat), OddsJam &minus;$188.6K entirely in B2C Subs, OpticOdds &minus;$109.2K entirely in Fixed, RotoWire &minus;$44K (B2C Subs &minus;$36K, B2B Content &minus;$8K). No status flips on either the budget or target side. Sub-stream numbers above are pulled directly from the workbook&apos;s vertical breakdown rows.
+                    v28 ingestion (2026-10-22, on Matt&apos;s direct upload outside the scheduled run). Uploaded as `2026 SDS Revenue &amp; Forecasting (11).xlsx` &mdash; 292,236 bytes, md5 9240974d&hellip;, docProps modified 2026-10-22T12:16:49Z. The &ldquo;(11)&rdquo; is a download-collision suffix, not the May v11: md5 differs from (27), the May (11) is 265,767 bytes, and every line moves coherently from (27). Filed as canonical `gamb/finance/&hellip;(28).xlsx`. Parsed by explicit row map (rows 11&ndash;27, name-asserted); 4 rollups sum to TOTAL and 4 Affiliate children sum to the Affiliate rollup, both to the cent. Taxonomy unchanged (v11 4-parent). Sub-stream numbers above are pulled directly from the workbook&apos;s Executive Dashboard rows.
                 </div>
                 </div><!-- /snap-revGrid -->
 
                 <div class="rw-floor" id="rwAboveBudget">
                     <div>
                         <div class="rw-floor-label" style="color:var(--yellow);">RotoWire (new defn: subs + ads + content) &mdash; Below Budget</div>
-                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$10.83M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--red); font-weight:600;">&minus;1.44%</span></div>
+                        <div class="rw-floor-note">Forecast <strong id="rwForecastText">$10.36M</strong> vs 2026 Budget <strong id="rwBudgetText">$11.14M</strong> &middot; <span id="rwAbovePct" style="color:var(--red); font-weight:600;">&minus;6.99%</span></div>
                     </div>
-                    <div class="rw-floor-value" id="rwAboveValue" style="color:var(--red);">&minus;$0.16M</div>
+                    <div class="rw-floor-value" id="rwAboveValue" style="color:var(--red);">&minus;$0.78M</div>
                 </div>
 
                 <!-- RW B2B Quick Links (added 2026-05-20: rate card + RotoWire Services view) -->
