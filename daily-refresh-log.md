@@ -2948,3 +2948,16 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Creator Scoreboard returned stale (likely just pre-generation; recheck after ~11:40Z)
   - Did not fire: forecast unmoved; Slack fresh; scorecard NR Δ 0; creator triggers not evaluable on an unscored day; encryption OK.
 - auto-push.log verification: ✅ WatchPaths pushes at 05:38–05:40 host clock (`…e4800e9..662e1c7`, then `662e1c7..b870a05` "Daily refresh 2026-10-22"), all `pushed`. This line triggers one more push.
+
+## 2026-10-22 (mid-morning — v28 forecast on Matt's direct upload)
+
+- **Source:** Matt uploaded `2026 SDS Revenue & Forecasting (11).xlsx` in Cowork ("this week's forecast"). The "(11)" is a download-collision suffix, not the May v11: md5 `9240974d012acdb0de7bf8cf8f850087` ≠ (27) `20ae6735…`; 292,236 bytes vs the May (11)'s 265,767; docProps modified 2026-10-22T12:16:49Z; every line moves coherently from (27). Deduped on content, not the integer. Filed atomically (tmp + mv) to `gamb/finance/2026 SDS Revenue & Forecasting (28).xlsx`, md5 verified. The May (11) could not be md5'd (EDEADLK); size alone rules it out.
+- **v27 → v28: −$3,221,105.38 (−4.49%) → $68,589,616.10** over a 21-day gap. Largest single-version decline of 2026; all four rollups fell. OpticOdds −$1,453,959 (Rev Share −$1,327,111, Fixed −$126,848) · OddsJam −$852,898.38 (B2C Subs −$772,898.38, OJ Affiliate −$80,000) · RotoWire −$467,948 (B2C Subs −$322,374, B2B −$102,783, Ads −$42,791) · Affiliate −$446,300 (Local −$246,300, Roto Aff −$100,000, Partnerships −$100,000, Bookies flat).
+- **Status flips → 🔴:** OpticOdds Rev Share (budget + target), RotoWire B2C Subs (budget). Gates: +$1.84M / +2.76% vs budget, **+$220,269 / +0.32% vs target** (was +$3.44M). Budget/target unchanged; taxonomy unchanged. YoY +20.22%.
+- **Integrity:** explicit row map 11–27 with name assertions (col A and H); 4 rollups = TOTAL and 4 Affiliate children = Affiliate rollup, to the cent. Also RW and OJ/OO children tie.
+- **Written:** forecast.json `versions.v28` + `latest` (was stale at v26) + `_meta` (atomic replace). DATA.forecast/yoyGrowth/rw.* + comment block, forecastMeta (v28, ingestedAt 2026-10-22T06:20-06:00, source (28)). Static Revenue Pulse (`#snap-wowForecast`, `.fc-total-card`, `.fc-grid` ×4 with brand classes, ingestion caption, `.rw-floor`) regenerated programmatically from the workbook. keyThemes v28 hero entry at top; today's attention card, keyDates TODAY and Pipeline Note annotated.
+- **Flags:** Optic Rev Share cut lands the week Altenar closed on $50K/mo rev share (check it's in the line). Workbook Affiliate $18.45M vs Craig's Week 3 FY $18.57M.
+- Validation (mktemp -d): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`; DATA.forecast 68.59.
+- Encrypted index.html: `✓ 1,624,699 chars → 2,221,622 chars`. Leak probe 8/8 ABSENT (`const DATA`, 68.59, 68,589, Altenar, Rev Share, Pedro, Pipeline Note, brand-optic).
+- auto-push.log: ✅ `115f698..cba5c29` pushed after the write.
+- **Would-have-notified (not sent):** forecast version moved v27 → v28 (−4.49%, under the 5% bar; no budget/target reset); two status flips to 🔴.
