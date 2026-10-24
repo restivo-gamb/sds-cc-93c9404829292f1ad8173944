@@ -2981,3 +2981,20 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - 9+ day silent leads: Nick P, Jeremy T (40 days, C6 closes with no cell)
   - Did not fire: forecast unmoved; Slack fresh; creators fresh (no hitter→0, no pod >50% zero, no 0-pt laggard named in a Matt DM); encryption OK.
 - auto-push.log verification: ✅ `bcc03a5..894c688` "Daily refresh 2026-10-23" pushed at 05:41:24 host clock (dashboard + index.html). This line triggers one more push.
+
+## 2026-10-24
+
+- Weekend run (~06:30 MDT host clock, ~12:30Z). Header `Updated: Oct 24, 2026`. Cycle chip left at `Cycle 6 · Sep 14 – Oct 23`: C6 closed Fri 10/23 but no C7 tab exists (sheet unedited), so C6 is still the live 2nd tab.
+- forecastMeta.ingestedAt: unchanged `2026-10-22T06:20-06:00` (v28) · scorecard.lastSynced: `2026-10-24T06:30:00-06:00` (prev 10/23 03:40; verified no-change) · creators.ingestedAt: `2026-10-24T06:30:00-06:00` (advanced; worker fresh)
+- **Forecast scan:** `find gamb -iname "2026 SDS Revenue*Forecasting*.xlsx" -newer (28)` → none. `__inbox/` holds only `_index.md` and `_archive/`. Legacy repo folder: none. Highest **(28)**; no move, no EDEADLK hit. Revenue Pulse static HTML untouched (v28).
+- **Slack: Friday UNSCANNED.** The Fri→Sat 1 AM scan had not written to `daily-ingest/` by ~12:30Z (Saturday scans normally land ~01:05 local; last 10/17, 10/18 both ran). Re-listed at end of run: still absent. Newest files cover Thu 05:05Z → Fri 05:05Z (~31h; under the 48h stale bar). Those were fully absorbed on 10/23, so no new Slack-driven content. Added one 🟡 `warning` card (SAT 10/24: C6 closed / no C7 tab; Friday unscanned; creators). keyDates 10/23 → recap, 10/24 TODAY added; Sep 16 – Oct 4 gap marker untouched. keyThemes top entry added. Pipeline Note rewritten.
+- **RW-NEWS PROGRESS:** no new scan, so nothing new; 10/23 items (turbo mode/auto-replies day 4, Nick's Monday metrics day 4, tracker vs finance day 7, PHP API vs site scopes) carry on the 10/23 card.
+- **Meeting notes:** Gemini newest **16 days old** (2026-10-08 New Growth Meeting). Granola newest **80 days old** (2026-08-05). Dead.
+- **Scorecard:** C6 (2nd tab still `C6 SCORECARD`), **closed Fri 10/23 on board week 4** (calendar week 6; W5/W6 never opened). Drive modifiedTime `2026-10-22T16:31:21.907Z` (~44h), identical to the 10/23 full export, so no re-export: **W4 FINAL 46G/8Y/0R/21NR /75 = 72.0%**, NR Δ 0. prev* kept at W3 FINAL. No C7 tab. Nick P 11 and Jeremy T 9 finished C6 with zero cells (41 days). Intro + comment block updated.
+- **Creators: FRESH.** generated_at `2026-10-24T12:28:55.466Z` (was 10/23 09:37Z). history[0] = Fri 10/23, **66 pts** (from 82 Thu); no day lost. ≥10 on points: Coventry 11, Dustin 11; edge: Barutha 9, Jagger 8. Moves vs prior run: Barutha 2→9, Erickson 10→3 (off Fri), EVBettors 11→7, Clark 9→6, Anderson 2→0. Laggards: OddsJam brand handle, Anderson. OJ 18/4, RW 37/8, DGF 11. Classifier still broken (0 pushes), so 0/13 is unmeasured.
+- Validation (mktemp -d copy): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`; DATA evaluates (121 attention cards, scorecard.green 46, creators 66 pts, date 2026-10-23).
+- Encrypted index.html: `✓ 1,641,058 chars → 2,244,046 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 8/8 ABSENT (`const DATA`, Pipeline Note, Barutha, 68.59, Nick P, Gwilliam, Shlomo, McCrystle).
+- **Would-have-notified (not sent):**
+  - 9+ day silent leads: Nick P, Jeremy T (C6 closed with zero cells, 41 days)
+  - Slack scan missing for the Fri→Sat window (Day 1, not yet Day 3 stale) — logged, below threshold
+  - Did not fire: forecast unmoved; no new red card; no deal change; scorecard NR Δ 0; creators fresh (nobody on_target to flip; OJ 1/4 and RW 1/8 zero; Anderson not named in the latest Matt-DM scan); encryption OK.
