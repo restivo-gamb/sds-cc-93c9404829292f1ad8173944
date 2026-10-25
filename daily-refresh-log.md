@@ -3021,4 +3021,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Creator Scoreboard returned stale (X API 402s)
   - 9+ day silent leads: Nick P, Jeremy T (C6 closed with zero cells)
   - Did not fire: forecast unmoved; no deal stage change; scorecard NR Δ 0; Slack fresh; encryption OK.
-- auto-push.log verification: first WatchPaths push `9a7848a..047630d` at 05:37:52 host clock (mid-edit); later pushes for the remaining edits + index.html checked below.
+- auto-push.log verification: first WatchPaths push `9a7848a..047630d` at 05:37:52 host clock (mid-edit); ✅ `047630d..7eef78d` at 05:38:52 (dashboard + index.html, live) and `7eef78d..8e07d8c` at 05:39:52 (this log), all `pushed`. This line triggers one more push.
