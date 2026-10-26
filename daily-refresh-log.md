@@ -3022,3 +3022,9 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - 9+ day silent leads: Nick P, Jeremy T (C6 closed with zero cells)
   - Did not fire: forecast unmoved; no deal stage change; scorecard NR Δ 0; Slack fresh; encryption OK.
 - auto-push.log verification: first WatchPaths push `9a7848a..047630d` at 05:37:52 host clock (mid-edit); ✅ `047630d..7eef78d` at 05:38:52 (dashboard + index.html, live) and `7eef78d..8e07d8c` at 05:39:52 (this log), all `pushed`. This line triggers one more push.
+
+## 2026-10-25 (evening — login outage fixed)
+
+- Matt reported the password gate rejecting the correct password. Cause: the 08:09 auto-push (`b5cb550`, after the Sunday briefing's re-encrypt) committed `index.html` **mid-write** — 1,724,416 of 2,261,994 bytes, `PAYLOAD` cut off inside the ciphertext — so the gate script never parsed and no password could work. Truncated ciphertext only; no plaintext exposure. The complete file sat uncommitted (`M index.html`) because nothing wrote again to retrigger WatchPaths.
+- Fix: plaintext validated (JS parses, div 333/333, 1/4/1); re-ran `encrypt_index.py`; pushed `b5cb550..461ce5a`. HEAD `index.html` = working copy (2,261,994 B), verifier `sds-cc-v1` + body decrypt OK with `.encrypt_password` via WebCrypto (browser-identical path).
+- Going forward: after every encrypt, verify `git show HEAD:index.html` byte-matches the working file and decrypts — "pushed" in auto-push.log is not enough.
