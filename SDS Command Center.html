@@ -1092,10 +1092,23 @@
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
                 Paid
             </a>
-            <a class="ql-link" href="https://nfl-season-push.vercel.app/timeline/" target="_blank">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
-                Roadmap
-            </a>
+            <!-- RW Roadmap — VERSIONED (2026-10-26, Matt). The chip always points at the NEWEST roadmap; prior
+                 versions live in the ▾ drawer. To add a new version: move the current href/label into the
+                 drawer as the first .ql-old-link, then point the chip at the new URL. Drawer links use
+                 .ql-old-link (not .ql-link) so "Open All" skips them. -->
+            <span class="ql-versioned">
+                <a class="ql-link" href="https://rotowire-dev-product.vercel.app/timeline/nfl-regular-season/" target="_blank" title="Current: NFL Regular Season timeline (added Oct 26, 2026)">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+                    Roadmap
+                </a>
+                <details class="ql-versions">
+                    <summary title="Older roadmap versions">▾</summary>
+                    <div class="ql-versions-menu">
+                        <div class="ql-versions-head">Older versions</div>
+                        <a class="ql-old-link" href="https://nfl-season-push.vercel.app/timeline/" target="_blank">NFL Season Push <span>(summer–Sep 2026)</span></a>
+                    </div>
+                </details>
+            </span>
             <a class="ql-link" href="https://rotowire-subscriber-dashboard.vercel.app/" target="_blank">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
                 RW Metrics
