@@ -797,6 +797,23 @@
             background: var(--ql-c); border-color: var(--ql-c); color: #fff;
         }
         .ql-row .ql-link:hover svg { opacity: 1; }
+        /* Versioned link (2026-10-26): newest version is the chip; ▾ opens a drawer of older versions. */
+        .ql-versioned { position: relative; display: inline-flex; align-items: center; gap: 2px; }
+        .ql-versions summary {
+            list-style: none; cursor: pointer; padding: 5px 6px; border-radius: 7px;
+            background: var(--ql-c-bg); color: var(--ql-ink); font-size: 10px; line-height: 1.2; user-select: none;
+        }
+        .ql-versions summary::-webkit-details-marker { display: none; }
+        .ql-versions summary:hover, .ql-versions[open] summary { background: var(--ql-c); color: #fff; }
+        .ql-versions-menu {
+            position: absolute; top: calc(100% + 4px); left: 0; z-index: 50; min-width: 220px;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+            box-shadow: var(--shadow-sm); padding: 6px;
+        }
+        .ql-versions-head { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); padding: 2px 6px 4px; }
+        .ql-old-link { display: block; padding: 5px 6px; border-radius: 6px; font-size: 11.5px; font-weight: 600; color: var(--ql-ink); text-decoration: none; white-space: nowrap; }
+        .ql-old-link span { font-weight: 400; color: var(--text-muted); }
+        .ql-old-link:hover { background: var(--ql-c-bg); }
         .ql-row .ql-link:focus-visible {
             outline: 2px solid var(--ql-c); outline-offset: 2px;
         }
@@ -5805,6 +5822,10 @@ function openAllLinks() {
     const links = document.querySelectorAll('.ql-link');
     links.forEach(a => window.open(a.href, '_blank'));
 }
+// Close any open version drawer when clicking elsewhere.
+document.addEventListener('click', e => {
+    document.querySelectorAll('details.ql-versions[open]').forEach(d => { if (!d.contains(e.target)) d.removeAttribute('open'); });
+});
 
 // ═══════════════════════════════════════════════════
 // OFFSITES DATA & RENDER
