@@ -3103,3 +3103,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
   - Creator Scoreboard: Wed lost; classifier unmeasured
   - Slack scan late/partial (not stale)
   - Did not fire: forecast unmoved; scorecard NR Δ 0; encryption OK.
+- auto-push.log verification: ✅ pushes landed (HEAD c5bc1a2 'Daily refresh 2026-10-30'); HEAD index.html md5 = working file; GitHub DNS recovered after the 06:00 failure.
