@@ -2661,7 +2661,7 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators: FRESH.** generated_at `2026-10-09T03:54:05.749Z` vs the frozen 10/06 value. history[0] = **Thu 10/08**, which is today: the PM pass is scored, and the day may still move. **Tue 10/06 and Wed 10/07 were never scored.** 54 pts (59 on 10/05). 0/13 on target, which is **unmeasured**: the classifier still returns 0 pushes (11th+ day). Leaders: Coventry 13 (only one over 10) and Dustin 9 (edge-of-goal). Laggards: Erickson (5→0) and OddsJam. Movers: Jagger 11→3, Clark 9→5, McKechnie 1→4, Billy 1→4, Halterman 0→3.
 - Validation (mktemp -d script): JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`. DATA evaluated cleanly.
 - Encrypted index.html: `✓ 1,489,850 chars → 2,037,046 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 8/8 ABSENT (`const DATA`, Coventry, Paulton, 71,810, Pipeline Note, Nick P, Kalshi, scorecard).
-- auto-push.log verification: see next line.
+- auto-push.log verification: ✅ pushed `6c59cd4..441a9cb` (Daily refresh 2026-10-31); a follow-up push for this log line is expected.
 - **Would-have-notified (not sent):** 9+ day silent leads (Nick P, Brian S, Jeremy T, 25 days). Did not fire: no new red card (today's is `risk`), forecast unmoved, Slack under 48h (but the 10/08 scan is missing: watch for Day 3 tomorrow), NR delta 0, creators fresh, no creator triggers evaluable, encryption OK.
 - auto-push.log: ✅ WatchPaths pushes at 21:55 (`a7ba419`) and 21:56:34 (`c240a15`: html + index.html + this log). A final push for this line is expected ~60s after the write.
 
@@ -3116,5 +3116,5 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators: FRESH.** generated_at `2026-10-31T13:35:37Z` (was 10/30 13:13Z). history[0]=10/31 partial AM (unscored); recorded history[1]=**2026-10-30**: 69 pts (Thu 66). Clark 13 only one over 10; Coventry 9 edge. Up: Clark 9→13, Whalen 0→6, Halterman 0→4. Down: Dustin 11→7, Coventry 11→9, Anderson 2→0. Laggard: Anderson. OJ 22/4, RW 40/8, DGF 7. Classifier still broken (~35 days), 0/13 unmeasured. Note: WebFetch summarises, so per-creator cells are approximate.
 - Validation: JS parses, `<div>` 335/335, 1 `<script>`, 4 `<style>`, 1 `const DATA`. `keyDates` Oct 30 TODAY→recap, new Oct 31 TODAY entry. Pipeline Note / keyThemes not rewritten (no new inputs).
 - Encrypted index.html: `✓ 1,708,449 chars → 2,335,650 chars` (AES-256-CBC, PBKDF2 250k). Leak probe: `const DATA`, Clark Gary, Fortinsky/Stripe/Momentum all ABSENT.
-- auto-push.log verification: see next line.
+- auto-push.log verification: ✅ pushed `6c59cd4..441a9cb` (Daily refresh 2026-10-31); a follow-up push for this log line is expected.
 - **Would-have-notified (not sent):** none fired. Forecast unmoved; scorecard NR Δ 0; Slack fresh; no deal change; encryption OK; creators: nobody on_target to flip, no pod >50% zero, no Matt-DM laggard. Carried (already flagged 10/30): 9+ day silent leads Nick P / Jeremy T.
