@@ -946,7 +946,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Oct 30, 2026</span>
+            <span id="lastUpdated">Updated: Oct 31, 2026</span>
         </div>
     </div>
 
@@ -2223,8 +2223,8 @@ const DATA = {
         // ESCALATION: Nick P — largest dark block, 6 windows Slack-silent, successor board 19d overdue,
         // retention answer 16d, AND the Underdog dashboard he owns was due EOD 10/05.
         // No Reds raised all cycle at 28.8% reporting = absence of DATA, not absence of problems.
-        lastSynced: "2026-10-30T07:20:00-06:00",
-        prevSynced: "2026-10-28T05:45:00-06:00"
+        lastSynced: "2026-10-31T07:40:00-06:00",
+        prevSynced: "2026-10-30T07:20:00-06:00"
     },
 
     // C4 BOOK-SIZE leaderboard (re-synced 2026-06-24 WED via col-D/W1 fill from the xlsx export). Largest books first; reporting status now starting to fill.
@@ -4532,6 +4532,15 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
+        // ✅ 2026-10-31 ~07:40 MDT: WORKER FRESH. generated_at "2026-10-31T13:35:37Z" vs "2026-10-30T13:13:29Z". NO LOST DAY.
+        // history[0] = 2026-10-31 is TODAY'S PARTIAL AM (analysis:false for 11 of 13) = UNSCORED, not a zero day. DATA.creators carries history[1] = 2026-10-30 (FRI, complete).
+        // WebFetch returns a summarised payload: per-creator tweets/likes/rts are window totals, points are the 10/30 day score (treat individual cells as approximate).
+        // 🔴 CLASSIFIER STILL BROKEN (~35th day): every posting creator 'Could not classify posts', 0 pushes. 0/13 = UNMEASURED, not unmet.
+        // Clark 13 the only creator over 10 on POINTS; Coventry 9 edge-of-goal.
+        // Movement vs the PRIOR RUN's recorded values (Thu 10/29), not trend_delta: total 66 → 69.
+        // Up: Clark 9→13, Whalen 0→6, Halterman 0→4, Barutha 4→6, Erickson 6→7. Flat: Billy 5, OddsJam 1.
+        // Down: Dustin 11→7, Coventry 11→9, Jagger 6→3, EVBettors 5→3, McKechnie 6→5, Anderson 2→0.
+        // Triggers: goal-hitter→0 not evaluable (nobody on_target); pod >50% zero: none (RW 1/8, OJ 0/4; DGF n=1 excluded); 0-pt laggard in a Matt DM: no (Anderson not named in the 10/29-10/30 scan).
         // ✅ 2026-10-30 ~07:20 MDT: WORKER FRESH (generated_at 2026-10-30T13:13:29.867Z). NO 10/29 REFRESH RAN, so 10/28 (Wed) was NEVER CAPTURED — lost day.
         // history[0] = 2026-10-30 is TODAY'S PARTIAL AM (all on_target false, analysis false for 12 of 13; Dustin 1 pt) = UNSCORED, not a zero day. DATA.creators therefore carries
         // history[1] = 2026-10-29 (THU, complete; analysis:true for 11 posting creators) — a deliberate departure from 'date = history[0].date' for that reason.
@@ -4705,33 +4714,31 @@ const DATA = {
         // Triggers: goal-hitter→0 not evaluable (nobody on_target 10/17); pod >50% zero: RW 4/8 = exactly 50%, NOT >50%;
         // OJ 1/4; DGF n=1 excluded. 0-pt laggard named in a Matt DM: Anderson (probable mapping) was named Sat night; no newer
         // Slack scan exists (1 AM 10/19 ingest did not run), so this carries from 10/18, not re-confirmed.
-        date: "2026-10-29",
-        ingestedAt: "2026-10-30T07:20:00-06:00",
-        totals: { allPoints: 66, allHit: 0, allTotal: 13,
-                  ojPoints: 20, ojTotal: 4, rwPoints: 35, rwTotal: 8 },
+        date: "2026-10-30",
+        ingestedAt: "2026-10-31T07:40:00-06:00",
+        totals: { allPoints: 69, allHit: 0, allTotal: 13,
+                  ojPoints: 22, ojTotal: 4, rwPoints: 40, rwTotal: 8 },
         leaders: [
-            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:11, tweets:12, replies:5, likes:280, rts:26, onTarget:false,
-              reason:"Back over 10 on points (9 → 11) with the most reach on the board (249K impressions). DGF creator, not Dustin McComas, the RW baseball candidate; off-target only on the push gate." },
-            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:11, tweets:10, replies:26, likes:37, rts:4, onTarget:false,
-              reason:"Flat at 11, the steadiest RW scorer; off-target only because the push classifier credits nobody." },
-            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:9, tweets:8, replies:8, likes:114, rts:14, onTarget:false,
-              reason:"Edge of goal at 9 (10 → 9), the top OddsJam scorer." }
+            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:13, tweets:8, replies:7, likes:82, rts:13, onTarget:false,
+              reason:"Only creator over 10 on points (9 → 13), the top OddsJam scorer; off-target only on the push gate." },
+            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:9, tweets:6, replies:26, likes:34, rts:9, onTarget:false,
+              reason:"Edge of goal at 9 (11 → 9), still the steadiest RW scorer; off-target because the push classifier credits nobody." }
         ],
         laggards: [
-            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:0, tweets:0, replies:1, likes:0, rts:0, onTarget:false,
-              reason:"No posts and 0 points (1 → 0); not named in Thursday's Slack scan." },
-            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"No activity at all (1 → 0); not named in Thursday's Slack scan." }
+            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"No posts and 0 points (2 → 0); not named in Thursday's Slack scan. Tweet count is probable (window totals only)." }
         ],
         midTier: [
-            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:6, reason:"6 pts · 3,936 likes in window, the most engagement on the board — down from 9" },
-            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:6, reason:"6 pts · down from 9" },
-            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:6, reason:"6 pts — up from 1; Tim Schuler owns his accountability" },
-            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:5, reason:"5 pts · 7 tweets — up from 2" },
-            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:5, reason:"5 pts — down from 11 (the Tuesday spike did not hold)" },
-            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:4, reason:"4 pts · 24 replies — down from 8" },
-            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:2, reason:"2 pts · 1 tweet — up from 0" },
-            { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:1, reason:"1 pt · 1 tweet — the owned brand handle finally posted (0 → 1)" }
+            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:7, reason:"7 pts: down from 11. DGF creator, not Dustin McComas, the RW baseball candidate" },
+            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:7, reason:"7 pts: up from 6" },
+            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:6, reason:"6 pts: up from 4" },
+            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:6, reason:"6 pts: up from 0, 6.3K likes in window" },
+            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:5, reason:"5 pts: down from 6; Tim Schuler owns his accountability" },
+            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:5, reason:"5 pts: flat" },
+            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:4, reason:"4 pts: up from 0" },
+            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:3, reason:"3 pts: down from 6" },
+            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:3, reason:"3 pts: down from 5" },
+            { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:1, reason:"1 pt: flat" }
         ]
     },
     cycle: {
@@ -4747,7 +4754,8 @@ const DATA = {
         start: "2026-09-14",
         end: "2026-10-23",         // C6 runs Sep 14 – Oct 23 (6-week cadence, per Pedro's 9/3 tracker link)
         keyDates: [
-            { date: "October 30 (Fri — TODAY · ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) / CALENDAR WEEK 7 · 73.3%, UNCHANGED) · ⚖️ OHIO RESPONSE DUE TODAY · 📺 PENN: FANDUEL OTB THIS MORNING · 🔑 LIVE STRIPE KEY FRAGMENT IN #_boulder_2026 · 🚀 MOMENTUM LAUNCHED THU · 🧾 NO 10/29 REFRESH", label: "Slack fresh but partial (scan fired 5h40m late). DK&rsquo;s letter to OpticOdds landed Thursday night; the Ohio response is due today with no completion visible. Penn flagged FanDuel OTB this morning on top of three unanswered items. A live Stripe key fragment sits in a channel. Momentum launched (OJ MRR $1.089M, +0.58%). Thursday&rsquo;s refresh never ran, so Wed 10/28 → Fri 10/30 is one step here. Creators fresh (Thu 66 pts; Wed lost); scorecard paused and unchanged; forecast v28 holds, day 8." },
+            { date: "October 31 (Sat — TODAY · ⏸ SCORECARD UNCHANGED · C6 TAB, BOARD WEEK 5 (RELABELLED) · 73.3%) · 📭 NO NEW SLACK SCAN SINCE FRI · 🎯 CLARK 13 ONLY CREATOR OVER 10 · 💵 FORECAST v28 HOLDS, DAY 9", label: "Light Saturday run. The newest Slack scan is Friday&rsquo;s (about a day old, not stale), so Ohio, Penn, Stripe-key and Momentum items carry forward from the Oct 30 cards rather than being re-asserted. Creators fresh (Fri 69 pts; only Clark cleared 10, Coventry 9; classifier still broken, 0/13 unmeasured). Scorecard sheet last edited 10/26, so every NR row has been silent ~5 days. No new forecast file anywhere (highest still (28)). Newest Gemini notes are 2 days old (10/29); Granola dead since 8/5." },
+            { date: "October 30 (Fri — recap · ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) / CALENDAR WEEK 7 · 73.3%, UNCHANGED) · ⚖️ OHIO RESPONSE DUE TODAY · 📺 PENN: FANDUEL OTB THIS MORNING · 🔑 LIVE STRIPE KEY FRAGMENT IN #_boulder_2026 · 🚀 MOMENTUM LAUNCHED THU · 🧾 NO 10/29 REFRESH", label: "Slack fresh but partial (scan fired 5h40m late). DK&rsquo;s letter to OpticOdds landed Thursday night; the Ohio response is due today with no completion visible. Penn flagged FanDuel OTB this morning on top of three unanswered items. A live Stripe key fragment sits in a channel. Momentum launched (OJ MRR $1.089M, +0.58%). Thursday&rsquo;s refresh never ran, so Wed 10/28 → Fri 10/30 is one step here. Creators fresh (Thu 66 pts; Wed lost); scorecard paused and unchanged; forecast v28 holds, day 8." },
             { date: "October 29 (Thu — NO REFRESH RAN · gap marker) · 🚀 MOMENTUM LAUNCHED · 🔐 CASINOS.COM COMPROMISED-LIBRARY CODE REMOVED · 📞 OHIO CALL 5PM", label: "The 5:30 AM refresh did not run on 10/29. What the Fri 10/30 scan shows for Thursday: Momentum shipped; Vincenzo audited all repos after the library scare (closed 23:43); DK sent its regulatory letter; New Growth meeting agreed a free domestic promo finder and a Projections launch in 1–2 weeks." },
             { date: "October 28 (Wed — recap · ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) / CALENDAR WEEK 7 · 73.3%, UNCHANGED) · ⚖️ OHIO: DRAFT UP, RESPOND-vs-IGNORE SPLIT, OPENBET + SPORTRADAR CALLS TODAY, DUE FRI 10/30 · 📺 DK INCIDENT HIT PENN LIVE TRADING (RCA ASKED) · 👤 SHANNON OUT 11/20, BIG NICK C OWNS DIRECT DEALS · 🤝 CME CLOSED · 🟢 SOURCE DIGITAL × LG SESSION 2–3PM ET · 🛑 OJ LAUNCH HELD", label: "Slack fresh and clean (full Tuesday). Stein's Ohio draft is up; you floated ignoring the letter and no advisor supports that, because GDC's privileged license makes any Ohio action reportable. OO's new low-latency DK API lagged under NBA load and Penn traded on stale prices; reverted, RCA requested. RW B2B transition announced: Big Nick C becomes sales director over all direct deals. CME closed (PR needs CME's consent). Craig's first US-affiliate review: $3.00M in September (+80% YoY). OJ launch held for creator videos. V wants the Kalshi bot stopped at $800. Creators fresh (Tue 72 pts); scorecard paused and unchanged; forecast v28 holds." },
             { date: "October 27 (Tue — recap · ⏸ SCORECARD PAUSED THIS WEEK · C6 TAB, BOARD WEEK 5 (RELABELLED) / CALENDAR WEEK 7 · 73.3%) · ⚖️ OHIO LETTER — GDC ON THE VENDOR LIST, COUNSEL DECLINED, RESPONSE DUE FRI 10/30 · 🧾 PEDRO OUT → RYAN HOLDS MONTH-END + FORECAST · 👤 RW B2B SALES LEAD RESIGNING · 💳 ROLLCARD RESET (KEVIN IN) · 🤝 MATCHBOOK ISV INBOUND · 🟢 UNDERDOG 756/750 · 🟢 RW PHP PATCHED", label: "Slack fresh and clean (full Monday). Ohio's prediction-markets letter names GDC/OpticOdds among filed vendors; the recommended Ohio lawyer declined, Ice Miller is the alternative, Kevin is engaged. Pedro is out: Ryan inherits month-end, invoicing and forecasting; you asked Pedro to migrate this dashboard. RW's B2B sales lead is resigning (Abe + Gerson take the book, Jake support). RollCard reset with Kevin in the loop, but four economic bases are floating. Matchbook wants an ISV deal. Underdog exclusive hit 6 days early. Creators stale (Mon unscored); scorecard paused; forecast v28 holds." },
