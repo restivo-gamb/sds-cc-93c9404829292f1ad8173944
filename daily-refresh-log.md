@@ -3131,3 +3131,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Validation: JS parses, `<div>` 335/335, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html: `✓ 1,714,066 chars → 2,343,438 chars` (AES-256-CBC, PBKDF2 250k). Leak probe: `const DATA`, Coventry, Stein, Penn, Ohio, Millbank all ABSENT.
 - **Would-have-notified (not sent):** none fired. Forecast unmoved; scorecard NR Δ 0; no deal change; encryption OK; creators: nobody on_target to flip, no pod >50% zero (RW 1/8, OJ 1/4), no Matt-DM laggard. Carried: 9+ day silent leads Nick P / Jeremy T.
+- auto-push.log verification: ✅ pushed `5d225c5..d7451c3` (3 files); HEAD index.html md5 = working file. (Commit labels read "2026-11-01" because the push script uses host-local date.)
