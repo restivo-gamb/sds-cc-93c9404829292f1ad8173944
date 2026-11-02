@@ -3144,3 +3144,12 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators: FROZEN (stale 200).** `generated_at` `2026-11-02T04:24:50Z` is identical to the 04:35Z run's value → carried `DATA.creators` unchanged, `ingestedAt` not advanced. history[0]=2026-11-01 (already recorded: 50 pts, 0/13 on_target; Coventry 12, Erickson 11). Next unscored data = Mon 11/2 once the worker regenerates.
 - Encryption: skipped (no source change). auto-push.log: last push `d7451c3`/`f5cb58e` (11/1 local 23:28–23:30), 06:00 no-op; nothing expected from this run beyond this log line.
 - **Would-have-notified (not sent):** none fired. Creator Scoreboard stale-200 noted but same state as the earlier 11/2 run (not a failure).
+
+## 2026-11-02 (manual, ~13:10Z — v29 forecast on Matt's direct upload)
+
+- **Forecast v29 ingested.** Matt attached `2026 SDS Revenue & Forecasting (12).xlsx` in chat ("the latest forecast from last week"). The "(12)" is a download suffix. md5 `a145f1ea…` (292,399 B) differs from (28) `9240974d…`; docProps modified 2026-11-02T12:44:33Z. Filed as `gamb/finance/2026 SDS Revenue & Forecasting (29).xlsx`.
+- **−$27,000 (−0.04%) → $68,562,616.10.** Cell diff vs (28) on the Forecast tab: only RotoWire October moved (B2C Subs 589,000 → 577,000; Advertising 110,000 → 95,000). OpticOdds, OddsJam, Affiliate rollup identical. Actuals still through September. No status flips.
+- Gates: +$1,812,894 / +2.72% vs budget; +$193,269 / +0.28% vs target (was +$220,269). Integrity tied to the cent (4 rollups = TOTAL; 4 Affiliate children = Affiliate).
+- Updated: `data/forecast.json` (versions.v29, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw.*`, `#snap-wowForecast`, total card, RotoWire card (total + Subs/Ads rows), footnote, `.rw-floor`, today's keyTheme / attention / keyDates / Pipeline Note forecast lines, strategic question 1.
+- Validation: JS parses, `<div>` 335/335, 1 `<script>`.
+- Would-have-notified (not sent, per standing preference): forecast version bump.
