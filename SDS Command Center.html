@@ -946,7 +946,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Nov 2, 2026</span>
+            <span id="lastUpdated">Updated: Nov 3, 2026</span>
         </div>
     </div>
 
@@ -1773,7 +1773,7 @@ quick G/Y/R + 1-liner on each by eod wed. if either is on autopilot/KTLO and not
         </div>
         <div id="snap-pipelineNote" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px;">
             <div style="font-size: 13px; color: var(--text-secondary);">
-                <strong style="color: var(--text-primary);">Pipeline Note:</strong> <strong style="color:var(--purple);">Mon 11/2 · Refresh ~04:35 MDT. No weekend runs. Newest Slack scan is Oct 30–31; scorecard unchanged (paused); creators fresh; forecast v29 ingested mid-morning.</strong> <strong>Slack</strong>: scan written Sat 13:37Z (~39h old, partial, 17 priority channels plus DMs); no Sunday scan. Ohio letter confirmed sent; CRB Tuesday AM; Penn requests unanswered. <strong>Scorecard</strong>: Drive modifiedTime still Mon 10/26 23:55Z (~6d), so 47G/8Y/0R/20NR = 73.3% stands. <strong>Creators</strong>: worker fresh (04:24Z); Sunday scored 50 pts; Saturday never captured. <strong>Forecast</strong>: v29 ingested ~08:10 ET from your upload, $68.56M (−$27K vs v28, RotoWire October only). <strong>Meeting notes</strong>: Gemini newest 4 days old (10/29); Granola 89 days, dead. Still broken: the push classifier (~37 days) and the NFL timeline fetch.
+                <strong style="color: var(--text-primary);">Pipeline Note:</strong> <strong style="color:var(--purple);">Tue 11/3 · Refresh ~09:30 MST (fired late). No new Slack scan since Nov 1&ndash;2; scorecard sheet edited Mon but counts unchanged; creators fresh; no new forecast.</strong> <strong>Slack</strong>: newest scan ~36h old (inside 48h); Ohio letter sent, CRB review today, Penn requests unanswered, carried not re-asserted. <strong>Scorecard</strong>: Drive modifiedTime Mon 11/2 16:38Z; 47G/8Y/0R/20NR = 73.3%, NR Δ 0, board week 5 (W4 never opened). <strong>Creators</strong>: worker fresh; Monday scored 75 pts (EVBettors 13, Coventry 11); Tuesday unscored so far. <strong>Forecast</strong>: v29 ($68.56M) still latest; sweep of finance, __inbox and legacy found nothing newer. <strong>Meeting notes</strong>: Gemini newest 5 days old (10/29); Granola dead (since 8/5).
             </div>
         </div>
     </div>
@@ -2201,6 +2201,9 @@ const DATA = {
     // (~4d cold), identical to the 10/27 full export, so counts carried as a verified no-change: 47G/8Y/0R/20NR /75 = 73.3%. NR Δ 0. viewedByMeTime 10/30 00:54Z (Matt opened it Thu night, no edit).
     // 2nd tab not re-read (sheet unchanged); last known `C6 SCORECARD`. Paused: blanks are not misses. Nick P 11 · Jeremy T 9 closed C6 with zero cells. ⚠️ lastSynced = our check, not sheet authorship.
     // ─── 2026-11-02 (Mon 04:35 MDT): Drive modifiedTime STILL 2026-10-26T23:55:28Z (~6d cold; viewedByMeTime 10/30). Counts carried 47G/8Y/0R/20NR /75 = 73.3%, NR Δ 0. Paused by Matt; every NR row silent ~6 days. ⚠️ lastSynced = our check, not sheet authorship.
+    // ─── 2026-11-03 (Tue 09:30 MST): FULL RE-EXPORT, SYNC SUCCEEDED. Drive modifiedTime MOVED to 2026-11-02T16:38:30Z (~17h; prior 10/26 23:55Z). Matt edited Mon: 11 rows carry Updated 11/02, 4 carry 10/26.
+    // Col-D fill counts UNCHANGED: 47G/8Y/0R/20NR /75 = 73.3%, NR Δ 0 (edits were notes/dates, not status colours). C6 SCORECARD is still the 2nd tab; no C7 tab. Week columns now D=W5, E=W3, F=W2, G=W1 (W4 never opened):
+    // W5 47/8/0/20 · W3 30/4/0/41 · W2 32/3/0/40 · W1 21/0/0/54. BOARD WEEK 5 (W4 skipped) vs calendar wk 8. Paused by Matt. ⚠️ lastSynced = our check; sheet authorship was 11/2 16:38Z.
     scorecard: {
         green: 47, yellow: 8, red: 0, notReported: 20, total: 75,   // col D (labelled 'W5', relabelled from W4 in place), re-export 10/27 ~05:45 MDT; sheet edited 10/26 23:55Z
         prevGreen: 46, prevYellow: 8, prevRed: 0, prevNotReported: 21, prevTotal: 75,   // C6 W4 FINAL (col D before the relabel), read 10/23
@@ -2230,8 +2233,8 @@ const DATA = {
         // ESCALATION: Nick P — largest dark block, 6 windows Slack-silent, successor board 19d overdue,
         // retention answer 16d, AND the Underdog dashboard he owns was due EOD 10/05.
         // No Reds raised all cycle at 28.8% reporting = absence of DATA, not absence of problems.
-        lastSynced: "2026-11-02T04:35:00-06:00",
-        prevSynced: "2026-10-31T07:40:00-06:00"
+        lastSynced: "2026-11-03T09:30:00-07:00",
+        prevSynced: "2026-11-02T04:35:00-06:00"
     },
 
     // C4 BOOK-SIZE leaderboard (re-synced 2026-06-24 WED via col-D/W1 fill from the xlsx export). Largest books first; reporting status now starting to fill.
@@ -2276,6 +2279,7 @@ const DATA = {
     // Notes synthesis from Slack DMs + channels, Apr 1 → May 4
     notesSynthesis: {
         keyThemes: [
+            "🗓️ <strong>NOVEMBER 3 (TUE — ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 · NO C7)</strong> — 🎙️ <strong>MONDAY 75 PTS</strong> · 🏛️ <strong>CRB TODAY</strong> · 💵 <strong>v29 HOLDS</strong><br>🎙️ Creators jumped 50 → 75: EVBettors 13 (from 1) and Coventry 11 cleared 10 on points; Dustin and Clark 9, Erickson and McKechnie 8. Still unmeasured on the push gate.<br>📊 The scorecard sheet was edited Monday (11 rows dated 11/2) but status colours did not move: 47G/8Y/0R/20NR.<br>💵 No forecast newer than v29 ($68.56M). Slack has no scan newer than Nov 1&ndash;2, so Ohio, CRB and Penn items carry from yesterday.",
             "🗓️ <strong>NOVEMBER 2 (MON — ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) · NO C7)</strong> — ⚖️ <strong>OHIO LETTER SENT</strong> · 🏛️ <strong>CRB TUESDAY</strong> · 🎙️ <strong>SUNDAY 50 PTS</strong><br>⚖️ The Friday scare resolved: Stein confirmed the Ohio letter went out, with a DraftKings response draft to follow and Ryan working a DK back-channel.<br>🏛️ CRB reviews the OJ and RollCard uncapped accounts Tuesday AM; that gates the launch. Penn&rsquo;s Friday mapping requests have no visible reply.<br>🎙️ Creators: Sunday 50 pts (Fri 69), Coventry 12 and Erickson 11 over 10, Clark 13 → 2; Saturday never captured; classifier still broken.<br>💵 <strong>v29 forecast ingested mid-morning from your upload: $68.56M, −$27K vs v28</strong>, all RotoWire October (Subs −$12K, Ads −$15K); now +$193K / +0.28% vs target. Scorecard sheet cold since 10/26 (73.3%). Newest Slack scan is Oct 30–31, so Sat–Mon is unread.",
             "🗓️ <strong>OCTOBER 30 (FRI — ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) · NO C7)</strong> — ⚖️ <strong>OHIO DUE TODAY</strong> · 📺 <strong>PENN: FANDUEL OTB</strong> · 🔑 <strong>STRIPE KEY IN A CHANNEL</strong> · 🚀 <strong>MOMENTUM LIVE</strong><br>⚖️ <strong>Ohio is due today and nothing in the scan shows it went.</strong> DK&rsquo;s own letter reached you Thursday night and you were expecting a Millbank statement that OpticOdds isn&rsquo;t facilitating event contracts. Confirm sender and content today.<br>📺 Penn reported FanDuel odds OTB about 07:35–07:50 ET and three earlier items are still unanswered, with no RCA yet on the DK incident.<br>🔑 A live Stripe restricted key fragment was pasted in #_boulder_2026; rotate it. casinos.com&rsquo;s compromised-library code is out.<br>🚀 Momentum launched Thursday ($149.99/mo, no trial); OJ MRR $1.089M (+0.58% d/d). Brian wants X ads pushed today. Vincenzo is stretched by the Swish export and the incident.<br>🧾 The 10/29 refresh never ran, so this entry spans two days; the 06:00 auto-push also failed to resolve github.com. Forecast v28 holds (day 8); scorecard paused (73.3%); creators fresh (Thu 66, Wed lost).",
             "🗓️ <strong>OCTOBER 28 (WED — ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) · NO C7)</strong> — ⚖️ <strong>OHIO: RESPOND OR IGNORE?</strong> · 📺 <strong>DK INCIDENT HIT PENN LIVE TRADING</strong> · 👤 <strong>NICK C OWNS ALL DIRECT DEALS</strong> · 🤝 <strong>CME CLOSED</strong> · 📈 <strong>US AFFILIATE $3.0M SEPT</strong><br>⚖️ <strong>The Ohio letter is now a decision, not a counsel search.</strong> Stein&rsquo;s draft is up for Friday. You floated ignoring it; Stein says no advisor has suggested that (Ifrah and Rover both say respond), because GDC holds a privileged license and has to report any Ohio action, which can reach its other US licenses. Counsel has heard of a second supplier subpoenaed in another state. OpenBet and Sportradar calls are today.<br>📺 <strong>OO&rsquo;s new low-latency DK API lagged under NBA load</strong>, so Penn (ESPN) traded on stale DK prices and asked OO to lock DK everywhere. V reverted to the old endpoint; Penn wants an RCA. That&rsquo;s the 4th straight day of ESPN data issues, and OJ was blocked by DK the same afternoon.<br>👤 Shannon leaves 11/20; Big Nick C becomes sales director over all SDS direct deals, Abe + Gerson take data sales, Jake support, and ad sales (~$1.3M) moves to Nick C and Craig. 🤝 CME closed; Kevin wants a PR post and an earnings mention, which needs CME&rsquo;s consent. 📈 Craig&rsquo;s first #affiliate-performance-usa: $3.00M (+80% YoY), PMs $830K, legacy GDC assets −66% to −78% YoY, with Kevin watching. 🛑 OJ launch held for creator videos. 🔴 RW tracker misses its own prior print by 26 subs; MRR YoY 9.6%. Creators fresh: Tue 72 pts. 💵 v28 holds.",
@@ -4553,6 +4557,11 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
+        // ✅ 2026-11-03 ~09:30 MST: WORKER FRESH. generated_at "2026-11-03T16:26:16.053Z" vs "2026-11-02T04:24:50.832Z". history[0] = 2026-11-03 is TODAY'S EARLY AM (all analysis:false, 0 pts, 'No posts today') = UNSCORED, not a zero day.
+        // DATA.creators therefore carries history[1] = 2026-11-02 (MON, complete). WebFetch summary gives points only: tweets/replies/likes/rts for creators not seen before are 0 placeholders (Coventry/Erickson carried from 11/01); do not read them as real zeros.
+        // 🔴 CLASSIFIER presumed still broken (~38th day; push detail not in summary): 0/13 on_target = UNMEASURED, not unmet. EVBettors 13 and Coventry 11 cleared 10 on POINTS; Dustin 9, Clark 9, Erickson 8, McKechnie 8 closest.
+        // Movement vs the PRIOR RUN's recorded values (Sun 11/01), not trend_delta: total 50 → 75 (season-high this fortnight). Up: EVBettors 1→13, Dustin 3→9, Clark 2→9, McKechnie 5→8, Halterman 0→3, Billy 2→3, Anderson 1→2. Down: Erickson 11→8, Coventry 12→11, Barutha 6→5, Jagger 5→3, Whalen 2→1. Flat: OddsJam 0.
+        // Triggers: goal-hitter→0 not evaluable (nobody on_target); pod >50% zero: none (RW 0/8, OJ 1/4; DGF n=1 excluded); 0-pt laggard in a Matt DM: OddsJam not named in the newest (Nov 1-2) DM scan — no.
         // ✅ 2026-11-02 ~04:35 MDT: WORKER FRESH. generated_at "2026-11-02T04:24:50.832Z" vs "2026-10-31T13:35:37Z". history[0] = 2026-11-01 (SUN, scored; analysis:true for 11 posting creators).
         // SAT 10/31 WAS NEVER CAPTURED (no Sunday refresh ran) — lost day. WebFetch summarises: tweets/replies/likes are window totals; points are the 11/01 day score.
         // 🔴 CLASSIFIER STILL BROKEN (~37th day): every posting creator 'Could not classify posts', 0 pushes. 0/13 = UNMEASURED, not unmet.
@@ -4742,32 +4751,35 @@ const DATA = {
         // Triggers: goal-hitter→0 not evaluable (nobody on_target 10/17); pod >50% zero: RW 4/8 = exactly 50%, NOT >50%;
         // OJ 1/4; DGF n=1 excluded. 0-pt laggard named in a Matt DM: Anderson (probable mapping) was named Sat night; no newer
         // Slack scan exists (1 AM 10/19 ingest did not run), so this carries from 10/18, not re-confirmed.
-        date: "2026-11-01",
-        ingestedAt: "2026-11-02T04:35:00-06:00",
-        totals: { allPoints: 50, allHit: 0, allTotal: 13,
-                  ojPoints: 5, ojTotal: 4, rwPoints: 42, rwTotal: 8 },
+        date: "2026-11-02",
+        ingestedAt: "2026-11-03T09:30:00-07:00",
+        totals: { allPoints: 75, allHit: 0, allTotal: 13,
+                  ojPoints: 25, ojTotal: 4, rwPoints: 41, rwTotal: 8 },
         leaders: [
-            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:12, tweets:8, replies:24, likes:13, rts:0, onTarget:false,
-              reason:"Over 10 on points (9 → 12), the top scorer Sunday; off-target only because the push classifier credits nobody." },
-            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:11, tweets:18, replies:19, likes:146, rts:3, onTarget:false,
-              reason:"Over 10 on points (7 → 11); off-target only on the push gate." }
+            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:13, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"Top scorer Monday, over 10 on points (1 → 13); off-target only because the push classifier credits nobody." },
+            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:11, tweets:8, replies:24, likes:13, rts:0, onTarget:false,
+              reason:"Over 10 on points (12 → 11); off-target only on the push gate." },
+            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:9, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"Edge of goal at 9 (3 → 9). DGF creator, not Dustin McComas, the RW baseball candidate." },
+            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:9, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"Edge of goal at 9 (2 → 9)." },
+            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:8, tweets:18, replies:19, likes:146, rts:3, onTarget:false,
+              reason:"8 pts (11 → 8)." },
+            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:8, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"8 pts (5 → 8); Tim Schuler owns his accountability." }
         ],
         laggards: [
-            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:0, tweets:0, replies:1, likes:0, rts:0, onTarget:false,
-              reason:"No tweets and 0 points (4 → 0); not named in the Oct 30-31 Slack scan." },
             { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
-              reason:"Brand handle, no posts today (1 → 0)." }
+              reason:"Brand handle, no posts (0 → 0, no analysed days)." }
         ],
         midTier: [
-            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:6, reason:"6 pts: flat" },
-            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:5, reason:"5 pts: up from 3" },
-            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:5, reason:"5 pts: flat; Tim Schuler owns his accountability" },
-            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:3, reason:"3 pts: down from 7. DGF creator, not Dustin McComas, the RW baseball candidate" },
-            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:2, reason:"2 pts: down from 5" },
-            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:2, reason:"2 pts: down from 13 (Friday's top scorer)" },
-            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:2, reason:"2 pts: down from 6" },
-            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:1, reason:"1 pt: down from 3" },
-            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:1, reason:"1 pt: up from 0" }
+            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:5, reason:"5 pts: down from 6" },
+            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:3, reason:"3 pts: down from 5" },
+            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:3, reason:"3 pts: up from 2" },
+            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:3, reason:"3 pts: up from 0" },
+            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:2, reason:"2 pts: up from 1" },
+            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:1, reason:"1 pt: down from 2" }
         ]
     },
     cycle: {
@@ -4783,7 +4795,8 @@ const DATA = {
         start: "2026-09-14",
         end: "2026-10-23",         // C6 runs Sep 14 – Oct 23 (6-week cadence, per Pedro's 9/3 tracker link)
         keyDates: [
-            { date: "November 2 (Mon — TODAY · ⏸ SCORECARD UNCHANGED · C6 TAB, BOARD WEEK 5 (RELABELLED) · 73.3%) · 📭 NO SLACK SCAN SINCE SAT 10/31 AM · ⚖️ OHIO LETTER SENT · 🏛️ CRB REVIEW TUE AM · 🎯 COVENTRY 12 + ERICKSON 11 OVER 10 · 💵 FORECAST v29 INGESTED ($68.56M, −$27K)", label: "Monday refresh after a quiet weekend (no Sat/Sun runs). Newest Slack scan is the Oct 30–31 one (~39h old, not stale, no new Sunday scan). Per it: Michael Stein confirmed the Ohio letter was sent Friday 17:08 ET (resolves the Fri 🔴), CRB meets Tue AM on OJ and RollCard uncapped accounts, Penn mapping requests sat unanswered, Trove meeting is today, Repackz Wed. Creators fresh: Sunday scored 50 pts (Fri 69), Sat 10/31 never captured; classifier still broken. Scorecard sheet last edited 10/26 (~6d). Forecast v29 ingested mid-morning from your upload (−$27K vs v28, RotoWire October only). Gemini newest 4 days old; Granola dead since 8/5." },
+            { date: "November 3 (Tue — TODAY · ⏸ SCORECARD SHEET EDITED MON, COUNTS UNCHANGED · C6 TAB, BOARD WEEK 5 · 73.3%) · 🎯 CREATORS 75 PTS: EVBETTORS 13 + COVENTRY 11 OVER 10 · 💵 FORECAST v29 HOLDS · 🏛️ CRB REVIEW TODAY", label: "Quiet incremental refresh (fired late, ~09:30 MST). No Slack scan newer than Nov 1&ndash;2 (~36h, inside 48h), so no attention cards re-asserted. Forecast: nothing above (29). Scorecard: Drive modifiedTime moved to Mon 11/2 16:38Z but col-D counts are identical (47G/8Y/0R/20NR /75). Creators: Monday scored 75 pts, the best day in weeks (0/13 on_target is unmeasured, classifier). Gemini newest 5 days old (10/29); Granola dead." },
+            { date: "November 2 (Mon — recap · ⏸ SCORECARD UNCHANGED · C6 TAB, BOARD WEEK 5 (RELABELLED) · 73.3%) · 📭 NO SLACK SCAN SINCE SAT 10/31 AM · ⚖️ OHIO LETTER SENT · 🏛️ CRB REVIEW TUE AM · 🎯 COVENTRY 12 + ERICKSON 11 OVER 10 · 💵 FORECAST v29 INGESTED ($68.56M, −$27K)", label: "Monday refresh after a quiet weekend (no Sat/Sun runs). Newest Slack scan is the Oct 30–31 one (~39h old, not stale, no new Sunday scan). Per it: Michael Stein confirmed the Ohio letter was sent Friday 17:08 ET (resolves the Fri 🔴), CRB meets Tue AM on OJ and RollCard uncapped accounts, Penn mapping requests sat unanswered, Trove meeting is today, Repackz Wed. Creators fresh: Sunday scored 50 pts (Fri 69), Sat 10/31 never captured; classifier still broken. Scorecard sheet last edited 10/26 (~6d). Forecast v29 ingested mid-morning from your upload (−$27K vs v28, RotoWire October only). Gemini newest 4 days old; Granola dead since 8/5." },
             { date: "November 1 (Sun — NO REFRESH RAN · gap marker)", label: "No dashboard refresh ran on Sunday (06:00 auto-push was a no-op). Saturday creator scores were never captured." },
             { date: "October 31 (Sat — recap · ⏸ SCORECARD UNCHANGED · C6 TAB, BOARD WEEK 5 (RELABELLED) · 73.3%) · 📭 NO NEW SLACK SCAN SINCE FRI · 🎯 CLARK 13 ONLY CREATOR OVER 10 · 💵 FORECAST v28 HOLDS, DAY 9", label: "Light Saturday run. The newest Slack scan is Friday&rsquo;s (about a day old, not stale), so Ohio, Penn, Stripe-key and Momentum items carry forward from the Oct 30 cards rather than being re-asserted. Creators fresh (Fri 69 pts; only Clark cleared 10, Coventry 9; classifier still broken, 0/13 unmeasured). Scorecard sheet last edited 10/26, so every NR row has been silent ~5 days. No new forecast file anywhere (highest still (28)). Newest Gemini notes are 2 days old (10/29); Granola dead since 8/5." },
             { date: "October 30 (Fri — recap · ⏸ SCORECARD PAUSED · C6 TAB, BOARD WEEK 5 (RELABELLED) / CALENDAR WEEK 7 · 73.3%, UNCHANGED) · ⚖️ OHIO RESPONSE DUE TODAY · 📺 PENN: FANDUEL OTB THIS MORNING · 🔑 LIVE STRIPE KEY FRAGMENT IN #_boulder_2026 · 🚀 MOMENTUM LAUNCHED THU · 🧾 NO 10/29 REFRESH", label: "Slack fresh but partial (scan fired 5h40m late). DK&rsquo;s letter to OpticOdds landed Thursday night; the Ohio response is due today with no completion visible. Penn flagged FanDuel OTB this morning on top of three unanswered items. A live Stripe key fragment sits in a channel. Momentum launched (OJ MRR $1.089M, +0.58%). Thursday&rsquo;s refresh never ran, so Wed 10/28 → Fri 10/30 is one step here. Creators fresh (Thu 66 pts; Wed lost); scorecard paused and unchanged; forecast v28 holds, day 8." },
