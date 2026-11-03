@@ -839,6 +839,17 @@
         }
         .ql-open-all:hover { background: var(--accent-blue); border-color: var(--accent-blue); color: #fff; }
         .ql-open-all svg { width: 11px; height: 11px; }
+        /* Quick Links + Weeklys now sit inside a .section-body (2026-11-03) — the .section already spaces them. */
+        .section-body > .quick-links { margin-bottom: 0; }
+        /* Weeklys (2026-11-03): one teal palette, distinct from every brand/org group above. */
+        .ql-g-weekly { --ql-c: #0f766e; --ql-ink: #0f766e; --ql-c-dim: rgba(15,118,110,0.35); --ql-c-bg: rgba(15,118,110,0.06); }
+        .wk-note { font-size: 10.5px; color: var(--text-muted); padding-left: 2px; }
+        .ql-pending {
+            display: inline-flex; align-items: center;
+            padding: 4px 10px; border-radius: 7px;
+            border: 1px dashed var(--ql-c-dim); color: var(--text-muted);
+            font-size: 11.5px; font-weight: 500; white-space: nowrap; cursor: default;
+        }
 
         /* ── Offsites Tab ── */
         .offsite-toggle {
@@ -1004,6 +1015,13 @@
            explicit PRODUCT-PUSH obligations, which makes it the written counterpart to the Creator
            Scoreboard's "0 product pushes credited, 13 of 13 creators" defect. The dashboard now
            carries both the commitment and the measurement one click apart. -->
+    <!-- 2026-11-03 (Matt): Quick Links is now a collapsible .section like every other module; collapse state is remembered. -->
+    <div class="section" id="sec-quicklinks">
+        <div class="section-header" onclick="toggleSection('sec-quicklinks')">
+            <h2>Quick Links</h2>
+            <span class="section-chevron">&#9660;</span>
+        </div>
+        <div class="section-body">
     <div class="quick-links">
         <div class="ql-row ql-g-finance">
             <span class="ql-group-label">Finance</span>
@@ -1142,10 +1160,6 @@
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
                 Creator Scoreboard
             </a>
-            <a class="ql-link" href="https://docs.google.com/document/d/1cIJ6awPNWA0t-ITT_5ndFDkluHmasT2GO1NhkM3JJDk/edit?tab=t.0#heading=h.a3t89xlzvftq" target="_blank">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
-                Growth Tracker
-            </a>
             <a class="ql-link" href="https://rotowire-podcast-dashboard.vercel.app/" target="_blank">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
                 RW Audio Hub
@@ -1168,10 +1182,64 @@
             </a>
             </div>
         </div>
-        <button class="ql-open-all" onclick="openAllLinks()" title="Open every Quick Link in a new tab">
+        <button class="ql-open-all" onclick="openAllLinks('#sec-quicklinks')" title="Open every Quick Link in a new tab">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
             Open All
         </button>
+    </div>
+        </div>
+    </div>
+
+    <!-- Weeklys (added 2026-11-03, Matt): weekly updates from key execs + Matt's All Leads sheet that organizes them.
+         One row per person. To add/replace an exec's doc, swap the chip href. A person with no doc yet gets a
+         .ql-pending chip (dashed, not a link, skipped by Open All) — swap it for a .ql-link once the doc exists. -->
+    <div class="section" id="sec-weeklys">
+        <div class="section-header" onclick="toggleSection('sec-weeklys')">
+            <h2>Weeklys</h2>
+            <span class="section-chevron">&#9660;</span>
+        </div>
+        <div class="section-body">
+    <div class="quick-links">
+        <div class="ql-row ql-g-weekly">
+            <span class="ql-group-label">Matt</span>
+            <div class="ql-row-links">
+            <a class="ql-link" href="https://docs.google.com/spreadsheets/d/1blu7IIPSvhPE9djlYOvxok5Jtxy-N9nsatDqNhKshLg/edit?gid=1758027542#gid=1758027542" target="_blank" title="Master sheet that organizes every lead's weekly">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+                All Leads
+            </a>
+            <span class="wk-note">master sheet</span>
+            </div>
+        </div>
+        <div class="ql-row ql-g-weekly">
+            <span class="ql-group-label">Vincenzo</span>
+            <div class="ql-row-links">
+            <a class="ql-link" href="https://docs.google.com/document/d/1rhUX6zj05_CaJKBQc6An8P3EIaZXyOZudHoCif3BMVY/edit?tab=t.0" target="_blank" title="Vincenzo Ampolo — SDS Engineering update">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+                SDS Engineering Update
+            </a>
+            </div>
+        </div>
+        <div class="ql-row ql-g-weekly">
+            <span class="ql-group-label">Brian</span>
+            <div class="ql-row-links">
+            <span class="ql-pending" title="Brian's weekly doc not set yet">TBD</span>
+            </div>
+        </div>
+        <div class="ql-row ql-g-weekly">
+            <span class="ql-group-label">Pedro</span>
+            <div class="ql-row-links">
+            <a class="ql-link" href="https://docs.google.com/document/d/1FoYMdXtREbAGD6J3B4AVniTXbTLEJmQcNhiVQyaPxjQ/edit?tab=t.0" target="_blank" title="Pedro Olinger — MBR Automation">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V10M10 2h4m0 0v4m0-4L7 9"/></svg>
+                MBR Automation
+            </a>
+            </div>
+        </div>
+        <button class="ql-open-all" onclick="openAllLinks('#sec-weeklys')" title="Open every Weekly in a new tab">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+            Open All
+        </button>
+    </div>
+        </div>
     </div>
 
     <!-- ═══════════════════ TAB: OVERVIEW ═══════════════════ -->
@@ -5948,9 +6016,30 @@ function renderAllKPIs() {
 // INTERACTIONS
 // ═══════════════════════════════════════════════════
 
-function toggleSection(id) {
-    document.getElementById(id).classList.toggle('collapsed');
+// Collapse state for every .section module is remembered per-device (2026-11-03, Matt).
+var SECTION_LS_KEY = 'sdsSectionCollapsed-v1';
+function loadSectionState() {
+    try { return JSON.parse(localStorage.getItem(SECTION_LS_KEY) || '{}') || {}; } catch (e) { return {}; }
 }
+function toggleSection(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var collapsed = el.classList.toggle('collapsed');
+    var st = loadSectionState();
+    st[id] = collapsed ? 1 : 0;
+    try { localStorage.setItem(SECTION_LS_KEY, JSON.stringify(st)); } catch (e) {}
+}
+(function restoreSectionState() {
+    function apply() {
+        var st = loadSectionState();
+        Object.keys(st).forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el && el.classList.contains('section')) el.classList.toggle('collapsed', st[id] === 1);
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
+    else apply();
+})();
 
 function toggleAttn(i) {
     document.getElementById('attn-' + i).classList.toggle('open');
@@ -5970,8 +6059,8 @@ function copyMsg(btn, i) {
 }
 
 // Quick Links — Open All
-function openAllLinks() {
-    const links = document.querySelectorAll('.ql-link');
+function openAllLinks(scope) {
+    const links = document.querySelectorAll((scope || '#sec-quicklinks') + ' .ql-link');
     links.forEach(a => window.open(a.href, '_blank'));
 }
 // Close any open version drawer when clicking elsewhere.
