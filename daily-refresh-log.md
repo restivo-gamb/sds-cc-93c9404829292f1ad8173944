@@ -3168,3 +3168,19 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html (AES-256-CBC, 2,347,766 chars) + leak probe: 0 hits for `const DATA`, headline figures, names.
 - auto-push.log verification: pending at write time (WatchPaths fires ~60s after change) — see next run.
 - **Would-have-notified (not sent):** none fired.
+
+## 2026-11-04
+
+- Updated header timestamp → Nov 4, 2026. Cycle chip `Cycle 6` unchanged (2nd tab still `C6 SCORECARD`, no C7).
+- forecastMeta.ingestedAt: unchanged (v29, 2026-11-02) · scorecard.lastSynced: 2026-11-04T05:35-07:00 · creators.ingestedAt: unchanged 2026-11-03T09:30-07:00 (frozen, see below)
+- **Forecast scan:** `find gamb -iname "2026 SDS Revenue*Forecasting*.xlsx"` + `__inbox` (incl. `_archive`) + legacy folder. Highest (N) = (29), md5 `a145f1ea…` identical to the 11/2 ingest, mtime 11/2 12:59Z. Nothing newer; no move; no EDEADLK (listing only). Vault `forecast-history/` untouched.
+- **Slack:** newest scan Nov 3–4 (PARTIAL: 5 channels + Tim DM; _sds-management-team and Pedro DM blocked on JS extract). New cards: Underdog Termination & Amendment at signature (#sds-legal), American Wagering amendment awaiting Ryan W; Tim Schuler DM re Dec-2025 accounting anomaly. Ohio/CRB/Penn carried from 11/2, not re-asserted. RW-NEWS PROGRESS: nothing shipped; NewsAdmin special-character bug (Adam Z, 11/2) unowned; #rw-leads silent 14d; NFL timeline URL ask 49th.
+- **Meeting notes:** Gemini newest **6 days old** (2026-10-29 New Growth Meeting). Granola newest **91 days** (2026-08-05), dead. Nothing for 11/3.
+- **Forecast version move:** none (v29 holds, $68.56M). Static Revenue Pulse HTML not regenerated (no change).
+- **Scorecard:** full re-export OK. C6 SCORECARD 2nd tab. Drive modifiedTime 2026-11-03T18:08:45Z (~11h). NEW column D='W6' inserted (D=W6,E=W5,F=W3,G=W2,H=W1; W4 never opened); Group/Pod/Owners shifted to I/J/K. Col-D fill 0G/0Y/0R/75NR /75 = blank new week, not a regression; W5 (col E) = 47G/8Y/0R/20NR. prev* set = current to avoid a fake delta. BOARD week 6 vs calendar week 8. yellowLeaders untouched. Intro rewritten.
+- **Creators: FROZEN (stale 200).** generated_at `2026-11-03T16:26:16.053Z` identical to the 11/3 run; history[0]=11/03 all analysis:false = unscored. DATA.creators carried (11/2: 75 pts, 0/13), ingestedAt not advanced. Tuesday 11/3 unscored in this pull.
+- Dashboard edits: header, scorecard block + comment, creators comment, scorecardIntro, attention (new top card), keyDates (11/3→recap, new TODAY), keyThemes top entry, Pipeline Note. Strategic questions / combine callout untouched.
+- Validation: JS parses, `<div>` balanced 350/350, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
+- Encrypted index.html (AES-256-CBC, 1,727,415 → 2,361,590 chars). Leak probe: `const DATA`, Underdog, Coventry, Stein, 68.56 all ABSENT.
+- auto-push.log verification: pending at write time (WatchPaths ~60s) — see below.
+- **Would-have-notified (not sent to Slack):** Deal stage change (Underdog termination to signature); Scorecard NR Δ ≥10 (+55, artifact of the W6 roll); Creator Scoreboard returned stale.
