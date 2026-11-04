@@ -3184,3 +3184,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html (AES-256-CBC, 1,727,415 → 2,361,590 chars). Leak probe: `const DATA`, Underdog, Coventry, Stein, 68.56 all ABSENT.
 - auto-push.log verification: pending at write time (WatchPaths ~60s) — see below.
 - **Would-have-notified (not sent to Slack):** Deal stage change (Underdog termination to signature); Scorecard NR Δ ≥10 (+55, artifact of the W6 roll); Creator Scoreboard returned stale.
+- auto-push.log verification: ✅ pushed `398bb53..d971bc3` (05:35:57 host-local), after the write.
