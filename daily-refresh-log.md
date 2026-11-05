@@ -3185,3 +3185,12 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - auto-push.log verification: pending at write time (WatchPaths ~60s) — see below.
 - **Would-have-notified (not sent to Slack):** Deal stage change (Underdog termination to signature); Scorecard NR Δ ≥10 (+55, artifact of the W6 roll); Creator Scoreboard returned stale.
 - auto-push.log verification: ✅ pushed `398bb53..d971bc3` (05:35:57 host-local), after the write.
+
+## 2026-11-05 (manual, ~14:10Z — v30 forecast on Matt's direct upload)
+
+- **Forecast v30 ingested.** Matt attached `2026 SDS Revenue & Forecasting (13).xlsx` in chat. The "(13)" is a download suffix. md5 `33a0292a…` (292,595 B) differs from (29) `a145f1ea…`; docProps modified 2026-11-05T14:03:44Z. Filed as `gamb/finance/2026 SDS Revenue & Forecasting (30).xlsx`.
+- **−$13,000 (−0.02%) → $68,549,616.10.** Cell diff vs (29): only RotoWire moved (Advertising Oct 95,000 → 88,000; B2C Subs Nov 575,000 → 569,000). OpticOdds, OddsJam, Affiliate identical. Actuals still through September. No status flips.
+- Gates: +$1,799,894 / +2.70% vs budget; +$180,269 / +0.26% vs target (was +$193,269). Integrity tied to the cent.
+- Updated: `data/forecast.json` (versions.v30, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw.*`, `#snap-wowForecast`, total card, RotoWire card, footnote, `.rw-floor`, new top keyTheme (forecast only), Pipeline Note forecast line, strategic question 1.
+- Validation: JS parses, `<div>` 352/352, 1 `<script>`.
+- Would-have-notified (not sent, per standing preference): forecast version bump.
