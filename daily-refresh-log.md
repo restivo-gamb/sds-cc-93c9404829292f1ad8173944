@@ -3194,3 +3194,18 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Updated: `data/forecast.json` (versions.v30, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw.*`, `#snap-wowForecast`, total card, RotoWire card, footnote, `.rw-floor`, new top keyTheme (forecast only), Pipeline Note forecast line, strategic question 1.
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`.
 - Would-have-notified (not sent, per standing preference): forecast version bump.
+
+## 2026-11-05 (scheduled run, fired ~14:55Z / 07:55 MST — ~2h23m late)
+
+- Updated header timestamp → Nov 5, 2026. Cycle chip Cycle 6 unchanged (no C7 tab seen; sheet unchanged).
+- forecastMeta.ingestedAt: unchanged (v30, 2026-11-05T07:10-07:00) · scorecard.lastSynced: NOT bumped (carried) · creators.ingestedAt: 2026-11-05T07:56-07:00
+- **Path note:** the `SDS Dashboard` mount still points at the stale empty `Documents/Claude/Projects/SDS Dashboard/`; real repo is under the `Developer` mount. Worked there.
+- **Forecast scan:** `gamb` sweep (finance + __inbox + _archive): highest (N) = (30), mtime 11/5 14:04Z — already ingested by the manual run earlier today. Nothing newer. No EDEADLK; workbooks not re-opened.
+- **Slack:** newest scan Nov 3–4 (partial) — no Nov 4–5 scan present (~1 day, inside 48h). No attention cards added/rolled; not re-asserted mechanically.
+- **Meeting notes:** Gemini newest = 2026-10-29 (7 days); Granola dead since 2026-08-05 (92d). Nothing for 11/4.
+- **Scorecard:** Drive modifiedTime still 2026-11-03T18:08:45Z (~37h cold). Counts carried (C6 tab, board week 6, W6 0/75 blank; W5 47G/8Y/0R/20NR). Not re-exported (sheet unmoved); scorecard block, intro and lastSynced untouched.
+- **Creators:** worker FRESH (generated_at 2026-11-05T14:56:06Z). Carried 11/04 (WED): 74 pts. EVBettors 11 and Dustin 13 flagged `on_target:true` — first hitters in ~39 days; both analysis:false, so PROVISIONAL (possible classifier recovery; confirm with Brian S). Movement vs prior recorded 11/02: 75 → 74. 11/03 unscored/unrecovered. Erickson 8→0 noted.
+- Dashboard edits: header, DATA.creators (+comment), keyDates TODAY entry. keyThemes/Pipeline Note/attention not rewritten (no new Slack, no new forecast beyond the manual v30 edit).
+- Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
+- Encrypted index.html (AES-256-CBC, 1,731,195 → 2,366,754 chars). Leak probe: `const DATA`, 68.55, Underdog, Coventry ABSENT.
+- **Would-have-notified (not sent):** Creator goal-hitters reappeared (classifier possibly fixed); Scorecard sheet cold ~37h.
