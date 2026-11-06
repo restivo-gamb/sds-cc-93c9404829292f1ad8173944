@@ -3209,3 +3209,18 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html (AES-256-CBC, 1,731,195 → 2,366,754 chars). Leak probe: `const DATA`, 68.55, Underdog, Coventry ABSENT.
 - **Would-have-notified (not sent):** Creator goal-hitters reappeared (classifier possibly fixed); Scorecard sheet cold ~37h.
+
+## 2026-11-06
+
+- Updated header timestamp → Nov 6, 2026. Cycle chip Cycle 6 unchanged (no C7 tab seen).
+- forecastMeta.ingestedAt: unchanged (v30, 2026-11-05T07:10-07:00) · scorecard.lastSynced: NOT bumped (sheet unmoved) · creators.ingestedAt: NOT advanced (carried)
+- **Forecast scan:** `gamb` sweep (finance + __inbox + _archive): highest (N) = (30), mtime 2026-11-05 14:04Z, md5/size already ingested. Nothing newer; legacy folder has none. No EDEADLK; workbooks not re-opened.
+- **Slack (fresh, partial — 12 channels + 8 DMs, ~28 channels unread):** new attention card + keyThemes + keyDates + Pipeline Note: DGFantasy Stripe blocked; #vrr plan ask to Vincenzo (no reply); Sleeper MLB add-on $18.5K in legal; OneData/American Wagering waiting on Ryan; CFTC no-geofencing; AI-tooling cost policy pending; Nick pass proposal overdue. RW-NEWS PROGRESS carried into the card (NewsAdmin outage resolved; PHP upgrade done; NFL timeline fetch still failing ~51st). AP Predictions removal from forecast: v30 shows no flip — flagged to verify with Ryan.
+- **Meeting notes:** Gemini AGE: none in last 24h, newest 2026-10-29 (8d). Granola: dead, newest 2026-08-05 (93d).
+- **Forecast version moves:** none (v30 holds, $68.55M). Static Revenue Pulse HTML not regenerated (no change).
+- **Scorecard:** Drive modifiedTime 2026-11-03T18:08:45Z (~66h cold); not re-exported; counts, intro and lastSynced untouched. C6 tab, board week 6 (W6 blank 0/75; W5 47G/8Y/0R/20NR).
+- **Creators:** WebFetch returned generated_at 2026-11-05T14:55:53Z, earlier than prior run's 14:56:06Z (history[0]=11/5, mostly "no posts today"; 0/13 on_target) → treated as stale/older snapshot; DATA.creators carried unchanged, ingestedAt not advanced. Direct curl from sandbox blocked by proxy (403), no workaround attempted. 11/5 score unconfirmed.
+- Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
+- Encrypted index.html (AES-256-CBC, 1,736,197 → 2,373,558 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, DGFantasy ABSENT.
+- auto-push.log verification: see below.
+- **Would-have-notified (not sent):** New red attention card (DGFantasy Stripe blocked); Pod lead silent >48h on Matt-pending ask (Vincenzo #vrr, Nick pass plan); Scorecard sheet cold ~66h; Creator Scoreboard returned stale.
