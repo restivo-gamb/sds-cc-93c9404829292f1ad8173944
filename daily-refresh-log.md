@@ -3224,3 +3224,19 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html (AES-256-CBC, 1,736,197 → 2,373,558 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, DGFantasy ABSENT.
 - auto-push.log verification: see below.
 - **Would-have-notified (not sent):** New red attention card (DGFantasy Stripe blocked); Pod lead silent >48h on Matt-pending ask (Vincenzo #vrr, Nick pass plan); Scorecard sheet cold ~66h; Creator Scoreboard returned stale.
+
+## 2026-11-07
+
+- Updated header timestamp → Nov 7, 2026. Cycle chip Cycle 6 unchanged (no C7 tab seen; sheet not fetched).
+- forecastMeta.ingestedAt: unchanged (v30, 2026-11-05T07:10-07:00) · scorecard.lastSynced: NOT bumped (fetch failed) · creators.ingestedAt: 2026-11-07T05:40-07:00
+- **Path note:** the `SDS Dashboard` mount is the stale empty Documents path; worked in `Developer/SDS Dashboard`.
+- **Forecast scan:** `gamb` sweep (finance + __inbox + _archive) + legacy folder: highest (N) = (30), mtime 2026-11-05 14:04Z, already ingested; inbox empty. Nothing newer; no EDEADLK (listing only). No static Revenue Pulse regeneration.
+- **Slack:** newest scan Nov 6–7 (PARTIAL: 16 channels + 11 DMs). New top attention card, keyTheme, keyDates, Pipeline Note: OJ queue-liquidity backlog 22,957→38,976 with no visible reply; 3 legal drafts waiting on Ryan; Sendblue Monday; Nick Monday plan + stale-rank data-quality issue; finance offer awaiting Kevin. RW-NEWS PROGRESS carried in (timeline monitor URL likely stale, ~52nd failure).
+- **Meeting notes:** Gemini AGE: none in 24h, newest 2026-10-29 (9 days). Granola: dead, newest 2026-08-05 (94 days).
+- **Forecast version moves:** none (v30 holds, $68.55M).
+- **Scorecard:** Drive MCP `get_file_metadata` and `download_file_content` both returned "Entity not found" for the sheet ID; Chrome-route export URL returned a 404 (not signed in / no access). Counts, intro and lastSynced untouched (C6 tab, board week 6, W5 47G/8Y/0R/20NR). Re-diagnose Drive connector access.
+- **Creators:** worker FRESH (generated_at 2026-11-07T12:33:05Z); history[0] = 11/6 (Fri). 66 pts; EVBettors 13 + Clark 10 on target (provisional, analysis:false); push counts populated again, classifier appears recovered (confirm with Brian S). 11/5 never captured (lost day). Dustin 13→1. WebFetch summarises, cells approximate.
+- Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
+- Encrypted index.html (AES-256-CBC, 1,741,876 → 2,381,326 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, Sendblue ABSENT.
+- auto-push.log verification: see below.
+- **Would-have-notified (not sent):** New red attention card (OJ queue backlog); Scorecard sync failed; Pod lead silent (Pedro, Leo); creators classifier possibly recovered; Gemini/Granola stale.
