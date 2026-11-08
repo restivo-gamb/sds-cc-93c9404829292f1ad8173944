@@ -3256,3 +3256,4 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html (AES-256-CBC, 1,743,722 → 2,383,778 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, Coventry ABSENT.
 - auto-push.log verification: see below.
 - **Would-have-notified (not sent):** Scorecard sheet cold ~5 days; Slack scan not fresh since Fri (Day 1–2, not yet stale); Gemini/Granola stale; creator Sat drop 66→36 (no trigger).
+- auto-push.log: ✓ pushed 2026-11-08 07:30 (e5caf20).
