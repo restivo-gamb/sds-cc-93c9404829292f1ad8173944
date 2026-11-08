@@ -957,7 +957,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Nov 7, 2026</span>
+            <span id="lastUpdated">Updated: Nov 8, 2026</span>
         </div>
     </div>
 
@@ -4691,6 +4691,11 @@ const DATA = {
     // Refresh task GETs /api/scoreboard?days=1 each morning and rewrites this block.
     // Goal = 10 pts AND ≥1 product push; caps force mixing formats (push 3ea/2cap, thread 2ea/3cap, video 2ea/2cap, tweet 1ea/3cap, replies 0).
     creators: {
+        // \u2705 2026-11-08 ~06:35 MST: WORKER FRESH. generated_at "2026-11-08T14:28:32Z" vs last recorded "2026-11-07T12:33:05Z". history[0] = 2026-11-08 is TODAY'S EARLY AM (all analysis:false, 'No posts today') = UNSCORED, not a zero day. DATA.creators carries history[1] = 2026-11-07 (SAT, complete; analysis:true for 9 of 13).
+        // WebFetch summarises: points and on_target are the 11/7 day score; tweets/replies/likes/rts are window totals from the 11/8 pull and approximate. Per-creator push counts and reasons are NOT in the 11/7 history payload.
+        // Classifier looks live (analysis:true on posting creators), so 0/13 on target is MEASURED this time, not unmeasured.
+        // Movement vs the PRIOR RUN's recorded values (Fri 11/6), not trend_delta: total 66 -> 36. Down: EVBettors 13->6, Clark 10->1, Erickson 9->0, Jagger 8->0, OddsJam 2->0, Coventry 9->8, Barutha 3->2, Whalen 3->2. Up: McKechnie 4->8, Billy 4->6, Halterman 0->2. Flat: Dustin 1, Anderson 0.
+        // Triggers: goal-hitter->0: none (EVBettors 13->6 and Clark 10->1 are drops, not zeros); pod >50% zero: RW 3/8, OJ 1/4 (DGF n=1 excluded) - no; 0-pt laggard in a Matt DM: Erickson/Jagger/Anderson/OddsJam not named in the Nov 6-7 DM scan (no newer scan) - no.
         // 🧊 2026-11-04 ~05:35 MST: FROZEN (stale 200). generated_at "2026-11-03T16:26:16.053Z" is byte-identical to the 11/3 run's value; history[0] = 2026-11-03 still all analysis:false ('No posts today') = UNSCORED, not a zero day.
         // DATA.creators carried UNCHANGED (11/02 scored: 75 pts, 0/13 on_target) and ingestedAt NOT advanced so the chip ages honestly. Tuesday 11/3 went unscored in this pull. Both creator triggers not evaluable.
         // ✅ 2026-11-03 ~09:30 MST: WORKER FRESH. generated_at "2026-11-03T16:26:16.053Z" vs "2026-11-02T04:24:50.832Z". history[0] = 2026-11-03 is TODAY'S EARLY AM (all analysis:false, 0 pts, 'No posts today') = UNSCORED, not a zero day.
@@ -4897,35 +4902,36 @@ const DATA = {
         // 🟢 CLASSIFIER LOOKS RECOVERED: reasons are substantive and product_pushes are non-zero (EVBettors 6, Coventry 7, Clark 1, Jagger 2, Erickson 1, Billy 1) instead of 'Could not classify posts'. EVBettors 13 and Clark 10 flagged on_target (both analysis:false, so PROVISIONAL). Confirm with Brian S.
         // Movement vs the PRIOR RUN's recorded values (Wed 11/4), not trend_delta: total 74 → 66. Up: Erickson 0→9, Coventry 7→9, EVBettors 11→13, Clark 9→10, OddsJam 0→2, Whalen 2→3. Down: Dustin 13→1, Billy 7→4, Barutha 5→3, Anderson 4→0, Halterman 3→0, Jagger 9→8. Flat: McKechnie 4.
         // Triggers: goal-hitter→0: none (Dustin 13→1 is a drop, not zero); pod >50% zero: none (RW 2/8 at 0; OJ 0/4; DGF n=1 excluded); 0-pt laggard in a Matt DM: Anderson/Halterman not named in the Nov 6–7 DM scan — no.
-        date: "2026-11-06",
-        ingestedAt: "2026-11-07T05:40:00-07:00",
-        totals: { allPoints: 66, allHit: 2, allTotal: 13,
-                  ojPoints: 29, ojTotal: 4, rwPoints: 36, rwTotal: 8 },
+        date: "2026-11-07",
+        ingestedAt: "2026-11-08T06:35:00-08:00",
+        totals: { allPoints: 36, allHit: 0, allTotal: 13,
+                  ojPoints: 13, ojTotal: 4, rwPoints: 22, rwTotal: 8 },
         leaders: [
-            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:13, tweets:10, replies:9, likes:141, rts:15, onTarget:true,
-              reason:"Flagged on target (11 → 13) with 6 product pushes; promoted OddsJam across posts all day. Provisional (analysis flag false)." },
-            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:10, tweets:5, replies:1, likes:98, rts:99, onTarget:true,
-              reason:"Flagged on target (9 → 10) via a giveaway partnered with OddsJam; 1 push. Provisional." },
-            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:9, tweets:10, replies:19, likes:22, rts:3, onTarget:false,
-              reason:"Edge of goal at 9 (7 → 9), 7 pushes with RotoWire discount codes; 1 point short." },
-            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:9, tweets:5, replies:5, likes:53, rts:3, onTarget:false,
-              reason:"Edge of goal at 9 (rebounded from 0); 1 push with a promo code." },
-            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:8, tweets:4, replies:4, likes:38, rts:4, onTarget:false,
-              reason:"8 pts (9 → 8); 2 pushes via direct links." }
+            { handle:"JimCoventryNFL", name:"Jim Coventry", pod:"RW", pts:8, tweets:9, replies:16, likes:21, rts:5, onTarget:false,
+              reason:"Closest to goal at 8 (9 \u2192 8); 2 short. Push detail not in the 11/7 history payload." },
+            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:8, tweets:6, replies:2, likes:24, rts:0, onTarget:false,
+              reason:"8 pts (4 \u2192 8), best day in the last week; 2 short of goal." },
+            { handle:"EVBettors", name:"+EV Bettors", pod:"OJ", pts:6, tweets:4, replies:0, likes:22, rts:5, onTarget:false,
+              reason:"6 pts, down from 13 the day before; not on target." },
+            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:6, tweets:2, replies:0, likes:10, rts:2, onTarget:false,
+              reason:"6 pts (4 \u2192 6); not on target." }
         ],
         laggards: [
-            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:0, likes:1, rts:0, onTarget:false,
-              reason:"0 pts (4 → 0); only a non-promotional reply to a fan." },
-            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:0, tweets:0, replies:0, likes:2, rts:0, onTarget:false,
-              reason:"0 pts (3 → 0); no posts with qualifying products." }
+            { handle:"Jeff_Erickson", name:"Jeff Erickson", pod:"RW", pts:0, tweets:0, replies:2, likes:2, rts:0, onTarget:false,
+              reason:"0 pts (9 \u2192 0); no posts scored on Saturday." },
+            { handle:"JagSays", name:"Jagger May", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"0 pts (8 \u2192 0); no activity." },
+            { handle:"RealJRAnderson", name:"James Anderson", pod:"RW", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"0 pts (flat); no activity." },
+            { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:0, tweets:0, replies:0, likes:0, rts:0, onTarget:false,
+              reason:"0 pts (2 \u2192 0); brand account silent." }
         ],
         midTier: [
-            { handle:"johns_tailgate", name:"John McKechnie", pod:"RW", pts:4, reason:"4 pts: flat; no qualifying product pushes" },
-            { handle:"C0llins_Billy", name:"Billy C", pod:"OJ", pts:4, reason:"4 pts: down from 7" },
-            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:3, reason:"3 pts: down from 5" },
-            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:3, reason:"3 pts: up from 2" },
-            { handle:"OddsJam", name:"OddsJam", pod:"OJ", pts:2, reason:"2 pts: up from 0; Rollcard post does not qualify" },
-            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:1, reason:"1 pt: down from 13 (DGF creator, not Dustin McComas)" }
+            { handle:"BaruthaAlex", name:"Alex Barutha", pod:"RW", pts:2, reason:"2 pts: down from 3" },
+            { handle:"wha1en", name:"Nick Whalen", pod:"RW", pts:2, reason:"2 pts: down from 3" },
+            { handle:"erik_halterman", name:"Erik Halterman", pod:"RW", pts:2, reason:"2 pts: up from 0" },
+            { handle:"clarkknowsball", name:"Clark Gary", pod:"OJ", pts:1, reason:"1 pt: down from 10" },
+            { handle:"SportsByDustin", name:"Dustin", pod:"DGF", pts:1, reason:"1 pt: flat (DGF creator, not Dustin McComas)" }
         ]
     },
     cycle: {
@@ -4941,7 +4947,8 @@ const DATA = {
         start: "2026-09-14",
         end: "2026-10-23",         // C6 runs Sep 14 – Oct 23 (6-week cadence, per Pedro's 9/3 tracker link)
         keyDates: [
-            { date: "November 7 (Sat — TODAY · C6 TAB, BOARD WEEK 6 (SHEET NOT REACHABLE FROM DRIVE THIS RUN, COUNTS CARRIED) · 💵 FORECAST v30 HOLDS ($68.55M) · 🔴 OJ QUEUE-LIQUIDITY BACKLOG CLIMBING · 🎯 CREATORS 66 PTS: EVBETTORS 13 + CLARK 10 ON TARGET)", label: "Incremental refresh (~05:40 MST). Partial Slack scan (Nov 6&ndash;7). Scorecard: Drive returned &lsquo;not found&rsquo; for the sheet, so counts and lastSynced carried. Creators: worker fresh, 11/6 scored (11/5 lost); classifier looks recovered. No forecast newer than v30. Gemini newest 10/29 (9d); Granola dead 94 days." },
+            { date: "November 8 (Sun — TODAY · C6 TAB, BOARD WEEK 6 (SHEET ~5 DAYS COLD, COUNTS CARRIED) · 💵 FORECAST v30 HOLDS ($68.55M) · 📭 NO SLACK SCAN SINCE FRI AM · 🎯 CREATORS SAT 36 PTS, 0 ON TARGET)", label: "Light Sunday refresh (~06:35 MST). Newest Slack scan is Nov 6&ndash;7 (~30h, inside 48h), so attention cards carry without re-assertion. Scorecard: Drive reachable again, sheet modifiedTime still Tue 11/3 18:08Z (5 days cold), counts and lastSynced untouched. Forecast: nothing above (30); Pedro appears to have left, no new Slack file. Creators: worker fresh, Sat 11/7 scored at 36 pts (66 &rarr; 36), nobody on target; EVBettors 13&rarr;6, Clark 10&rarr;1. Gemini newest 10/29 (10d); Granola dead 95d." },
+            { date: "November 7 (Sat — recap · C6 TAB, BOARD WEEK 6 (SHEET NOT REACHABLE FROM DRIVE THIS RUN, COUNTS CARRIED) · 💵 FORECAST v30 HOLDS ($68.55M) · 🔴 OJ QUEUE-LIQUIDITY BACKLOG CLIMBING · 🎯 CREATORS 66 PTS: EVBETTORS 13 + CLARK 10 ON TARGET)", label: "Incremental refresh (~05:40 MST). Partial Slack scan (Nov 6&ndash;7). Scorecard: Drive returned &lsquo;not found&rsquo; for the sheet, so counts and lastSynced carried. Creators: worker fresh, 11/6 scored (11/5 lost); classifier looks recovered. No forecast newer than v30. Gemini newest 10/29 (9d); Granola dead 94 days." },
             { date: "November 6 (Fri — recap · C6 TAB, BOARD WEEK 6 (SHEET UNCHANGED SINCE TUE 11/3, ~66H COLD) · 💵 FORECAST v30 HOLDS ($68.55M) · 💳 DGFANTASY STRIPE BLOCKED · 🧭 #VRR PLAN ASK)", label: "Incremental refresh (~05:35 MST). Fresh partial Slack scan (Nov 5&ndash;6). Scorecard sheet unmoved, counts carried, lastSynced not bumped. Creators: worker returned an older generated_at, carried unchanged. No forecast newer than v30. Gemini: none in 24h (newest 10/29); Granola dead 93 days." },
             { date: "November 5 (Thu — recap · C6 TAB, BOARD WEEK 6 (SHEET UNCHANGED SINCE TUE 11/3) · 💵 FORECAST v30 IN ($68.55M, −$13K) · 🎯 CREATORS 74 PTS: DUSTIN 13 + EVBETTORS 11 FLAGGED ON TARGET — CLASSIFIER POSSIBLY BACK)", label: "Daily refresh (fired late; a manual v30 forecast ingest ran ~07:06 MST). Slack: no scan newer than Nov 3&ndash;4 (~1 day, inside 48h), so attention cards are not re-asserted. Scorecard: Drive modifiedTime still 2026-11-03T18:08Z, counts carried, lastSynced not bumped. Creators: worker fresh, 11/04 scored. Gemini newest 2026-10-29-class (stale); Granola dead." },
             { date: "November 4 (Wed — TODAY · C6 TAB, BOARD WEEK 6 JUST OPENED (0/75) · 📝 UNDERDOG TERMINATION AT SIGNATURE · 🧊 CREATORS FROZEN · 💵 FORECAST v29 HOLDS)", label: "On-time incremental refresh (~05:35 MST). Slack scan partial (5 channels). Scorecard: W6 column inserted Tue, 0/75 filled, W5 closed 47G/8Y/0R/20NR. Creators: stale 200, carried. Forecast: nothing above (29). Gemini 6d, Granola dead." },
