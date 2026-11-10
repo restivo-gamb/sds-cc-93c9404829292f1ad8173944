@@ -2625,7 +2625,7 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Corrections to 10/05 copy:** keyDates Oct 5 entry, Pipeline Note, and today's keyThemes now state that the deploy pipeline was intact. The 10/05 run's notes-synthesis entry was written into static HTML that JS overwrites, so it never rendered. That static block has been left alone; the live entry is in `DATA.notesSynthesis.keyThemes`.
 - Validation: JS parses, `<div>` 333/333, 1 `<script>`, 4 `<style>`, 1 `const DATA`. DATA evaluated cleanly.
 - Encrypted index.html: `✓ 1,468,279 chars → 2,007,670 chars` (AES-256-CBC, PBKDF2 250k). Leak probe 8/8 ABSENT; body 2.0M chars base64.
-- auto-push.log verification: see below.
+- auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** new red attention card (Kalshi attribution / OJ MRR contamination) · 9+ day silent leads surfaced (Nick P, Brian S, Jeremy T) · Slack fresh, forecast unmoved, NR delta −8 (under ±10), creators fresh, no creator triggers evaluable.
 - auto-push.log: ✅ two WatchPaths pushes. 05:41:57 → `b1c777b` (SDS Command Center.html). 05:42:58 → `269b7ab` (index.html + this log). `git log @{u}..HEAD` is empty, so Pages is serving the Oct 6 build. The 10/05 `.git/index.lock` was cleared host-side as expected.
 - 2026-10-06 (Matt request): added RW quick link "News Speed" → kevob100.github.io/Post-Speed-Tracker/#nba. Re-encrypted.
@@ -3222,7 +3222,7 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators:** WebFetch returned generated_at 2026-11-05T14:55:53Z, earlier than prior run's 14:56:06Z (history[0]=11/5, mostly "no posts today"; 0/13 on_target) → treated as stale/older snapshot; DATA.creators carried unchanged, ingestedAt not advanced. Direct curl from sandbox blocked by proxy (403), no workaround attempted. 11/5 score unconfirmed.
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html (AES-256-CBC, 1,736,197 → 2,373,558 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, DGFantasy ABSENT.
-- auto-push.log verification: see below.
+- auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** New red attention card (DGFantasy Stripe blocked); Pod lead silent >48h on Matt-pending ask (Vincenzo #vrr, Nick pass plan); Scorecard sheet cold ~66h; Creator Scoreboard returned stale.
 
 ## 2026-11-07
@@ -3238,7 +3238,7 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators:** worker FRESH (generated_at 2026-11-07T12:33:05Z); history[0] = 11/6 (Fri). 66 pts; EVBettors 13 + Clark 10 on target (provisional, analysis:false); push counts populated again, classifier appears recovered (confirm with Brian S). 11/5 never captured (lost day). Dustin 13→1. WebFetch summarises, cells approximate.
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html (AES-256-CBC, 1,741,876 → 2,381,326 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, Sendblue ABSENT.
-- auto-push.log verification: see below.
+- auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** New red attention card (OJ queue backlog); Scorecard sync failed; Pod lead silent (Pedro, Leo); creators classifier possibly recovered; Gemini/Granola stale.
 
 ## 2026-11-08
@@ -3254,7 +3254,7 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Dashboard edits: header, DATA.creators (+comment), keyDates (Nov 7→recap, new Nov 8 TODAY).
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html (AES-256-CBC, 1,743,722 → 2,383,778 chars). Leak probe: `const DATA`, 68.55, Underdog, Vincenzo, Coventry ABSENT.
-- auto-push.log verification: see below.
+- auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** Scorecard sheet cold ~5 days; Slack scan not fresh since Fri (Day 1–2, not yet stale); Gemini/Granola stale; creator Sat drop 66→36 (no trigger).
 - auto-push.log: ✓ pushed 2026-11-08 07:30 (e5caf20).
 
@@ -3285,5 +3285,5 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators:** worker STALE: generated_at 2026-11-09T15:53:30Z identical to the 11/9 run; history[0]=11/9 all analysis:false. DATA.creators carried UNCHANGED (11/8, 50 pts), ingestedAt not advanced; Mon 11/9 unscored. Triggers not evaluable.
 - Validation: JS parses, `<div>` 352/352, 1 `<script>`, 4 `<style>`, 1 `const DATA`.
 - Encrypted index.html (AES-256-CBC, 1,751,138 → 2,393,910 chars). Leak probe: `const DATA`, 68.55, Vincenzo ABSENT.
-- auto-push.log verification: see below.
+- auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** Creator Scoreboard stale (frozen worker); new red attention card (OJ Redis alerts, no response); Gemini/Granola stale; scorecard C7 tab layout still unresolved.
