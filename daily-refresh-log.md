@@ -3287,3 +3287,13 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Encrypted index.html (AES-256-CBC, 1,751,138 → 2,393,910 chars). Leak probe: `const DATA`, 68.55, Vincenzo ABSENT.
 - auto-push.log: ✓ pushed 2026-11-10 05:35 (93ea3e7).
 - **Would-have-notified (not sent):** Creator Scoreboard stale (frozen worker); new red attention card (OJ Redis alerts, no response); Gemini/Granola stale; scorecard C7 tab layout still unresolved.
+
+## 2026-11-11
+
+- **Decisions merged:** 0 new (Chrome localStorage read OK, 5 decisions all already in decisions.json, source chrome; Google Form not set up).
+- **Queue:** 3 open / 3 added / 5 dropped (all 5 prior cards closed by decision or lead resolution) / 0 overflow. Cards: optic-vincenzo-roadmap-staffing-call (p1), oj-redis-dm-draft-nov (new id, DM draft is new output of the approved Redis card), sds-staff-status-message (merged with rotowire rw-staff-status-message).
+- **Lead proposal files:** finance-mbr, oddsjam, optic, partnerships, rotowire, sds all present for 2026-11-11. All leads partial; they looked for feedback.md at the wrong path (real path agents/state/feedback.md).
+- **KPI tiles:** 4 live, 1 stale (Optic B2B Customers ~320, Apr 15), 9 pending. B2C Subs uses 4,535 paying customers (labeled; 4,936 customers and 6,827 subscriptions in meta). Mission Control still illustrative.
+- **Forecast scan:** latest local file is (30), mtime 2026-11-05, already ingested. Nothing newer. No Revenue Pulse change.
+- **Creators:** worker fresh (generated_at 2026-11-11T12:33:35Z, data for 11/10). DATA.creators refreshed: 97 pts, 5 of 13 on target. Not-on-target creators with 8 to 10 pts (Jagger May, Jeff Erickson) are placed in midTier so they stay visible.
+- **Encryption:** ✓ Encrypted (241,122 chars). Leak probe on index.html: const DATA, const QUEUE, Vincenzo, 68.55 and 1,127,831 all absent. auto-push.log: pushed 7548819.
