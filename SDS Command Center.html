@@ -1942,7 +1942,7 @@ function escHtml(s) {
 const AQ_LS_KEY = 'sdsQueueDecisions-v1';
 const AQ_LOOP_LABEL = { decide: 'Decide', approve: 'Approve', reply: 'Reply', join: 'Get on a call', unblock: 'Unblock', fyi: 'FYI · watch' };
 const AQ_LEAD_LABEL = { oddsjam: 'OddsJam', rotowire: 'RotoWire', optic: 'OpticOdds', finance: 'Finance & MBR', partnerships: 'Partnerships', sds: 'SDS' };
-const AQ_DECISION_LABEL = { approve: 'Approved', redirect: 'Redirected', evidence: 'Asked for more', defer: 'Deferred', reject: 'Rejected' };
+const AQ_DECISION_LABEL = { approve: 'Approved', redirect: 'Redirected', evidence: 'Asked for more', defer: 'Deferred', reject: 'Rejected', done: 'Already handled' };
 
 function aqLoad() { try { return JSON.parse(localStorage.getItem(AQ_LS_KEY) || '{}') || {}; } catch (e) { return {}; } }
 function aqSave(o) { try { localStorage.setItem(AQ_LS_KEY, JSON.stringify(o)); } catch (e) {} }
@@ -2052,6 +2052,7 @@ function renderQueueCard(q) {
             <button class="aq-btn primary" onclick="aqDecide('${escHtml(q.id)}','approve')">Approve</button>
             <button class="aq-btn" onclick="aqToggleNote('${escHtml(q.id)}','redirect')">Redirect</button>
             <button class="aq-btn" onclick="aqToggleNote('${escHtml(q.id)}','evidence')">More evidence</button>
+            <button class="aq-btn" onclick="aqDecide('${escHtml(q.id)}','done')">Already handled</button>
             <button class="aq-btn" onclick="aqDecide('${escHtml(q.id)}','defer')">Defer</button>
             <button class="aq-btn" onclick="aqDecide('${escHtml(q.id)}','reject')">Reject</button>
         </div>
@@ -2083,7 +2084,7 @@ function renderQueue() {
         decEl.innerHTML = decided.length ? `<div class="aq-sub">Decided (${decided.length}) · the agents act on these tonight</div>` +
             decided.map(q => {
                 const r = store[q.id];
-                const col = r.decision === 'approve' ? 'var(--green)' : r.decision === 'reject' ? 'var(--red)' : 'var(--purple)';
+                const col = (r.decision === 'approve' || r.decision === 'done') ? 'var(--green)' : r.decision === 'reject' ? 'var(--red)' : 'var(--purple)';
                 return `<div class="aq-decided">
                     <span class="aq-dtag" style="color:${col};">${escHtml(AQ_DECISION_LABEL[r.decision] || r.decision)}</span>
                     <span class="aq-dtitle">${escHtml(q.title)}${r.note ? ` <em>— “${escHtml(r.note)}”</em>` : ''}</span>
