@@ -3297,3 +3297,14 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Forecast scan:** latest local file is (30), mtime 2026-11-05, already ingested. Nothing newer. No Revenue Pulse change.
 - **Creators:** worker fresh (generated_at 2026-11-11T12:33:35Z, data for 11/10). DATA.creators refreshed: 97 pts, 5 of 13 on target. Not-on-target creators with 8 to 10 pts (Jagger May, Jeff Erickson) are placed in midTier so they stay visible.
 - **Encryption:** ✓ Encrypted (241,122 chars). Leak probe on index.html: const DATA, const QUEUE, Vincenzo, 68.55 and 1,127,831 all absent. auto-push.log: pushed 7548819.
+
+## 2026-11-12
+
+- **Decisions merged:** 0 new (Chrome localStorage read OK, 6 found, all already in decisions.json, source chrome; Google Form not set up).
+- **Queue:** 1 open / 0 added new (sds-staff-status-message reworked from the sds proposal, nightsShown 2) / 2 dropped (optic-vincenzo-roadmap-staffing-call done; oj-redis-dm-draft-nov resolved, Matt raised it himself) / 0 overflow. 1 held: finance-mc-mrr-source (sds lead triage: not Matt-shaped, Matt already asked Pedro; card Fri 11/13 if still unanswered; its alternatives field was a string).
+- **Lead proposal files:** finance-mbr, oddsjam, optic, partnerships, rotowire, sds all present for 2026-11-12. All partial.
+- **KPI tiles:** 5 live (OJ subs 6,819 as Subs counted, OJ MRR $1,126,849, RW subs, RW MRR, Optic pipeline 45 deals count) / 1 stale (Optic B2B Customers ~320, Apr 15) / 8 pending. Mission Control still illustrative.
+- **Forecast scan:** latest local file is (30), mtime 2026-11-05, already ingested. Nothing newer. No Revenue Pulse change.
+- **Creators:** worker generated_at 2026-11-11T12:33:35Z, identical to prior run. DATA.creators carried forward, ingestedAt not bumped.
+- **Encryption:** ✓ Encrypted (235,382 chars). Leak probe on index.html: const DATA, const QUEUE, Vincenzo, 1,126,849, Tim Schuler all absent.
+- **Auto-push:** pushed b556763 after the write (auto-push.log).
