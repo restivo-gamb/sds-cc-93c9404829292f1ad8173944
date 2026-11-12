@@ -3308,3 +3308,14 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **Creators:** worker generated_at 2026-11-11T12:33:35Z, identical to prior run. DATA.creators carried forward, ingestedAt not bumped.
 - **Encryption:** ✓ Encrypted (235,382 chars). Leak probe on index.html: const DATA, const QUEUE, Vincenzo, 1,126,849, Tim Schuler all absent.
 - **Auto-push:** pushed b556763 after the write (auto-push.log).
+
+## 2026-11-12 (manual, ~23:35Z — v31 forecast on Matt's direct upload)
+
+- **Forecast v31 ingested.** Matt attached `2026 SDS Revenue & Forecasting (14).xlsx` in chat. "(14)" is a download suffix. md5 `0e637350…` (293,050 B); docProps modified 2026-11-12T23:23:14Z. Filed as `gamb/finance/2026 SDS Revenue & Forecasting (31).xlsx`.
+- **−$655,215 (−0.96%) → $67,894,401.10. Below target for the first time in 2026 (−$474,946 / −0.69%).** October flipped to ACTUAL.
+- ⚠️ **Placeholder:** RotoWire B2C Subs Oct26 holds the text "finance adjustment coming" and sums as $0 (v30: $577,000). If Oct lands near $577K the total is ≈ $68.47M (+$0.10M vs target).
+- Movers: RW B2C Subs −$602,000 (Oct placeholder −$577K; Nov −$25K); RW Ads −$56,168 (Oct actual $69,832; Nov/Dec −$19K each); RW B2B Content +$2,953 (Oct actual); Roto Affiliate +$100,000 (Nov); Bookies −$100,000 (Bookies UK Nov/Dec). OJ and OO unchanged.
+- Status flips: TOTAL vs target 🟢 → 🟡; RotoWire vs budget 🟡 → 🔴 (−13.2%). Q4 −$1.31M vs budget. Integrity tied to the cent.
+- Updated: `data/forecast.json` (versions.v31, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card, RotoWire + Affiliate cards, footnote, `.rw-floor`.
+- Validation: JS parses, `<div>` 221/221, 1 `<script>`.
+- Would-have-notified (not sent, per standing preference): forecast version bump; total below target.
