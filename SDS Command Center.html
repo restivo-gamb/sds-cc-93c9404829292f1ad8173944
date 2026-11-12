@@ -1028,7 +1028,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Nov 11, 2026</span>
+            <span id="lastUpdated">Updated: Nov 12, 2026</span>
         </div>
     </div>
 
@@ -1820,123 +1820,48 @@ const DATA = {
 //   owner, due (YYYY-MM-DD), firstSeen (YYYY-MM-DD)
 //   draft     optional {channel, text} — a message the agent prepared for Matt to send himself (shown with Copy)
 const QUEUE_META = {
-    "writtenAt": "2026-11-11T05:35:16-07:00",
+    "writtenAt": "2026-11-12T05:35:00-07:00",
     "writtenBy": "Chief of staff 5:30 refresh",
-    "sources": "Proposals 2026-11-11: optic, oddsjam, sds (cards), finance-mbr, rotowire, partnerships (no cards; rotowire staff-update item merged into sds). Decisions: Chrome localStorage read OK, 5 found, 0 new; Google Form not set up."
+    "sources": "Proposals 2026-11-12: sds (1 card), finance-mbr (1 card held, see log), oddsjam, optic, partnerships, rotowire (no cards). Decisions: Chrome localStorage read OK, 6 found, 0 new; Google Form not set up."
 };
 const QUEUE = [
-    {
-        "id": "optic-vincenzo-roadmap-staffing-call",
-        "lead": "optic",
-        "loop": "join",
-        "priority": 1,
-        "title": "Matt and Vincenzo Ampolo call today on the OpticOdds B2B roadmap, staffing and self-serve plans",
-        "problem": "On Tue 11/10 at 9:20 PM MST you asked Vincenzo in #vrr how the OpticOdds B2B roadmap and staffing plan look, said it needs settling within 24 hours before the next 6-week pods, and suggested a 30 minute chat at 4:30 ET on Wed 11/11. Vincenzo said he can talk Wednesday at 4:30 PM and posted a roadmap file at 10:59 PM MST. He wants to hire a Principal level engineer for OpticOdds because Biagio is the only person working core who can debug the whole stack. At 1:13 AM MST he also posted the self-serve blueprint: Starter, Trader and Enterprise tiers, with limits still to be tuned from per-key usage. His message gives no time zone, so the call time needs confirming.",
-        "recommendation": "Confirm the call time with Vincenzo (4:30 ET vs 4:30 PM MT) and use the call to settle three things: the roadmap order for the next 6-week pods, whether to open a Principal engineer role for OO (and the Biagio single point of failure in the meantime), and whether the Starter/Trader/Enterprise blueprint matches your sales-first view, including bet-flow links in the API.",
-        "where": [
-            {
-                "label": "Matt asks about B2B roadmap and staffing (#vrr, Tue 11/10 9:20 PM MST)",
-                "url": "https://gdcgroup.slack.com/archives/C08MN1GCX3N/p1794370828275769"
-            },
-            {
-                "label": "Matt: settle in 24hrs before next 6w pods (#vrr)",
-                "url": "https://gdcgroup.slack.com/archives/C08MN1GCX3N/p1794370837465969"
-            },
-            {
-                "label": "Vincenzo on call time, staffing and roadmap (#vrr, Tue 11/10 9:51 PM MST)",
-                "url": "https://gdcgroup.slack.com/archives/C08MN1GCX3N/p1794372682688639"
-            },
-            {
-                "label": "Vincenzo roadmap post (#vrr, Tue 11/10 10:59 PM MST)",
-                "url": "https://gdcgroup.slack.com/archives/C08MN1GCX3N/p1794376774753549"
-            },
-            {
-                "label": "Vincenzo self-serve plan blueprint (#vrr, Wed 11/11 1:13 AM MST)",
-                "url": "https://gdcgroup.slack.com/archives/C08MN1GCX3N/p1794384793870809"
-            }
-        ],
-        "evidence": [
-            "Matt: \"need to settle this in the next 24hrs before next 6w pods\". Vincenzo: \"we can chat tomorrow 4:30pm\" and \"i'm looking for a Principal level engineer for OO. Right now the only person working on core stuff and able to debug all the OO stack is Biagio.\" Vincenzo: \"If they start to build something that ingests all the nfl/nba/ncaaf/ncaab the cost will be prohibitive that they want to switch to Enterprise.\""
-        ],
-        "alternatives": [
-            "Handle it async in #vrr if the roadmap file answers the questions",
-            "Split: roadmap and staffing today, self-serve limits after Vincenzo finishes the per-key usage metrics"
-        ],
-        "risk": "medium",
-        "reversible": true,
-        "authorizes": "Nothing is sent for you. Agents may prepare a short agenda for the call.",
-        "owner": "Matt Restivo",
-        "due": "2026-11-11",
-        "firstSeen": "2026-11-11"
-    },
-    {
-        "id": "oj-redis-dm-draft-nov",
-        "lead": "oddsjam",
-        "loop": "approve",
-        "priority": 2,
-        "title": "Your DM to Vincenzo asking for a Redis write-up is drafted and ready for you to send",
-        "problem": "You approved this on Tue 11/10. Redis alerts started Sun 11/9 (Vincenzo in #oj-b2c). On Tue 11/10 the custom EV queue backed up to 30,643 messages at 08:59 MST and 10,176 at 15:13 MST. Redis (Rudy Gonzalez Lobo) says the cause is their shared proxy after cluster maintenance and is rebalancing onto four smaller nodes on Wed 11/11; root cause still open. Nils shipped a dedicated projections Redis (ODJ-9367) on Tue 11/10. No post-mortem yet. You also have a call with Vincenzo today on the OpticOdds roadmap, so this can ride along.",
-        "recommendation": "Send the draft DM to Vincenzo yourself, or raise it on today's call with him about the OpticOdds roadmap.",
-        "where": [
-            {
-                "label": "Vincenzo: multiple Redis alerts (#oj-b2c, Sun 11/9)",
-                "url": "https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1794268643075509"
-            },
-            {
-                "label": "Redis vendor update and rebalance plan (#oj-pub-redis, Tue 11/10)",
-                "url": "https://gdcgroup.slack.com/archives/C08B983JD4K/p1794336808676759"
-            },
-            {
-                "label": "Release 2026.11.10.1 with ODJ-9367 (#oj-b2c)",
-                "url": "https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1794324344224049"
-            }
-        ],
-        "evidence": [
-            "Vincenzo 11/9: 'getting multiple alerts on redis'. Redis 11/10: latency in the shared proxy path after maintenance, rebalance scheduled 11/11. Queue at 30,643 then 10,176 on 11/10."
-        ],
-        "risk": "low",
-        "reversible": true,
-        "authorizes": "Nothing is sent for you. The draft is ready for you to send yourself.",
-        "owner": "Vincenzo Ampolo",
-        "due": "2026-11-12",
-        "firstSeen": "2026-11-11",
-        "draft": {
-            "channel": "DM with Vincenzo Ampolo (D0871Q0BQUX)",
-            "text": "vincenzo\n\nwant to get ahead of the redis stuff before it turns into a user problem\n\nalerts sunday night, custom ev queue backed up to 30k tuesday morning and 10k again in the afternoon. redis says it's their shared proxy after maintenance and they're rebalancing today\n\ncan you send me a short write up once the rebalance is done. what broke, what users saw, what we're changing so it doesn't come back\n\nalso want to know if the dedicated projections redis nils shipped tuesday was part of the fix or separate\n\nlmk"
-        }
-    },
     {
         "id": "sds-staff-status-message",
         "lead": "sds",
         "loop": "decide",
         "priority": 2,
-        "title": "You told Tim you'd give the team a business update; Kevin, Ellen and Lee haven't weighed in on SDS-only yet",
-        "problem": "Tue 11/10 at 10:04 PM MST Tim Schuler asked you to give staff a higher-level status update now and then. People are worried about the landscape and the stock price, and Tim held his own talk with his team this week. At 10:32 PM you replied \"yea the company needs a message for sure, i'm on it\". A minute later you asked Kevin McCrystle, Ellen Monaghan and Lee Gwilliam whether you should just address SDS only (\"the company is profitable our group is profitable lets just keep our heads down and keep executing\"). No reply from them yet. No date or channel is set.",
-        "recommendation": "Get Kevin's yes or no on an SDS-only message today, then pick a date and venue. Thursday 11/12 works: Tim's RotoWire football meeting, or a short post in #sds-general.",
+        "title": "Your staff business update for Tim's team: Kevin is drafting company all-hands messaging, so decide SDS-only or wait",
+        "problem": "Tue 11/10 at 10:04 PM MST Tim Schuler asked you to give staff a higher-level business update because people are worried about the landscape and the stock price. You replied \"yea the company needs a message for sure, i'm on it\" and asked Kevin McCrystle, Ellen Monaghan and Lee Gwilliam whether to just address SDS only. New since last night: Wed 11/11 at 8:01 AM MST Kevin replied that he started working on all-hands messaging the day before and expects this question from all around the org. He also mentioned a reverse split as the easy answer to the under-$1 delisting worry. Ellen and Lee have not replied. You have not told Tim the plan yet, and Tim's Thursday 11/12 football meeting is today.",
+        "recommendation": "Decide whether SDS waits for Kevin's all-hands or gets its own short note first, then give Tim a one-line heads up so he can tell his staff a message is coming.",
         "where": [
             {
                 "label": "Tim's ask (Tim DM, Tue 11/10 10:04 PM MST)",
                 "url": "https://gdcgroup.slack.com/archives/D092QJU9746/p1794373471422979"
             },
             {
-                "label": "Your reply: \"i'm on it\" (Tim DM, 10:32 PM MST)",
+                "label": "Your reply: \"i'm on it\" (Tim DM, Tue 11/10 10:32 PM MST)",
                 "url": "https://gdcgroup.slack.com/archives/D092QJU9746/p1794375124965889"
             },
             {
-                "label": "Your question to Kevin, Ellen and Lee (group DM, 10:33 PM MST)",
+                "label": "Your question to Kevin, Ellen and Lee (group DM, Tue 11/10 10:33 PM MST)",
                 "url": "https://gdcgroup.slack.com/archives/C0CGRTQ6S8H/p1794375189516699"
+            },
+            {
+                "label": "Kevin: working on all hands messaging (group DM, Wed 11/11 8:01 AM MST)",
+                "url": "https://gdcgroup.slack.com/archives/C0CGRTQ6S8H"
             }
         ],
         "evidence": [
-            "Tim: \"we have a whole staff of loyal people that's kind of worried about the landscape\". Matt: \"yea the company needs a message for sure, i'm on it\". Matt to Kevin, Ellen and Lee: \"i'm happy to just chat with sds only, thoughts?\""
+            "Kevin 11/11: \"started working yesterday on all hands messaging. definitely expecting this from all around the org\". Matt 11/10: \"i'm happy to just chat with sds only, thoughts?\". Tim DM since then has only Matt's \"yeah i do think we're on a good path\" (Wed 11/11 7:08 AM MST)."
         ],
         "alternatives": [
-            "Tim passes on a short message from you at his Thursday 11/12 football meeting",
-            "Hold it for the Madison trip in early December and do it in person"
+            "Wait for Kevin's all-hands and follow with a short SDS-specific note in #sds-general",
+            "Send a short SDS-only note now and let the all-hands cover the stock and listing questions",
+            "Tim relays a short holding line from you at today's football meeting"
         ],
         "risk": "medium",
         "reversible": true,
-        "authorizes": "Nothing is sent for you. On approve, agents draft a short SDS update in your voice for you to review and send yourself.",
+        "authorizes": "Nothing is sent for you. On approve, agents draft a short SDS update and a one-line heads up to Tim in your voice for you to review and send yourself.",
         "owner": "Matt Restivo",
         "due": "2026-11-13",
         "firstSeen": "2026-11-11"
@@ -1955,25 +1880,129 @@ const QUEUE_SINK = {
 // ═══════════════════════════════════════════════════
 // status: "live" (sourced this week) · "stale" (real but older than 14 days) · "pending" (no source wired yet)
 const SDS_KPIS_META = {
-    "updatedAt": "2026-11-11T05:35:16-07:00",
+    "updatedAt": "2026-11-12T05:35:00-07:00",
     "missionControl": "https://claude.ai/artifact/EV5N5AtfJucHPZ2XF7hLn1",
     "note": "Mission Control still shows illustrative figures, so MBR tiles stay pending until its actuals and FY26 budget land. Live tiles come from the #oj-b2c and #sds-subscription-performance bots."
 };
 const SDS_KPIS = [
-    {"group": "SDS", "label": "MTD Revenue", "value": null, "meta": "Current-month pacing", "source": "Mission Control · P&L Monitor", "status": "pending"},
-    {"group": "SDS", "label": "MTD EBITDA", "value": null, "meta": "", "source": "Mission Control · Income Statement", "status": "pending"},
-    {"group": "SDS", "label": "EBITDA Margin", "value": null, "meta": "Target ≥ 60%", "source": "Mission Control · Income Statement", "status": "pending"},
-    {"group": "SDS", "label": "Headcount", "value": null, "meta": "By pod", "source": "Mission Control · Headcount by pod", "status": "pending"},
-    {"group": "OddsJam", "label": "B2C Subs", "value": "4,535", "meta": "Paying customers. 4,936 total customers; 6,827 subscriptions counted", "source": "#oj-b2c MRR Report bot, 2026-11-10", "status": "live", "asOf": "2026-11-10"},
-    {"group": "OddsJam", "label": "B2C MRR", "value": "$1,127,831", "meta": "+0.32% d/d", "source": "#oj-b2c daily bot via Daily Ingest 2026-11-11", "status": "live", "asOf": "2026-11-10"},
-    {"group": "OddsJam", "label": "Trial → Paid", "value": null, "meta": "Weekly report Matt asked Brian for (11/9)", "source": "Brian’s weekly trial-to-paid report", "status": "pending"},
-    {"group": "OddsJam", "label": "Blended CAC", "value": null, "meta": "Marketing ÷ new paid", "source": "Mission Control · acquisition spend & CAC", "status": "pending"},
-    {"group": "RotoWire", "label": "Paid Subs", "value": "55,475", "meta": "DoD -25, 7d -258 (-0.5%), YoY +5,291 (+10.5%)", "asOf": "2026-11-09", "source": "#sds-subscription-performance bot post, Tue 11/10 07:00 MST", "status": "live"},
-    {"group": "RotoWire", "label": "MRR", "value": "$576K", "meta": "DoD -$166, 7d -$3,940 (-0.7%), YoY +$40,032 (+7.5%)", "asOf": "2026-11-09", "source": "#sds-subscription-performance bot post, Tue 11/10 07:00 MST", "status": "live"},
-    {"group": "RotoWire", "label": "Retention", "value": null, "meta": "Target ≥ 90%", "source": "Mission Control", "status": "pending"},
-    {"group": "OpticOdds", "label": "Contracted ARR", "value": null, "meta": "", "source": "Mission Control · recurring revenue", "status": "pending"},
-    {"group": "OpticOdds", "label": "B2B Customers", "value": "~320", "meta": "Net of churn", "asOf": "2026-04-15", "source": "Apr ’26 one-pager", "status": "stale"},
-    {"group": "OpticOdds", "label": "Pipeline", "value": null, "meta": "Open deals by stage", "source": "Mission Control · HubSpot pipeline", "status": "pending"}
+    {
+        "group": "SDS",
+        "label": "MTD Revenue",
+        "value": null,
+        "meta": "Current-month pacing",
+        "source": "Mission Control · P&L Monitor",
+        "status": "pending"
+    },
+    {
+        "group": "SDS",
+        "label": "MTD EBITDA",
+        "value": null,
+        "meta": "",
+        "source": "Mission Control · Income Statement",
+        "status": "pending"
+    },
+    {
+        "group": "SDS",
+        "label": "EBITDA Margin",
+        "value": null,
+        "meta": "Target ≥ 60%",
+        "source": "Mission Control · Income Statement",
+        "status": "pending"
+    },
+    {
+        "group": "SDS",
+        "label": "Headcount",
+        "value": null,
+        "meta": "By pod",
+        "source": "Mission Control · Headcount by pod",
+        "status": "pending"
+    },
+    {
+        "group": "OddsJam",
+        "label": "B2C Subs",
+        "value": "6,819",
+        "meta": "Definition: Subs counted (subscriptions, matches the OddsJam lead). Customers 4,926 and paying customers 4,525 are lower because one customer can hold several subs. Last night I reported 4,936 customers.",
+        "source": "#oj-b2c MRR bot, 2026-11-11",
+        "status": "live",
+        "asOf": "2026-11-11"
+    },
+    {
+        "group": "OddsJam",
+        "label": "B2C MRR",
+        "value": "$1,126,849",
+        "meta": "-0.09% d/d; USD via static FX, customer discounts excluded (bot fast mode)",
+        "source": "#oj-b2c MRR bot, 2026-11-11",
+        "status": "live",
+        "asOf": "2026-11-11"
+    },
+    {
+        "group": "OddsJam",
+        "label": "Trial → Paid",
+        "value": null,
+        "meta": "Weekly report Matt asked Brian for (11/9)",
+        "source": "Brian’s weekly trial-to-paid report",
+        "status": "pending"
+    },
+    {
+        "group": "OddsJam",
+        "label": "Blended CAC",
+        "value": null,
+        "meta": "Marketing ÷ new paid",
+        "source": "Mission Control · acquisition spend & CAC",
+        "status": "pending"
+    },
+    {
+        "group": "RotoWire",
+        "label": "Paid Subs",
+        "value": "55,408",
+        "meta": "-0.06% d/d, -0.5% over 7 days, +10.4% YoY (vs Nov 5 2025)",
+        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-11",
+        "status": "live",
+        "asOf": "2026-11-10"
+    },
+    {
+        "group": "RotoWire",
+        "label": "MRR",
+        "value": "$575K",
+        "meta": "-0.16% d/d, -0.8% over 7 days, +7.2% YoY",
+        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-11",
+        "status": "live",
+        "asOf": "2026-11-10"
+    },
+    {
+        "group": "RotoWire",
+        "label": "Retention",
+        "value": null,
+        "meta": "Target ≥ 90%",
+        "source": "Mission Control",
+        "status": "pending"
+    },
+    {
+        "group": "OpticOdds",
+        "label": "Contracted ARR",
+        "value": null,
+        "meta": "",
+        "source": "Mission Control · recurring revenue",
+        "status": "pending"
+    },
+    {
+        "group": "OpticOdds",
+        "label": "B2B Customers",
+        "value": "~320",
+        "meta": "Net of churn",
+        "asOf": "2026-04-15",
+        "source": "Apr ’26 one-pager",
+        "status": "stale"
+    },
+    {
+        "group": "OpticOdds",
+        "label": "Pipeline",
+        "value": "45 trial and post-trial deals",
+        "meta": "Per Shay Scheft GTM weekly in #optic-sales, Thu 11/12 1:54 AM MST. Count only, no dollar total. Mission Control HubSpot not read.",
+        "source": "#optic-sales GTM Weekly Update (https://gdcgroup.slack.com/archives/C08FG1LL28Y/p1794473641752479)",
+        "status": "live",
+        "asOf": "2026-11-12"
+    }
 ];
 
 function escHtml(s) {
