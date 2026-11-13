@@ -3326,3 +3326,12 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - **$68,484,401.10: +$590,000 vs v31, −$65,215 (−0.10%) vs v30 like for like.** +$115,054 / +0.17% vs target (🟢), +$1,734,679 / +2.60% vs budget. RotoWire $10,259,621, back to 🟡 Watch on budget (−7.9%). Q4 −$719,530 vs budget. Break-even for target: Oct subs ≈ $474,946.
 - Updated: `data/forecast.json` (versions.v32 with `scenario` block, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card (label "v32 · scenario"), RotoWire card, footnote, `.rw-floor`.
 - Validation: JS parses, `<div>` 221/221, 1 `<script>`.
+
+## 2026-11-13 (manual, ~17:40Z — v33 forecast on Matt's direct upload)
+
+- **Forecast v33 ingested.** Matt attached `2026 SDS Revenue & Forecasting (15).xlsx` ("maybe lets try this one"). "(15)" is a download suffix. md5 `02551fd0…` (292,953 B); docProps modified 2026-11-13T17:33:15Z. Built on (31), not the (32) scenario. Filed as `gamb/finance/2026 SDS Revenue & Forecasting (33).xlsx`. Supersedes the v32 scenario on the dashboard.
+- **$68,290,401.10: −$259,215 (−0.38%) vs v30 (last complete file); +$396,000 vs v31; −$194,000 vs v32 scenario.** −$78,946 / −0.12% vs target (🟡); +$1,540,679 / +2.31% vs budget.
+- Oct RW B2C Subs is now a **$515,000 forecast** (actual cell blank; that line's Oct column reads FORECAST). RW B2C Subs vs v30: Oct −$62K, Nov −$69K, Dec −$50K (−$181K). RW Ads −$56,168, B2B Content +$2,953. OJ B2C Subs −$25K (Nov +$25K, Dec −$50K). Affiliate flat. OO unchanged. No new RotoWire notes for the Oct–Dec subs cuts.
+- RotoWire $10,090,621: 🟡 Watch on budget (−9.4%), 🔴 on target (−16.2%). Q4 −$913,530 vs budget.
+- Updated: `data/forecast.json` (versions.v33, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card, OddsJam + RotoWire cards, footnote, `.rw-floor`.
+- Validation: JS parses, `<div>` 221/221, 1 `<script>`.
