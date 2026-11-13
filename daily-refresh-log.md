@@ -3319,3 +3319,10 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Updated: `data/forecast.json` (versions.v31, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card, RotoWire + Affiliate cards, footnote, `.rw-floor`.
 - Validation: JS parses, `<div>` 221/221, 1 `<script>`.
 - Would-have-notified (not sent, per standing preference): forecast version bump; total below target.
+
+## 2026-11-12 (manual, ~03:20Z 11/13 — v32 SCENARIO on Matt's instruction)
+
+- **v32 is a scenario, not a finance-issued file.** Matt: "let's assume that missing rotowire number is 590k." Built from (31) by setting `Forecast Input!M5` (RotoWire B2C Subs, Oct26) = 590,000 in place of the text "finance adjustment coming", with a cell comment recording the assumption. Recalculated (LibreOffice); RotoWire Notes rows 139–144 (VLOOKUPs into an external workbook LibreOffice can't open) restored to (31) cached values. Only the 90 cells that depend on M5 differ from (31). Pre-existing `#REF!` in Executive Dashboard C137–C163 is unchanged from (31). Filed as `gamb/finance/2026 SDS Revenue & Forecasting (32).xlsx` (md5 b461881e…).
+- **$68,484,401.10: +$590,000 vs v31, −$65,215 (−0.10%) vs v30 like for like.** +$115,054 / +0.17% vs target (🟢), +$1,734,679 / +2.60% vs budget. RotoWire $10,259,621, back to 🟡 Watch on budget (−7.9%). Q4 −$719,530 vs budget. Break-even for target: Oct subs ≈ $474,946.
+- Updated: `data/forecast.json` (versions.v32 with `scenario` block, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card (label "v32 · scenario"), RotoWire card, footnote, `.rw-floor`.
+- Validation: JS parses, `<div>` 221/221, 1 `<script>`.
