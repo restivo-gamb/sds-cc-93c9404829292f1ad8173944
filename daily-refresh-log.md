@@ -3335,3 +3335,13 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - RotoWire $10,090,621: 🟡 Watch on budget (−9.4%), 🔴 on target (−16.2%). Q4 −$913,530 vs budget.
 - Updated: `data/forecast.json` (versions.v33, latest, _meta), `DATA.forecast/yoyGrowth/forecastMeta/rw`, `#snap-wowForecast`, total card, OddsJam + RotoWire cards, footnote, `.rw-floor`.
 - Validation: JS parses, `<div>` 221/221, 1 `<script>`.
+
+## 2026-11-14
+
+- Decisions merged: 0 new. Chrome localStorage read OK, 7 found, all already in decisions.json. Google Form not set up, so no form source.
+- Queue: 3 open, 3 added (rw-mrr-restatement-framing, oj-px-deeplink-chase, sds-claude-team-seats), 1 dropped from view (sds-staff-status-message, deferred by Matt, held until Mon 11/16), 0 overflow. The finance-cm-restatement-framing card was a duplicate of the RotoWire card, so it was merged into it with its `where` links and its two extra asks (Dec25 B2C base, October RW revenue question). No 11/13 5:30 or lead run existed, so the 11/14 proposals cover two days.
+- Lead proposal files present for 2026-11-14: finance-mbr, oddsjam, optic, partnerships, rotowire, sds (all partial coverage).
+- KPI tiles: 5 live, 1 stale (Optic B2B Customers, Apr 15 one-pager), 8 pending. OJ subs/MRR from the 11/13 bot, RW subs/MRR from the 11/12 tracker (pre-patch, expected to restate lower), Optic pipeline from Shay's 11/12 weekly. Partnerships affiliate KPIs from the lead were not added because the finance list is the full list. Mission Control is still illustrative.
+- Forecast scan: no file newer than (33) in gamb/finance or __inbox. v31 to v33 already ingested. Dashboard stays on v33.
+- Creators: refreshed from the API (generated_at 2026-11-14T12:34:29Z, data for 11/13). 2 on target, 3 with no posts, 8 in midTier (Jeff Erickson at 8 pts is below target, so placed there).
+- Encryption: ✓ Encrypted, validation passed (1 script, divs balanced, required markers present). Leak probe on index.html clean (const DATA, const QUEUE, Tim Schuler, 55,284, Dustin all absent). Auto-push log shows a push (9283214) after the write.
