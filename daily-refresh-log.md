@@ -3345,3 +3345,14 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Forecast scan: no file newer than (33) in gamb/finance or __inbox. v31 to v33 already ingested. Dashboard stays on v33.
 - Creators: refreshed from the API (generated_at 2026-11-14T12:34:29Z, data for 11/13). 2 on target, 3 with no posts, 8 in midTier (Jeff Erickson at 8 pts is below target, so placed there).
 - Encryption: ✓ Encrypted, validation passed (1 script, divs balanced, required markers present). Leak probe on index.html clean (const DATA, const QUEUE, Tim Schuler, 55,284, Dustin all absent). Auto-push log shows push f164e74 at 05:36 MST after the encrypted write (an earlier push 9283214 preceded it).
+
+## 2026-11-15
+
+- Run note: fired late (about 16:50 MST) instead of 5:30 AM. Lead agents did not run for 11/15 (no proposals/2026-11-15 folder), so the 11/14 proposals were used again.
+- Decisions merged: 0 new. Chrome localStorage read OK, 7 found, all already in decisions.json. Google Form not set up.
+- Queue: 3 open (rw-mrr-restatement-framing, oj-px-deeplink-chase, sds-claude-team-seats), 0 added, 0 dropped, 0 overflow. nightsShown bumped. sds-staff-status-message stays held until Mon 11/16. rw-mrr-restatement-framing is due today (Sun 11/15).
+- Lead proposal files present: none for 11/15; 11/14 had all six (finance-mbr, oddsjam, optic, partnerships, rotowire, sds).
+- KPI tiles: 5 live, 1 stale, 8 pending. No tile past the 14-day limit. Mission Control still illustrative.
+- Forecast scan: newest file is (33), already ingested. No change.
+- Creators: refreshed (generated_at 2026-11-15T23:52:32Z). Only Jeff Erickson on target; 3 with no posts; 9 in midTier (below target but scoring). The API's total_days is 2, so pts are two-day totals; AM/PM detail not stored.
+- Encryption: ✓ Encrypted, validation passed, leak probe on index.html clean (0 hits).
