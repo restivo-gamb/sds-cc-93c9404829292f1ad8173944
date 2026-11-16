@@ -3356,3 +3356,14 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Forecast scan: newest file is (33), already ingested. No change.
 - Creators: refreshed (generated_at 2026-11-15T23:52:32Z). Only Jeff Erickson on target; 3 with no posts; 9 in midTier (below target but scoring). The API's total_days is 2, so pts are two-day totals; AM/PM detail not stored.
 - Encryption: ✓ Encrypted, validation passed, leak probe on index.html clean (0 hits).
+
+## 2026-11-16
+
+- Run note: fired about 07:45 MST. Lead agents did not run for 11/16 (no proposals/2026-11-16 folder), so the 11/15 proposals (all six files) were used.
+- Decisions merged: 0 new (Chrome localStorage read OK, 7 found, all already in decisions.json; Google Form not set up, so no form source).
+- Queue: 4 open, 2 added (sds-staff-status-message resurfaced after its defer ended 11/16, rw-c7-pods-theo-talent new), 1 dropped (sds-claude-team-seats, resolved by lead), 0 overflow. Order: rw-mrr-restatement-framing, sds-staff-status-message, oj-px-deeplink-chase, rw-c7-pods-theo-talent. Cross-lead note kept off the page: Kalshi vs ProphetX on the trade flow notice is unconfirmed.
+- Lead proposal files present (11/15): finance-mbr, oddsjam, optic, partnerships, rotowire, sds.
+- KPI tiles: 5 live, 1 stale (Optic B2B Customers, Apr 15 one-pager), 8 pending. OJ subs/MRR from the 11/15 bot, RW subs/MRR restated basis (49,473 / $517K, as of 11/14), Optic pipeline carried from 11/12. Mission Control still illustrative as of 11/14.
+- Forecast scan: newest file is (33), same size and mtime as ingested. No change, dashboard stays on v33.
+- Creators: refreshed (generated_at 2026-11-16T14:46:05Z, window Sun 11/15 plus Mon 11/16 so far). 2 on target (Jeff Erickson, Jagger May), 3 with no posts, 8 under target. Monday had no scored posts yet.
+- Encryption: ✓ Encrypted, validation passed. Leak probe on index.html clean (0 hits for const DATA, const QUEUE, Tim Schuler, 49,473, Dustin). Auto-push: see check below.
