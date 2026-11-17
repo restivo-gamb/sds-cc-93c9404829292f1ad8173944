@@ -3367,3 +3367,14 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Forecast scan: newest file is (33), same size and mtime as ingested. No change, dashboard stays on v33.
 - Creators: refreshed (generated_at 2026-11-16T14:46:05Z, window Sun 11/15 plus Mon 11/16 so far). 2 on target (Jeff Erickson, Jagger May), 3 with no posts, 8 under target. Monday had no scored posts yet.
 - Encryption: ✓ Encrypted, validation passed. Leak probe on index.html clean (0 hits for const DATA, const QUEUE, Tim Schuler, 49,473, Dustin). Auto-push: see check below.
+
+## 2026-11-17
+
+- Run note: fired about 05:34 MST. Lead agents ran for 11/17 (all six proposal files present, partial coverage).
+- Decisions merged: 0 new. Chrome localStorage read OK, 7 found, all already in decisions.json. Google Form not set up, so no form source.
+- Queue: 7 open, 4 added (sds-q3-pm-revenue-peter, oj-px-deeplink-chase carried, optic-stoked-bet-cancellation, rw-holiday-gift-promo-pricing, partnerships-tradeflow-termination-nov), 1 dropped (rw-c7-pods-theo-talent, to overflow), 0 resolved. Overflow held in queue-state.json: optic-dazn-pragmatic-termination-agreement (P2, due 11/20) and rw-c7-pods-theo-talent (P3). partnerships-tn-betmgm-stein-nov was dropped per the Partnerships lead (work moving without Matt). Order: sds-q3-pm-revenue-peter, rw-mrr-restatement-framing, oj-px-deeplink-chase, optic-stoked-bet-cancellation, rw-holiday-gift-promo-pricing, sds-staff-status-message, partnerships-tradeflow-termination-nov. Note: oj-px-deeplink-chase and the trade flow card appear to be one ProphetX conversation.
+- Lead proposal files present (11/17): finance-mbr, oddsjam, optic, partnerships, rotowire, sds.
+- KPI tiles: 8 live (OJ subs, MRR, trial to paid, CAC; RW subs, MRR; Optic pipeline), 1 stale (Optic B2B Customers, Apr 15 one-pager), 5 pending. Mission Control still illustrative.
+- Forecast scan: newest file is (33), mtime unchanged from ingested (Nov 13 17:34 UTC). No change, dashboard stays on v33.
+- Creators: refreshed via Chrome (web fetch returned only a summary), generated_at 2026-11-17T12:34:35Z, data for Mon 11/16. 3 on target (Dustin, +EV Bettors, Jim Coventry), 2 with no posts, 8 under target.
+- Encryption: ✓ Encrypted, validation passed. Leak probe on index.html clean (0 hits for const DATA, const QUEUE, Tim Schuler, 49,435, Dustin, Peter McGough). Auto-push log shows push f173444 after the write.
