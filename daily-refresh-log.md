@@ -3378,3 +3378,12 @@ Second run of the day. The scheduled 5:30 AM refresh had already completed (and 
 - Forecast scan: newest file is (33), mtime unchanged from ingested (Nov 13 17:34 UTC). No change, dashboard stays on v33.
 - Creators: refreshed via Chrome (web fetch returned only a summary), generated_at 2026-11-17T12:34:35Z, data for Mon 11/16. 3 on target (Dustin, +EV Bettors, Jim Coventry), 2 with no posts, 8 under target.
 - Encryption: ✓ Encrypted, validation passed. Leak probe on index.html clean (0 hits for const DATA, const QUEUE, Tim Schuler, 49,435, Dustin, Peter McGough). Auto-push log shows push f173444 after the write.
+
+## 2026-11-18
+- Decisions merged: 0 new (Chrome localStorage read OK, 7 found, all already merged; Google Form not set up).
+- Queue: 7 open, 0 added, 0 dropped, 2 in overflow (optic-dazn-pragmatic-termination-agreement, rw-c7-pods-theo-talent). Lead agents did not run for 11/18 (no proposals/2026-11-18 folder); carried 11/17 proposals, flagged in QUEUE_META.writtenBy. Several cards are past due (oj-px-deeplink-chase, sds-q3-pm-revenue-peter due 11/17; rw-holiday-gift-promo-pricing due today).
+- Proposal files present: none for 11/18; 11/17 set (finance-mbr, oddsjam, optic, partnerships, rotowire, sds) reused.
+- KPI tiles: 7 live / 1 stale / 6 pending; nothing demoted; no new lead KPIs. Mission Control still treated as illustrative.
+- Forecast scan: newest local file is (33), 2026-11-13, already ingested as v33. No change. Revenue Pulse untouched.
+- Creators: refreshed from scoreboard (generated_at 2026-11-18T14:38:17Z), scored for Tue 11/17: 77 pts, 4 of 13 on target. Per-creator tweets/replies/likes are API totals for the window, so Jeff Erickson includes a few of today's partial posts.
+- Validation ok. Encrypted OK, leak probe clean (0 hits), auto-push log shows push d78a43e after the write.
