@@ -1028,7 +1028,7 @@
             <span>|</span>
             <span>17 pods &middot; 113 people</span>
             <span>|</span>
-            <span id="lastUpdated">Updated: Nov 18, 2026</span>
+            <span id="lastUpdated">Updated: Nov 19, 2026</span>
         </div>
     </div>
 
@@ -1820,57 +1820,11 @@ const DATA = {
 //   owner, due (YYYY-MM-DD), firstSeen (YYYY-MM-DD)
 //   draft     optional {channel, text} — a message the agent prepared for Matt to send himself (shown with Copy)
 const QUEUE_META = {
-    "writtenAt": "2026-11-18T07:40:00-07:00",
-    "writtenBy": "Chief of staff 5:30 refresh (lead agents did not run 11/18; carried 11/17 proposals)",
-    "sources": "Proposals 2026-11-17 carried (no 2026-11-18 folder yet; lead agents did not run). Decisions: Chrome localStorage read OK, 7 found, 0 new; Google Form not set up. Overflow held off the page: optic-dazn-pragmatic-termination-agreement, rw-c7-pods-theo-talent."
+    "writtenAt": "2026-11-19T06:51:00-07:00",
+    "writtenBy": "Chief of staff 5:30 refresh (lead agents did not run 11/19; carried 11/18 proposals)",
+    "sources": "Proposals 2026-11-18 carried (no 2026-11-19 folder yet; lead agents did not run): finance-mbr, oddsjam, optic, partnerships, rotowire, sds. Decisions: Chrome localStorage read OK, 7 found, 0 new; Google Form not set up. Dropped: sds-q3-pm-revenue-peter (resolved, Matt posted Q3 deal stats to Kevin and Peter 11/17). Overflow held off the page: optic-dazn-pragmatic-termination-agreement, rw-c7-pods-theo-talent."
 };
 const QUEUE = [
-    {
-        "id": "sds-q3-pm-revenue-peter",
-        "lead": "sds",
-        "loop": "reply",
-        "priority": 1,
-        "title": "You owe Peter McGough and Kevin an approximate Q3 prediction-market revenue number for Optic, due about 4:50 PM MT today",
-        "problem": "Mon 11/16 at 2:14 PM MT Peter McGough asked in your group DM with Kevin McCrystle for total Q3 OpticOdds revenue from the prediction market ecosystem (PMs, market makers, traders), because finance and Ryan Weinstock have different numbers. You said you would come back in a day, then at 4:50 PM MT: 'i'll need like 24 hours but can get you something approximate' and 'the number i heard was 10-12 market making clients'. To get there you asked Abe Granoff (US) and Leo Barker (international) to tag every Optic customer by type (media co, operator, market maker, startup) by noon today. Ryan backfilled the tags in HubSpot before leave and posted a Loom; Leo replied 'Done.' at 11:52 PM MT. Abe has not confirmed. You also said you need this for earnings.",
-        "recommendation": "Once Abe confirms the US side this morning, pull the HubSpot customer-type report, total Q3 revenue for market makers, PMs and traders, and reply to Peter and Kevin with an approximate figure today, labeled as approximate.",
-        "where": [
-            {
-                "label": "Peter's question + your '24 hours' reply (group DM with Kevin, Mon 11/16)",
-                "url": "https://gdcgroup.slack.com/archives/C0B2827N79V/p1794873056529299"
-            },
-            {
-                "label": "Your '10-12 market making clients' line",
-                "url": "https://gdcgroup.slack.com/archives/C0B2827N79V/p1794873070515539"
-            },
-            {
-                "label": "Customer-type tagging ask to Abe and Leo, 'gunna need this for earnings'",
-                "url": "https://gdcgroup.slack.com/archives/C0CJ7E3QFHC/p1794881194003369"
-            },
-            {
-                "label": "Ryan: backfilled, generate the report from HubSpot (Loom)",
-                "url": "https://gdcgroup.slack.com/archives/C0CJ7E3QFHC/p1794882819595579"
-            },
-            {
-                "label": "Leo: Done. (Mon 11:52 PM MT)",
-                "url": "https://gdcgroup.slack.com/archives/C0CJ7E3QFHC/p1794898366501529"
-            }
-        ],
-        "evidence": "Peter 11/16: 'What was the total revenues in Q3 related to the prediction market ecosystem... Between finance & Ryan we have different #s'. Matt: 'i'll need like 24 hours but can get you something approximate'. Matt to Abe/Leo: 'can we do it for the full customer roster by noon tomorrow?' Leo: 'Done.' No reply to Peter yet.",
-        "alternatives": [
-            "Ask Leo or Abe to pull the HubSpot report and post the total in the group DM, then forward it to Peter",
-            "Tell Peter it slips to Wednesday because Ryan is out and the tags need a check"
-        ],
-        "risk": "medium",
-        "reversible": true,
-        "authorizes": "Nothing is sent for you. On approve, agents draft the reply to Peter and Kevin, filling in any figure they can source from Slack or Drive and flagging gaps, to agents/drafts/.",
-        "owner": "Matt Restivo",
-        "due": "2026-11-17",
-        "firstSeen": "2026-11-17",
-        "draft": {
-            "channel": "Group DM with Kevin McCrystle and Peter McGough (C0B2827N79V)",
-            "text": "peter, kevin: rough q3 prediction market rev for optic is ~$[X] across [N] customers (market makers, pms, traders). approximate. team finished tagging customer types last night and is double checking, so it can move a bit. firm number by [day]."
-        }
-    },
     {
         "id": "rw-mrr-restatement-framing",
         "lead": "rotowire",
@@ -1926,10 +1880,26 @@ const QUEUE = [
         "lead": "oddsjam",
         "loop": "decide",
         "priority": 1,
-        "title": "ProphetX deep link tracking: Matt's 'i'll chase pX' to Vincenzo is overdue, decide whether to hold the removal or hand PX to Michael Rasile",
-        "problem": "Matt's promise to Vincenzo on Thu 11/12 was due Mon 11/16 and is now a day overdue with no decision. On 11/12 Vincenzo asked Michael Rasile whether anyone objects to removing the ProphetX attribution param from OpticOdds and OddsJam because PX is not recognizing that traffic. Michael said only ISV pays right now. Jeremy Tran asked what the downside of keeping it is, since OddsJam is still sending the traffic. Since then, nothing in #prj-bet-volume, Vincenzo's DM, or any search for ProphetX or PX shows that Matt reached PX, that anyone objected, or that the removal happened. New this window: on Mon 11/16 at 4:48pm MST Matt told Michael Rasile 'i mean pX was our most successful partnership', in a DM about a Rebet case study and a possible direct bet deep link. So Matt still values PX, which cuts against letting the removal go through unchallenged. Vincenzo's 11/16 engineering update does not mention PX or bet volume at all (the last mention was Oct 19: PX stopped honoring the 1-click deal after the switch to ISV tracking, and OddsJam had been crossing $1k a day of recognized revenue every Saturday and Sunday). Vincenzo has a deposition Wednesday 11/18 and says capacity is limited this week, so a removal shipping before then looks unlikely, but Slack cannot confirm that.",
-        "recommendation": "Today, send Vincenzo a one-line note to hold the PX attribution param removal until Matt has talked to PX, and name when that will be. If Matt will not reach PX this week, say so and hand the PX conversation to Michael Rasile instead of leaving the promise open.",
+        "title": "ProphetX: Matt's 'i'll chase pX' to Vincenzo is a week old, and Tue's ISV numbers look bad. Decide to call PX or hand it to Michael Rasile",
+        "problem": "Matt told Vincenzo on Thu 11/12 'i'll chase pX'. It was due Mon 11/16 and is still open, now two days overdue. Nothing in Vincenzo's DM, #prj-bet-volume or the Rasile DM shows Matt reached PX or that the attribution param removal was settled (on 11/12 Vincenzo asked about removing it, Michael Rasile said only ISV pays). New since last run: on Tue 11/17 at 11:17 Michael Rasile posted PX ISV numbers (an image) and noted that the net fees shown are total fees and OddsJam gets 60%. Vincenzo replied 'these numbers are awful', asked if we are pushing users to enable direct bet with PX enough, and said 'we went to 1k/day on weekends to 1.5k/month'. On Wed 11/18 at 07:07 Jeremy Tran said ISV is much higher friction because users need their API key, and asked Brian Stephens to email and chat the users who had PX one-click bets. So the team is now working PX volume itself, but nobody owns the PX relationship conversation, and the one-click deal PX stopped honoring (Engineering Update, Oct 19) is the revenue that disappeared. Matt also said to Michael Rasile on 11/16 that 'pX was our most successful partnership'. Vincenzo has his deposition today (Wed 11/18), so a param removal shipping before Thursday looks unlikely, but Slack cannot confirm it. The Partnerships card partnerships-tradeflow-termination-nov (due Fri 11/20) looks like the same ProphetX relationship, so this card and that one should be handled as one conversation.",
+        "recommendation": "Today, tell Vincenzo to hold the PX attribution param removal until Matt has talked to PX, and give a date. If Matt will not reach PX by Friday 11/20, say so and hand the PX conversation to Michael Rasile with the 11/17 ISV numbers and the 1.5k a month figure as the ask. Treat this and the Partnerships trade flow card as one ProphetX decision.",
         "where": [
+            {
+                "label": "#prj-bet-volume: Rasile posts PX ISV numbers, Vincenzo and Jeremy reply (Tue 11/17 to Wed 11/18)",
+                "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794939441555199?thread_ts=1794939441.555199&cid=C0BKSBHPMC4"
+            },
+            {
+                "label": "#prj-bet-volume: Vincenzo 'these numbers are awful' (Tue 11/17 16:31)",
+                "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794958299812929?thread_ts=1794939441.555199&cid=C0BKSBHPMC4"
+            },
+            {
+                "label": "#prj-bet-volume: Vincenzo '1k/day on weekends to 1.5k/month' (Tue 11/17 16:33)",
+                "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794958382315489?thread_ts=1794939441.555199&cid=C0BKSBHPMC4"
+            },
+            {
+                "label": "#prj-bet-volume: Jeremy Tran asks Brian to email PX one-click users (Wed 11/18 07:07)",
+                "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1795010846513589?thread_ts=1794939441.555199&cid=C0BKSBHPMC4"
+            },
             {
                 "label": "#prj-bet-volume: Vincenzo asks about removing PX deep link tracking (Thu 11/12)",
                 "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794518619002349?thread_ts=1794518619.002349&cid=C0BKSBHPMC4"
@@ -1937,10 +1907,6 @@ const QUEUE = [
             {
                 "label": "#prj-bet-volume: Michael Rasile says only ISV pays (Thu 11/12)",
                 "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794518770801599"
-            },
-            {
-                "label": "#prj-bet-volume: Jeremy Tran asks about the downside of keeping it (Thu 11/12)",
-                "url": "https://gdcgroup.slack.com/archives/C0BKSBHPMC4/p1794522401504519?thread_ts=1794518619.002349&cid=C0BKSBHPMC4"
             },
             {
                 "label": "Vincenzo DM: Matt says he will chase PX (Thu 11/12 19:50 MST)",
@@ -1955,20 +1921,62 @@ const QUEUE = [
                 "url": "https://docs.google.com/document/d/1rhUX6zj05_CaJKBQc6An8P3EIaZXyOZudHoCif3BMVY/edit?tab=t.0"
             }
         ],
-        "evidence": "Matt to Vincenzo, Thu 11/12: 'i'll chase pX btw thanks for flagging that again'. Vincenzo, Thu 11/12: 'I honestly i'm also inclined to penalize them since they are not honoring the deep link bet volume deal'. Michael Rasile, Thu 11/12: 'We are only getting paid through ISV at this point in time so I see no reason why we need to keep it.' Matt to Michael Rasile, Mon 11/16: 'i mean pX was our most successful partnership'. Engineering Update Oct 19: 'We were crossing 1k/day on recognized revenue every sat and sun.' #prj-bet-volume and Vincenzo's DM have no PX message since Thu 11/12. Slack search for ProphetX returned nothing since Sun 11/15.",
+        "evidence": "Matt to Vincenzo, Thu 11/12: 'i'll chase pX btw thanks for flagging that again'. Michael Rasile, Tue 11/17: 'the Net fees collected is the total fees not the commission, we get 60% of that number.' Vincenzo, Tue 11/17: 'these numbers are awful' and 'Are we pushing users to enable direct bet with PX enough?' and 'we went to 1k/day on weekends to 1.5k/month.' Jeremy Tran, Wed 11/18: 'it is much higher friction bc u need to grab ur api key but we can def do something here... can we send emails and chats to the ppl who had PX 1cbs? That's prime audience.' Engineering Update Oct 19: 'ProphetX decided to not honor the 1-click deal because we switched to ISV tracking. We were crossing 1k/day on recognized revenue every sat and sun.' Matt to Rasile, Mon 11/16: 'i mean pX was our most successful partnership'. Nobody in Slack since Thu 11/12 reports contact with PX or a decision on the param.",
         "alternatives": [
-            "Hand the PX conversation to Michael Rasile and let Vincenzo remove the attribution param now, treating PX as ISV only.",
-            "Keep tracking in place and ask Vincenzo to put a PX line back into the weekly engineering update so the revenue question stays visible."
+            "Hand the PX conversation to Michael Rasile now and let Vincenzo remove the attribution param, treating PX as ISV only.",
+            "Keep tracking in place, let Brian and Jeremy run the PX one-click user email push, and ask Vincenzo to put a PX line back in the weekly engineering update."
         ],
         "risk": "medium",
         "reversible": true,
         "authorizes": "Nothing is sent for you. Agents may keep the drafted note to Vincenzo in drafts only.",
         "owner": "Matt Restivo",
-        "due": "2026-11-17",
+        "due": "2026-11-18",
         "firstSeen": "2026-11-14",
         "draft": {
             "channel": "Vincenzo Ampolo DM (D0871Q0BQUX)",
-            "text": "hey, hold off on pulling the PX attribution param for now. i still owe PX a call and i'd rather have that conversation first. i'll tell you by friday if i'm not getting to it and we'll hand it to michael."
+            "text": "hey, hold off on pulling the PX attribution param for now. saw the isv numbers, they're rough, and i still owe PX a call. i'll tell you by friday if i'm handing it to michael."
+        }
+    },
+    {
+        "id": "optic-nextbet-leadership-escalation",
+        "lead": "optic",
+        "loop": "join",
+        "priority": 1,
+        "title": "NextBet leadership (CEO, COO, CTO) sent Shay a formal letter on Optic support and integration, and shut down the shared Slack channel",
+        "problem": "Tue 11/17 5:03 PM MT a Plain ticket (T-7291, High, assigned to Vincenzo) logged a letter to Shay Scheft from NextBet. It says NextBet's CEO, COO, CTO and senior engineering, trading and product leads met on Mon 11/16, that Optic is 'becoming fundamental to our entire sports offering', and that they want to agree next steps with us. The ticket shows only the opening lines, so I cannot see their specific asks. Earlier on Tue 11/17 at 12:29 AM MT NextBet's Adam Curkpatrick asked Shay to dissolve the shared channel in favour of a channel for P1, live or urgent issues only. Shay archived it at 12:45 AM and NextBet was removed. At 12:50 AM Shay called it 'a crazy email' and asked for context. Vincenzo replied 'they ask this to be sent and to be formatted as they want. I don't have time for it.' NextBet wants an incident write-up (issue, why it occurred, resolution, what is required on their side) and the open point is who sends it. Vincenzo's earlier answer in that channel says a Copilot line posted because DraftKings and Unibet both priced it, 2 of 9,469 bets (0.02%), with a staging fix to stop Copilot posting once a stats source has graded the bet. NextBet was in the Apr 28 sales weekly as a tier 1 Australian book, Copilot plus BB/SGP, $20k+ potential, and in Aug 11 as contract in legal. Stoked.bet cancelled Mon 11/16 over latency and Double Chance odds, so this is the second Copilot and BB/SGP customer raising quality in two days. Nobody has said who owns the NextBet relationship response, and Vincenzo is the ticket owner but is short on time (deposition this week, out most of December).",
+        "recommendation": "Ask Shay for the full NextBet letter and who owns the reply, then decide whether you join a call with NextBet's COO or CEO this week. A leadership-level complaint is a retention risk on a $20k+ account and Ryan is out.",
+        "where": [
+            {
+                "label": "Plain T-7291, NextBet / Optic Odds integration review (#sds-oo-support-plain, Tue 11/17 5:03 PM MT)",
+                "url": "https://gdcgroup.slack.com/archives/C08E3V4F8KV/p1794960191141459"
+            },
+            {
+                "label": "Vincenzo and Shay thread on the NextBet email and channel (#optic-sales, Tue 11/17 to Wed 11/18)",
+                "url": "https://gdcgroup.slack.com/archives/C08FG1LL28Y/p1794954772156999"
+            },
+            {
+                "label": "NextBet asks to dissolve the shared channel (#oo-pub-nextbet-optic, Tue 11/17 12:29 AM MT)",
+                "url": "https://gdcgroup.slack.com/archives/C0AQK5FLH4G/p1794900542139889"
+            },
+            {
+                "label": "Shay weekly Apr 28, nextbet line (#optic-sales)",
+                "url": "https://gdcgroup.slack.com/archives/C08FG1LL28Y/p1777361916042019"
+            }
+        ],
+        "evidence": "T-7291: 'The meeting involved our CEO, COO, CTO, senior Engineering, Trading and Product representatives... Optic Odds is becoming fundamental to our entire sports offering.' Adam Curkpatrick: 'could we please dissolve this channel as first steps... a channel with exclusive membership - used for P1/Live/Urgent response only.' Shay: 'What a crazy email he sent us.' Vincenzo: 'They ask this to be sent and to be formatted as they want. I don't have time for it.' Apr 28 weekly: 'nextbet - tier 1 Ausi SB... Copilot and BB - $20k+ potential deal.'",
+        "alternatives": [
+            "Leave it with Shay and Vincenzo and ask for a one-line status Thursday 11/19.",
+            "Ask Rohan Challa to own the technical write-up so Vincenzo is not the bottleneck, and Shay owns the commercial reply."
+        ],
+        "risk": "high",
+        "reversible": true,
+        "authorizes": "Nothing is sent for you. A draft DM to Shay is below for you to send yourself.",
+        "owner": "Shay Scheft",
+        "due": "2026-11-19",
+        "firstSeen": "2026-11-18",
+        "draft": {
+            "channel": "DM to Shay Scheft",
+            "text": "shay, saw nextbet's letter after their leadership meeting. can you send me the full email and tell me who is replying? i'm happy to get on a call with their coo or ceo this week if it helps. also want to know if this and stoked are the same latency issue"
         }
     },
     {
@@ -2006,45 +2014,49 @@ const QUEUE = [
         "lead": "rotowire",
         "loop": "decide",
         "priority": 2,
-        "title": "Nick Piovano and Nigel Carreiro need Matt's call on RotoWire holiday gift and ROS + 2027 pricing, and whether to build a gift checkout",
-        "problem": "Mon 11/16 Nigel announced a RotoWire holiday gift campaign in #sds-paid (Meta flight Thanksgiving to Christmas). Nick posted promo pricing at 3:02 PM MT: ROS pass $29.99 to $24.99 is live; Gift $49.99 for the year; ROS + 2027 needs to sit above or replace the annual pass. He asked for direction and asked what sales target would justify building a separate non-recurring gift purchase system, saying he is skeptical it is worth it. Nigel shares the skepticism and suggested $99.99 for ROS + 2027 auto-renewing at the annual rate in Aug 2028. In the Nick+Theo+Matt group DM, Theo wants gift at about $50 and promised creators will push the $24.99 ROS this week, while Nick floated regular annual price for gift then 20 to 40 percent off near the holidays. Nick and Theo disagree on gift price and nobody has set a sales target. Matt has not replied in either place. Tim's priorities sheet has holiday and gift subs due Thu 11/19 and Meta flight starts around Thanksgiving, so a build decision is needed this week. Open conflict: the group DM says ROS $24.99 was still in review at 12:34 PM MT, #sds-paid says it is live at 3:02 PM MT, so it is probably live now but worth confirming before creators promote it.",
-        "recommendation": "Make the call in the group DM: set a gift sales target (or say skip the gift build and sell only ROS + 2027), approve or change Nigel's $99.99 for ROS + 2027, and pick one gift price so Nick and Theo stop guessing. If no target is set, default to not building the gift checkout this season.",
+        "title": "Nigel Carreiro and Nick Piovano need Matt's number for a RotoWire Black Friday annual discount; gift and ROS + 2027 are now parked",
+        "problem": "The offer changed on Tue 11/17. At 9:34 AM MT Nigel withdrew his $99.99 ROS + 2027 idea after Tim Doctor pointed out a regular annual bought today already runs to Nov 2027, so ROS + 2027 is not a real offer. Nigel and Tim Doctor now propose a Black Friday discount on the annual, priced under the regular annual (about $96), and agree with Nick to park the gift product because it needs a separate non-recurring purchase system. Plan: discounted price shown on the main pricing page Black Friday through Cyber Monday, plus a tagged LP or code for Meta; flight Black Friday to about week 15; about $200 a day, with a read by day 5. Tim Doctor's guess is LTV near $75 at a $50 price, so a steep discount cuts LTV and renewal odds. Nigel tagged Matt, Nick and Brian Stephens asking for a number on the discounted annual, or a floor, and whether an LP-only checkout is doable by Black Friday. Nick said he can build the LP in time and agreed to show the discount on the main page and use a code for paid. No price has been named by anyone and Matt has not replied in the thread. Separately Theo is pushing the $24.99 ROS pass with code THEO40 (Matt said Tue 12:27 PM the copy looks solid but to avoid THEO40 as a code). Tim's sheet item 7 (holiday and gift subs) is due Thu 11/19; Black Friday is Fri 11/27.",
+        "recommendation": "Name a Black Friday annual price and a floor in the #sds-paid thread today so Nick can build and Nigel can brief creators. Agree gift is parked this year. Confirm a code other than THEO40 for creators.",
         "where": [
             {
-                "label": "Nick promo pricing and open questions, #sds-paid thread, Mon 11/16 3:02 PM MT",
+                "label": "Nigel walks back ROS + 2027 and asks Nick, Matt, Brian for a discounted annual number, Tue 11/17 9:34 AM MT",
+                "url": "https://gdcgroup.slack.com/archives/C0BN914CT6H/p1794933298348609?thread_ts=1794853893.779799&cid=C0BN914CT6H"
+            },
+            {
+                "label": "Nick asks whether to show the discount on the main pricing page, Tue 11/17 9:54 AM MT",
+                "url": "https://gdcgroup.slack.com/archives/C0BN914CT6H/p1794934471603619?thread_ts=1794853893.779799&cid=C0BN914CT6H"
+            },
+            {
+                "label": "Nigel: main page BF through Cyber Monday plus tagged LP for paid, Tue 11/17 10:05 AM MT",
+                "url": "https://gdcgroup.slack.com/archives/C0BN914CT6H/p1794935110272409?thread_ts=1794853893.779799&cid=C0BN914CT6H"
+            },
+            {
+                "label": "Nick promo pricing and open questions, Mon 11/16 3:02 PM MT",
                 "url": "https://gdcgroup.slack.com/archives/C0BN914CT6H/p1794866579439489?thread_ts=1794853893.779799&cid=C0BN914CT6H"
             },
             {
-                "label": "Nigel proposes ROS + 2027 at $99.99, Mon 11/16 3:13 PM MT",
-                "url": "https://gdcgroup.slack.com/archives/C0BN914CT6H/p1794867208192499?thread_ts=1794853893.779799&cid=C0BN914CT6H"
-            },
-            {
-                "label": "Nick+Theo+Matt group DM: gift is not worth the lift, what is the target (12:15 PM MT)",
-                "url": "https://gdcgroup.slack.com/archives/C0BGXHP1W7R/p1794856505041989?thread_ts=1794856505.041989&cid=C0BGXHP1W7R"
-            },
-            {
-                "label": "Nick in group DM: gift at annual price then 20 to 40 percent off (12:41 PM MT)",
-                "url": "https://gdcgroup.slack.com/archives/C0BGXHP1W7R/p1794858083431069?thread_ts=1794856505.041989&cid=C0BGXHP1W7R"
+                "label": "Matt on Theo's promo copy and THEO40, Theo DM Tue 11/17 12:27 PM MT",
+                "url": "https://gdcgroup.slack.com/archives/D0BDQHUJQ0J/p1794943651365309"
             },
             {
                 "label": "Tim Weekly Top Priorities, item 7 holiday and gift subs, due 11/19",
                 "url": "https://docs.google.com/spreadsheets/d/1741ArpDHPExj-jcDyteJ7Yr2gB6oMxDsE4TGMB5sPsU/edit?gid=1051601486"
             }
         ],
-        "evidence": "Nick: 'Gift needs its own non-recurring purchase system, which is a decent lift. What sales target makes that worth building? I'm skeptical it is.' and 'Need direction here' on ROS + 2027. Nigel: 'I'd price it at $99.99 and have it auto-renew at the regular annual rate in Aug 2028.' Theo: 'Gift price should be easy to market - like $50' and 'I will get all the content creators to promote this $24.99 rest of season this week'.",
+        "evidence": "Nigel 11/17: 'drop the this season + next framing and just run a Black Friday discount on the annual. To be a real offer it has to come in under the regular annual' and 'can we get a number on the discounted annual (or a floor you'd accept), and is an LP-only checkout at that price doable by Black Friday?' Nigel on gift: 'agree with Nick, park it.' Nick 11/17: 'I can spin up new LP in time for Black Fri no problem.' Matt to Theo 11/17: 'not sure if you should use theo40 for a code.'",
         "alternatives": [
-            "Skip the gift product this year and run only ROS + 2027 and the $24.99 ROS pass",
-            "Ship gift as a manual or coupon-code workaround instead of a new checkout system, if Nick can scope it in a day or less"
+            "Skip the sitewide discount and run the lower price only on the Meta LP, keeping the main pricing page at full annual",
+            "Build the gift product anyway if a firm sales target (for example 500 gifts) is set; Nick and Nigel advise against it"
         ],
         "risk": "medium",
         "reversible": true,
         "authorizes": "Nothing is sent for you.",
-        "owner": "Nick Piovano",
+        "owner": "Nigel Carreiro",
         "due": "2026-11-18",
         "firstSeen": "2026-11-17",
         "draft": {
-            "channel": "Group DM with Nick Piovano and Theo Gremminger",
-            "text": "ok on gift. nick, how many eng days for a gift checkout? if it's more than a few and we can't see 500 sold i'd skip it this year. theo, what's your realistic number? ros + 2027 at 99.99 works for me. let's lock all of it by wed so creators can start recording."
+            "channel": "#sds-paid thread (Nigel's Black Friday annual discount post)",
+            "text": "agree on parking gift this year. for black friday annual let's go $59.99 with a floor of $49.99 and see what day 5 says. show it on the main page bf through cyber monday and give paid its own tagged lp. nick, go build it. theo, let's use a different code than theo40 for the creators."
         }
     },
     {
@@ -2052,10 +2064,14 @@ const QUEUE = [
         "lead": "sds",
         "loop": "decide",
         "priority": 2,
-        "title": "Your SDS-wide Loom did not go out Monday; decide whether it goes this week and whether it carries the RotoWire numbers correction",
-        "problem": "You told Tim Schuler on Fri 11/13 you were thinking of a Loom for all of SDS on Monday, and your own hold ran to Mon 11/16. Slack shows no Loom or staff note from you on 11/16 (the only Loom in the window is Ryan Weinstock's HubSpot walkthrough). Tim's 11/13 framing question on the corrected RotoWire basis (49,435 subs, $516K MRR vs 55,284 and $573K before) is still unanswered (rw-mrr-restatement-framing). Monday evening you and Tim also agreed to kill #sds-creators, which is another change staff will notice.",
-        "recommendation": "Pick a day this week. If it is this week, answer Tim on the RotoWire framing first, then record one Loom covering priorities, the RotoWire correction and the #sds-creators change.",
+        "title": "You told Leo there will be an SDS all-hands Friday 11/20; it is not scheduled yet and Tim's RotoWire framing question is still open",
+        "problem": "The Monday Loom never went out. Wed 11/18 at 6:29 AM MT you told Leo Barker 'i think we'll have an all hands on friday' and 'to be scheduled'. Slack shows no invite or announcement yet. Tim Schuler's Fri 11/13 question on how to frame the corrected RotoWire basis with staff is still unanswered (rw-mrr-restatement-framing; restated tracker 11/17: 49,349 subs, $515K MRR). You and Tim also agreed Mon 11/16 to kill #sds-creators, another change staff will notice.",
+        "recommendation": "Get the Friday all-hands on the calendar today, and answer Tim on the RotoWire framing before it so the correction is said once, in the room. Treat the all-hands as the replacement for the Loom.",
         "where": [
+            {
+                "label": "Matt to Leo: all hands on friday (Wed 11/18)",
+                "url": "https://gdcgroup.slack.com/archives/D08S2LZCD89/p1795008569864909"
+            },
             {
                 "label": "Matt in Tim DM: Loom for all of SDS on Monday (Fri 11/13)",
                 "url": "https://gdcgroup.slack.com/archives/D092QJU9746/p1794603184575479"
@@ -2069,14 +2085,14 @@ const QUEUE = [
                 "url": "https://gdcgroup.slack.com/archives/C0AR8RQFKT2/p1794890434148449"
             }
         ],
-        "evidence": "Matt 11/13: 'I was thinking I would send something out maybe a loom on Monday. for all of sds'. Slack search 'loom' after 11/15: one result, Ryan's HubSpot Loom. Matt to Tim 11/16 9:26 PM MT on sds-creators: 'yeah probably'.",
+        "evidence": "Matt to Leo, Wed 11/18 6:29 AM MT: 'nope not much tbh. i think we'll have an all hands on friday' / 'to be scheduled'. Matt 11/13 to Tim: 'maybe a loom on Monday. for all of sds'. No Loom or staff note from Matt 11/16 to 11/18.",
         "alternatives": [
-            "Skip the all-SDS Loom and let Tim explain the RotoWire correction to his staff",
-            "Close this card and handle staff comms at the next all-hands"
+            "Skip the all-hands and send the Loom instead",
+            "Let Tim explain the RotoWire correction to his staff and keep the all-hands to priorities only"
         ],
         "risk": "low",
         "reversible": true,
-        "authorizes": "Nothing is sent for you. On approve, agents draft Loom talking points (priorities, RotoWire correction line, #sds-creators change) to agents/drafts/ for you to record yourself.",
+        "authorizes": "Nothing is sent for you. On approve, agents draft all-hands talking points (priorities, RotoWire correction line, #sds-creators change) to agents/drafts/ for you.",
         "owner": "Matt Restivo",
         "due": "2026-11-20",
         "firstSeen": "2026-11-11"
@@ -2137,7 +2153,7 @@ const QUEUE_SINK = {
 // ═══════════════════════════════════════════════════
 // status: "live" (sourced this week) · "stale" (real but older than 14 days) · "pending" (no source wired yet)
 const SDS_KPIS_META = {
-    "updatedAt": "2026-11-18T07:40:00-07:00",
+    "updatedAt": "2026-11-19T06:51:00-07:00",
     "missionControl": "https://claude.ai/artifact/EV5N5AtfJucHPZ2XF7hLn1",
     "note": "Mission Control still shows illustrative figures as of the last check (Sat 11/14), so MBR tiles stay pending until its actuals and FY26 budget land. Live tiles come from the #oj-b2c and #sds-subscription-performance bots. RotoWire tiles are on the restated ChartMogul basis."
 };
@@ -2177,27 +2193,27 @@ const SDS_KPIS = [
     {
         "group": "OddsJam",
         "label": "B2C Subs",
-        "value": "6,816",
-        "meta": "Definition: Subs counted. Customers 4,923 and paying customers 4,524 from the same bot (11/16 post). No Tue 11/17 bot post at run time.",
-        "source": "#oj-b2c MRR bot, 2026-11-16",
+        "value": "6,800",
+        "meta": "Definition: Subs counted. Customers 4,908 and paying customers 4,510 from the same bot (Wed 11/18 post). Third straight daily decline in subs counted (6,816 on 11/16 post, 6,803 on 11/17, 6,800 on 11/18).",
+        "source": "#oj-b2c MRR bot, 2026-11-18",
         "status": "live",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-18"
     },
     {
         "group": "OddsJam",
         "label": "B2C MRR",
-        "value": "$1,124,526",
-        "meta": "-0.40% d/d (-$4,569); USD via static FX, customer discounts excluded (bot fast mode). Second straight decline per ingest.",
-        "source": "#oj-b2c MRR bot, 2026-11-16",
+        "value": "$1,115,731",
+        "meta": "-0.32% d/d (-$3,565). Prior days: -0.40% (11/16), -0.47% (11/17). Platinum $687,737 (-0.63%), Prediction Traders $63,955 (-1.48%), Momentum $49,574 (+3.12%). USD via static FX, customer discounts excluded (bot fast mode).",
+        "source": "#oj-b2c MRR bot, 2026-11-18 (https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1794998783191349)",
         "status": "live",
-        "asOf": "2026-11-16"
+        "asOf": "2026-11-18"
     },
     {
         "group": "OddsJam",
         "label": "Trial\u2192Paid",
         "value": "~22%",
-        "meta": "Momentum plan only, trials with 8+ days to mature. By segment: paying on another plan 38%, paid in past year 30%, existing never paid ~15%, new accounts 5%. Not a blended all-plan figure, so treat as partial.",
-        "source": "#oj-b2c, Jeremy Tran 2026-11-16 14:41 MST (https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1794865282030529)",
+        "meta": "Momentum plan only, trials with 8+ days to mature (Jeremy Tran 11/16). Not blended. New 11/18 context from Jeremy's daily summary: converted trials for week of Nov 9 were 204, down from 241 the week before (Momentum 63, was 87; Platinum 84). Trial-to-paid on the 2x2 subscribe test is readable after Nov 21.",
+        "source": "#oj-b2c, Jeremy Tran 2026-11-16 (https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1794865282030529); weekly counts from 2026-11-18 summary (https://gdcgroup.slack.com/archives/C08AJL9V0V7/p1795009277548919)",
         "status": "live",
         "asOf": "2026-11-16"
     },
@@ -2205,7 +2221,7 @@ const SDS_KPIS = [
         "group": "OddsJam",
         "label": "Blended CAC",
         "value": "$162",
-        "meta": "Paid media only, last 30 days to 11/15: $28,043 spend over 173 subs. Meta $206 per sub, X $146 per sub. Excludes organic and creator cost. Carried from 11/16; Brian flagged X cost per trial creeping up over the last few days",
+        "meta": "Paid media only, last 30 days to 11/15: $28,043 spend over 173 subs. Carried from 11/16, #sds-paid was silent in this window. Excludes organic and creator cost",
         "source": "#sds-paid, Nigel Carreiro, 2026-11-16 (blend computed by agent)",
         "status": "live",
         "asOf": "2026-11-15"
@@ -2213,20 +2229,20 @@ const SDS_KPIS = [
     {
         "group": "RotoWire",
         "label": "Paid Subs",
-        "value": "49,435",
-        "meta": "Restated series. -0.04% d/d, -0.4% over 7 days, +4.8% YoY. 26 straight days down.",
-        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-16",
+        "value": "49,349",
+        "meta": "Restated series. DoD -0.08% (-40), -0.4% over 7 days (-180), +4.7% YoY. 28 straight days down by my count (26 as of 11/15 plus 11/16 and 11/17).",
+        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-18",
         "status": "live",
-        "asOf": "2026-11-15"
+        "asOf": "2026-11-17"
     },
     {
         "group": "RotoWire",
         "label": "MRR",
-        "value": "$516K",
-        "meta": "Restated series. -0.03% d/d, -0.5% over 7 days, +1.9% YoY.",
-        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-16",
+        "value": "$515K",
+        "meta": "Restated series. DoD -0.17% (-$855), -0.5% over 7 days (-$2,564), +1.6% YoY.",
+        "source": "#sds-subscription-performance RotoWire Subscriber Tracker bot, 2026-11-18",
         "status": "live",
-        "asOf": "2026-11-15"
+        "asOf": "2026-11-17"
     },
     {
         "group": "RotoWire",
@@ -2249,15 +2265,15 @@ const SDS_KPIS = [
         "label": "B2B Customers",
         "value": "~320",
         "meta": "Net of churn",
-        "asOf": "2026-04-15",
         "source": "Apr \u201926 one-pager",
-        "status": "stale"
+        "status": "stale",
+        "asOf": "2026-04-15"
     },
     {
         "group": "OpticOdds",
         "label": "Pipeline",
         "value": "45 trial and post-trial deals",
-        "meta": "Carried from the Shay Scheft GTM weekly of Thu 11/12. Count only, no dollar total. Next weekly expected Thu 11/19.",
+        "meta": "Carried from the Shay Scheft GTM weekly of Thu 11/12. Count only. No new weekly yet; next expected Thu 11/19.",
         "source": "#optic-sales GTM Weekly Update (https://gdcgroup.slack.com/archives/C08FG1LL28Y/p1794473641752479)",
         "status": "live",
         "asOf": "2026-11-12"
